@@ -37,19 +37,14 @@
     <?php endif?>
     <div class="inner_wrapper">
       <h1 id="logo"><a href="/"></a></h1>
+      
       <div id="primary_navigation">
-        <ul id="primary_navigation_left">
-          <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header_primary_navigation_left')->toHtml(); ?>
-        </ul>
-        <ul id="primary_navigation_right">
-          <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header_primary_navigation_right')->toHtml(); ?>
-        </ul>
+        <?php echo $this->getChildHtml('primaryNavLeft'); ?>
+        <?php echo $this->getChildHtml('primaryNavRight'); ?>
       </div><!-- primary_navigation -->
 
       <div id="secondary_navigation">
-        <ul id="secondary_navigation_left">
-          <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header_secondary_navigation_left')->toHtml(); ?>
-        </ul>
+        <?php echo $this->getChildHtml('secondaryNavLeft'); ?>
         <ul id="secondary_navigation_right">
           <?php echo $this->getChildHtml('topLinks') ?>
         </ul>

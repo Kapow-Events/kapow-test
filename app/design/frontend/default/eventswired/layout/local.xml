@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+ 
+<default>
+ 
+	<reference name="head">
+                <action method="addJs"><script>modernizr-2.0.6.min.js</script></action>
+                <action method="addCss"><stylesheet>css/custom.css</stylesheet></action>
+	</reference>
+ 
+	<reference name="header">
+
+                <!-- This adds a CMS block that can be called from the template file
+		associated with the header block. -->
+		<block type="cms/block" name="primaryNavLeft">
+			<action method="setBlockId"><block_id>header_primary_navigation_left</block_id></action>
+		</block>
+
+ 		<block type="cms/block" name="primaryNavRight">
+			<action method="setBlockId"><block_id>header_primary_navigation_right</block_id></action>
+		</block>
+
+		<block type="cms/block" name="secondaryNavLeft">
+			<action method="setBlockId"><block_id>header_secondary_navigation_left</block_id></action>
+		</block>
+
+		<!-- The remove tag removes the blocks with the specified name from the layout -->
+		<remove name="top.menu"/>
+		<remove name="store_language"/>
+                <remove name="top.search" />
+	</reference>
+ 
+	<reference name="top.nav">
+		<remove name="catalog.topnav"/>
+	</reference>
+ 
+	<reference name="left">
+		<remove name="left.newsletter"/>
+		<remove name="left.permanent.callout"/>
+		<remove name="catalogsearch.leftnav"/>
+ 
+		<!-- When you use the remove tag, it removes any blocks with the specified name from
+			the entire layout, regardless of the context. So, if I remove right.newsletter in
+			the <default> context and that name is used in say the <catalog_product_view> context,
+			then both blocks will be removed.  Because remove operates on the global context,
+			you can only remove an element once.  Since <remove name="right.newsletter" /> is
+			being called in catalogsearch.xml, we have to unset it, or else we'll get an error.
+ 
+			The line below only unsets the block from the parent's context, not the global
+			layout context -->
+		<action method="unsetChild"><name>right.newsletter</name></action>
+	</reference>
+ 
+	<reference name="right">
+		<!-- Some blocks have to be removed using remove, others via unsetChild.
+			I've not spent the time digging into the code to figure out why -->
+		<remove name="right.permanent.callout"/>
+		<remove name="catalog.compare.sidebar"/>
+		<remove name="left.reports.product.viewed"/>
+		<action method="unsetChild"><name>sale.reorder.sidebar</name></action>
+		<action method="unsetChild"><name>wishlist_sidebar</name></action>
+		<action method="unsetChild"><name>right.reports.product.viewed</name></action>
+		<remove name="cart_sidebar"/>
+	</reference>
+
+	<reference name="footer">
+ 		<block type="cms/block" name="footerConnectWithUs">
+			<action method="setBlockId"><block_id>footer_connect_with_us</block_id></action>
+		</block>
+
+ 		<block type="cms/block" name="footerAddress">
+			<action method="setBlockId"><block_id>footer_address</block_id></action>
+		</block>
+        </reference>
+</default>
+ 
+<!-- CATALOG PAGES -->
+	<!-- catalog_product_view>
+		<reference name="root">
+			<action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+		</reference>
+		<reference name="content">
+			<reference name="product.info">
+				<block type="cms/block" name="cms_product_info_tabs">
+					<action method="setBlockId"><block_id>product_info_tabs</block_id></action>
+				</block>
+				<block type="catalog/product_view" name="product.clone_prices" as="prices" template="catalog/product/view/price_clone.phtml"/>
+				<action method="unsetChild"><name>tierprices</name></action>
+				<action method="unsetChild"><name>addto</name></action>
+				<remove name="addto"/>
+				<reference name="product.info.options.wrapper.bottom">
+					<action method="unsetChild"><name>product.tierprices</name></action>
+				</reference>
+			</reference>
+		</reference>
+	</catalog_product_view-->
+ 
+</layout>

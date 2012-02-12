@@ -39,11 +39,11 @@
           <div class="floatright clearfix">
             <h2 class="fancy_phone_number"><?php echo Mage::getStoreConfig('general/store_information/phone'); ?></h2>
             <hr />
-            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_connect_with_us')->toHtml(); ?>
+            <?php echo $this->getChildHtml('footerConnectWithUs') ?>
           </div>
 
           <div id="contact_information">
-            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_address')->toHtml(); ?>
+            <?php echo $this->getChildHtml('footerAddress') ?>
           </div>
         </div><!-- footer.content.left -->
 
