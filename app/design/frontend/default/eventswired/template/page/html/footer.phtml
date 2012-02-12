@@ -1,0 +1,109 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<!-- div class="footer-container">
+    <div class="footer">
+        <?php echo $this->getChildHtml() ?>
+        <p class="bugs"><?php echo $this->__('Help Us to Keep Magento Healthy') ?> - <a href="http://www.magentocommerce.com/bug-tracking" onclick="this.target='_blank'"><strong><?php echo $this->__('Report All Bugs') ?></strong></a> <?php echo $this->__('(ver. %s)', Mage::getVersion()) ?></p>
+        <address><?php echo $this->getCopyright() ?></address>
+    </div>
+</div -->
+
+  <footer id="footer" class="outer_wrapper">
+    <div class="inner_wrapper">
+      <h2>contact us today</h2>
+      <div class="content clearfix">
+        <div class="left">
+          <div id="email_us_button" class="floatleft">
+            <div class="list_item_round_beige_large">
+              <a class="icon_email" href="mailto:info@eventswired.com">info@eventswired.com</a>
+            </div>
+            <a class="button_ribbon_small" href="mailto:info@eventswired.com">email us</a>
+          </div>
+
+          <div class="floatright clearfix">
+            <h2 class="fancy_phone_number">312.283.8610</h2>
+            <hr />
+            <p>OR CONNECT WITH US --- <a class="icon_linked_in" href="#"></a> - <a class="icon_twitter" href="#"></a> - <a class="icon_facebook" href="#"></a> ---</p>
+          </div>
+
+          <div id="contact_information">
+            <strong>WILLIS TOWER</strong> - <em>233 S Wacker, 84<sup>th</sup> Floor - Chicago, IL 60606</em><br />
+            <em>phone</em> <strong>312 283.8610</strong> - <em>fax</em> <strong>312 283.8611</strong><br />
+            <em>email</em> <strong><a href="mailto:info@eventswired.com">info@eventswired.com</a></strong>
+          </div>
+        </div><!-- footer.content.left -->
+
+        <div class="right">
+          <form id="contact_form" action="/" method="post">
+            <fieldset>
+              <legend>got a question? let us know.</legend>
+              <table>
+                <tr>
+                  <td style="padding-right:10px;"><label for="name">Name:</label><input type="text" id="name" value="" class="input-text" /></td>
+                  <td style="padding-left:10px;"><label for="email">Email:</label><input type="text" id="email" value="" class="input-text" /></td>
+                </tr>
+                <tr>
+                  <td colspan="2"><label for="message">Message:</label><textarea id="message"></textarea></td>
+                </tr>
+                <tr>
+                  <td colspan="2"><input type="submit" value="send message" class="button_ribbon floatright" /></td>
+                </tr>
+              </table>
+            </fieldset>
+          </form>
+        </div><!-- footer.content.right -->
+      </div><!-- footer.content -->
+    </div><!-- footer.inner_wrapper -->
+  </footer><!-- footer.outer_wrapper -->
+
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="_/js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+
+  <script src="_/js/functions.js"></script>
+  <!-- end scripts -->
+
+
+  <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+  mathiasbynens.be/notes/async-analytics-snippet
+  <script>
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+  </script>
+  -->
+
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
