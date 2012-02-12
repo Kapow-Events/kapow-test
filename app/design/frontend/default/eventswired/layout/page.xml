@@ -70,10 +70,10 @@ Default layout, loads most of the pages
 
             <block type="page/html_header" name="header" as="header">
                 <block type="page/template_links" name="top.links" as="topLinks"/>
-                <block type="page/switch" name="store_language" as="store_language" template="page/switch/languages.phtml"/>
-                <block type="core/text_list" name="top.menu" as="topMenu" translate="label">
+                <!-- block type="page/switch" name="store_language" as="store_language" template="page/switch/languages.phtml"/ -->
+                <!-- block type="core/text_list" name="top.menu" as="topMenu" translate="label">
                     <label>Navigation Bar</label>
-                </block>
+                </block -->
                 <block type="page/html_wrapper" name="top.container" as="topContainer" translate="label">
                     <label>Page Header</label>
                     <action method="setElementClass"><value>top-container</value></action>
@@ -102,8 +102,8 @@ Default layout, loads most of the pages
                     <label>Page Footer</label>
                     <action method="setElementClass"><value>bottom-container</value></action>
                 </block>
-                <block type="page/switch" name="store_switcher" as="store_switcher" template="page/switch/stores.phtml"/>
-                <block type="page/template_links" name="footer_links" as="footer_links" template="page/template/links.phtml"/>
+                <!-- block type="page/switch" name="store_switcher" as="store_switcher" template="page/switch/stores.phtml"/ -->
+                <!-- block type="page/template_links" name="footer_links" as="footer_links" template="page/template/links.phtml"/ -->
             </block>
 
             <block type="core/text_list" name="before_body_end" as="before_body_end" translate="label">
