@@ -24,14 +24,6 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<!-- div class="footer-container">
-    <div class="footer">
-        <?php echo $this->getChildHtml() ?>
-        <p class="bugs"><?php echo $this->__('Help Us to Keep Magento Healthy') ?> - <a href="http://www.magentocommerce.com/bug-tracking" onclick="this.target='_blank'"><strong><?php echo $this->__('Report All Bugs') ?></strong></a> <?php echo $this->__('(ver. %s)', Mage::getVersion()) ?></p>
-        <address><?php echo $this->getCopyright() ?></address>
-    </div>
-</div -->
-
   <footer id="footer" class="outer_wrapper">
     <div class="inner_wrapper">
       <h2>contact us today</h2>
@@ -39,38 +31,39 @@
         <div class="left">
           <div id="email_us_button" class="floatleft">
             <div class="list_item_round_beige_large">
-              <a class="icon_email" href="mailto:info@eventswired.com">info@eventswired.com</a>
+              <a class="icon_email" href="mailto:<?php echo Mage::getStoreConfig('trans_email/ident_general/email'); ?>"><?php echo Mage::getStoreConfig('trans_email/ident_general/email'); ?></a>
             </div>
-            <a class="button_ribbon_small" href="mailto:info@eventswired.com">email us</a>
+            <a class="button_ribbon_small" href="mailto:<?php echo Mage::getStoreConfig('trans_email/ident_general/email'); ?>">email us</a>
           </div>
 
           <div class="floatright clearfix">
-            <h2 class="fancy_phone_number">312.283.8610</h2>
+            <h2 class="fancy_phone_number"><?php echo Mage::getStoreConfig('general/store_information/phone'); ?></h2>
             <hr />
-            <p>OR CONNECT WITH US --- <a class="icon_linked_in" href="#"></a> - <a class="icon_twitter" href="#"></a> - <a class="icon_facebook" href="#"></a> ---</p>
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_connect_with_us')->toHtml(); ?>
           </div>
 
           <div id="contact_information">
-            <strong>WILLIS TOWER</strong> - <em>233 S Wacker, 84<sup>th</sup> Floor - Chicago, IL 60606</em><br />
-            <em>phone</em> <strong>312 283.8610</strong> - <em>fax</em> <strong>312 283.8611</strong><br />
-            <em>email</em> <strong><a href="mailto:info@eventswired.com">info@eventswired.com</a></strong>
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_address')->toHtml(); ?>
           </div>
         </div><!-- footer.content.left -->
 
         <div class="right">
-          <form id="contact_form" action="/" method="post">
+          <form action="<?php echo $this->getUrl('contacts/index/post'); ?>" id="contactForm" method="post">
             <fieldset>
               <legend>got a question? let us know.</legend>
               <table>
                 <tr>
-                  <td style="padding-right:10px;"><label for="name">Name:</label><input type="text" id="name" value="" class="input-text" /></td>
-                  <td style="padding-left:10px;"><label for="email">Email:</label><input type="text" id="email" value="" class="input-text" /></td>
+                  <td style="padding-right:10px;"><label for="name" class=""required">Name:</label><input type="text" id="name" name="name" value="" class="input-text required-entry" /></td>
+                  <td style="padding-left:10px;"><label for="email" class=""required">Email:</label><input type="text" id="email" name="email" value="" class="input-text required-entry" /></td>
                 </tr>
                 <tr>
-                  <td colspan="2"><label for="message">Message:</label><textarea id="message"></textarea></td>
+                  <td colspan="2"><label for="message" class=""required">Message:</label><textarea id="comment required-entry" name="comment"></textarea></td>
                 </tr>
                 <tr>
-                  <td colspan="2"><input type="submit" value="send message" class="button_ribbon floatright" /></td>
+                  <td colspan="2">
+                      <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
+                      <input type="submit" value="send message" class="button_ribbon floatright" />
+                  </td>
                 </tr>
               </table>
             </fieldset>
@@ -80,14 +73,19 @@
     </div><!-- footer.inner_wrapper -->
   </footer><!-- footer.outer_wrapper -->
 
+  <script type="text/javascript">
+  //<![CDATA[
+    var contactForm = new VarienForm('contactForm', true);
+  //]]>
+  </script>
 
   <!-- JavaScript at the bottom for fast page loading -->
 
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="_/js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+  <script>window.jQuery || document.write('<script src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS); ?>/jquery-1.7.1.min.js"><\/script>')</script>
 
-  <script src="_/js/functions.js"></script>
+  <script src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS); ?>functions.js"></script>
   <!-- end scripts -->
 
 
