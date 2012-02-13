@@ -61,12 +61,14 @@
             <?php echo $this->getChildHtml('extrahint') ?>
 
             <?php if (!$this->hasOptions()):?>
+                <?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?>
                 <div class="add-to-box">
                     <?php if($_product->isSaleable()): ?>
                         <?php echo $this->getChildHtml('addtocart') ?>
                     <?php endif; ?>
                     <?php echo $this->getChildHtml('addto') ?>
                 </div>
+                <?php endif; ?>
                 <?php echo $this->getChildHtml('extra_buttons') ?>
             <?php elseif (!$_product->isSaleable()): ?>
                 <div class="add-to-box">
