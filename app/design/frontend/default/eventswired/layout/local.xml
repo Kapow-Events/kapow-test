@@ -60,6 +60,7 @@
 		<action method="unsetChild"><name>sale.reorder.sidebar</name></action>
 		<action method="unsetChild"><name>wishlist_sidebar</name></action>
 		<action method="unsetChild"><name>right.reports.product.viewed</name></action>
+                <action method="unsetChild"><name>right.reports.product.compared</name></action>
 		<remove name="cart_sidebar"/>
 	</reference>
 
