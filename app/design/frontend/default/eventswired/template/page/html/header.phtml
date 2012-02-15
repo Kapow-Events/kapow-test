@@ -27,14 +27,30 @@
  * @var Mage_Page_Block_Html_Header $this
  */
 ?>
-  <header id="header" class="outer_wrapper">
-    <?php if ($this->getIsHomePage()):?>
-    <!-- div id="homepage_banner">
+  <?php if ($this->getIsHomePage()):?>
+  <div id="homepage_header_wrapper" class="outer_wrapper">
+    <div id="homepage_header">
       <img src="<?php echo $this->getSkinUrl('images/image-navy-pier.jpg') ?>" alt="Navy Pier" />
-      <section id="homepage_center_stage">
-      </section>
-    </div -->
-    <?php endif?>
+      <div class="inner_wrapper clearfix">
+        <section id="homepage_center_stage">
+          <ul id="steps" class="clearfix">
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li class="last"><a href="#">3</a></li>
+          </ul>
+          <div class="ribbon_red no_ribbon_red_hover"><div class="amount">20</div> available</div>
+          <a href="#" class="ribbon_white"><div class="add_to_cart"></div></a>
+
+          <h1>navy pier could be yours for one night</h1>
+          <p>Nullam at egestas elit, Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec at nulla nulla, vel eleifend arcu.</p>
+          <p><a href="#">view event details ></a></p>
+        </section>
+      </div>
+    </div>
+  </div>
+  <?php endif; ?>
+
+  <header id="header" class="outer_wrapper">
     <div class="inner_wrapper">
       <h1 id="logo"><a href="/"></a></h1>
       

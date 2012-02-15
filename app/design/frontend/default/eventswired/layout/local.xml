@@ -75,6 +75,11 @@
         </reference>
 </default>
  
+<cms_index_index>
+    <reference name="root"> 
+        <action method="addBodyClass"><className>homepage</className></action> 
+    </reference>
+</cms_index_index>
 <!-- CATALOG PAGES -->
 	<!-- catalog_product_view>
 		<reference name="root">
