@@ -37,69 +37,55 @@
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
 </script>
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
-<div class="product-view">
-    <div class="product-essential">
+
+<section id="event_detail" class="section">
     <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
         <div class="no-display">
             <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
             <input type="hidden" name="related_product" id="related-products-field" value="" />
         </div>
-
-        <div class="product-shop">
-            <div class="product-name">
+        <div id="event_callout" class="clearfix">
+            <div class="left">
+                <p class="datetime">posted on: <em><?php echo Mage::app()->getLocale()->date(strtotime($_product->getCreatedAt()), null, null, false)->toString('MMM d Y') ?></em></p>
                 <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+                <div class="price">
+
+                    <div class="price_text"><?php echo $this->getChildHtml('product_type_data') ?></div>
+                    <div class="price_subtext"><?php echo $_product->getPriceSubtext() ?></div>
+                </div>
+                <?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
+
+                <div class="ribbon_red no_ribbon_red_hover"><div class="amount"><?php echo (int)Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty(); ?></div> available</div>
+                <?php echo $this->getChildHtml('addtocart') ?>
             </div>
 
-            <?php if ($this->canEmailToFriend()): ?>
-                <p class="email-friend"><a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a></p>
-            <?php endif; ?>
+            <div class="right">
+                <p class="corner_info"> <?php echo $_product->getCallToAction() ?> </p>
+                <?php echo $this->getChildHtml('media') ?>
+            </div>
+        </div>
 
-            <?php echo $this->getReviewsSummaryHtml($_product, false, true)?>
-            <?php echo $this->getChildHtml('alert_urls') ?>
-            <?php echo $this->getChildHtml('product_type_data') ?>
-            <?php echo $this->getTierPriceHtml() ?>
-            <?php echo $this->getChildHtml('extrahint') ?>
+        <div class="content clearfix">
+            <div class="left w30p">
+                <h4>about this host</h4>
+                <?php echo $_product->getAboutHost() ?>
+            </div>
 
-            <?php if (!$this->hasOptions()):?>
+            <div class="right w70p">
+                <h4>event details</h4>
+                <?php foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html):?>
+                <div class="box-collateral <?php echo "box-{$alias}"?>">
+                    <?php echo $html; ?>
+                </div>
+                <?php endforeach;?>
+
                 <?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?>
-                <div class="add-to-box">
-                    <?php if($_product->isSaleable()): ?>
-                        <?php echo $this->getChildHtml('addtocart') ?>
-                    <?php endif; ?>
-                    <?php echo $this->getChildHtml('addto') ?>
-                </div>
+                    <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+                        <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+                    <?php endif;?>
                 <?php endif; ?>
-                <?php echo $this->getChildHtml('extra_buttons') ?>
-            <?php elseif (!$_product->isSaleable()): ?>
-                <div class="add-to-box">
-                    <?php echo $this->getChildHtml('addto') ?>
-                </div>
-            <?php endif; ?>
-
-            <?php if ($_product->getShortDescription()):?>
-                <div class="short-description">
-                    <h2><?php echo $this->__('Quick Overview') ?></h2>
-                    <div class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
-                </div>
-            <?php endif;?>
-
-            <?php echo $this->getChildHtml('other');?>
-
-            <?php if ($_product->isSaleable() && $this->hasOptions()):?>
-                <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
-            <?php endif;?>
+            </div>
         </div>
-
-        <div class="product-img-box">
-            <?php echo $this->getChildHtml('media') ?>
-        </div>
-
-        <div class="clearer"></div>
-        <?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?>
-        <?php if ($_product->isSaleable() && $this->hasOptions()):?>
-            <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
-        <?php endif;?>
-        <?php endif; ?>
     </form>
     <script type="text/javascript">
     //<![CDATA[
@@ -145,18 +131,4 @@
         }.bind(productAddToCartForm);
     //]]>
     </script>
-    </div>
-
-    <div class="product-collateral">
-<?php foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html):?>
-        <div class="box-collateral <?php echo "box-{$alias}"?>">
-            <?php if ($title = $this->getChildData($alias, 'title')):?>
-            <h2><?php echo $this->escapeHtml($title); ?></h2>
-            <?php endif;?>
-            <?php echo $html; ?>
-        </div>
-<?php endforeach;?>
-        <?php echo $this->getChildHtml('upsell_products') ?>
-        <?php echo $this->getChildHtml('product_additional_data') ?>
-    </div>
-</div>
+</section>
