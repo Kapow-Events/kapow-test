@@ -50,7 +50,7 @@
                 <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
                 <div class="price">
                     <div class="price_text"><?php echo $this->getChildHtml('product_type_data') ?></div>
-                    <div class="price_subtext"><?php echo $_product->getPriceSubtext() ?></div>
+                    <div class="price_subtext"><?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?><?php echo $_product->getPriceSubtext() ?><?php endif; ?></div>
                 </div>
                 <?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
 
