@@ -7,6 +7,8 @@
     </reference>
 
     <reference name="head">
+            <action method="removeItem"><type>skin_css</type><name>css/styles.css</name></action> 
+            <action method="removeItem"><type>skin_css</type><name>css/styles-ie.css</name></action> 
             <action method="addJs"><script>modernizr-2.0.6.min.js</script></action>
             <action method="addCss"><stylesheet>css/custom.css</stylesheet></action>
     </reference>
