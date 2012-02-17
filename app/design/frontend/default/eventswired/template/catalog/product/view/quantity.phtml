@@ -1,0 +1,34 @@
+<?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+<?php $_product = $this->getProduct(); ?>
+
+<?php $parent = $this->getParentBlock(); ?>
+
+<?php $buttonTitle = $this->__('Add to Cart'); ?>
+<?php if($_product->isSaleable()): ?>
+    <div class="add-to-cart">
+        <?php if(!$_product->isGrouped()): ?>
+            <table>
+                <col width="auto" />
+                <col width="auto" />
+                <col width="140px" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>customizations</th>
+                  <th>pricing</th>
+                  <th>quantity</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><div class="price_subtext"><?php echo $_product->getPriceSubtext() ?></div></td>
+                  <td><div class="price_text"><?php echo $parent->getChildHtml('product_type_data') ?></div></td>
+                  <td><input type="text" name="qty" id="qty" maxlength="12" value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty" /></td>
+                </tr>
+              </tbody>
+            </table>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>
+<?php endif; ?>
+

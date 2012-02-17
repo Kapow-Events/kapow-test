@@ -49,7 +49,6 @@
                 <p class="datetime">posted on: <em><?php echo Mage::app()->getLocale()->date(strtotime($_product->getCreatedAt()), null, null, false)->toString('MMM d Y') ?></em></p>
                 <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
                 <div class="price">
-
                     <div class="price_text"><?php echo $this->getChildHtml('product_type_data') ?></div>
                     <div class="price_subtext"><?php echo $_product->getPriceSubtext() ?></div>
                 </div>
@@ -79,6 +78,8 @@
                 </div>
                 <?php endforeach;?>
 
+                <?php echo $this->getChildHtml('quantity') ?>
+                
                 <?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?>
                     <?php if ($_product->isSaleable() && $this->hasOptions()):?>
                         <?php echo $this->getChildChildHtml('container2', '', true, true) ?>

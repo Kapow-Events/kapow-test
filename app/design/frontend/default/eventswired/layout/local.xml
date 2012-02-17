@@ -96,6 +96,12 @@
             <action method="removeItem"><type>skin_css</type><name>css/styles.css</name></action> 
             <action method="removeItem"><type>skin_css</type><name>css/styles-ie.css</name></action> 
     </reference>
+    <reference name="content">
+        <reference name="product.info">
+            <block type="catalog/product_view" name="product.info.quantity" as="quantity" template="catalog/product/view/quantity.phtml" />
+        </reference>
+    </reference>
+
     <!-- reference name="content">
             <reference name="product.info">
                     <block type="cms/block" name="cms_product_info_tabs">

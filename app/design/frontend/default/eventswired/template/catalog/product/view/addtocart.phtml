@@ -29,9 +29,6 @@
 <?php $buttonTitle = $this->__('Add to Cart'); ?>
 <?php if($_product->isSaleable()): ?>
     <div class="add-to-cart">
-        <?php if(!$_product->isGrouped()): ?>
-        <input type="hidden" name="qty" id="qty" maxlength="12" value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
-        <?php endif; ?>
         <a href="#" onclick="productAddToCartForm.submit(this);" title="<?php echo $buttonTitle ?>" class="ribbon_white" id="add_to_cart"><div class="add_to_cart"></div></a>
         <?php echo $this->getChildHtml('', true, true) ?>
     </div>
