@@ -45,9 +45,9 @@ class Mage_Checkout_Block_Links extends Mage_Core_Block_Template
             $count = $this->getSummaryQty() ? $this->getSummaryQty()
                 : $this->helper('checkout/cart')->getSummaryCount();
             if ($count == 1) {
-                $text = $this->__('My Cart (%s item)', $count);
+                $text = $this->__('My Cart (%s)', $count);
             } elseif ($count > 0) {
-                $text = $this->__('My Cart (%s items)', $count);
+                $text = $this->__('My Cart (%s)', $count);
             } else {
                 $text = $this->__('My Cart');
             }
