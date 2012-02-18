@@ -112,7 +112,7 @@ tinyMceWysiwygSetup.prototype =
             custom_popup_css: this.config.popup_css,
             magentowidget_url: this.config.widget_window_url,
             magentoPluginsOptions: magentoPluginsOptions,
-            extended_valid_elements :'section[id|class],form[id|action|method|class]',
+            extended_valid_elements :'section[id|class],form[id|action|method|class],a[data-rel]',
             doctype : '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">',
 
             setup : function(ed) {
