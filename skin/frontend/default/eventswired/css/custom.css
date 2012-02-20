@@ -543,7 +543,6 @@ ul.red_dots_on_black { list-style-image:url(../images/icon-spacer-disc-black.png
    ========================================================================== */
 body { background:#fdf6ee; color:#333; margin-bottom:30px; }
 
-.outer_wrapper { width:100%; }
 .inner_wrapper { width:1060px; margin:0 auto; position:relative; clear:both; }
 
 #homepage_header_wrapper { background:#262626; display:none; }
