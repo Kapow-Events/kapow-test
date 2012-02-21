@@ -1,19 +1,17 @@
-// remap jQuery to $
-(function($){})(window.jQuery);
-
 var cj =
 {
-  $window:           $(window),
-  $document:         $(document),
-  $body:             $('body'),
-  $header:           $('#header'),
-  $homepage_header:  $([]),
-  $content:          $([]),
-  $navigation:       $([]),
-  $rtt_link:         $([]),
+  $window:           jQuery(window),
+  $document:         jQuery(document),
+  $body:             jQuery('body'),
+  $header:           jQuery('#header'),
+  $homepage_header:  jQuery([]),
+  $content:          jQuery([]),
+  $navigation:       jQuery([]),
+  $rtt_link:         jQuery([]),
   isFrontpage:       false,
 
   initialize: function() {
+    this.findElements();
     this.performAutoScroll();
     this.setupLinks();
     this.addPlaceholderSupport();
@@ -27,20 +25,24 @@ var cj =
     if (id != '') { this.scrollTo(id); }
   },
 
+  findElements: function ()
+  {
+    this.homepage_header_ID = '#homepage_header',
+    this.navigation_ID      = '#header',
+    this.content_ID         = '#main_content',
+    this.rtt_link_ID        = '#return_to_top';
+
+    // Find elements
+    this.$homepage_header  = jQuery(this.homepage_header_ID),
+    this.$navigation       = jQuery(this.navigation_ID);
+    this.$content          = jQuery(this.content_ID);
+    this.$rtt_link         = jQuery(this.rtt_link_ID);
+  },
+
   // This does not run when viewing inner pages
   setupHomepageHeader: function ()
   {
-    var self               = this,
-        homepage_header_ID = '#homepage_header',
-        navigation_ID      = '#header',
-        content_ID         = '#main_content',
-        rtt_link_ID        = '#return_to_top';
-
-    // Find elements
-    self.$homepage_header  = $(homepage_header_ID),
-    self.$navigation       = $(navigation_ID);
-    self.$content          = $(content_ID);
-    self.$rtt_link         = $(rtt_link_ID);
+    var self = this;
 
     if (self.$homepage_header.is('*') && self.$navigation.is('*') && self.$content.is('*') && self.$rtt_link.is('*'))
     {
@@ -66,19 +68,19 @@ var cj =
         // SCROLL DOWN
         if (self.$window.scrollTop() > last_scroll_top)
         {
-          var opacity = parseFloat($(homepage_header_ID).css('opacity'), 10) - (multiplier / header_height);
+          var opacity = parseFloat(jQuery(self.homepage_header_ID).css('opacity'), 10) - (multiplier / header_height);
               opacity = opacity <= 0 ? 0 : opacity;  // Hard limit of 0.0 opacity
 
-          var l_opacity = parseFloat($(rtt_link_ID).css('opacity'), 10) + (multiplier / header_height);
+          var l_opacity = parseFloat(jQuery(self.rtt_link_ID).css('opacity'), 10) + (multiplier / header_height);
               l_opacity = l_opacity >= 1 ? 1 : l_opacity;  // Hard limit of 1.0 opacity
         }
         // SCROLL UP
         else
         {
-          var opacity = parseFloat($(homepage_header_ID).css('opacity'), 10) + (multiplier / header_height);
+          var opacity = parseFloat(jQuery(self.homepage_header_ID).css('opacity'), 10) + (multiplier / header_height);
               opacity = opacity >= 1 ? 1 : opacity;  // Hard limit of 1.0 opacity
 
-          var l_opacity = parseFloat($(rtt_link_ID).css('opacity'), 10) - (multiplier / header_height);
+          var l_opacity = parseFloat(jQuery(self.rtt_link_ID).css('opacity'), 10) - (multiplier / header_height);
               l_opacity = l_opacity <= 0 ? 0 : l_opacity;  // Hard limit of 0.0 opacity
         }
         self.$homepage_header.css('opacity', opacity);
@@ -127,10 +129,10 @@ var cj =
     var self  = this;
 
     self.$body.delegate('a', 'click', function(e){
-      var id = $(e.currentTarget).attr('data-rel');
+      var id = jQuery(e.currentTarget).attr('data-rel');
 
       // Normal behavior for standard links
-      if(!$(id).is('*') || (id == '#header' && !self.isFrontpage)){ return true; }
+      if (id == '' || !jQuery(id).is('*') || (id == '#header' && !self.isFrontpage)) {return true; }
 
       self.scrollTo(id);
 
@@ -140,7 +142,7 @@ var cj =
 
   scrollTo: function (id)
   {
-    var scroll_y = $(id).offset().top,
+    var scroll_y = jQuery(id).offset().top,
         offset   = this.$navigation.outerHeight(true),
         speed    = 2500;
 
@@ -151,7 +153,7 @@ var cj =
     offset = this.$navigation.hasClass('fixed') ? offset : offset + 146;
 
     this.$header.removeAttr('class').addClass(id.replace('#',''));
-    $('html,body').stop().animate({'scrollTop' : scroll_y - offset}, speed);
+    jQuery('html,body').stop().animate({'scrollTop' : scroll_y - offset}, speed);
 
     return this;
   },
@@ -160,19 +162,19 @@ var cj =
   {
     if (!Modernizr.inputtypes.email)
     {
-      $('input[placeholder], textarea[placeholder]').each(function(i, input){
-        var $input = $(input);
+      jQuery('input[placeholder], textarea[placeholder]').each(function(i, input){
+        var $input = jQuery(input);
 
         // Initially load the placeholder value
         if ($input.val() == '') { $input.val($input.attr('placeholder')); }
 
         $input
           .bind('focusin', function(){
-            var $this = $(this);
+            var $this = jQuery(this);
             if ($this.val() == $input.attr('placeholder')) { $this.val(''); }
           })
           .bind('focusout', function(){
-            var $this = $(this);
+            var $this = jQuery(this);
             if ($this.val() == '') { $this.val($input.attr('placeholder')); }
           });
       });
@@ -181,7 +183,7 @@ var cj =
 
   startCarousel: function ()
   {
-    $('#carousel').carousel({
+    jQuery('#carousel').carousel({
       btnsPosition: 'inside',
       //autoSlide: true,
       //autoSlideInterval: 4000,
@@ -192,12 +194,13 @@ var cj =
 
 
 
+jQuery.noConflict();
 
-$(document).ready(function(){
+jQuery(document).ready(function(){
   cj.initialize();
   cj.setupHomepageHeader();
 });
 
-$(window).resize(function(){
+jQuery(window).resize(function(){
   cj.setupHomepageHeader();
 });

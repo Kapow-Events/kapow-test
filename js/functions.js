@@ -11,6 +11,7 @@ var cj =
   isFrontpage:       false,
 
   initialize: function() {
+    this.findElements();
     this.performAutoScroll();
     this.setupLinks();
     this.addPlaceholderSupport();
@@ -24,20 +25,24 @@ var cj =
     if (id != '') { this.scrollTo(id); }
   },
 
+  findElements: function ()
+  {
+    this.homepage_header_ID = '#homepage_header',
+    this.navigation_ID      = '#header',
+    this.content_ID         = '#main_content',
+    this.rtt_link_ID        = '#return_to_top';
+
+    // Find elements
+    this.$homepage_header  = jQuery(this.homepage_header_ID),
+    this.$navigation       = jQuery(this.navigation_ID);
+    this.$content          = jQuery(this.content_ID);
+    this.$rtt_link         = jQuery(this.rtt_link_ID);
+  },
+
   // This does not run when viewing inner pages
   setupHomepageHeader: function ()
   {
-    var self               = this,
-        homepage_header_ID = '#homepage_header',
-        navigation_ID      = '#header',
-        content_ID         = '#main_content',
-        rtt_link_ID        = '#return_to_top';
-
-    // Find elements
-    self.$homepage_header  = jQuery(homepage_header_ID),
-    self.$navigation       = jQuery(navigation_ID);
-    self.$content          = jQuery(content_ID);
-    self.$rtt_link         = jQuery(rtt_link_ID);
+    var self = this;
 
     if (self.$homepage_header.is('*') && self.$navigation.is('*') && self.$content.is('*') && self.$rtt_link.is('*'))
     {
@@ -63,19 +68,19 @@ var cj =
         // SCROLL DOWN
         if (self.$window.scrollTop() > last_scroll_top)
         {
-          var opacity = parseFloat(jQuery(homepage_header_ID).css('opacity'), 10) - (multiplier / header_height);
+          var opacity = parseFloat(jQuery(self.homepage_header_ID).css('opacity'), 10) - (multiplier / header_height);
               opacity = opacity <= 0 ? 0 : opacity;  // Hard limit of 0.0 opacity
 
-          var l_opacity = parseFloat(jQuery(rtt_link_ID).css('opacity'), 10) + (multiplier / header_height);
+          var l_opacity = parseFloat(jQuery(self.rtt_link_ID).css('opacity'), 10) + (multiplier / header_height);
               l_opacity = l_opacity >= 1 ? 1 : l_opacity;  // Hard limit of 1.0 opacity
         }
         // SCROLL UP
         else
         {
-          var opacity = parseFloat(jQuery(homepage_header_ID).css('opacity'), 10) + (multiplier / header_height);
+          var opacity = parseFloat(jQuery(self.homepage_header_ID).css('opacity'), 10) + (multiplier / header_height);
               opacity = opacity >= 1 ? 1 : opacity;  // Hard limit of 1.0 opacity
 
-          var l_opacity = parseFloat(jQuery(rtt_link_ID).css('opacity'), 10) - (multiplier / header_height);
+          var l_opacity = parseFloat(jQuery(self.rtt_link_ID).css('opacity'), 10) - (multiplier / header_height);
               l_opacity = l_opacity <= 0 ? 0 : l_opacity;  // Hard limit of 0.0 opacity
         }
         self.$homepage_header.css('opacity', opacity);
