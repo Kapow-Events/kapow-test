@@ -1,0 +1,27 @@
+  <?php $_helper = $this->helper('catalog/output'); ?>
+
+  <?php foreach ($this->getFeatured() as $_product): ?>
+  <div id="homepage_header_wrapper" class="outer_wrapper">
+    <div id="homepage_header">
+      <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->resize(905,379); ?>" width="905" height="379" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+      <div class="inner_wrapper clearfix">
+        <section id="homepage_center_stage">
+          <ul id="steps" class="clearfix">
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li class="last"><a href="#">3</a></li>
+          </ul>
+          <div class="ribbon_red no_ribbon_red_hover">
+          <div class="amount"><?php echo (int)Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty(); ?></div> available
+          </div>
+          <a href="#" class="ribbon_white"><div class="add_to_cart"></div></a>
+
+          <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+          <p><?php echo $_helper->productAttribute($_product, $_product->getDescription(), 'description') ?></p>
+          <p><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>">view event details ></a></p>
+        </section>
+      </div>
+    </div>
+  </div>
+  <?php break; ?>
+  <?php endforeach; ?>

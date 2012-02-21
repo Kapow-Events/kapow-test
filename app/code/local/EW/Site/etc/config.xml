@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <EW_Site>
+            <version>0.0.1</version>
+        </EW_Site>
+    </modules>
+    <global>
+        <blocks>
+            <site>
+                <class>EW_Site_Block</class>
+            </site>
+        </blocks>
+    </global>
+    <frontend>
+        <routers>
+            <site>
+                <use>standard</use>
+                <args>
+                    <module>EW_Site</module>
+                    <frontName>site</frontName>
+                </args>
+            </site>
+        </routers>
+        <layout>
+            <updates>
+                <site>
+                    <file>site.xml</file>
+                </site>
+            </updates>
+        </layout>
+    </frontend>
+</config>
+
