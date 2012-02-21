@@ -684,6 +684,7 @@ body.homepage #homepage_header_wrapper { display:block; }
     margin: 0;
     top: 0;
     left: 0;
+    text-align: left;
     -webkit-transition: none;
     -moz-transition: none;
     transition: none;
