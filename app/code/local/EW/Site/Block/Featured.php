@@ -22,6 +22,16 @@ class EW_Site_Block_Featured extends Mage_Core_Block_Template
 
         return $products; 
     }
+
+    public function getAddToCartUrl($product)
+    {
+        $addUrlKey = Mage_Core_Controller_Front_Action::PARAM_NAME_URL_ENCODED;
+        $addUrlValue = Mage::getUrl('*/*/*', array('_use_rewrite' => true, '_current' => false));
+        $additional[$addUrlKey] = Mage::helper('core')->urlEncode($addUrlValue);
+
+        return $this->helper('checkout/cart')->getAddUrl($product, $additional);
+    }
+
 }
 
 ?>
