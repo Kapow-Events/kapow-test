@@ -960,3 +960,4 @@ p.callout { font-size:18px; line-height:24px; }
 }
 
 a:hover { color: #333; }
+.cart fieldset { width: auto; }
