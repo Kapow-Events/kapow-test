@@ -87,6 +87,10 @@
 
   <script src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS); ?>jquery.carousel.min.js"></script>
   <script src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS); ?>functions.js"></script>
+
+  <?php if ($this->getIsHomePage()) : ?>
+    <script> cj.isFrontpage = true; </script>
+  <?php endif; ?>
   <!-- end scripts -->
 
 
