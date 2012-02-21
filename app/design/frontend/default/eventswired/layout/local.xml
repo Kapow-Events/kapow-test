@@ -12,7 +12,7 @@
         </reference>
 
         <reference name="header">
-
+                <block type="site/featured" name="featured" as="featured" template="site/featured.phtml" />
                 <!-- This adds a CMS block that can be called from the template file
                 associated with the header block. -->
                 <block type="cms/block" name="primaryNavLeft">
