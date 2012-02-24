@@ -14,7 +14,9 @@
           <div class="ribbon_red no_ribbon_red_hover">
           <div class="amount"><?php echo (int)Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty(); ?></div> available
           </div>
+          <?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?>
           <a href="<?php echo $this->getAddToCartUrl($_product) ?>" class="ribbon_white"><div class="add_to_cart"></div></a>
+          <?php endif; ?>
 
           <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
           <p><?php echo $_helper->productAttribute($_product, $_product->getDescription(), 'description') ?></p>
