@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <EW_Contacts>
+            <version>0.0.1</version>
+        </EW_Contacts>
+    </modules>
+    <frontend>
+        <routers>
+            <contacts>
+                <args>
+                    <modules>
+                        <EW_Contacts before="Mage_Contacts">EW_Contacts</EW_Contacts>
+                    </modules>
+                </args>
+            </contacts>
+        </routers>
+    </frontend>
+</config>
+
