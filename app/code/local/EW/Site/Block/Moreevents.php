@@ -19,7 +19,13 @@ class EW_Site_Block_Moreevents extends Mage_Core_Block_Template
             ), 'left')
             ->addAttributeToSort('news_from_date', 'desc')
             ->setPageSize(6);
-        return array_splice($products->getData(), -3, 3);
+
+        $aData = array();
+        foreach ($products as $_product) {
+            $aData[] = $_product;
+        }
+
+        return array_slice($aData, -3, 3);
     }
 
 }
