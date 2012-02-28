@@ -1169,7 +1169,17 @@ tr.summary-details-excluded { font-style:italic; }
 /* OVERRIDES */
 .form-list label { color: #333; font-weight: normal; }
 
+.cart .page-title { border-bottom: none; }
+.cart .page-title h2 { font-size: 32px; }
 
+.buttons-set { border: none; }
+
+.data-table tr.odd,
+.data-table tr.even { background-color: transparent; }
+
+.data-table th,
+.data-table td { border: transparent; }
+.data-table thead { background-color: transparent; }
 /* Clears ================================================================================ */
 .clearer:after,
 .header-container:after,
