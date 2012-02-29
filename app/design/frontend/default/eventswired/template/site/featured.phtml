@@ -5,20 +5,22 @@
 
   <div id="homepage_header_wrapper" class="outer_wrapper">
     <div id="homepage_header">
-      <?php $i=1; foreach ($featured_products as $_product): ?>
-        <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->resize(905,379); ?>" width="905" height="379" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="featured_product <?php if ($i == 1) { echo 'active'; } ?>" id="featured_product_<?php echo $i ?>_image" />
-      <?php $i++; endforeach; ?>
-
       <div class="inner_wrapper clearfix">
         <section id="homepage_center_stage">
           <ul id="steps" class="clearfix">
-            <li><a href="#featured_product_1" class="active">1</a></li>
-            <li><a href="#featured_product_2">2</a></li>
-            <li class="last"><a href="#featured_product_3">3</a></li>
+            <?php $i=1; foreach ($featured_products as $_product): ?>
+              <li<?php if ($i == 3) { echo ' class="last"'; } ?>>
+                <a href="#featured_product_<?php echo $i ?>"
+                   rel="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->resize(905,379); ?>"
+                   <?php if ($i == 1) { echo ' class="active"'; } ?>>
+                  <?php echo $i ?>
+                </a>
+              </li>
+            <?php $i++; endforeach; ?>
           </ul>
 
           <?php $i=1; foreach ($featured_products as $_product): ?>
-          <div id="featured_product_<?php echo $i ?>_text" class="featured_product <?php if ($i == 1) { echo 'active'; } ?>">
+          <div id="featured_product_<?php echo $i ?>_text" class="featured_product_text <?php if ($i == 1) { echo 'active'; } ?>">
               <div class="ribbon_red no_ribbon_red_hover">
                 <div class="amount"><?php echo (int)Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty(); ?></div> available
               </div>
