@@ -967,5 +967,10 @@ p.callout { font-size:18px; line-height:24px; }
   h2, h3 { page-break-after: avoid; }
 }
 
+.carousel-previous.disabled, .carousel-next.disabled
+{
+    visibility:hidden;
+}
+
 a:hover { color: #333; }
 .cart fieldset { width: auto; }
