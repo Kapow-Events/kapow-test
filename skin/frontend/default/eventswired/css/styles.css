@@ -1168,13 +1168,10 @@ tr.summary-details-excluded { font-style:italic; }
 
 /* OVERRIDES */
 .form-list label { color: #333; font-weight: normal; }
+.page-title {   border-bottom: none; }
+.page-title h2 { font-size: 32px; }
 
 /* Cart */
-.checkout-onepage-index .page-title,
-.cart .page-title { border-bottom: none; }
-.checkout-onepage-index .page-title h2,
-.cart .page-title h2 { font-size: 32px; }
-
 .buttons-set { border: none; }
 
 .data-table tr.odd,
@@ -1191,6 +1188,11 @@ tr.summary-details-excluded { font-style:italic; }
 .opc li.section { border: none; }
 .opc .step-title,
 .opc .active .step-title { background-color: transparent; }
+
+/* Account Register */
+.form-list input.input-text { width:89%; }
+.fieldset { border: none; background-color: transparent; }
+
 /* Clears ================================================================================ */
 .clearer:after,
 .header-container:after,
