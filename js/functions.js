@@ -14,6 +14,7 @@ var cj =
     this.findElements();
     this.performAutoScroll();
     this.setupLinks();
+    this.setupHomepageHeader();
     this.addPlaceholderSupport();
     this.startCarousel();
   },
@@ -27,13 +28,13 @@ var cj =
 
   findElements: function ()
   {
-    this.homepage_header_ID = '#homepage_header',
-    this.navigation_ID      = '#header',
-    this.content_ID         = '#main_content',
+    this.homepage_header_ID = '#homepage_header';
+    this.navigation_ID      = '#header';
+    this.content_ID         = '#main_content';
     this.rtt_link_ID        = '#return_to_top';
 
     // Find elements
-    this.$homepage_header  = jQuery(this.homepage_header_ID),
+    this.$homepage_header  = jQuery(this.homepage_header_ID);
     this.$navigation       = jQuery(this.navigation_ID);
     this.$content          = jQuery(this.content_ID);
     this.$rtt_link         = jQuery(this.rtt_link_ID);
@@ -46,6 +47,8 @@ var cj =
 
     if (self.$homepage_header.is('*') && self.$navigation.is('*') && self.$content.is('*') && self.$rtt_link.is('*'))
     {
+      self.setupFeaturedProducts();
+
       var last_scroll_top    = (self.$window.scrollTop() > 0) ? self.$window.scrollTop() : 0,
           navigation_orig_yt = self.$navigation.position().top,
           navigation_orig_yb = navigation_orig_yt + self.$navigation.outerHeight(false),
@@ -124,6 +127,40 @@ var cj =
     }
   },
 
+  setupFeaturedProducts: function ()
+  {
+    var self               = this,
+        speed              = 250,
+        $links             = self.$homepage_header.find('#steps a'),
+        $featured_products = self.$homepage_header.find('.featured_product');
+
+    if ($featured_products.is('*'))
+    {
+      self.$homepage_header.delegate('#steps a', 'click', function(e){
+        e.preventDefault();
+        var $target = jQuery(e.currentTarget);
+
+        if ( !$target.hasClass('active') )
+        {
+          $links.removeClass('active');
+          $target.addClass('active');
+
+          $featured_products
+            .fadeOut(speed)
+            .removeClass('active')
+            .end()
+              .find( $target.attr('href')+'_image' )
+              .fadeIn(speed)
+              .addClass('active')
+              .end()
+                .find( $target.attr('href')+'_text'  )
+                .fadeIn(speed)
+                .addClass('active');
+        }
+      });
+    }
+  },
+
   setupLinks: function ()
   {
     var self  = this;
@@ -198,7 +235,6 @@ jQuery.noConflict();
 
 jQuery(document).ready(function(){
   cj.initialize();
-  cj.setupHomepageHeader();
 });
 
 jQuery(window).resize(function(){

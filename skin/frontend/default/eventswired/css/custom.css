@@ -564,7 +564,9 @@ body.homepage #homepage_header_wrapper { display:block; }
   height: 502px;
   min-width: 100%;
   min-height: 502px;
+  display: none;
 }
+#homepage_header img.active { display:block; }
 
 #homepage_center_stage {
   background: url(../images/css-sprites.png) -626px 0 repeat-y;
@@ -607,7 +609,13 @@ body.homepage #homepage_header_wrapper { display:block; }
 }
 #homepage_center_stage #steps li.last a { left:0; }
 #homepage_center_stage #steps li a:hover  { color:#fff; font-family:"Times New Roman",serif; font-style:italic; background-position:-349px -45px; }
-#homepage_center_stage #steps li a:active { color:#fff; font-family:"Times New Roman",serif; font-style:italic; background-position:-349px -94px; }
+
+#homepage_center_stage #steps li a:active, #homepage_center_stage #steps li a.active
+{ color:#fff; font-family:"Times New Roman",serif; font-style:italic; background-position:-349px -94px; }
+
+
+#homepage_center_stage div.featured_product { display:none; }
+#homepage_center_stage div.active { display:block; }
 
 #homepage_center_stage h1 { color:#fff; }
 #homepage_center_stage p {
