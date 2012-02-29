@@ -1169,7 +1169,10 @@ tr.summary-details-excluded { font-style:italic; }
 /* OVERRIDES */
 .form-list label { color: #333; font-weight: normal; }
 
+/* Cart */
+.checkout-onepage-index .page-title,
 .cart .page-title { border-bottom: none; }
+.checkout-onepage-index .page-title h2,
 .cart .page-title h2 { font-size: 32px; }
 
 .buttons-set { border: none; }
@@ -1180,6 +1183,14 @@ tr.summary-details-excluded { font-style:italic; }
 .data-table th,
 .data-table td { border: transparent; }
 .data-table thead { background-color: transparent; }
+
+
+/* Checkout */
+.opc,
+.opc div.step,
+.opc li.section { border: none; }
+.opc .step-title,
+.opc .active .step-title { background-color: transparent; }
 /* Clears ================================================================================ */
 .clearer:after,
 .header-container:after,
