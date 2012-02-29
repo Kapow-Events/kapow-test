@@ -63,7 +63,9 @@
             </div>
 
             <div class="right">
+                <?php if ($_product->getCallToAction()): ?>
                 <p class="corner_info"> <?php echo $_product->getCallToAction() ?> </p>
+                <?php endif; ?>
                 <?php echo $this->getChildHtml('media') ?>
             </div>
         </div>
