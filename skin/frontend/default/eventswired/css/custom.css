@@ -563,18 +563,6 @@ body { background:#fdf6ee; color:#333; margin-bottom:30px; }
 }
 body.homepage #homepage_header_wrapper { display:block; }
 
-/*
-#homepage_header .backstretch {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 502px;
-  min-width: 100%;
-  min-height: 502px;
-}
-*/
-
 #homepage_center_stage {
   background: url(../images/css-sprites.png) -626px 0 repeat-y;
   position: absolute;
@@ -585,7 +573,7 @@ body.homepage #homepage_header_wrapper { display:block; }
   padding: 20px 45px;
   z-index: 10;
 }
-#homepage_center_stage #steps { list-style:none; margin:0 0 50px 0; padding:0; }
+#homepage_center_stage #steps { list-style:none; margin:0 0 45px 0; padding:0; }
 #homepage_center_stage #steps li {
   position: relative;
   float: left;
@@ -622,18 +610,18 @@ body.homepage #homepage_header_wrapper { display:block; }
 { color:#fff; font-family:"Times New Roman",serif; font-style:italic; background-position:-349px -94px; }
 
 
-#homepage_center_stage div.featured_product { display:none; }
-#homepage_center_stage div.active { display:block; }
 
-#homepage_center_stage h1 { color:#fff; }
+#homepage_center_stage h1 { color:#fff; font-size:43px; letter-spacing:-1px; }
 #homepage_center_stage p {
   font-size: 17px;
-  line-height: 22px;
+  line-height: 21px;
   color: #aaa;
   margin: 0 0 15px 0;
   padding: 0;
   width: 230px;
 }
+#homepage_center_stage div.featured_product_text p.content { height:240px; overflow:auto; }
+
 #homepage_center_stage .ribbon_red   { position:absolute; bottom:145px; right:-5px; }
 #homepage_center_stage .ribbon_white { position:absolute; bottom:85px;  right:-5px; }
 #homepage_center_stage a { font-family:Cabin,Arial,sans-serif; font-style:normal; font-size:14px; text-transform:uppercase; color:#fff; }
