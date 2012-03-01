@@ -129,13 +129,19 @@ var cj =
 
   setupFeaturedProducts: function ()
   {
-    var self               = this,
-        speed              = 250,
-        $links             = self.$homepage_header.find('#steps a'),
-        $featured_products = self.$homepage_header.find('.featured_product');
+    var self     = this,
+        speed    = 250,
+        $links   = self.$homepage_header.find('#steps a'),
+        $fp_text = self.$homepage_header.find('.featured_product_text'),
+        backstretch_options = { 'target':self.homepage_header_ID, 'speed':speed, 'positionType':'absolute', 'zIndex':0 };
 
-    if ($featured_products.is('*'))
+    if ($fp_text.is('*'))
     {
+      // Show first image/text on initial load
+      jQuery.backstretch( $links.first().attr('rel'), backstretch_options );
+      $fp_text.first().addClass('active');
+
+      // Setup navigation click event
       self.$homepage_header.delegate('#steps a', 'click', function(e){
         e.preventDefault();
         var $target = jQuery(e.currentTarget);
@@ -143,19 +149,12 @@ var cj =
         if ( !$target.hasClass('active') )
         {
           $links.removeClass('active');
+          $fp_text.fadeOut(speed).removeClass('active');
+
           $target.addClass('active');
 
-          $featured_products
-            .fadeOut(speed)
-            .removeClass('active')
-            .end()
-              .find( $target.attr('href')+'_image' )
-              .fadeIn(speed)
-              .addClass('active')
-              .end()
-                .find( $target.attr('href')+'_text'  )
-                .fadeIn(speed)
-                .addClass('active');
+          jQuery.backstretch( $target.attr('rel'), backstretch_options );
+          jQuery( $target.attr('href')+'_text' ).fadeIn(speed).addClass('active');
         }
       });
     }
