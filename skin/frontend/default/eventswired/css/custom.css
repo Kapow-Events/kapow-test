@@ -850,7 +850,7 @@ p.callout { font-size:18px; line-height:24px; }
 #event_callout .left .ribbon_red   { position:absolute; bottom:160px; right:-5px; }
 #event_callout .left .ribbon_white { position:absolute; bottom:100px; right:-5px; }
 #event_callout .left #add_to_wish_list { bottom:39px; }
-#event_callout .left a { font-family:Cabin,Arial,sans-serif; font-style:normal; font-size:14px; text-transform:uppercase; color:#fff; }
+#event_callout .left a { font-family:Cabin,Arial,sans-serif; font-size:14px; text-transform:uppercase; color:#fff; }
 #event_callout .left a:hover { color:#c54528; }
 
 
