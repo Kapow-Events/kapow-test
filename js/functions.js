@@ -14,6 +14,7 @@ var cj =
     this.findElements();
     this.performAutoScroll();
     this.setupLinks();
+    this.setupFeaturedProducts();
     this.setupHomepageHeader();
     this.addPlaceholderSupport();
     this.startCarousel();
@@ -47,8 +48,6 @@ var cj =
 
     if (self.$homepage_header.is('*') && self.$navigation.is('*') && self.$content.is('*') && self.$rtt_link.is('*'))
     {
-      self.setupFeaturedProducts();
-
       var last_scroll_top    = (self.$window.scrollTop() > 0) ? self.$window.scrollTop() : 0,
           navigation_orig_yt = self.$navigation.position().top,
           navigation_orig_yb = navigation_orig_yt + self.$navigation.outerHeight(false),
@@ -135,7 +134,7 @@ var cj =
         $fp_text = self.$homepage_header.find('.featured_product_text'),
         backstretch_options = { 'target':self.homepage_header_ID, 'speed':speed, 'positionType':'absolute', 'zIndex':0 };
 
-    if ($fp_text.is('*'))
+    if (self.$homepage_header.is('*') && $fp_text.is('*') && $links.is('*'))
     {
       // Show first image/text on initial load
       jQuery.backstretch( $links.first().attr('rel'), backstretch_options );
@@ -146,7 +145,7 @@ var cj =
         e.preventDefault();
         var $target = jQuery(e.currentTarget);
 
-        if ( !$target.hasClass('active') )
+        if (!$target.hasClass('active'))
         {
           $links.removeClass('active');
           $fp_text.fadeOut(speed).removeClass('active');
@@ -168,7 +167,7 @@ var cj =
       var id = jQuery(e.currentTarget).attr('data-rel');
 
       // Normal behavior for standard links
-      if (id == '#header' && !self.isFrontpage) { return true; }
+      if (id == '' || !jQuery(id).is('*') || (id == '#header' && !self.isFrontpage)) { return true; }
 
       // Smooth scroll for anchor links
       self.scrollTo(id); return false;
