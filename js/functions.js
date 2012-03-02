@@ -23,7 +23,7 @@ var cj =
   {
     var id = window.location.hash;
 
-    if (id != '') { this.scrollTo(id); }
+    this.scrollTo(id);
   },
 
   findElements: function ()
@@ -168,28 +168,30 @@ var cj =
       var id = jQuery(e.currentTarget).attr('data-rel');
 
       // Normal behavior for standard links
-      if (id == '' || !jQuery(id).is('*') || (id == '#header' && !self.isFrontpage)) {return true; }
+      if (id == '#header' && !self.isFrontpage) { return true; }
 
-      self.scrollTo(id);
-
-      return false;
+      // Smooth scroll for anchor links
+      self.scrollTo(id); return false;
     });
   },
 
   scrollTo: function (id)
   {
-    var scroll_y = jQuery(id).offset().top,
-        offset   = this.$navigation.outerHeight(true),
-        speed    = 2500;
+    if (id != '' && jQuery(id).is('*'))
+    {
+      var scroll_y = jQuery(id).offset().top,
+          offset   = this.$navigation.outerHeight(true),
+          speed    = 2500;
 
-    // --------------------------------------------------------------------
-    // Not sure what the 146px double offset is caused by but this corrects
-    // issues with the navigation transitioning between relative and fixed
-    // --------------------------------------------------------------------
-    offset = this.$navigation.hasClass('fixed') ? offset : offset + 146;
+      // --------------------------------------------------------------------
+      // Not sure what the 146px double offset is caused by but this corrects
+      // issues with the navigation transitioning between relative and fixed
+      // --------------------------------------------------------------------
+      offset = this.$navigation.hasClass('fixed') ? offset : offset + 146;
 
-    this.$header.removeAttr('class').addClass(id.replace('#',''));
-    jQuery('html,body').stop().animate({'scrollTop' : scroll_y - offset}, speed);
+      this.$header.removeAttr('class').addClass(id.replace('#',''));
+      jQuery('html,body').stop().animate({'scrollTop' : scroll_y - offset}, speed);
+    }
 
     return this;
   },

@@ -456,15 +456,29 @@ ul.red_dots_on_black { list-style-image:url(../images/icon-spacer-disc-black.png
   -moz-transition:    none;
   transition:         none;
 }
+.ribbon_red a {
+  color: #000 !important;
+  display: block !important;
+  border: none !important;
+  -webkit-transition: none;
+  -moz-transition:    none;
+  transition:         none;
+}
+
 .ribbon_red   { background:url(../images/css-sprites.png) -404px -54px no-repeat; }
 .ribbon_white { background:url(../images/css-sprites.png) -404px 0     no-repeat; }
-.ribbon_red:hover,   .ribbon_red:active   { background-position:-404px -108px; border:none; color:#c54528; }
-.ribbon_white:hover, .ribbon_white:active { background-position:-404px -108px; border:none; color:#c54528; }
+.ribbon_red:hover,   .ribbon_red:active,   .ribbon_red:hover   a, .ribbon_red:active   a { background-position:-404px -108px; border:none; color:#c54528 !important; }
+.ribbon_white:hover, .ribbon_white:active, .ribbon_white:hover a, .ribbon_white:active a { background-position:-404px -108px; border:none; color:#c54528 !important; }
 
 .no_ribbon_red_hover:hover   { background-position:-404px -54px; color:#000; cursor:default; }
 .no_ribbon_white_hover:hover { background-position:-404px 0;     color:#000; cursor:default; }
 
-.ribbon_red .amount, .ribbon_white .amount { font-size:32px; line-height:22px; margin:4px 0 2px 0; }
+.ribbon_red .amount, .ribbon_white .amount {
+  font-family: "Times New Roman",serif !important;
+  font-size: 32px !important;
+  line-height: 22px !important;
+  margin: 4px 0 2px 0 !important;
+}
 
 .add_to_cart   { background:url(../images/css-sprites.png) -498px -90px no-repeat; display:block; width:58px; height:37px; position:absolute; top:6px; left:17px; }
 .added_to_cart { background:url(../images/css-sprites.png) -498px 0 no-repeat;     display:block; width:58px; height:37px; position:absolute; top:6px; left:17px; }
@@ -563,18 +577,6 @@ body { background:#fdf6ee; color:#333; margin-bottom:30px; }
 }
 body.homepage #homepage_header_wrapper { display:block; }
 
-/*
-#homepage_header .backstretch {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 502px;
-  min-width: 100%;
-  min-height: 502px;
-}
-*/
-
 #homepage_center_stage {
   background: url(../images/css-sprites.png) -626px 0 repeat-y;
   position: absolute;
@@ -585,7 +587,7 @@ body.homepage #homepage_header_wrapper { display:block; }
   padding: 20px 45px;
   z-index: 10;
 }
-#homepage_center_stage #steps { list-style:none; margin:0 0 50px 0; padding:0; }
+#homepage_center_stage #steps { list-style:none; margin:0 0 45px 0; padding:0; }
 #homepage_center_stage #steps li {
   position: relative;
   float: left;
@@ -622,18 +624,18 @@ body.homepage #homepage_header_wrapper { display:block; }
 { color:#fff; font-family:"Times New Roman",serif; font-style:italic; background-position:-349px -94px; }
 
 
-#homepage_center_stage div.featured_product { display:none; }
-#homepage_center_stage div.active { display:block; }
 
-#homepage_center_stage h1 { color:#fff; }
+#homepage_center_stage h1 { color:#fff; font-size:43px; letter-spacing:-1px; }
 #homepage_center_stage p {
   font-size: 17px;
-  line-height: 22px;
+  line-height: 21px;
   color: #aaa;
   margin: 0 0 15px 0;
   padding: 0;
   width: 230px;
 }
+#homepage_center_stage div.featured_product_text p.content { height:240px; overflow:auto; }
+
 #homepage_center_stage .ribbon_red   { position:absolute; bottom:145px; right:-5px; }
 #homepage_center_stage .ribbon_white { position:absolute; bottom:85px;  right:-5px; }
 #homepage_center_stage a { font-family:Cabin,Arial,sans-serif; font-style:normal; font-size:14px; text-transform:uppercase; color:#fff; }
@@ -757,7 +759,8 @@ ul.basic_grid li { position:relative; float:left; margin:24px 13px; padding:0; w
 ul.basic_grid li p { margin:10px; }
 
 ul.event_grid li { background:#1a1a1a; color:#aaa; padding-bottom:50px; }
-ul.event_grid h3 { margin:15px 20px; color:#fff; }
+ul.event_grid h3 { margin:15px 20px; color:#c54528; }
+ul.event_grid h3 a:hover { color:#fff; }
 ul.event_grid p  { padding:0 10px 5px 10px; color:#aaa; font-family:"Times New Roman",serif; font-style:italic; font-size:16px; line-height:18px; }
 ul.event_grid li .ribbon_red { position:absolute; top:10px; right:-5px; }
 ul.event_grid li .button_ribbon { position:absolute; bottom:-20px; left:90px; }
