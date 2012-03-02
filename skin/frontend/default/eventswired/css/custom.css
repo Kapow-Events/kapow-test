@@ -467,8 +467,12 @@ ul.red_dots_on_black { list-style-image:url(../images/icon-spacer-disc-black.png
 
 .ribbon_red   { background:url(../images/css-sprites.png) -404px -54px no-repeat; }
 .ribbon_white { background:url(../images/css-sprites.png) -404px 0     no-repeat; }
-.ribbon_red:hover,   .ribbon_red:active,   .ribbon_red:hover   a, .ribbon_red:active   a { background-position:-404px -108px; border:none; color:#c54528 !important; }
-.ribbon_white:hover, .ribbon_white:active, .ribbon_white:hover a, .ribbon_white:active a { background-position:-404px -108px; border:none; color:#c54528 !important; }
+
+.ribbon_red:hover,   .ribbon_red:active   { background-position:-404px -108px; border:none; color:#c54528; }
+.ribbon_white:hover, .ribbon_white:active { background-position:-404px -108px; border:none; color:#c54528; }
+
+.ribbon_red:hover   a, .ribbon_red:active   a { color:#c54528 !important; }
+.ribbon_white:hover a, .ribbon_white:active a { color:#c54528 !important; }
 
 .no_ribbon_red_hover:hover   { background-position:-404px -54px; color:#000; cursor:default; }
 .no_ribbon_white_hover:hover { background-position:-404px 0;     color:#000; cursor:default; }
