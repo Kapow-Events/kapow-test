@@ -91,7 +91,7 @@
         <?php endif ?>
             <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
                 <div class="ribbon_red">
-                    <a href="<?php echo $this->$_product->getProductUrl() ?>" class="amount">
+                    <a href="<?php echo $_product->getProductUrl() ?>" class="amount">
                       <?php echo (int)Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty(); ?>
                     </a> available
                 </div>
