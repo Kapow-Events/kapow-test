@@ -167,7 +167,7 @@ var cj =
       var id = jQuery(e.currentTarget).attr('data-rel');
 
       // Normal behavior for standard links
-      if (id == '#header' && !self.isFrontpage) { return true; }
+      if (id == '' || !jQuery(id).is('*') || (id == '#header' && !self.isFrontpage)) { return true; }
 
       // Smooth scroll for anchor links
       self.scrollTo(id); return false;
