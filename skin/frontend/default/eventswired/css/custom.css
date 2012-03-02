@@ -456,15 +456,29 @@ ul.red_dots_on_black { list-style-image:url(../images/icon-spacer-disc-black.png
   -moz-transition:    none;
   transition:         none;
 }
+.ribbon_red a {
+  color: #000 !important;
+  display: block !important;
+  border: none !important;
+  -webkit-transition: none;
+  -moz-transition:    none;
+  transition:         none;
+}
+
 .ribbon_red   { background:url(../images/css-sprites.png) -404px -54px no-repeat; }
 .ribbon_white { background:url(../images/css-sprites.png) -404px 0     no-repeat; }
-.ribbon_red:hover,   .ribbon_red:active   { background-position:-404px -108px; border:none; color:#c54528; }
-.ribbon_white:hover, .ribbon_white:active { background-position:-404px -108px; border:none; color:#c54528; }
+.ribbon_red:hover,   .ribbon_red:active,   .ribbon_red:hover   a, .ribbon_red:active   a { background-position:-404px -108px; border:none; color:#c54528 !important; }
+.ribbon_white:hover, .ribbon_white:active, .ribbon_white:hover a, .ribbon_white:active a { background-position:-404px -108px; border:none; color:#c54528 !important; }
 
 .no_ribbon_red_hover:hover   { background-position:-404px -54px; color:#000; cursor:default; }
 .no_ribbon_white_hover:hover { background-position:-404px 0;     color:#000; cursor:default; }
 
-.ribbon_red .amount, .ribbon_white .amount { font-size:32px; line-height:22px; margin:4px 0 2px 0; }
+.ribbon_red .amount, .ribbon_white .amount {
+  font-family: "Times New Roman",serif !important;
+  font-size: 32px !important;
+  line-height: 22px !important;
+  margin: 4px 0 2px 0 !important;
+}
 
 .add_to_cart   { background:url(../images/css-sprites.png) -498px -90px no-repeat; display:block; width:58px; height:37px; position:absolute; top:6px; left:17px; }
 .added_to_cart { background:url(../images/css-sprites.png) -498px 0 no-repeat;     display:block; width:58px; height:37px; position:absolute; top:6px; left:17px; }
@@ -745,7 +759,8 @@ ul.basic_grid li { position:relative; float:left; margin:24px 13px; padding:0; w
 ul.basic_grid li p { margin:10px; }
 
 ul.event_grid li { background:#1a1a1a; color:#aaa; padding-bottom:50px; }
-ul.event_grid h3 { margin:15px 20px; color:#fff; }
+ul.event_grid h3 { margin:15px 20px; color:#c54528; }
+ul.event_grid h3 a:hover { color:#fff; }
 ul.event_grid p  { padding:0 10px 5px 10px; color:#aaa; font-family:"Times New Roman",serif; font-style:italic; font-size:16px; line-height:18px; }
 ul.event_grid li .ribbon_red { position:absolute; top:10px; right:-5px; }
 ul.event_grid li .button_ribbon { position:absolute; bottom:-20px; left:90px; }

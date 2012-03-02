@@ -21,8 +21,10 @@
 
           <?php $i=1; foreach ($featured_products as $_product): ?>
           <div id="featured_product_<?php echo $i ?>_text" class="featured_product_text <?php if ($i == 1) { echo 'active'; } ?>">
-              <div class="ribbon_red no_ribbon_red_hover">
-                <div class="amount"><?php echo (int)Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty(); ?></div> available
+              <div class="ribbon_red">
+                <a href="<?php echo $_product->getProductUrl() ?>" class="amount">
+                  <?php echo (int)Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty(); ?>
+                </a> available
               </div>
               <?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?>
               <a href="<?php echo $this->getAddToCartUrl($_product) ?>" class="ribbon_white"><div class="add_to_cart"></div></a>
