@@ -12,6 +12,8 @@ var cj =
 
   initialize: function() {
     this.findElements();
+    this.lightboxModal();
+    this.lightbox();
     this.performAutoScroll();
     this.setupLinks();
     this.setupFeaturedProducts();
@@ -39,6 +41,35 @@ var cj =
     this.$navigation       = jQuery(this.navigation_ID);
     this.$content          = jQuery(this.content_ID);
     this.$rtt_link         = jQuery(this.rtt_link_ID);
+  },
+
+  lightboxModal: function ()
+  {
+    jQuery(".lightbox-modal").fancybox({
+      'titleShow': false,
+      'hideOnOverlayClick': false,
+      'hideOnContentClick': false,
+      'overlayShow': true,
+      'overlayColor': '#000',
+      'overlayOpacity': 0.7,
+      'showCloseButton': false,
+      'enableEscapeButton': false,
+      'centerOnScroll': true,
+      'padding': 0
+    })
+    .trigger('click');
+  },
+
+  lightbox: function ()
+  {
+    jQuery(".lightbox").fancybox({
+      'overlayShow': true,
+      'overlayColor': '#000',
+      'overlayOpacity': 0.7,
+      'showCloseButton': true,
+      'centerOnScroll': false,
+      'padding': 10
+    });
   },
 
   // This does not run when viewing inner pages
