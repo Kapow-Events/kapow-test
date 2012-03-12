@@ -1,0 +1,10 @@
+.aw-sociable_services_thumbnail{max-width:32px;padding:2px 1px;}
+.aw-sociable_services_link{text-decoration:none;}
+.aw-sociable_services_link img{border:none;}
+.aw-sociable_services{background:#fff;padding:5px;border:1px solid #C4C1BC;text-align:center;margin:0 0 10px;}
+.aw-sociable_services.aw-sociable_services-product-page{border:none;}
+.aw-sociable_services-list{}
+.aw-sociable_services .aw-sociable_services-list li{padding:0 1px 0 0 !important;display:inline !important;}
+.aw-sociable_services .aw-sociable_services-list li:after{content:none !important;}
+/*fix for Google Button*/
+.aw-sociable_services_link-Google1 div{padding-top:3px !important;}

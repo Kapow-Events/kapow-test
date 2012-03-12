@@ -1,0 +1,43 @@
+<?php $services = Mage::helper('sociable')->getServices() ?>
+<?php if($this->getIsShow() && !empty($services)):?>
+<div class="aw-sociable_services  <?php echo $this->getDivClass();?>">
+    <?php 
+    $env = $this->getEnv();
+    ?>
+    <ul class="aw-sociable_services-list">
+    <?php foreach($services as $service):?>
+        <?php
+            $serviceClass = preg_replace('/[\W]*/i','',$service['title']);  
+        ?>
+        <?php
+            //fix for save clicks by Google +1 Button 
+            if(preg_match('/apis.google.com\/js\/plusone.js/i',$service['service_script'])){
+                $googlePlusId = $service['services_id'];
+            }
+        ?>
+        <li class="aw-sociable_services_link-<?php echo $serviceClass?>">
+        <?php if($service['service_script']):?>
+            <?php echo $service['service_script']?>
+        <?php else:?>
+            <a onclick="saveClick('<?php echo $service['services_id']?>')" href="<?php echo Mage::helper('sociable')->getLink($service['services_id'],$env['title'],$env['url'])?>" class="aw-sociable_services_link" target="<?php echo ($service['new_window']) ? '_blank' : '_self' ?>" title="<?php echo $service['title']?>">
+                <img src="<?php echo $this->getIconPath().$service['icon']?>" class="aw-sociable_services_thumbnail" alt="<?php echo $service['title']?>">
+            </a>
+        <?php endif;?>
+        </li>
+    <?php endforeach;?>
+    </ul>
+</div>
+<script type="text/javascript">
+<?php if(isset($googlePlusId)):?>
+function saveGooglePlus(){
+    saveClick(<?php echo $googlePlusId?>);
+}
+<?php endif;?>
+function saveClick(service_id){
+
+    var url= "<?php echo $this->getAjaxUrl();?>";
+    var U = url + 'service_id/'+encodeURIComponent(service_id)+'/<?php echo $this->getAjaxParams() ?>';
+    new Ajax.Request(U, {method: 'get'});
+}
+</script>
+<?php endif;?>
