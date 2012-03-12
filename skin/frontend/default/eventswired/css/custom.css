@@ -762,7 +762,7 @@ ul.basic_grid { list-style:none; margin:-24px -13px; padding:0; }
 ul.basic_grid li { position:relative; float:left; margin:24px 13px; padding:0; width:308px; }
 ul.basic_grid li p { margin:10px; }
 
-ul.event_grid li { background:#1a1a1a; color:#aaa; padding-bottom:50px; }
+ul.event_grid li { background:#1a1a1a; color:#aaa; padding-bottom:50px; height: 341px; }
 ul.event_grid h3 { margin:15px 20px; color:#c54528; }
 ul.event_grid h3 a:hover { color:#fff; }
 ul.event_grid p  { padding:0 10px 5px 10px; color:#aaa; font-family:"Times New Roman",serif; font-style:italic; font-size:16px; line-height:18px; }
