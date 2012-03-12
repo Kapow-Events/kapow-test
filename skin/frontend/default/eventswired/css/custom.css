@@ -795,7 +795,7 @@ p.callout { font-size:18px; line-height:24px; }
 
 #about_events_wired img.floatleft { margin-bottom:60px; }
 #about_events_wired p.callout { width:475px; line-height:26px; margin-bottom:26px; }
-#about_events_wired ul.basic_grid li { width:143px; text-align:center; }
+#about_events_wired ul.basic_grid li { width:200px; text-align:center; }
 #about_events_wired ul.basic_grid li p { font-size:14px; }
 
 #event_callout {
