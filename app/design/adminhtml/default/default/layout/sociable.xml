@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout version="1.0">
+    <default>
+        <reference name="head">
+            <action method="addCss"><name>aw_sociable/css/aw_sociable_admin.css</name></action>
+        </reference>
+    </default>
+    <sociable_admin_adminhtml_sociable_index>
+        <reference name="content">
+            <block type="sociable/adminhtml_sociable" name="sociable" />
+        </reference>
+    </sociable_admin_adminhtml_sociable_index>
+</layout>

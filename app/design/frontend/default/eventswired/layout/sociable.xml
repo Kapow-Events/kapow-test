@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<layout version="1.0">
+    <default>
+        <reference name="head">
+            <action method="addCss"><name>aw_sociable/css/aw_sociable.css</name></action>
+        </reference>
+    </default>
+    <catalog_product_view>
+     <reference name="product.info">
+         <block type="sociable/services" name="sociable.product_page" template="sociable/sociable.phtml"  as="other"/>
+    </reference>
+    </catalog_product_view>
+    <default>
+        <reference name="content">
+            <block type="sociable/services" name="sociable.content_top" template="sociable/sociable.phtml" before="-"/>
+        </reference>
+        <reference name="footer" >
+              <block type="sociable/services" name="sociable.content_bottom" template="sociable/sociable.phtml"  before="-"/>
+        </reference>
+        <reference name="left">
+            <block type="sociable/services" name="sociable.left_top" template="sociable/sociable.phtml"  before="-"/>
+            <block type="sociable/services" name="sociable.left_bottom" template="sociable/sociable.phtml" />
+        </reference>
+        <reference name="right">
+            <block type="sociable/services" name="sociable.right_top" template="sociable/sociable.phtml" before="-"/>
+            <block type="sociable/services" name="sociable.right_bottom" template="sociable/sociable.phtml" />
+        </reference>
+    </default>
+</layout>
