@@ -915,6 +915,12 @@ p.callout { font-size:18px; line-height:24px; }
 }
 #carousel input.disabled { opacity:0.3; }
 
+#fancybox-overlay { position:fixed; }
+#lightbox-signup-or-login {
+  background: #FDF6EE;
+  width: 500px;
+  padding: 20px;
+}
 
 /* ==|== media queries ======================================================
    PLACEHOLDER Media Queries for Responsive Design.
