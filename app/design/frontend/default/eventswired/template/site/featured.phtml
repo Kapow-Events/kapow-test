@@ -31,7 +31,7 @@
               <?php
                 // Try to account for a 3 line name by adjusting the font size
                 $name      = $_helper->productAttribute($_product, $_product->getName(), 'name');
-                $font_size = strlen($name) >= 20 ? ' style="font-size:36px;"' : '';
+                $font_size = strlen($name) >= 20 ? ' class="three_line"' : '';
 
                 echo "<h1{$font_size}>{$name}</h1>";
               ?>
@@ -57,7 +57,7 @@
               <?php
                 // Try to account for a 3 line name by adjusting the font size
                 $name      = $_helper->productAttribute($_product, $_product->getName(), 'name');
-                $font_size = strlen($name) >= 25 ? ' style="font-size:38px;"' : '';
+                $font_size = strlen($name) >= 20 ? ' class="three_line"' : '';
 
                 echo "<h1{$font_size}>{$name}</h1>";
               ?>

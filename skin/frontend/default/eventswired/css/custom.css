@@ -629,7 +629,9 @@ body.homepage #homepage_header_wrapper { display:block; }
 
 
 
-#homepage_center_stage h1 { color:#fff; font-size:43px; letter-spacing:-1px; }
+#homepage_center_stage div.featured_product_text { height:400px; margin-bottom:20px; overflow:hidden; }
+#homepage_center_stage h1 { color:#fff; font-size:43px; letter-spacing:-1px; margin-top:0; }
+#homepage_center_stage h1.three_line { font-size:36px; line-height:44px; }
 #homepage_center_stage p {
   font-size: 17px;
   line-height: 21px;
