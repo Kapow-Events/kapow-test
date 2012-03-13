@@ -1,6 +1,7 @@
   <?php
-    $_helper = $this->helper('catalog/output');
-    $featured_products = $this->getFeatured();
+    $_helper                    = $this->helper('catalog/output');
+    $featured_products          = $this->getFeatured();
+    $initially_featured_product = $this->getInitiallyFeaturedProduct();
   ?>
 
   <div id="homepage_header_wrapper" class="outer_wrapper">
@@ -8,19 +9,32 @@
       <div class="inner_wrapper clearfix">
         <section id="homepage_center_stage">
           <ul id="steps" class="clearfix">
+            <?php foreach ($initially_featured_product as $_product): ?>
+              <li class="hidden">
+                <a href="#initially_featured_product"
+                   rel="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->resize(905,379); ?>"
+                ></a>
+              </li>
+            <?php endforeach ?>
+
             <?php $i=1; foreach ($featured_products as $_product): ?>
               <li<?php if ($i == 3) { echo ' class="last"'; } ?>>
                 <a href="#featured_product_<?php echo $i ?>"
                    rel="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->resize(905,379); ?>"
-                   <?php if ($i == 1) { echo ' class="active"'; } ?>>
-                  <?php echo $i ?>
-                </a>
+                ><?php echo $i ?></a>
               </li>
             <?php $i++; endforeach; ?>
           </ul>
 
+          <?php foreach ($initially_featured_product as $_product): ?>
+            <div id="initially_featured_product_text" class="featured_product_text active">
+              <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+              <p class="content"><?php echo $_helper->productAttribute($_product, $_product->getDescription(), 'description') ?></p>
+            </div>
+          <?php endforeach ?>
+
           <?php $i=1; foreach ($featured_products as $_product): ?>
-          <div id="featured_product_<?php echo $i ?>_text" class="featured_product_text <?php if ($i == 1) { echo 'active'; } ?>">
+            <div id="featured_product_<?php echo $i ?>_text" class="featured_product_text">
               <div class="ribbon_red">
                 <a href="<?php echo $_product->getProductUrl() ?>" class="amount">
                   <?php echo (int)Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty(); ?>

@@ -3,6 +3,18 @@
 class EW_Site_Block_Featured extends Mage_Core_Block_Template
 {
 
+    public function getInitiallyFeaturedProduct()
+    {
+        $category_id = 8;
+        $product = Mage::getModel('catalog/category')->load($category_id)
+            ->getProductCollection()
+            ->addAttributeToSelect('*')
+            ->addAttributeToFilter('status', 1)
+            ->setPageSize(1);
+
+        return $product;
+    }
+
     public function getFeatured()
     {
         $todayDate  = Mage::app()->getLocale()->date()->toString(Varien_Date::DATETIME_INTERNAL_FORMAT);
@@ -20,7 +32,7 @@ class EW_Site_Block_Featured extends Mage_Core_Block_Template
             ->addAttributeToSort('news_from_date', 'desc')
             ->setPageSize(3);
 
-        return $products; 
+        return $products;
     }
 
     public function getAddToCartUrl($product)
