@@ -141,6 +141,12 @@
         </block>
     </customer_account>
 
+    <customer_logged_out>
+        <reference name="top.links">
+            <action method="removeLinkByUrl"><url helper="customer/getAccountUrl"/></action>
+            <remove name="checkout_cart_link"/>
+        </reference>
+    </customer_logged_out>
 
     <contacts_customevents_index translate="label">
         <label>Contact Us Form</label>
