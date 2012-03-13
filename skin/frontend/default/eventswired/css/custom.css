@@ -886,7 +886,7 @@ p.callout { font-size:18px; line-height:24px; }
 }
 #carousel ul { list-style:none; padding:0; margin:0; }
 #carousel ul li { float:left; height:450px; width:672px; position:relative; }
-#carousel ul li img { position:absolute; top:0; left:-180px; }
+#carousel ul li img { position:absolute; top:0; left:0; }
 
 #carousel .carousel-previous {
   background: url(../images/css-sprites.png) -125px -329px no-repeat;
