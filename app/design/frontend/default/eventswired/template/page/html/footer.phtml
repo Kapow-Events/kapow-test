@@ -95,7 +95,7 @@
   <?php endif; ?>
   <!-- end scripts -->
 
-  <?php if ( (Mage::app()->getFrontController()->getRequest()->getRouteName() != 'customer') && !$this->helper('customer')->isLoggedIn() ) : ?>
+  <?php if ( Mage::registry('current_product') && (Mage::app()->getFrontController()->getRequest()->getRouteName() != 'customer') && !$this->helper('customer')->isLoggedIn() ) : ?>
     <div class="hidden">
       <a href="#lightbox-signup-or-login" class="lightbox-modal"></a>
       <div id="lightbox-signup-or-login">
