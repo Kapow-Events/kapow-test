@@ -36,7 +36,12 @@
     <ul>
     <?php foreach ($this->getGalleryImages() as $_image): ?>
         <li>
-            <img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'large', $_image->getFile())->keepFrame(false)->resize(672, 450); ?>" width="672" height="450" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" />
+          <img src="<?php echo $this->helper('catalog/image')
+                                          ->init($this->getProduct(), 'large', $_image->getFile())
+                                          ->constrainOnly(false)
+                                          ->keepAspectRatio(true)
+                                          ->keepFrame(false)
+                                          ->resize(null, 450); ?>" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" />
         </li>
     <?php endforeach; ?>
     </ul>
