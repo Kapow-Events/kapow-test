@@ -148,6 +148,10 @@
         </reference>
     </customer_logged_out>
 
+    <checkout_cart_index>
+        <remove name="checkout.cart.coupon" />
+    </checkout_cart_index>
+
     <contacts_customevents_index translate="label">
         <label>Contact Us Form</label>
         <reference name="head">
