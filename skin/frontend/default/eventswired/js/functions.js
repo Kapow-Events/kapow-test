@@ -132,14 +132,14 @@ var cj =
           // from position:relative to position:fixed navigation
           // ---------------------------------------------------
           if (self.$window.scrollTop() <= navigation_orig_yb) {
-            self.$content.css('margin-top', (self.$window.scrollTop() - navigation_orig_yb) * -1);
+            self.$homepage_header.parent().css('margin-bottom', self.$navigation.outerHeight(true));
             self.$rtt_link.css('opacity', 1);
           }
         }
         // Landing area is in view
         else if (self.$window.scrollTop() < navigation_orig_yt)
         {
-          self.$content.css('margin-top', 0);
+          self.$homepage_header.parent().css('margin-bottom', 0);
           self.$navigation.removeClass('fixed');
           self.$rtt_link.css('opacity', 0);
         }
@@ -209,18 +209,12 @@ var cj =
   {
     if (id != '' && jQuery(id).is('*'))
     {
-      var scroll_y = jQuery(id).offset().top,
-          offset   = this.$navigation.outerHeight(true),
-          speed    = 2500;
+      var $target           = jQuery(id),
+          scroll_y          = $target.offset().top,
+          navigation_height = this.$navigation.outerHeight(true),
+          speed             = 2500;
 
-      // --------------------------------------------------------------------
-      // Not sure what the 146px double offset is caused by but this corrects
-      // issues with the navigation transitioning between relative and fixed
-      // --------------------------------------------------------------------
-      offset = this.$navigation.hasClass('fixed') ? offset : offset + 146;
-
-      this.$header.removeAttr('class').addClass(id.replace('#',''));
-      jQuery('html,body').stop().animate({'scrollTop' : scroll_y - offset}, speed);
+      jQuery('body').stop().animate({'scrollTop' : scroll_y - navigation_height}, speed, function(){ });
     }
 
     return this;
