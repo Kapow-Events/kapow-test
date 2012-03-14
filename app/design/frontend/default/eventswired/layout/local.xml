@@ -148,6 +148,12 @@
         </reference>
     </customer_logged_out>
 
+    <customer_logged_in>
+        <reference name="right">
+          <remove name="sale.reorder.sidebar" />
+        </reference>
+    </customer_logged_in>
+
     <checkout_cart_index>
         <remove name="checkout.cart.coupon" />
     </checkout_cart_index>
