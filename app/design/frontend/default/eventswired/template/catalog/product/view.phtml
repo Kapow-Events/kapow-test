@@ -56,7 +56,7 @@
                 <span>Become a <a href="<?php echo $this->getUrl('customer/account/create') ?>">member</a> or <a href="<?php echo $this->getUrl('customer/account/login') ?>">login</a> to see details and pricing!</span>
                 <?php endif; ?>
 
-                <?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
+                <?php echo $_helper->productAttribute($_product, $_product->getProductStats()) ?>
 
                 <div class="ribbon_red no_ribbon_red_hover"><div class="amount"><?php echo (int)Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty(); ?></div> available</div>
                 <?php echo $this->getChildHtml('addtocart') ?>
@@ -78,14 +78,19 @@
 
             <div class="right w70p">
                 <h4>event details</h4>
+<?php /*
+       * TODO: May need to put this back in the future
+       *
                 <?php foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html):?>
                 <div class="box-collateral <?php echo "box-{$alias}"?>">
                     <?php echo $html; ?>
                 </div>
                 <?php endforeach;?>
+*/ ?>
+                <?php echo $_helper->productAttribute($_product, $_product->getDescription()) ?>
 
                 <?php echo $this->getChildHtml('quantity') ?>
-                
+
                 <?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?>
                     <?php if ($_product->isSaleable() && $this->hasOptions()):?>
                         <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
