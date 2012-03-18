@@ -28,8 +28,11 @@
 /**
  * Template for Mage_Page_Block_Html
  */
-?>
 
+$bodyClass = $this->getBodyClass() ? $this->getBodyClass() : '';
+$bodyClass .= $this->helper('customer')->isLoggedIn() ? ' is_logged_in' : ' is_not_logged_in';
+$bodyClass = $bodyClass ? ' class="'.trim($bodyClass).'"' : '';
+?>
 <!doctype html>
 <!--[if lt IE 7]> <html class="ie6" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="ie7" lang="en"> <![endif]-->
@@ -39,7 +42,7 @@
 <head>
 <?php echo $this->getChildHtml('head') ?>
 </head>
-<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
+<body<?php echo $bodyClass ?>>
 <div id="top"></div>
 
 <?php echo $this->getChildHtml('after_body_start') ?>
