@@ -559,7 +559,7 @@ ul.red_dots_on_black { list-style-image:url(../images/icon-spacer-disc-black.png
 /* =============================================================================
    Layout
    ========================================================================== */
-body { background:#fdf6ee; color:#333; margin-bottom:30px; }
+body { background:#fdf6ee; color:#333; }
 
 .inner_wrapper { width:1060px; margin:0 auto; position:relative; clear:both; }
 
@@ -741,7 +741,14 @@ body.homepage #homepage_header_wrapper { display:block; }
   #secondary_navigation_right { float:right; width:320px; }
   #secondary_navigation_right li { float:left; }
 
-#footer { padding-right:50px; margin-top:125px; }
+#footer {
+  padding: 50px 30px 30px 0;
+  margin: 125px 0 0 0;
+  background: #efe8df;
+  -webkit-box-shadow: inset 0 5px 10px rgba(0,0,0,0.1);
+  -moz-box-shadow:    inset 0 5px 10px rgba(0,0,0,0.1);
+  box-shadow:         inset 0 5px 10px rgba(0,0,0,0.1);
+}
 #footer p { font-family:Cabin,Arial,sans-serif; font-style:normal; margin:10px 0; }
 
 #footer #email_us_button .button_ribbon_small { margin:-20px 0 0 7px; }
