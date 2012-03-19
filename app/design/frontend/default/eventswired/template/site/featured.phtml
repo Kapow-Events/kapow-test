@@ -24,7 +24,9 @@
               <li<?php if ($i == 3) { echo ' class="last"'; } ?>>
                 <a href="#featured_product_<?php echo $i ?>"
                    rel="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->resize(905,379); ?>"
-                ><?php echo $i ?></a>
+                   <?php if ($i == 1) { echo ' class="active"'; } ?>>
+                   <?php echo $i ?>
+                </a>
               </li>
             <?php $i++; endforeach; ?>
           </ul>
