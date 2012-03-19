@@ -9,6 +9,8 @@
       <div class="inner_wrapper clearfix">
         <section id="homepage_center_stage">
           <ul id="steps" class="clearfix">
+
+<?php /* TODO: This might be added back in later
             <?php foreach ($initially_featured_product as $_product): ?>
               <li class="hidden">
                 <a href="#initially_featured_product"
@@ -16,16 +18,20 @@
                 ></a>
               </li>
             <?php endforeach ?>
+*/ ?>
 
             <?php $i=1; foreach ($featured_products as $_product): ?>
               <li<?php if ($i == 3) { echo ' class="last"'; } ?>>
                 <a href="#featured_product_<?php echo $i ?>"
                    rel="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->resize(905,379); ?>"
-                ><?php echo $i ?></a>
+                   <?php if ($i == 1) { echo ' class="active"'; } ?>>
+                   <?php echo $i ?>
+                </a>
               </li>
             <?php $i++; endforeach; ?>
           </ul>
 
+<?php /* TODO: This might be added back in later
           <?php foreach ($initially_featured_product as $_product): ?>
             <div id="initially_featured_product_text" class="featured_product_text active">
               <?php
@@ -38,6 +44,7 @@
               <p class="content"><?php echo $_helper->productAttribute($_product, $_product->getShortDescription()) ?></p>
             </div>
           <?php endforeach ?>
+*/ ?>
 
           <?php $i=1; foreach ($featured_products as $_product): ?>
             <div id="featured_product_<?php echo $i ?>_text" class="featured_product_text">
