@@ -27,14 +27,25 @@
  * @var Mage_Page_Block_Html_Header $this
  */
 ?>
+  <?php if ( !$this->helper('customer')->isLoggedIn() ) : ?>
+    <div id="slidebox">
+      <div class="content">
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('slidebox-presidents-letter')->toHtml(); ?>
+      </div>
+      <div id="slidebox_close">close</div>
+    </div>
+  <?php endif; ?>
+
+
   <?php if ($this->getIsHomePage()):?>
   <?php echo $this->getChildHtml('featured'); ?>
   <?php endif; ?>
 
+
   <header id="header" class="outer_wrapper">
     <div class="inner_wrapper">
       <h1 id="logo"><a href="/"></a></h1>
-      
+
       <div id="primary_navigation">
         <?php echo $this->getChildHtml('primaryNavLeft'); ?>
         <?php echo $this->getChildHtml('primaryNavRight'); ?>

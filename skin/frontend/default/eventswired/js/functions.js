@@ -14,6 +14,7 @@ var cj =
     this.findElements();
     this.lightboxModal();
     this.lightbox();
+    this.slidebox();
     this.performAutoScroll();
     this.setupLinks();
     this.setupFeaturedProducts();
@@ -72,6 +73,60 @@ var cj =
     });
   },
 
+  slidebox: function ()
+  {
+    var self          = this,
+        delay         = 750,
+        speed         = 1500,
+        offset        = 100,
+        $slidebox     = jQuery('#slidebox'),
+        $content      = $slidebox.find('.content'),
+        $close_button = $slidebox.find('#slidebox_close'),
+        height        = self.$window.height() >= 800 ? 600 : self.$window.height() - 130;
+
+    // Setup an alias
+    self.$slidebox = $slidebox;
+
+    if ($slidebox.is('*'))
+    {
+      // Dynamically size the box
+      $slidebox.css({
+        'left': ((self.$window.width() / 2) - ($slidebox.outerWidth(true) / 2)),
+        'top': -(height + offset),
+        'height': height,
+        'display': 'block'
+      });
+
+      // -----------------------------------------------------------------
+      // When the slidebox is too small to contain the content dynamically
+      // set the content height so that overflow scrollbars work
+      // -----------------------------------------------------------------
+      if ($content.height() > $slidebox.innerHeight())
+      {
+        var content_offset = (
+          parseInt($content.css('padding-top'))
+          + parseInt($content.css('padding-bottom'))
+          + $close_button.outerHeight(true)
+          + (parseInt($close_button.css('bottom')) * 2)
+        );
+        $content.css('height', $slidebox.height() - content_offset);
+      }
+
+      // Animate the slide after the prescribed delay
+      setTimeout(function(){
+        $slidebox.animate({ 'top':0 }, speed);
+      }, delay);
+
+      // Wire up the close button
+      $close_button.click(function(e){
+        $slidebox.animate(
+          { 'top': -($slidebox.outerHeight(true) + offset) }, speed * 0.6, function(e){
+          $slidebox.addClass('has_been_closed')
+        });
+      });
+    }
+  },
+
   // This does not run when viewing inner pages
   setupHomepageHeader: function ()
   {
@@ -121,6 +176,9 @@ var cj =
         // --------------------------------------------
         // Make the navigation bar stick to the top
         // --------------------------------------------
+        if (self.$window.scrollTop() == 1){
+          self.$slidebox.fadeOut('fast');
+        }
         // Landing area has completely scrolled away
         if (self.$window.scrollTop() >= navigation_orig_yt)
         {
@@ -149,6 +207,10 @@ var cj =
         {
           self.$homepage_header.css('opacity', 1);
           self.$rtt_link.css('opacity', 0);
+
+          if (!self.$slidebox.hasClass('has_been_closed')) {
+            self.$slidebox.fadeIn('fast');
+          }
         }
 
         last_scroll_top = self.$window.scrollTop();
