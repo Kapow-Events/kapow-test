@@ -563,6 +563,9 @@ body { background:#fdf6ee; color:#333; }
 
 .inner_wrapper { width:1060px; margin:0 auto; position:relative; clear:both; }
 
+.page { width:auto; padding:0; }
+.main-container { width:1060px; margin:0 auto; }
+
 #homepage_header_wrapper {
   background: #262626;
   width: 100%;
