@@ -87,7 +87,7 @@ var cj =
     // Setup an alias
     self.$slidebox = $slidebox;
 
-    if ($slidebox.is('*'))
+    if ($slidebox.is('*') && !jQuery.cookie('has_been_opened'))
     {
       // Dynamically size the box
       $slidebox.css({
@@ -121,7 +121,8 @@ var cj =
       $close_button.click(function(e){
         $slidebox.animate(
           { 'top': -($slidebox.outerHeight(true) + offset) }, speed * 0.6, function(e){
-          $slidebox.addClass('has_been_closed')
+          $slidebox.addClass('has_been_closed');
+          jQuery.cookie('has_been_opened', 'true', { expires: 2 });
         });
       });
     }
