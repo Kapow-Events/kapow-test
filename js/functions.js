@@ -87,7 +87,7 @@ var cj =
     // Setup an alias
     self.$slidebox = $slidebox;
 
-    if ($slidebox.is('*') && !jQuery.cookie('has_been_opened'))
+    if ($slidebox.is('*') && !jQuery.cookie('has_been_closed'))
     {
       // Dynamically size the box
       $slidebox.css({
@@ -121,8 +121,7 @@ var cj =
       $close_button.click(function(e){
         $slidebox.animate(
           { 'top': -($slidebox.outerHeight(true) + offset) }, speed * 0.6, function(e){
-          $slidebox.addClass('has_been_closed');
-          jQuery.cookie('has_been_opened', 'true', { expires: 2 });
+          jQuery.cookie('has_been_closed', 'true', { expires: 2 });
         });
       });
     }
@@ -209,7 +208,7 @@ var cj =
           self.$homepage_header.css('opacity', 1);
           self.$rtt_link.css('opacity', 0);
 
-          if (!self.$slidebox.hasClass('has_been_closed')) {
+        if (self.$slidebox.is('*') && !jQuery.cookie('has_been_closed')) {
             self.$slidebox.fadeIn('fast');
           }
         }
