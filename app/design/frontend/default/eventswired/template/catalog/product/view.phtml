@@ -44,6 +44,9 @@
             <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
             <input type="hidden" name="related_product" id="related-products-field" value="" />
         </div>
+
+        <?php echo $this->getChildHtml('other');?>
+
         <div id="event_callout" class="clearfix">
             <div class="left">
                 <p class="datetime">posted on: <em><?php echo Mage::app()->getLocale()->date(strtotime($_product->getCreatedAt()), null, null, false)->toString('MMM d Y') ?></em></p>
