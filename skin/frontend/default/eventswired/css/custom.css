@@ -812,6 +812,14 @@ p.callout { font-size:18px; line-height:24px; }
 #about_events_wired ul.basic_grid li { width:200px; text-align:center; }
 #about_events_wired ul.basic_grid li p { font-size:14px; }
 
+.aw-sociable_services {
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: right;
+  margin: 0 50px 0 0;
+}
+
 #event_callout {
   position: relative;
   background: #555;
