@@ -32,7 +32,7 @@ $installer->startSetup();
 
 $installer->run("
 
-CREATE TABLE {$this->getTable('sociable/services')} (
+CREATE TABLE IF NOT EXISTS {$this->getTable('sociable/services')} (
   `services_id` int(3) unsigned NOT NULL auto_increment,
   `title` varchar(100) NOT NULL,
   `icon` varchar(255) NOT NULL,
@@ -62,7 +62,7 @@ INSERT INTO {$this->getTable('sociable/services')} (`services_id`, `title`, `ico
 (14, 'Google Bookmarks', '1293027456.png', 'https://www.google.com/bookmarks/mark?op=add&bkmk={url}&title={title}', 0, 14, 1, 1, 0),
 (15, 'Twitter', '1292323517.png', 'http://twitter.com/?status={title} : {url}', 1, 15, 1, 1, 0);
 
-CREATE TABLE {$this->getTable('sociable/clicks')} (
+CREATE TABLE IF NOT EXISTS {$this->getTable('sociable/clicks')} (
   `clicks_id` int(3) unsigned NOT NULL auto_increment,
   `user_uid` varchar(100) NOT NULL,
   `service_id` int(3) NOT NULL,
@@ -72,14 +72,14 @@ CREATE TABLE {$this->getTable('sociable/clicks')} (
   PRIMARY KEY (`clicks_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE {$this->getTable('sociable/bitly')} (
+CREATE TABLE IF NOT EXISTS {$this->getTable('sociable/bitly')} (
   `link_id` int(3) unsigned NOT NULL auto_increment,
   `long_link` TINYTEXT NOT NULL,
   `short_link` varchar(100) NOT NULL,
   PRIMARY KEY (`link_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE {$this->getTable('sociable/bookmarked')} (
+CREATE TABLE IF NOT EXISTS {$this->getTable('sociable/bookmarked')} (
   `id` int(3) unsigned NOT NULL auto_increment,
   `store_id` int(3) NOT NULL,
   `product_id` int(3) NOT NULL,

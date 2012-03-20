@@ -91,13 +91,14 @@
 
                 <?php echo $this->getChildHtml('quantity') ?>
 
-                <a href="#" onclick="productAddToCartForm.submit(this);" title="Add to Cart" class="button_ribbon floatright" id="add_to_cart_large" style="margin-top:30px;">add to cart</a>
-
                 <?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?>
                     <?php if ($_product->isSaleable() && $this->hasOptions()):?>
                         <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
                     <?php endif;?>
                 <?php endif; ?>
+
+                <hr style="margin:200px 0 15px 0;" />
+                <a href="#" onclick="productAddToCartForm.submit(this);" title="Add to Cart" class="button_ribbon floatright" id="add_to_cart_large">add to cart</a>
             </div>
         </div>
     </form>

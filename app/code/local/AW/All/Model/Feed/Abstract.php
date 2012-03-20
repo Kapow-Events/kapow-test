@@ -13,11 +13,12 @@
  * @package    AW_All
  * @copyright  Copyright (c) 2009-2010 aheadWorks Co. (http://www.aheadworks.com)
  * @license    http://ecommerce.aheadworks.com/LICENSE-M1.txt
- */ 
+ */
 
-class AW_All_Model_Feed_Abstract extends Mage_Core_Model_Abstract{
-	
-	/**
+class AW_All_Model_Feed_Abstract extends Mage_Core_Model_Abstract
+{
+
+    /**
      * Retrieve feed data as XML element
      *
      * @return SimpleXMLElement
@@ -26,8 +27,8 @@ class AW_All_Model_Feed_Abstract extends Mage_Core_Model_Abstract{
     {
         $curl = new Varien_Http_Adapter_Curl();
         $curl->setConfig(array(
-            'timeout'   => 1
-        ));
+                              'timeout' => 1
+                         ));
         $curl->write(Zend_Http_Client::GET, $this->getFeedUrl(), '1.0');
         $data = $curl->read();
         if ($data === false) {
@@ -38,7 +39,7 @@ class AW_All_Model_Feed_Abstract extends Mage_Core_Model_Abstract{
         $curl->close();
 
         try {
-            $xml  = new SimpleXMLElement($data);
+            $xml = new SimpleXMLElement($data);
         }
         catch (Exception $e) {
             return false;
@@ -46,8 +47,8 @@ class AW_All_Model_Feed_Abstract extends Mage_Core_Model_Abstract{
 
         return $xml;
     }
-	
-	
+
+
     /**
      * Retrieve DB date from RSS date
      *
@@ -58,7 +59,6 @@ class AW_All_Model_Feed_Abstract extends Mage_Core_Model_Abstract{
     {
         return gmdate('Y-m-d H:i:s', strtotime($rssDate));
     }
-	
 
 
 }
