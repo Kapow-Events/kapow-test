@@ -89,6 +89,7 @@ class AW_Sociable_Block_Adminhtml_Sociable_Edit_Tab_Form extends Mage_Adminhtml_
           'required'  => false,
           'name'      => 'service_script',
           'note'      => Mage::helper('sociable')->__("Type service code here"),
+          'style'     => 'width:700px; height:250px;',
       ));
       
 

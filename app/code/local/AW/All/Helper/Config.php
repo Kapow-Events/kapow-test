@@ -15,13 +15,17 @@
  * @license    http://ecommerce.aheadworks.com/LICENSE-M1.txt
  */
 
-class AW_All_Helper_Config extends Mage_Core_Helper_Abstract{
-	/** Extensions feed path */
+class AW_All_Helper_Config extends Mage_Core_Helper_Abstract
+{
+    /** Extensions feed path */
     const EXTENSIONS_FEED_URL = 'http://media.aheadworks.com/feeds/extensions.xml';
-	/** Updates Feed path */
+    /** Updates Feed path */
     const UPDATES_FEED_URL = 'http://media.aheadworks.com/feeds/updates.xml';
+    /** Estore URL */
+    const STORE_URL = 'http://ecommerce.aheadworks.com/estore/';
 
-    const ENTERPRISE_VERSION = '1.7';
+    /** EStore response cache key*/
+    const STORE_RESPONSE_CACHE_KEY = 'aw_all_store_response_cache_key';
 
-    const PROFESSIONAL_EDITION = '1.6';
+
 }

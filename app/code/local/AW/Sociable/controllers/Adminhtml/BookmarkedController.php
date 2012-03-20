@@ -1,4 +1,5 @@
 <?php
+
 /**
  * aheadWorks Co.
  *
@@ -26,59 +27,65 @@
  */?>
 <?php
 
-class AW_Sociable_Adminhtml_BookmarkedController extends Mage_Adminhtml_Controller_Action
-{
-    protected function _isAllowed(){
+class AW_Sociable_Adminhtml_BookmarkedController extends Mage_Adminhtml_Controller_Action {
+
+    protected function _isAllowed() {
         return Mage::getSingleton('admin/session')->isAllowed('admin/cms/sociable');
     }
 
     protected function _initAction() {
-        $this->loadLayout()
-            ->_setActiveMenu('cms/sociable')
-            ;
+        $this->loadLayout()->_setActiveMenu('cms/sociable');
         return $this;
     }
 
-    public function indexAction(){
+    public function indexAction() {
         $this->_forward('most');
     }
 
-    public function newAction(){
+    public function newAction() {
         $this->redirectToProduct($this->getRequest()->getActionName());
     }
 
-    public function gridAction(){
+    public function gridAction() {
         $this->loadLayout();
         $this->getResponse()->setBody(
-            $this->getLayout()->createBlock('sociable/adminhtml_bookmarked_grid')->toHtml()
+                $this->getLayout()->createBlock('sociable/adminhtml_bookmarked_grid')->toHtml()
         );
     }
 
-    public function editAction(){
+    public function editAction() {
         $this->redirectToProduct($this->getRequest()->getActionName());
     }
 
-    public function mostAction(){
-
+    public function mostAction() {
+        if (method_exists($this, '_title')) {
+            $this->_title($this->__('Sociable'))->_title($this->__('Most Bookmarked Products'));
+        }
         $this->_initAction()
-            ->_addContent($this->getLayout()->createBlock('adminhtml/store_switcher')->setUseConfirm(false)->setSwitchUrl($this->getUrl('*/*/*', array('store'=>null))))
-            ->_addContent($this->getLayout()->createBlock('sociable/adminhtml_bookmarked'))
-            ->renderLayout();
-           ;
+                ->_addContent($this->getLayout()
+                        ->createBlock('adminhtml/store_switcher')
+                        ->setUseConfirm(false)
+                        ->setSwitchUrl($this->getUrl('*/*/*', array('store' => null))))
+                ->_addContent($this->getLayout()->createBlock('sociable/adminhtml_bookmarked'))
+                ->renderLayout();
     }
-    public function massStatusAction(){
+
+    public function massStatusAction() {
         $this->redirectToProduct($this->getRequest()->getActionName());
     }
 
-    public function redirectToProduct($action){
+    public function redirectToProduct($action) {
 
         $params = '';
 
-        foreach($this->getRequest()->getParams() as $key=>$param){
-            $params = $params.'/'.$key.'/'.$param;
+        foreach ($this->getRequest()->getParams() as $key => $param) {
+            $params = $params . '/' . $key . '/' . $param;
         }
-        $this->getResponse()->setRedirect(Mage::getBaseURL().(string)Mage::app()->getConfig()->getNode('admin/routers/adminhtml/args/frontName').'/catalog_product/'.$action.$params);
-
+        $this->getResponse()
+                ->setRedirect(
+                        Mage::getBaseURL()
+                        . (string) Mage::app()->getConfig()->getNode('admin/routers/adminhtml/args/frontName')
+                        . '/catalog_product/' . $action . $params);
     }
 
 }

@@ -15,10 +15,19 @@
  * @license    http://ecommerce.aheadworks.com/LICENSE-M1.txt
  */
 
-class AW_All_Helper_Data extends Mage_Core_Helper_Abstract
+
+class AW_All_Block_System_Config_Form_Fieldset_Awall_Store extends Mage_Adminhtml_Block_System_Config_Form_Fieldset
 {
+
+    protected $_dummyElement;
+    protected $_fieldRenderer;
+    protected $_values;
+
+    public function render(Varien_Data_Form_Element_Abstract $element)
+    {
+        return '<div id="' . $element->getId() . '"></div>';
+        return $html;
+    }
 
 
 }
-
-
