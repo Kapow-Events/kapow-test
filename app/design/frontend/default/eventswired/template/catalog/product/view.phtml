@@ -96,7 +96,7 @@
 
                 <?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?>
                     <?php if ($_product->isSaleable() && $this->hasOptions()):?>
-                        <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+                        <?php // echo $this->getChildChildHtml('container2', '', true, true) ?>
                     <?php endif;?>
                 <?php endif; ?>
 
