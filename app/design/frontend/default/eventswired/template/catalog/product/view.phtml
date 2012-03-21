@@ -56,13 +56,15 @@
                     <div class="price_subtext"><?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?><?php echo $_product->getPriceSubtext() ?><?php endif; ?></div>
                 </div>
                 <?php if (!Mage::getSingleton('customer/session')->isLoggedIn()): ?>
-                <span>Become a <a href="<?php echo $this->getUrl('customer/account/create') ?>">member</a> or <a href="<?php echo $this->getUrl('customer/account/login') ?>">login</a> to see details and pricing!</span>
+                  <span>Become a <a href="<?php echo $this->getUrl('customer/account/create') ?>">member</a> or <a href="<?php echo $this->getUrl('customer/account/login') ?>">login</a> to see details and pricing!</span>
                 <?php endif; ?>
 
                 <?php echo $_helper->productAttribute($_product, $_product->getProductStats()) ?>
 
                 <div class="ribbon_red no_ribbon_red_hover"><div class="amount"><?php echo (int)Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty(); ?></div> available</div>
-                <?php echo $this->getChildHtml('addtocart') ?>
+                <?php if (Mage::getSingleton('customer/session')->isLoggedIn() && $_product->isSaleable()) : ?>
+                  <?php echo $this->getChildHtml('addtocart') ?>
+                <?php endif ?>
             </div>
 
             <div class="right">
@@ -100,9 +102,11 @@
                     <?php endif;?>
                 <?php endif; ?>
 
-                <hr style="margin:200px 0 15px 0;" />
-                <span style="float:left; margin-top:10px;">Need an invoice? Got a question? Call us! <?php echo Mage::getStoreConfig('general/store_information/phone'); ?></span>
-                <a href="#" onclick="productAddToCartForm.submit(this);" title="Add to Cart" class="button_ribbon floatright" id="add_to_cart_large">add to cart</a>
+                <?php if (Mage::getSingleton('customer/session')->isLoggedIn() && $_product->isSaleable()) : ?>
+                  <hr style="margin:200px 0 15px 0;" />
+                  <span style="float:left; margin-top:10px;">Need an invoice? Got a question? Call us! <?php echo Mage::getStoreConfig('general/store_information/phone'); ?></span>
+                  <a href="#" onclick="productAddToCartForm.submit(this);" title="Add to Cart" class="button_ribbon floatright" id="add_to_cart_large">add to cart</a>
+                <?php endif; ?>
             </div>
         </div>
     </form>
