@@ -670,7 +670,7 @@ body.homepage #homepage_header_wrapper { display:block; }
   margin: 0;
   padding: 0;
   border: none;
-  z-index: 100;
+  z-index: 1000;
 }
 #header #logo a:hover { border:none; padding:0; }
 
