@@ -634,9 +634,10 @@ body.homepage #homepage_header_wrapper { display:block; }
 
 
 
-#homepage_center_stage div.featured_product_text { height:400px; margin-bottom:20px; position:relative; }
+#homepage_center_stage div.featured_product_text { height:390px; margin-bottom:20px; position:relative; overflow:hidden; }
 #homepage_center_stage h1 { color:#fff; font-size:43px; letter-spacing:-1px; margin-top:0; }
 #homepage_center_stage h1.three_line { font-size:36px; line-height:44px; }
+#homepage_center_stage h1.three_plus_lines { font-size:30px; line-height:35px; }
 #homepage_center_stage p {
   font-size: 17px;
   line-height: 21px;
@@ -645,13 +646,15 @@ body.homepage #homepage_header_wrapper { display:block; }
   padding: 0;
   width: 230px;
 }
-#homepage_center_stage div.featured_product_text p.content { height:240px; overflow:auto; }
+#homepage_center_stage div.featured_product_text p.content { height:auto; overflow:hidden; }
 #homepage_center_stage #initially_featured_product_text p.content { height:320px; width:285px; }
 
 #homepage_center_stage .ribbon_red   { position:absolute; bottom:145px; right:-50px; }
 #homepage_center_stage .ribbon_white { position:absolute; bottom:85px;  right:-50px; }
+#homepage_center_stage a.event_details_link { position:absolute; bottom:0; left:0; }
 #homepage_center_stage a { font-family:Cabin,Arial,sans-serif; font-style:normal; font-size:14px; text-transform:uppercase; color:#fff; }
 #homepage_center_stage a:hover { color:#c54528; }
+
 
 #header { background:/*#fdf6ee*/ url(../images/background-navigation.jpg) repeat-x; }
 #header.fixed { position:fixed; top:0; left:0; width:100%; z-index:1000; }
