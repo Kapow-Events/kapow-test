@@ -221,34 +221,64 @@ var cj =
 
   setupFeaturedProducts: function ()
   {
-    var self     = this,
-        speed    = 250,
-        $links   = self.$homepage_header.find('#steps a'),
-        $fp_text = self.$homepage_header.find('.featured_product_text'),
-        backstretch_options = { 'target':self.homepage_header_ID, 'speed':speed, 'positionType':'absolute', 'zIndex':0 };
+    var self = this,
+        fp = {
+          speed: 250,
+          $links: self.$homepage_header.find('#steps a'),
+          $text: self.$homepage_header.find('.featured_product_text'),
+          backstretch_options: { 'target':self.homepage_header_ID, 'speed':this.speed, 'positionType':'absolute', 'zIndex':0 }
+        };
 
-    if (self.$homepage_header.is('*') && $fp_text.is('*') && $links.is('*'))
+    if (self.$homepage_header.is('*') && fp.$text.is('*') && fp.$links.is('*'))
     {
       // Show first image/text on initial load
-      jQuery.backstretch( $links.first().attr('rel'), backstretch_options );
-      $fp_text.first().addClass('active');
+      jQuery.backstretch( fp.$links.first().attr('rel'), fp.backstretch_options );
+      fp.$text.first().addClass('active');
+
+      // Start the timer
+      self.timer_is_on = true;
+
+      var interval = 5000,
+          count    = 2;
+
+      self.timer = setInterval(function(){
+        if (self.timer_is_on)
+        {
+          // reset the count if at the last step
+          count = count > fp.$links.length ? 1 : count;
+          self.changeFeaturedProduct(jQuery(fp.$links[count-1]), fp);
+          count++;
+        }
+      }, interval);
 
       // Setup navigation click event
       self.$homepage_header.delegate('#steps a', 'click', function(e){
         e.preventDefault();
         var $target = jQuery(e.currentTarget);
 
-        if (!$target.hasClass('active'))
+        // If the timer is running, turn it off
+        if (self.timer_is_on)
         {
-          $links.removeClass('active');
-          $fp_text.fadeOut(speed).removeClass('active');
-
-          $target.addClass('active');
-
-          jQuery.backstretch( $target.attr('rel'), backstretch_options );
-          jQuery( $target.attr('href')+'_text' ).fadeIn(speed).addClass('active');
+          clearInterval(self.timer);
+          self.timer_is_on = false;
         }
+
+        self.changeFeaturedProduct($target, fp);
       });
+    }
+  },
+
+  changeFeaturedProduct: function($target, fp)
+  {
+    if (!$target.hasClass('active'))
+    {
+      fp.$links.removeClass('active');
+      fp.$text.fadeOut(fp.speed).removeClass('active');
+
+      $target.addClass('active');
+
+      jQuery.backstretch( $target.attr('rel'), fp.backstretch_options );
+      jQuery( $target.attr('href')+'_text' ).fadeIn(fp.speed).addClass('active');
     }
   },
 
