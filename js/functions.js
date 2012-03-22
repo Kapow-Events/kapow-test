@@ -221,12 +221,13 @@ var cj =
 
   setupFeaturedProducts: function ()
   {
-    var self = this,
-        fp = {
-          speed: 250,
+    var self  = this,
+        speed = 1000,
+        fp    = {
+          speed: speed,
           $links: self.$homepage_header.find('#steps a'),
           $text: self.$homepage_header.find('.featured_product_text'),
-          backstretch_options: { 'target':self.homepage_header_ID, 'speed':this.speed, 'positionType':'absolute', 'zIndex':0 }
+          backstretch_options: { 'target':self.homepage_header_ID, 'speed':speed, 'positionType':'absolute', 'zIndex':0 }
         };
 
     if (self.$homepage_header.is('*') && fp.$text.is('*') && fp.$links.is('*'))
@@ -238,7 +239,7 @@ var cj =
       // Start the timer
       self.timer_is_on = true;
 
-      var interval = 5000,
+      var interval = 7000,
           count    = 2;
 
       self.timer = setInterval(function(){
@@ -272,13 +273,15 @@ var cj =
   {
     if (!$target.hasClass('active'))
     {
+      var percentage = 0.7;
+
       fp.$links.removeClass('active');
-      fp.$text.fadeOut(fp.speed).removeClass('active');
+      fp.$text.fadeOut(fp.speed * percentage).removeClass('active');
 
       $target.addClass('active');
 
       jQuery.backstretch( $target.attr('rel'), fp.backstretch_options );
-      jQuery( $target.attr('href')+'_text' ).fadeIn(fp.speed).addClass('active');
+      jQuery( $target.attr('href')+'_text' ).fadeIn(fp.speed * percentage).addClass('active');
     }
   },
 
