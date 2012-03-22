@@ -938,6 +938,8 @@ p.callout { font-size:18px; line-height:24px; }
 }
 #carousel input.disabled { opacity:0.3; }
 
+#event_detail .content { font-style:normal; }
+
 #fancybox-overlay { position:fixed; }
 #lightbox-signup-or-login {
   background: #FDF6EE;
