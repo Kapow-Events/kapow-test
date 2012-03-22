@@ -1,7 +1,7 @@
   <?php
     $_helper                    = $this->helper('catalog/output');
     $featured_products          = $this->getFeatured();
-    $initially_featured_product = $this->getInitiallyFeaturedProduct();
+    //$initially_featured_product = $this->getInitiallyFeaturedProduct();
   ?>
 
   <div id="homepage_header_wrapper" class="outer_wrapper">
@@ -66,11 +66,14 @@
                 // Try to account for a 3 line name by adjusting the font size
                 $name      = $_helper->productAttribute($_product, $_product->getName(), 'name');
                 $font_size = strlen($name) >= 20 ? ' class="three_line"' : '';
+                $font_size = strlen($name) > 20  ? ' class="three_plus_lines"' : '';
 
                 echo "<h1{$font_size}>{$name}</h1>";
               ?>
               <p class="content"><?php echo $_helper->productAttribute($_product, $_product->getShortDescription()) ?></p>
-              <p><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>">view event details ></a></p>
+              <a class="event_details_link" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>">
+                view event details >
+              </a>
             </div>
           <?php $i++; endforeach; ?>
         </section>
