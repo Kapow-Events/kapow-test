@@ -761,6 +761,23 @@ body.homepage #homepage_header_wrapper { display:block; }
 #footer #contact_information a { color:#333; }
 #footer #contact_information em { font-family:"Times New Roman",serif; }
 
+#footer_sublinks {
+  background: url(../images/background-angled-lines.png) repeat-x;
+  margin: 15px 0 0 0;
+  padding: 15px 0 0 0;
+  text-align: center;
+}
+#footer_sublinks a {
+  border-right: 1px dotted #cbc5bd;
+  padding: 0 10px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 14px;
+  color: #aba59d;
+}
+#footer_sublinks a.last {
+  border-right: none;
+}
 
 
 /* =============================================================================
