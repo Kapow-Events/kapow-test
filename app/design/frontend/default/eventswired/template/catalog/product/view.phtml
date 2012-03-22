@@ -95,7 +95,7 @@
                   $host_address = $_product->getHostAddress();
                   if (!empty($host_address)) {
                     $host_address = str_replace(' ', '+', $host_address);
-                    echo "<iframe width=\"303\" height=\"230\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\" src=\"http://maps.google.com/maps?q={$host_address}&ie=UTF8&t=m&z=13&output=embed\"></iframe>";
+                    echo "<iframe width=\"303\" height=\"230\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\" src=\"http://maps.google.com/maps?q={$host_address}&amp;ie=UTF8&iwloc=&amp;t=m&amp;z=13&amp;output=embed\"></iframe>";
                   }
                 ?>
                 <?php echo $_product->getAboutHost() ?>
