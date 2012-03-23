@@ -1,0 +1,253 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <AdjustWare_Notification>
+            <version>2.2.0</version>
+        </AdjustWare_Notification>
+    </modules>
+    <adminhtml>
+        <translate>
+            <modules>
+                <AdjustWare_Notification>
+                    <files>
+                        <default>AdjustWare_Notification.csv</default>
+                    </files>
+                </AdjustWare_Notification>
+            </modules>
+        </translate>
+    </adminhtml>
+    <global>
+        <models>
+            <adjnotification>
+                <class>AdjustWare_Notification_Model</class>
+            </adjnotification>
+            <newsletter>
+                <rewrite>
+                    <subscriber>AdjustWare_Notification_Model_Rewrite_Newsletter_Subscriber</subscriber>
+                </rewrite>
+            </newsletter>
+            <sales>
+                <rewrite>
+                    <order>AdjustWare_Notification_Model_Rewrite_Sales_Order</order>
+                </rewrite>
+            </sales>
+        </models>
+        <blocks>
+            <checkout>
+                <rewrite>
+                    <onepage>AdjustWare_Notification_Block_Rewrite_FrontCheckoutOnepage</onepage>
+                </rewrite>
+            </checkout>
+        </blocks>
+        <resources>
+            <adjnotification_setup>
+                <setup>
+                    <module>AdjustWare_Notification</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </adjnotification_setup>
+            <adjnotification_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </adjnotification_write>
+            <adjnotification_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </adjnotification_read>
+        </resources>
+        <helpers>
+            <adjnotification>
+                <class>AdjustWare_Notification_Helper</class>
+            </adjnotification>
+        </helpers>
+        <template>
+            <email>
+                <adjnotification_new_order_template translate="label" module="adjnotification">
+                    <label>Order Notification</label>
+                    <file>adjnotification_order.html</file>
+                    <type>html</type>
+                </adjnotification_new_order_template>
+                <adjnotification_new_customer_template translate="label" module="adjnotification">
+                    <label>Customer Notification</label>
+                    <file>adjnotification_customer.html</file>
+                    <type>html</type>
+                </adjnotification_new_customer_template>
+                <adjnotification_new_review_template translate="label" module="adjnotification">
+                    <label>Review Notification</label>
+                    <file>adjnotification_review.html</file>
+                    <type>html</type>
+                </adjnotification_new_review_template>
+                <adjnotification_new_tag_template translate="label" module="adjnotification">
+                    <label>Tag Notification</label>
+                    <file>adjnotification_tag.html</file>
+                    <type>html</type>
+                </adjnotification_new_tag_template>
+                <adjnotification_new_newsletter_template translate="label" module="adjnotification">
+                    <label>Customer Has Subscribed Notification</label>
+                    <file>adjnotification_new_newsletter.html</file>
+                    <type>html</type>
+                </adjnotification_new_newsletter_template>
+                <adjnotification_unsubscribe_newsletter_template translate="label" module="adjnotification">
+                    <label>Customer Has Unsubscribed Notification</label>
+                    <file>adjnotification_unubscribe_newsletter.html</file>
+                    <type>html</type>
+                </adjnotification_unsubscribe_newsletter_template>
+                <adjnotification_new_coupon_template translate="label" module="adjnotification">
+                    <label>Coupon Notification</label>
+                    <file>adjnotification_coupon.html</file>
+                    <type>html</type>
+                </adjnotification_new_coupon_template>
+                <adjnotification_order_status_template_1 translate="label" module="adjnotification">
+                    <label>An Order Status Has Changed From ... To ... 1 </label>
+                    <file>adjnotification_order_status.html</file>
+                    <type>html</type>
+                </adjnotification_order_status_template_1>
+                <adjnotification_order_status_template_2 translate="label" module="adjnotification">
+                    <label>An Order Status Has Changed From ... To ... 2 </label>
+                    <file>adjnotification_order_status.html</file>
+                    <type>html</type>
+                </adjnotification_order_status_template_2>
+                <adjnotification_order_status_template_3 translate="label" module="adjnotification">
+                    <label>An Order Status Has Changed From ... To ... 3 </label>
+                    <file>adjnotification_order_status.html</file>
+                    <type>html</type>
+                </adjnotification_order_status_template_3>
+            </email>
+        </template>
+        <events>
+            <controller_action_postdispatch_checkout_cart_couponPost>
+                <observers>
+                    <adjnotificationcouponPost>
+                        <class>adjnotification/observer</class>
+                        <method>processCouponPost</method>
+                    </adjnotificationcouponPost>
+                </observers>
+            </controller_action_postdispatch_checkout_cart_couponPost>
+            <controller_action_postdispatch_adminhtml_sales_order_create_loadBlock>
+                <observers>
+                    <adjnotificationcouponPost>
+                        <class>adjnotification/observer</class>
+                        <method>processAdminhtmlCouponPost</method>
+                    </adjnotificationcouponPost>
+                </observers>
+            </controller_action_postdispatch_adminhtml_sales_order_create_loadBlock>
+            <controller_action_predispatch_newsletter_manage_save>
+                <observers>
+                    <adjnotificationcouponPost>
+                        <class>adjnotification/observer</class>
+                        <method>subscribeCustomer</method>
+                    </adjnotificationcouponPost>
+                </observers>
+            </controller_action_predispatch_newsletter_manage_save>
+            <model_save_before>
+                <observers>
+                    <adjnotification6>
+                        <type>singleton</type>
+                        <class>adjnotification/observer</class>
+                        <method>processModelSaveBefore</method>
+                    </adjnotification6>
+                </observers>
+            </model_save_before>
+            <model_save_after>
+                <observers>
+                    <adjnotification7>
+                        <type>singleton</type>
+                        <class>adjnotification/observer</class>
+                        <method>processModelSaveAfter</method>
+                    </adjnotification7>
+                </observers>
+            </model_save_after>
+            <core_locale_set_locale>
+                <observers>
+                    <adjnotification>
+                        <type>model</type>
+                        <class>adjnotification/sales_observer</class>
+                        <method>onCoreLocaleSetLocale</method>
+                    </adjnotification>
+                </observers>
+            </core_locale_set_locale>
+            <adminhtml_controller_action_predispatch_start>
+                <observers>
+                    <adjnotification>
+                        <type>model</type>
+                        <class>adjnotification/sales_quote_observer</class>
+                        <method>onAdminhtmlControllerActionPredispatchStart</method>
+                    </adjnotification>
+                </observers>
+            </adminhtml_controller_action_predispatch_start>
+        </events>
+    </global>
+    <default>
+        <adjnotification>
+            <sender>
+                <identity>general</identity>
+            </sender>
+            <new_order>
+                <notification>0</notification>
+                <template>adjnotification_new_order_template</template>
+                <send_to>admin@example.com</send_to>
+            </new_order>
+            <new_customer>
+                <notification>0</notification>
+                <template>adjnotification_new_customer_template</template>
+                <send_to>admin@example.com</send_to>
+            </new_customer>
+            <new_review>
+                <notification>0</notification>
+                <template>adjnotification_new_review_template</template>
+                <send_to>admin@example.com</send_to>
+            </new_review>
+            <new_tag>
+                <notification>0</notification>
+                <template>adjnotification_new_tag_template</template>
+                <send_to>admin@example.com</send_to>
+            </new_tag>
+            <new_newsletter>
+                <notification>0</notification>
+                <template>adjnotification_new_newsletter_template</template>
+                <send_to>admin@example.com</send_to>
+            </new_newsletter>
+            <unsubscribe_newsletter>
+                <notification>0</notification>
+                <template>adjnotification_unsubscribe_newsletter_template</template>
+                <send_to>admin@example.com</send_to>
+            </unsubscribe_newsletter>
+            <new_coupon>
+                <notification>0</notification>
+                <template>adjnotification_new_coupon_template</template>
+                <send_to>admin@example.com</send_to>
+            </new_coupon>
+            <order_status>
+                <notification_1>0</notification_1>
+                <from_1/>
+                <to_1/>
+                <template>adjnotification_order_status_template</template>
+                <send_to_1>admin@example.com</send_to_1>
+                <notification_2>0</notification_2>
+                <from_2/>
+                <to_2/>
+                <template_2>adjnotification_order_status_template</template_2>
+                <send_to_2>admin@example.com</send_to_2>
+                <notification_3>0</notification_3>
+                <from_3/>
+                <to_3/>
+                <template_3>adjnotification_order_status_template</template_3>
+                <send_to_3>admin@example.com</send_to_3>
+            </order_status>
+        </adjnotification>
+    </default>
+</config>
+<!--
+/**
+ * Product:     Admin Email Notifications for 1.4.x-1.6.1.0 
+ * Package:     AdjustWare_Notification_2.2.0_2.1.0_233631
+ * Purchase ID: VgTBgcMfRJNN8TEH6RZt8oax2Zeu1FkviyZl5t0FfV
+ * Generated:   2012-03-23 19:25:00
+ * File path:   app/code/local/AdjustWare/Notification/etc/config.xml
+ * Copyright:   (c) 2012 AITOC, Inc.
+ */
+-->

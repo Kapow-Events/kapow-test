@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <adjnotification translate="title" module="adjnotification">
+                                <title>Admin Email Notifications</title>
+                                <sort_order>0</sort_order>
+                            </adjnotification>
+                            <config>
+                                <children>
+                                    <adjnotification translate="title" module="adjnotification">
+                                        <title>Admin Email Notifications</title>
+                                    </adjnotification>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>
+<!--
+/**
+ * Product:     Admin Email Notifications for 1.4.x-1.6.1.0 
+ * Package:     AdjustWare_Notification_2.2.0_2.1.0_233631
+ * Purchase ID: VgTBgcMfRJNN8TEH6RZt8oax2Zeu1FkviyZl5t0FfV
+ * Generated:   2012-03-23 19:25:00
+ * File path:   app/code/local/AdjustWare/Notification/etc/adminhtml.xml
+ * Copyright:   (c) 2012 AITOC, Inc.
+ */
+-->
