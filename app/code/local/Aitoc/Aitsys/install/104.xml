@@ -1,0 +1,2 @@
+<?xml version="1.0"?>
+<install><product id="104" key="AdjustWare_Notification" version="2.2.0" license_id="9685" link_id="233631"><![CDATA[Admin Email Notifications]]></product><serial>VgTBgcMfRJNN8TEH6RZt8oax2Zeu1FkviyZl5t0FfV</serial><checkid>a46f79375e5d212e2cade401e369b189</checkid><store_url><![CDATA[http://www.aitoc.com/en/]]></store_url><service><![CDATA[https://www.aitoc.com/api/xmlrpc/]]></service><constraint><store label="Number of stores">1</store></constraint></install>

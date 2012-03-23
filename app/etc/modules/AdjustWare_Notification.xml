@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <AdjustWare_Notification>
+            <active>false</active>
+            <codePool>local</codePool>
+            <self_name>Admin Email Notifications</self_name>
+            <priority>10001</priority>
+        </AdjustWare_Notification>
+    </modules>
+</config>
+<!--
+/**
+ * Product:     Admin Email Notifications for 1.4.x-1.6.1.0 
+ * Package:     AdjustWare_Notification_2.2.0_2.1.0_233631
+ * Purchase ID: VgTBgcMfRJNN8TEH6RZt8oax2Zeu1FkviyZl5t0FfV
+ * Generated:   2012-03-23 19:25:00
+ * File path:   app/etc/modules/AdjustWare_Notification.xml
+ * Copyright:   (c) 2012 AITOC, Inc.
+ */
+-->
