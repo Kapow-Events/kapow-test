@@ -2,7 +2,7 @@
 <config>
     <modules>
         <AdjustWare_Notification>
-            <active>false</active>
+            <active>true</active>
             <codePool>local</codePool>
             <self_name>Admin Email Notifications</self_name>
             <priority>10001</priority>
