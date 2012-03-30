@@ -979,7 +979,8 @@ p.callout { font-size:18px; line-height:24px; }
   display: none;
   background: #000;
   color: #fff;
-  font-size: 14px;
+  line-height: 26px;
+  font-size: 18px;
   font-family: "Times New Roman", serif;
   font-style: italic;
 
