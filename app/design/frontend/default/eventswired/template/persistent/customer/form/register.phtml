@@ -33,14 +33,14 @@
 /** @var $this Mage_Customer_Block_Form_Register */
 ?>
 <div class="account-create">
-    <div class="page-title">
-        <h2><?php echo $this->__('Create an Account') ?></h2>
-    </div>
+    <h2><?php echo $this->__('Create an Account') ?></h2>
+
     <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('create_account_top')->toHtml(); ?>
     <?php echo $this->getChildHtml('form_fields_before')?>
     <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+
     <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="form-validate">
-        <div class="fieldset">
+        <div class="left fieldset">
             <input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>" />
             <input type="hidden" name="error_url" value="<?php echo $this->getErrorUrl() ?>" />
             <h3><?php echo $this->__('Personal Information') ?></h3>
@@ -77,7 +77,7 @@
             </ul>
         </div>
     <?php if($this->getShowAddressFields()): ?>
-        <div class="fieldset">
+        <div class="right fieldset">
             <input type="hidden" name="create_address" value="1" />
             <h3><?php echo $this->__('Address Information') ?></h3>
             <ul class="form-list">
@@ -149,7 +149,7 @@
             <input type="hidden" name="default_shipping" value="1" />
         </div>
     <?php endif; ?>
-        <div class="fieldset">
+        <div class="left fieldset">
             <h3><?php echo $this->__('Login Information') ?></h3>
             <ul class="form-list">
                 <li class="fields">
