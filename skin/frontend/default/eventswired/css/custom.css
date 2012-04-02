@@ -1031,6 +1031,9 @@ p.callout { font-size:18px; line-height:24px; }
   padding: 20px 0;
   margin: 0;
 }
+.form-list .input-box {
+  margin: 0 0 15px 0;
+}
 
 /* ==|== media queries ======================================================
    PLACEHOLDER Media Queries for Responsive Design.
