@@ -90,11 +90,6 @@
         <ul class="event_grid basic_grid clearfix">
         <?php endif ?>
             <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?>">
-                <div class="ribbon_red">
-                    <a href="<?php echo $_product->getProductUrl() ?>" class="amount">
-                      <?php echo (int)Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty(); ?>
-                    </a> available
-                </div>
                 <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->resize(308,128); ?>" width="308" height="128" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
                 <h3><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h3>
                 <p><?php echo $_helper->productAttribute($_product, $_product->getShortDescription()) ?></p>
