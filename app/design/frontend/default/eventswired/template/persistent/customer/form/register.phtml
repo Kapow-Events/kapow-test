@@ -36,6 +36,7 @@
     <div class="page-title">
         <h2><?php echo $this->__('Create an Account') ?></h2>
     </div>
+    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('create_account_top')->toHtml(); ?>
     <?php echo $this->getChildHtml('form_fields_before')?>
     <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
     <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="form-validate">
