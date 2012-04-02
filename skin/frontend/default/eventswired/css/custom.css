@@ -213,6 +213,8 @@ iframe { border:10px solid #D7D1CA; margin:5px 0 20px 0; }
 ul, ol { margin: 1em 0; padding: 0 0 0 40px; }
 dd { margin: 0 0 0 40px; }
 nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
+ol { list-style:decimal; }
+ol li { padding:5px 0; }
 
 
 /* =============================================================================
