@@ -727,6 +727,7 @@ body.homepage #homepage_header_wrapper { display:block; }
 
 
 #secondary_navigation { position:relative; z-index:200; height:50px; width:990px; font-family:"Times New Roman",serif; }
+  #secondary_navigation p,
   #secondary_navigation a {
     display: block;
     height: 30px;
@@ -734,6 +735,7 @@ body.homepage #homepage_header_wrapper { display:block; }
     font-size: 14px;
     color: #333;
     border: none;
+    margin: 0;
   }
   #secondary_navigation a:hover { border:none; color:#c44427; }
   #secondary_navigation li.spacer_dot {
