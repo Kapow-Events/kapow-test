@@ -82,7 +82,7 @@ var cj =
         $slidebox     = jQuery('#slidebox'),
         $content      = $slidebox.find('.content'),
         $close_button = $slidebox.find('#slidebox_close'),
-        height        = self.$window.height() >= 800 ? 600 : self.$window.height() - 200;
+        height        = self.$window.height() >= 800 ? 520 : self.$window.height() - 270;
 
     // Setup an alias
     self.$slidebox = $slidebox;
