@@ -87,9 +87,6 @@
                 <action method="removeItem"><type>skin_css</type><name>css/styles.css</name></action> 
                 <action method="removeItem"><type>skin_css</type><name>css/styles-ie.css</name></action> 
         </reference>
-        <customer_logged_in>
-                <remove name="checkout_cart_link"/>
-        </customer_logged_in>
     </cms_index_index>
     <!--CATALOG PAGES -->
     
