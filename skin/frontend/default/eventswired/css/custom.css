@@ -973,13 +973,14 @@ p.callout { font-size:18px; line-height:24px; }
 
 #fancybox-overlay { position:fixed; }
 #lightbox-signup-or-login {
+  border: 15px solid #d8d0c9;
   background: #FDF6EE;
-  width: 500px;
-  padding: 20px;
+  width: 540px;
+  padding: 25px 40px;
   text-align: center;
 }
-#lightbox-signup-or-login h2 { margin-bottom:35px; }
-#lightbox-signup-or-login p  { margin-bottom:25px; }
+#lightbox-signup-or-login h2 { margin-bottom:40px; }
+#lightbox-signup-or-login p  { margin-bottom:30px; font-size:17px; line-height:22px; }
 
 #slidebox {
   position: absolute;
