@@ -53,6 +53,16 @@
             </default_setup>
         </resources>
         <session_save><![CDATA[files]]></session_save>
+
+        <page>
+            <layouts>
+                <one_column_html5 module="page" translate="label">
+                    <label>1 column html5</label>
+                    <template>page/1column-html5.phtml</template>
+                    <layout_handle>page_one_column_html5</layout_handle>
+                </one_column_html5>
+            </layouts>
+        </page>
     </global>
     <admin>
         <routers>

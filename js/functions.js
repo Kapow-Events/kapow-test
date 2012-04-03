@@ -78,11 +78,11 @@ var cj =
     var self          = this,
         delay         = 750,
         speed         = 1500,
-        offset        = 100,
+        offset        = 200,
         $slidebox     = jQuery('#slidebox'),
         $content      = $slidebox.find('.content'),
         $close_button = $slidebox.find('#slidebox_close'),
-        height        = self.$window.height() >= 800 ? 520 : self.$window.height() - 270;
+        height        = self.$window.height() >= 600 ? 480 : self.$window.height() - (self.$window.height() * 0.15)
 
     // Setup an alias
     self.$slidebox = $slidebox;
@@ -309,7 +309,7 @@ var cj =
           navigation_height = this.$navigation.outerHeight(true),
           speed             = 2500;
 
-      jQuery('body').stop().animate({'scrollTop' : scroll_y - navigation_height}, speed, function(){ });
+      jQuery('html,body').stop().animate({'scrollTop' : scroll_y - navigation_height}, speed, function(){ });
     }
 
     return this;

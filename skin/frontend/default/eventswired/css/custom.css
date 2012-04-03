@@ -728,7 +728,14 @@ body.homepage #homepage_header_wrapper { display:block; }
   #primary_navigation_right li #contact_ribbon_arrow:active { background-position:-180px -101px; color:#333333; border:none; padding:0; }
 
 
-#secondary_navigation { position:relative; z-index:200; height:50px; width:990px; font-family:"Times New Roman",serif; }
+#secondary_navigation {
+  position: relative;
+  z-index: 200;
+  height: 50px;
+  width: 990px;
+  font-family: "Times New Roman",serif;
+  font-weight: bold;
+}
   #secondary_navigation p,
   #secondary_navigation a {
     display: block;
@@ -810,9 +817,13 @@ ul.event_grid li .ribbon_red { position:absolute; top:10px; right:-5px; }
 ul.event_grid li .button_ribbon { position:absolute; bottom:-20px; left:90px; }
 
 p.callout { font-size:18px; line-height:24px; }
+.page-title { padding:0; margin:0; }
 
 .main section, .main .section { clear:both; margin:0 0 150px 0; padding-right:50px; }
 
+#custom_events ol, #custom_events ul { margin:0; }
+#custom_events li { padding:0 0 40px 0; font-size:20px; font-weight:bold; line-height:25px; }
+#custom_events li small { font-weight:bold; font-size:75%; }
 
 #custom_events_steps { list-style:none; margin:0; padding:0; }
 #custom_events_steps li img { position:relative; top:-10px; }
@@ -835,10 +846,13 @@ p.callout { font-size:18px; line-height:24px; }
 #about_events_wired ul.basic_grid li { width:200px; text-align:center; }
 #about_events_wired ul.basic_grid li p { font-size:14px; }
 
+#how_it_works ul.basic_grid {
+  margin: -25px;
+}
 #how_it_works ul.basic_grid li {
   width: 250px;
   left: 25px;
-  margin: 24px 45px;
+  margin: 24px 43px;
   text-align: justify;
 }
 
@@ -934,10 +948,11 @@ p.callout { font-size:18px; line-height:24px; }
 #carousel {
   position: relative;
   height: 450px;
-  width: 672px;
+  width: 722px;
+  left: -50px;
 }
 #carousel ul { list-style:none; padding:0; margin:0; }
-#carousel ul li { float:left; height:450px; width:672px; position:relative; }
+#carousel ul li { float:left; height:450px; width:722px; position:relative; }
 #carousel ul li img { position:absolute; top:0; left:0; }
 
 #carousel .carousel-previous {
@@ -972,13 +987,14 @@ p.callout { font-size:18px; line-height:24px; }
 
 #fancybox-overlay { position:fixed; }
 #lightbox-signup-or-login {
+  border: 15px solid #d8d0c9;
   background: #FDF6EE;
-  width: 500px;
-  padding: 20px;
+  width: 540px;
+  padding: 25px 40px;
   text-align: center;
 }
-#lightbox-signup-or-login h2 { margin-bottom:35px; }
-#lightbox-signup-or-login p  { margin-bottom:25px; }
+#lightbox-signup-or-login h2 { margin-bottom:40px; }
+#lightbox-signup-or-login p  { margin-bottom:30px; font-size:17px; line-height:22px; }
 
 #slidebox {
   position: absolute;
@@ -1008,6 +1024,7 @@ p.callout { font-size:18px; line-height:24px; }
   border-bottom-left-radius: 20px;
 }
 #slidebox p { margin:0 0 20px 0; }
+#slidebox small { font-size:12px; }
 #slidebox .content { overflow:auto; padding:25px 35px; }
 
 #slidebox_close {

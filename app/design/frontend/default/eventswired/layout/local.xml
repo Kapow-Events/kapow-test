@@ -146,14 +146,23 @@
 
     <customer_logged_out>
         <reference name="top.links">
-            <action method="removeLinkByUrl"><url helper="customer/getAccountUrl"/></action>
-            <remove name="checkout_cart_link"/>
+              <action method="removeLinkByUrl"><url helper="customer/getAccountUrl"/></action>
+              <remove name="checkout_cart_link"/>
+              <action method="addLink">
+                  <name>Become a Member</name><path>/customer/account/create</path>
+              </action>
         </reference>
     </customer_logged_out>
 
     <customer_logged_in>
         <reference name="right">
           <remove name="sale.reorder.sidebar" />
+        </reference>
+        <reference name="top.links">
+              <remove name="checkout_cart_link"/>
+              <block type="checkout/links" name="checkout_cart_link_custom">
+                  <action method="addCartLink"></action>
+              </block>
         </reference>
     </customer_logged_in>
 
