@@ -811,10 +811,7 @@ ul.event_grid li .button_ribbon { position:absolute; bottom:-20px; left:90px; }
 
 p.callout { font-size:18px; line-height:24px; }
 
-#main_content section, #main_content .section { clear:both; margin:0 0 150px 0; padding-right:50px; }
-
-
-#main_content { padding-top:40px; }
+.main section, .main .section { clear:both; margin:0 0 150px 0; padding-right:50px; }
 
 
 #custom_events_steps { list-style:none; margin:0; padding:0; }
