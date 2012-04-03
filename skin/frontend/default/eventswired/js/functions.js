@@ -309,7 +309,7 @@ var cj =
           navigation_height = this.$navigation.outerHeight(true),
           speed             = 2500;
 
-      jQuery('body').stop().animate({'scrollTop' : scroll_y - navigation_height}, speed, function(){ });
+      jQuery('html,body').stop().animate({'scrollTop' : scroll_y - navigation_height}, speed, function(){ });
     }
 
     return this;
