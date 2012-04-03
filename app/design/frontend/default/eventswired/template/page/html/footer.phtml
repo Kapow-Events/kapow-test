@@ -106,6 +106,7 @@
       <a href="#lightbox-signup-or-login" class="lightbox-modal"></a>
       <div id="lightbox-signup-or-login">
         <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('lightbox-login-or-signup')->toHtml(); ?>
+          <div><a class="button_ribbon floatright" href="/customer/account/create/">become a member</a><a class="button_ribbon_small" href="/customer/account/login/referer/<?php echo Mage::helper('core')->urlEncode($this->helper('core/url')->getCurrentUrl()); ?>/">sign in</a></div>
       </div>
     </div>
   <?php endif; ?>
