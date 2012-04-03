@@ -49,7 +49,6 @@
 
         <div id="event_callout" class="clearfix">
             <div class="left">
-                <p class="datetime">posted on: <em><?php echo Mage::app()->getLocale()->date(strtotime($_product->getCreatedAt()), null, null, false)->toString('MMM d Y') ?></em></p>
                 <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
 
 <?php /*
