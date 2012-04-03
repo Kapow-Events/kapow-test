@@ -36,13 +36,7 @@
     <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
     <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="login-form">
         <div class="col2-set">
-            <div class="col-1 new-users">
-                <div class="content">
-                    <h2><?php echo $this->__('New Customers') ?></h2>
-                    <p><?php echo $this->__('By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.') ?></p>
-                </div>
-            </div>
-            <div class="col-2 registered-users">
+            <div class="col-1 registered-users">
                 <div class="content">
                     <h2><?php echo $this->__('Registered Customers') ?></h2>
                     <p><?php echo $this->__('If you have an account with us, please log in.') ?></p>
@@ -65,18 +59,20 @@
                     <p class="required"><?php echo $this->__('* Required Fields') ?></p>
                 </div>
             </div>
-        </div>
-        <div class="col2-set">
-            <div class="col-1 new-users">
-                <div>
-                    <a href="<?php echo Mage::helper('persistent')->getCreateAccountUrl($this->getCreateAccountUrl()) ?>" title="<?php echo $this->__('Create an Account') ?>" class="button_ribbon"><?php echo $this->__('Create Account') ?></a>
+            <div class="col-2 static-cms-block">
+                <div class="content">
+                    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('register_right')->toHtml(); ?>
                 </div>
             </div>
-            <div class="col-2 registered-users">
+        </div>
+        <div class="col2-set">
+            <div class="col-1 registered-users">
                 <div>
                     <a href="<?php echo $this->getForgotPasswordUrl() ?>" class="f-left button_ribbon"><?php echo $this->__('Reset Password') ?></a>
                     <input type="submit" class="button_ribbon f-right" value="<?php echo $this->__('Login') ?>" />
                 </div>
+            </div>
+            <div class="col-2 empty">
             </div>
         </div>
         <?php if (Mage::helper('checkout')->isContextCheckout()): ?>
