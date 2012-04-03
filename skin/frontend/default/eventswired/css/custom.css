@@ -728,7 +728,14 @@ body.homepage #homepage_header_wrapper { display:block; }
   #primary_navigation_right li #contact_ribbon_arrow:active { background-position:-180px -101px; color:#333333; border:none; padding:0; }
 
 
-#secondary_navigation { position:relative; z-index:200; height:50px; width:990px; font-family:"Times New Roman",serif; }
+#secondary_navigation {
+  position: relative;
+  z-index: 200;
+  height: 50px;
+  width: 990px;
+  font-family: "Times New Roman",serif;
+  font-weight: bold;
+}
   #secondary_navigation p,
   #secondary_navigation a {
     display: block;
