@@ -112,6 +112,10 @@
         <reference name="content">
             <reference name="product.info">
                 <block type="catalog/product_view" name="product.info.quantity" as="quantity" template="catalog/product/view/quantity.phtml" />
+                <block type="catalog/product_view" name="product.info.options.wrapper.bottom" as="product_options_wrapper_bottom" template="catalog/product/view/options/wrapper/bottom.phtml" translate="label">
+                    <action method="unsetChild"><name>tierprices</name></action>
+                    <action method="unsetChild"><name>addto</name></action>
+                </block>
             </reference>
         </reference>
 
