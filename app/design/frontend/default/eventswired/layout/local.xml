@@ -38,6 +38,15 @@
                 <remove name="catalog.topnav"/>
         </reference>
 
+        <reference name="top.links">
+                <remove name="checkout_cart_link"/>
+
+                <!-- Re-add 'My Cart' link after removing both links -->
+                <block type="checkout/links" name="checkout_cart_link_custom">
+                        <action method="addCartLink"></action>
+                </block>
+        </reference>
+
         <reference name="left">
                 <remove name="left.newsletter"/>
                 <remove name="left.permanent.callout"/>
