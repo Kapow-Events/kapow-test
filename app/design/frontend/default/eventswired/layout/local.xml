@@ -155,7 +155,7 @@
           <remove name="sale.reorder.sidebar" />
         </reference>
         <reference name="top.links">
-              <action method="removeLinkByUrl"><url helper="customer/getAccountUrl"/></action>
+              <remove name="checkout_cart_link"/>
               <block type="checkout/links" name="checkout_cart_link_custom">
                   <action method="addCartLink"></action>
               </block>
