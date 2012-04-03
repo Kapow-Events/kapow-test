@@ -821,7 +821,7 @@ p.callout { font-size:18px; line-height:24px; }
 
 .main section, .main .section { clear:both; margin:0 0 150px 0; padding-right:50px; }
 
-#custom_events { margin:0; }
+#custom_events ol, #custom_events ul { margin:0; }
 #custom_events li { padding:0 0 40px 0; font-size:20px; font-weight:bold; line-height:25px; }
 #custom_events li small { font-weight:bold; font-size:75%; }
 
