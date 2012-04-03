@@ -991,6 +991,7 @@ p.callout { font-size:18px; line-height:24px; }
   font-size: 18px;
   font-family: "Times New Roman", serif;
   font-style: italic;
+  text-align: left;
 
   -webkit-box-shadow: 0 0 70px rgba(0,0,0,0.85), inset 0 -1px 15px rgba(255,255,255,0.35);
   -moz-box-shadow:    0 0 70px rgba(0,0,0,0.85), inset 0 -1px 15px rgba(255,255,255,0.35);
