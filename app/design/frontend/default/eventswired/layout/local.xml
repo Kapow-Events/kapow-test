@@ -157,7 +157,7 @@
         <reference name="top.links">
               <action method="removeLinkByUrl"><url helper="customer/getAccountUrl"/></action>
               <block type="checkout/links" name="checkout_cart_link_custom">
-                  <action method="addCartLink"><method/action>
+                  <action method="addCartLink"></action>
               </block>
         </reference>
     </customer_logged_in>
