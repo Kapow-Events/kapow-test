@@ -38,14 +38,24 @@
                 <remove name="catalog.topnav"/>
         </reference>
 
-        <reference name="top.links">
-                <remove name="checkout_cart_link"/>
+        <customer_logged_in>
+                <reference name="top.links">
+                        <action method="removeLinkByUrl"><url helper="customer/getAccountUrl"/></action>
+                        <remove name="checkout_cart_link"/>
 
-                <!-- Re-add 'My Cart' link after removing both links -->
-                <block type="checkout/links" name="checkout_cart_link_custom">
-                        <action method="addCartLink"></action>
-                </block>
-        </reference>
+                        <!-- Re-add 'My Cart' link after removing both links -->
+                        <block type="checkout/links" name="checkout_cart_link_custom">
+                                <action method="addCartLink"></action>
+                        </block>
+                </reference>
+        </customer_logged_in>
+
+        <customer_logged_out>
+                <reference name="top.links">
+                        <action method="removeLinkByUrl"><url helper="customer/getAccountUrl"/></action>
+                        <remove name="checkout_cart_link"/>
+                </reference>
+        </customer_logged_out>
 
         <reference name="left">
                 <remove name="left.newsletter"/>
@@ -148,13 +158,6 @@
             <action method="addLink" translate="label" module="customer"><name>address_book</name><path>customer/address/</path><label>Address Book</label></action>
         </block>
     </customer_account>
-
-    <customer_logged_out>
-        <reference name="top.links">
-            <action method="removeLinkByUrl"><url helper="customer/getAccountUrl"/></action>
-            <remove name="checkout_cart_link"/>
-        </reference>
-    </customer_logged_out>
 
     <customer_logged_in>
         <reference name="right">
