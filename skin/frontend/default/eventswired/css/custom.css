@@ -749,6 +749,7 @@ body.homepage #homepage_header_wrapper { display:block; }
 
   #secondary_navigation_left { float:left; width:390px; }
   #secondary_navigation_left li { float:right; }
+  #secondary_navigation_left p { text-align:center; }
 
   #secondary_navigation_right { float:right; width:320px; }
   #secondary_navigation_right li { float:left; }
