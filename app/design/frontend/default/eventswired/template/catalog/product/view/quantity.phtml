@@ -1,4 +1,7 @@
-<?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+<?php
+$roleId = Mage::getSingleton('customer/session')->getCustomerGroupId();
+
+if (Mage::getSingleton('customer/session')->isLoggedIn() && $roleId != 4): ?>
 <?php $_product = $this->getProduct(); ?>
 
 <?php $parent = $this->getParentBlock(); ?>
