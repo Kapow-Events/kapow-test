@@ -67,6 +67,7 @@ a {
 }
 a:visited { color:#c84729; }
 a:hover { color:#cff; border-bottom:1px dashed #c84729; }
+a:active { outline:none; }
 
 #return_to_top {
   background: url(../images/css-sprites.png) -425px -175px no-repeat;
