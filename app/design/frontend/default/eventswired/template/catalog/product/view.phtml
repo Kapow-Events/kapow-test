@@ -111,29 +111,23 @@
                 </div>
                 <?php endforeach;?>
 */ ?>
-                <?php
-                $roleId = Mage::getSingleton('customer/session')->getCustomerGroupId();
 
-                if ($roleId == 4):
-                    echo $this->getLayout()->createBlock('cms/block')->setBlockId('purgatory-welcome-message')->toHtml();
-                else:
-?>
                 <?php echo $_helper->productAttribute($_product, $_product->getDescription()) ?>
-                <?php endif; ?>
 
 
-                <?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+                <?php $roleId = Mage::getSingleton('customer/session')->getCustomerGroupId(); ?>
+                <?php if (Mage::getSingleton('customer/session')->isLoggedIn() && $roleId != 4 && $_product->isSaleable()) : ?>
                     <?php if ($_product->isSaleable() && $this->hasOptions()):?>
                         <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
                     <?php endif;?>
-                <?php endif; ?>
 
-                <?php echo $this->getChildHtml('quantity') ?>
+                    <?php echo $this->getChildHtml('quantity') ?>
 
-                <?php if (Mage::getSingleton('customer/session')->isLoggedIn() && $roleId != 4 && $_product->isSaleable()) : ?>
-                  <hr style="margin:200px 0 15px 0;" />
-                  <span style="float:left; margin-top:10px;">Need an invoice? Got a question? Call us! <?php echo Mage::getStoreConfig('general/store_information/phone'); ?></span>
-                  <a href="#" onclick="productAddToCartForm.submit(this);" title="Add to Cart" class="button_ribbon floatright" id="add_to_cart_large">add to cart</a>
+                    <hr style="margin:200px 0 15px 0;" />
+                    <span style="float:left; margin-top:10px;">Need an invoice? Got a question? Call us! <?php echo Mage::getStoreConfig('general/store_information/phone'); ?></span>
+                    <a href="#" onclick="productAddToCartForm.submit(this);" title="Add to Cart" class="button_ribbon floatright" id="add_to_cart_large">add to cart</a>
+                <?php else: ?>
+                    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('purgatory-welcome-message')->toHtml(); ?>
                 <?php endif; ?>
             </div>
         </div>
