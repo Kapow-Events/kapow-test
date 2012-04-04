@@ -1022,15 +1022,15 @@ p.callout { font-size:18px; line-height:24px; }
 #event_detail .content { font-style:normal; }
 
 #fancybox-overlay { position:fixed; }
-#lightbox-signup-or-login {
+.lightbox-modal {
   border: 15px solid #d8d0c9;
   background: #FDF6EE;
   width: 540px;
   padding: 25px 40px;
   text-align: center;
 }
-#lightbox-signup-or-login h2 { margin-bottom:40px; }
-#lightbox-signup-or-login p  { margin-bottom:30px; font-size:17px; line-height:22px; }
+.lightbox-modal h2 { margin-bottom:40px; }
+.lightbox-modal p  { margin-bottom:30px; font-size:17px; line-height:22px; }
 
 #slidebox {
   position: absolute;

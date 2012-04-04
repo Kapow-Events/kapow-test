@@ -46,7 +46,7 @@ var cj =
 
   lightboxModal: function ()
   {
-    jQuery(".lightbox-modal").fancybox({
+    jQuery(".lightbox-modal-link").fancybox({
       'titleShow': false,
       'hideOnOverlayClick': false,
       'hideOnContentClick': false,
