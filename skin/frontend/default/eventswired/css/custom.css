@@ -113,6 +113,10 @@ h2 {
   text-shadow: -3px 3px 0 #d4d2c6;
   text-transform: uppercase;
   color: #c44427;
+  line-height: 40px;
+}
+.ie h2 {
+  font-weight: 400;
 }
 
 h2.fancy_phone_number {
@@ -305,6 +309,11 @@ input.button_ribbon {
   -moz-transition: none;
   transition: none;
 }
+.ie a.button_ribbon,
+.ie input.button_ribbon {
+  font-weight: bold;
+}
+
 
 a.button_ribbon:hover,
 a.button_ribbon:active,
@@ -339,6 +348,13 @@ input.button_ribbon_small {
   -moz-transition: none;
   transition: none;
 }
+.ie a.button_ribbon_small:hover,
+.ie a.button_ribbon_small:active,
+.ie input.button_ribbon_small:hover,
+.ie input.button_ribbon_small:active {
+  font-weight: bold;
+}
+
 
 a.button_ribbon_small:hover,
 a.button_ribbon_small:active,
@@ -696,6 +712,7 @@ body.homepage #homepage_header_wrapper { display:block; }
     padding: 0;
     margin: 0;
   }
+  .ie #primary_navigation a { font-weight:400; }
   #primary_navigation a:hover { border:none; color:#c44427; }
 
   #primary_navigation_left { float:left; width:390px; }
