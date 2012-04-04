@@ -127,12 +127,14 @@
                     <span style="float:left; margin-top:10px;">Need an invoice? Got a question? Call us! <?php echo Mage::getStoreConfig('general/store_information/phone'); ?></span>
                     <a href="#" onclick="productAddToCartForm.submit(this);" title="Add to Cart" class="button_ribbon floatright" id="add_to_cart_large">add to cart</a>
                 <?php else: ?>
+                  <?php if ($this->helper('customer')->isLoggedIn()) : ?>
                     <div class="hidden">
                       <a href="#lightbox-purgatory" class="lightbox-modal-link"></a>
                       <div id="lightbox-purgatory" class="lightbox-modal">
                         <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('purgatory-welcome-message')->toHtml(); ?>
                       </div>
                     </div>
+                  <?php endif; ?>
                 <?php endif; ?>
             </div>
         </div>
