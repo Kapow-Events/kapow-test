@@ -121,13 +121,14 @@
                 <?php echo $_helper->productAttribute($_product, $_product->getDescription()) ?>
                 <?php endif; ?>
 
-                <?php echo $this->getChildHtml('quantity') ?>
 
                 <?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?>
                     <?php if ($_product->isSaleable() && $this->hasOptions()):?>
-                        <?php // echo $this->getChildChildHtml('container2', '', true, true) ?>
+                        <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
                     <?php endif;?>
                 <?php endif; ?>
+
+                <?php echo $this->getChildHtml('quantity') ?>
 
                 <?php if (Mage::getSingleton('customer/session')->isLoggedIn() && $roleId != 4 && $_product->isSaleable()) : ?>
                   <hr style="margin:200px 0 15px 0;" />
