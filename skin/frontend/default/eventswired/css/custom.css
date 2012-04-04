@@ -67,6 +67,7 @@ a {
 }
 a:visited { color:#c84729; }
 a:hover { color:#cff; border-bottom:1px dashed #c84729; }
+a:active { outline:none; }
 
 #return_to_top {
   background: url(../images/css-sprites.png) -425px -175px no-repeat;
@@ -112,6 +113,10 @@ h2 {
   text-shadow: -3px 3px 0 #d4d2c6;
   text-transform: uppercase;
   color: #c44427;
+  line-height: 40px;
+}
+.ie h2 {
+  font-weight: 400;
 }
 
 h2.fancy_phone_number {
@@ -304,6 +309,11 @@ input.button_ribbon {
   -moz-transition: none;
   transition: none;
 }
+.ie a.button_ribbon,
+.ie input.button_ribbon {
+  font-weight: bold;
+}
+
 
 a.button_ribbon:hover,
 a.button_ribbon:active,
@@ -338,6 +348,13 @@ input.button_ribbon_small {
   -moz-transition: none;
   transition: none;
 }
+.ie a.button_ribbon_small:hover,
+.ie a.button_ribbon_small:active,
+.ie input.button_ribbon_small:hover,
+.ie input.button_ribbon_small:active {
+  font-weight: bold;
+}
+
 
 a.button_ribbon_small:hover,
 a.button_ribbon_small:active,
@@ -695,6 +712,7 @@ body.homepage #homepage_header_wrapper { display:block; }
     padding: 0;
     margin: 0;
   }
+  .ie #primary_navigation a { font-weight:400; }
   #primary_navigation a:hover { border:none; color:#c44427; }
 
   #primary_navigation_left { float:left; width:390px; }
@@ -819,7 +837,14 @@ ul.event_grid li .button_ribbon { position:absolute; bottom:-20px; left:90px; }
 p.callout { font-size:18px; line-height:24px; }
 .page-title { padding:0; margin:0; }
 
-.main section, .main .section { clear:both; margin:0 0 150px 0; padding-right:50px; }
+#main_content section,
+#main_content .section,
+.main section,
+.main .section {
+  clear: both;
+  margin: 0 0 150px 0;
+  padding-right: 50px;
+}
 
 #custom_events ol, #custom_events ul { margin:0; }
 #custom_events li { padding:0 0 40px 0; font-size:20px; font-weight:bold; line-height:25px; }
@@ -948,11 +973,11 @@ p.callout { font-size:18px; line-height:24px; }
 #carousel {
   position: relative;
   height: 450px;
-  width: 722px;
-  left: -50px;
+  width: 672px;
+  left: 0;
 }
 #carousel ul { list-style:none; padding:0; margin:0; }
-#carousel ul li { float:left; height:450px; width:722px; position:relative; }
+#carousel ul li { float:left; height:450px; width:672px; position:relative; }
 #carousel ul li img { position:absolute; top:0; left:0; }
 
 #carousel .carousel-previous {
