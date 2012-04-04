@@ -116,7 +116,7 @@ h2 {
   line-height: 40px;
 }
 .ie h2 {
-  font-weight: 400;
+  font-family: "Arial Narrow",Arial,sans-serif;
 }
 
 h2.fancy_phone_number {
@@ -311,7 +311,7 @@ input.button_ribbon {
 }
 .ie a.button_ribbon,
 .ie input.button_ribbon {
-  font-weight: bold;
+  font-family: "Arial Narrow",Arial,sans-serif;
 }
 
 
@@ -352,7 +352,7 @@ input.button_ribbon_small {
 .ie a.button_ribbon_small:active,
 .ie input.button_ribbon_small:hover,
 .ie input.button_ribbon_small:active {
-  font-weight: bold;
+  font-family: "Arial Narrow",Arial,sans-serif;
 }
 
 
@@ -712,7 +712,7 @@ body.homepage #homepage_header_wrapper { display:block; }
     padding: 0;
     margin: 0;
   }
-  .ie #primary_navigation a { font-weight:400; }
+  .ie #primary_navigation a { font-family: "Arial Narrow",Arial,sans-serif; }
   #primary_navigation a:hover { border:none; color:#c44427; }
 
   #primary_navigation_left { float:left; width:390px; }
