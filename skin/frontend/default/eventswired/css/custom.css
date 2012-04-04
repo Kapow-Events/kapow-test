@@ -605,6 +605,10 @@ body { background:#fdf6ee; color:#333; }
 }
 body.homepage #homepage_header_wrapper { display:block; }
 
+#homepage_header .inner_wrapper {
+  position: relative;
+  z-index: 100;
+}
 #homepage_center_stage {
   background: url(../images/css-sprites.png) -626px 0 repeat-y;
   position: absolute;
@@ -613,7 +617,6 @@ body.homepage #homepage_header_wrapper { display:block; }
   height: 462px;
   width: 283px;
   padding: 20px 45px;
-  z-index: 10;
 }
 #homepage_center_stage #steps {
   list-style: none;
@@ -659,7 +662,7 @@ body.homepage #homepage_header_wrapper { display:block; }
 
 
 
-#homepage_center_stage div.featured_product_text { height:390px; margin-bottom:20px; position:relative; overflow:hidden; }
+#homepage_center_stage div.featured_product_text { height:400px; margin-bottom:20px; position:relative; overflow:hidden; }
 #homepage_center_stage h1 { color:#fff; font-size:43px; letter-spacing:-1px; margin-top:0; }
 #homepage_center_stage h1.three_line { font-size:36px; line-height:44px; }
 #homepage_center_stage h1.three_plus_lines { font-size:30px; line-height:35px; }
