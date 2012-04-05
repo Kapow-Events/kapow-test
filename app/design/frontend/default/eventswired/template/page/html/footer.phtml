@@ -129,6 +129,19 @@
     </div>
   </div>
 
+  <!-- APPLICATION RECEIVED CONFIRMATION Lightbox -->
+  <div class="hidden">
+    <?php // automatically show the lightbox by including this link for the JS to find and auto-click ?>
+    <?php if (isset($_GET['show_application_received'])) : ?>
+      <a href="#lightbox-application-received" class="lightbox-modal-link" rel="showOnLoad"></a>
+    <?php endif ?>
+
+    <div id="lightbox-purgatory" class="lightbox-modal">
+      <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('lightbox-application-received-confirmation')->toHtml(); ?>
+    </div>
+  </div>
+
+
   <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
   mathiasbynens.be/notes/async-analytics-snippet
   <script>
