@@ -89,8 +89,14 @@
         <?php if ($i++%$_columnCount==0): ?>
 
         <?php
-          $should_hijack = (Mage::registry('current_category') && !$this->helper('customer')->isLoggedIn()) || isset($_GET['show_warning']) ? true : false;
-          $the_link      = $should_hijack ? '#lightbox-signup-or-login' : $_product->getProductUrl();
+          $roleId        = Mage::getSingleton('customer/session')->getCustomerGroupId();
+          $not_logged_in = (Mage::registry('current_category') && !$this->helper('customer')->isLoggedIn())                || isset($_GET['show_status_warning'])    ? true : false;
+          $in_purgatory  = (Mage::registry('current_category') && $roleId == 4 && $this->helper('customer')->isLoggedIn()) || isset($_GET['show_purgatory_warning']) ? true : false;
+          $should_hijack = $in_purgatory || $not_logged_in ? true : false;
+          $the_link      = null;
+          if ($not_logged_in) { $the_link = '#lightbox-signup-or-login'; }
+          if ($in_purgatory)  { $the_link = '#lightbox-purgatory'; }
+          $the_link      = $the_link === null ? $_product->getProductUrl() : $the_link;
           $extra_class   = $should_hijack ? ' lightbox-modal-link' : '';
         ?>
         <ul class="event_grid basic_grid clearfix">

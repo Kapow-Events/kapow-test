@@ -57,7 +57,12 @@
   <meta name="viewport" content="width=1150">
 
   <?php if ( Mage::registry('current_product') && (Mage::app()->getFrontController()->getRequest()->getRouteName() != 'customer') && !$this->helper('customer')->isLoggedIn() ) : ?>
-    <meta http-equiv="refresh" content="0;url=<?php echo Mage::helper('core/url')->getHomeUrl() ?>?show_warning" />
+    <meta http-equiv="refresh" content="0;url=<?php echo Mage::helper('core/url')->getHomeUrl() ?>?show_status_warning" />
+  <?php endif ?>
+
+  <?php $roleId = Mage::getSingleton('customer/session')->getCustomerGroupId(); ?>
+  <?php if ( Mage::registry('current_product') && $this->helper('customer')->isLoggedIn() && $roleId == 4) : ?>
+    <meta http-equiv="refresh" content="0;url=<?php echo Mage::helper('core/url')->getHomeUrl() ?>?show_purgatory_warning" />
   <?php endif ?>
 
   <link href='http://fonts.googleapis.com/css?family=Quicksand:400,300,700|Cabin:400,600,500|Homenaje' rel='stylesheet' type='text/css'>

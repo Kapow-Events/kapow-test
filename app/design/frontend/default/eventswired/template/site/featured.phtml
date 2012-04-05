@@ -62,9 +62,15 @@
               <?php endif; ?>
 */ ?>
               <?php
-                // Link to product or warning lightbox?
-                $should_hijack = !$this->helper('customer')->isLoggedIn() || isset($_GET['show_warning']) ? true : false;
-                $the_link      = $should_hijack ? '#lightbox-signup-or-login' : $_product->getProductUrl();
+                // Link to product or status/purgatory lightbox?
+                $roleId        = Mage::getSingleton('customer/session')->getCustomerGroupId();
+                $not_logged_in = !$this->helper('customer')->isLoggedIn()                  || isset($_GET['show_status_warning'])    ? true : false;
+                $in_purgatory  = ($roleId == 4 && $this->helper('customer')->isLoggedIn()) || isset($_GET['show_purgatory_warning']) ? true : false;
+                $should_hijack = $in_purgatory || $not_logged_in ? true : false;
+                $the_link      = null;
+                if ($not_logged_in) { $the_link = '#lightbox-signup-or-login'; }
+                if ($in_purgatory)  { $the_link = '#lightbox-purgatory'; }
+                $the_link      = $the_link === null ? $_product->getProductUrl() : $the_link;
                 $extra_class   = $should_hijack ? ' lightbox-modal-link' : '';
 
                 // Try to account for a 3 line name by adjusting the font size

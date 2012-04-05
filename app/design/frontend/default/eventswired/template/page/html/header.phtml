@@ -37,7 +37,7 @@
   <?php endif; ?>
 
 
-  <?php if ($this->getIsHomePage() || isset($_GET['show_warning'])) : ?>
+  <?php if ($this->getIsHomePage() || isset($_GET['show_status_warning']) || isset($_GET['show_purgatory_warning'])) : ?>
   <?php echo $this->getChildHtml('featured'); ?>
   <?php endif; ?>
 
