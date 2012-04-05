@@ -53,8 +53,8 @@ var cj =
       'overlayShow': true,
       'overlayColor': '#000',
       'overlayOpacity': 0.7,
-      'showCloseButton': false,
-      'enableEscapeButton': false,
+      'showCloseButton': true,
+      'enableEscapeButton': true,
       'centerOnScroll': true,
       'padding': 0
     })
