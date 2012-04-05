@@ -957,7 +957,7 @@ p.callout { font-size:18px; line-height:24px; }
 
 
 
-#event_callout .right { width:672px; }
+#event_callout .right { width:722px; }
 
 #event_callout .corner_info {
   background: url(../images/css-sprites.png) -188px -305px no-repeat;
@@ -984,11 +984,11 @@ p.callout { font-size:18px; line-height:24px; }
 #carousel {
   position: relative;
   height: 450px;
-  width: 672px;
+  width: 722px;
   left: 0;
 }
 #carousel ul { list-style:none; padding:0; margin:0; }
-#carousel ul li { float:left; height:450px; width:672px; position:relative; }
+#carousel ul li { float:left; height:450px; width:722px; position:relative; }
 #carousel ul li img { position:absolute; top:0; left:0; }
 
 #carousel .carousel-previous {
