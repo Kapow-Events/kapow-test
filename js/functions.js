@@ -46,7 +46,9 @@ var cj =
 
   lightboxModal: function ()
   {
-    jQuery(".lightbox-modal-link").fancybox({
+    var $links = jQuery(".lightbox-modal-link");
+
+    $links.fancybox({
       'titleShow': false,
       'hideOnOverlayClick': false,
       'hideOnContentClick': false,
@@ -57,8 +59,12 @@ var cj =
       'enableEscapeButton': true,
       'centerOnScroll': true,
       'padding': 0
-    })
-    .trigger('click');
+    });
+
+    $links.each(function(){
+      var $link = jQuery(this);
+      if ($link.attr('rel') == 'showOnLoad') { $link.trigger('click'); }
+    });
   },
 
   lightbox: function ()

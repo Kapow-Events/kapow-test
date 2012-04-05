@@ -101,15 +101,17 @@
   <?php endif; ?>
   <!-- end scripts -->
 
-  <?php if ( Mage::registry('current_product') && (Mage::app()->getFrontController()->getRequest()->getRouteName() != 'customer') && !$this->helper('customer')->isLoggedIn() ) : ?>
-    <div class="hidden">
-      <a href="#lightbox-signup-or-login" class="lightbox-modal-link"></a>
-      <div id="lightbox-signup-or-login" class="lightbox-modal">
-        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('lightbox-login-or-signup')->toHtml(); ?>
-          <div><a class="button_ribbon floatright" href="/customer/account/create/">become a member</a><a class="button_ribbon_small" href="/customer/account/login/referer/<?php echo Mage::helper('core')->urlEncode($this->helper('core/url')->getCurrentUrl()); ?>/">sign in</a></div>
-      </div>
+  <div class="hidden">
+    <?php // automatically show the lightbox by including this link for the JS to find and auto-click ?>
+    <?php if (isset($_GET['show_warning'])) : ?>
+      <a href="#lightbox-signup-or-login" class="lightbox-modal-link" rel="showOnLoad"></a>
+    <?php endif ?>
+
+    <div id="lightbox-signup-or-login" class="lightbox-modal">
+      <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('lightbox-login-or-signup')->toHtml(); ?>
+      <div><a class="button_ribbon floatright" href="/customer/account/create/">become a member</a><a class="button_ribbon_small" href="/customer/account/login/referer/<?php echo Mage::helper('core')->urlEncode($this->helper('core/url')->getCurrentUrl()); ?>/">sign in</a></div>
     </div>
-  <?php endif; ?>
+  </div>
 
   <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
   mathiasbynens.be/notes/async-analytics-snippet
