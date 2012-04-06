@@ -10,7 +10,7 @@ class EW_Site_Model_Observer
             if ($origCustomer->getGroupId() != $customer->getGroupId()
                 && $origCustomer->getGroupId() == 4)
             {
-                $templateId = 1;
+                $templateId = 3;
 
                 $sender = array('name' => Mage::getStoreConfig('trans_email/ident_general/name'),
                     'email' => Mage::getStoreConfig('trans_email/ident_general/email'));
