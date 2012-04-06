@@ -37,9 +37,15 @@
   <?php endif; ?>
 
 
-  <?php if ($this->getIsHomePage() || isset($_GET['show_status_warning']) || isset($_GET['show_purgatory_warning'])) : ?>
-  <?php echo $this->getChildHtml('featured'); ?>
-  <?php endif; ?>
+  <?php
+    if ($this->getIsHomePage()
+      || isset($_GET['show_status_warning'])
+      || isset($_GET['show_purgatory_warning'])
+      || isset($_GET['show_application_received'])
+    ){
+      echo $this->getChildHtml('featured');
+    }
+  ?>
 
 
   <header id="header" class="outer_wrapper">
