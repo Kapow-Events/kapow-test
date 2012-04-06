@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <EW_Customer>
+            <version>0.0.1</version>
+        </EW_Customer>
+    </modules>
+    <frontend>
+        <routers>
+            <customer>
+                <args>
+                    <modules>
+                        <EW_Customer before="Mage_Customer">EW_Customer</EW_Customer>
+                    </modules>
+                </args>
+            </customer>
+        </routers>
+    </frontend>
+</config>
+
