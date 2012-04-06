@@ -11,6 +11,11 @@
                 <class>EW_Site_Block</class>
             </site>
         </blocks>
+        <models>
+            <site>
+                <class>EW_Site_Model</class>
+            </site>
+        </models>
     </global>
     <frontend>
         <routers>
@@ -30,5 +35,17 @@
             </updates>
         </layout>
     </frontend>
+    <adminhtml>
+        <events>
+            <customer_save_before>
+                <observers>
+                    <customer_group_change_observer>
+                        <class>site/observer</class>
+                        <method>sendCustomerEmail</method>
+                    </customer_group_change_observer>
+                </observers>
+            </customer_save_before>
+        </events>
+    </adminhtml>
 </config>
 
