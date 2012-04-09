@@ -33,7 +33,6 @@
 
 <?php if(count($_links)>0): ?>
 
-<ul class="links"<?php if($this->getName()): ?> id="<?php echo $this->getName() ?>"<?php endif;?>>
     <?php if ($this->getChildHtml('membership_call_to_action')) : ?>
       <li><?php echo $this->getChildHtml('membership_call_to_action') ?></li>
     <?php endif ?>
@@ -58,5 +57,5 @@
             <?php endif; ?>
         <?php endif;?>
     <?php endforeach; ?>
-</ul>
+
 <?php endif; ?>
