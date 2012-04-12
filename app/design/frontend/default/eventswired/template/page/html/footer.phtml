@@ -23,10 +23,11 @@
  * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
+$currentUrl = $this->helper('core/url')->getCurrentUrl();
 ?>
   <footer id="footer" class="outer_wrapper">
     <div id="contact" class="inner_wrapper">
-      <h2>contact us today</h2>
+      <h2>contact us today <?php if (isset($_GET['message_sent'])) { echo '<small class="floatright">Message Sent!</small>'; } ?></h2>
       <div class="content clearfix">
         <div class="left">
           <div id="email_us_button" class="floatleft">
@@ -49,6 +50,7 @@
 
         <div class="right">
           <form action="<?php echo $this->getUrl('contacts/index/post'); ?>" id="contactForm" method="post">
+            <input type="hidden" name="return_url" value="<?php echo str_replace('//', '/', $currentUrl.'/?message_sent#contact') ?>" />
             <fieldset>
               <legend>got a question? let us know.</legend>
               <table>

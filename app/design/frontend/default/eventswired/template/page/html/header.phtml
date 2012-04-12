@@ -41,6 +41,7 @@
     if ($this->getIsHomePage()
       || isset($_GET['show_status_warning'])
       || isset($_GET['show_purgatory_warning'])
+      || isset($_GET['message_sent'])
       || isset($_GET['thank-you'])
     ){
       echo $this->getChildHtml('featured');
