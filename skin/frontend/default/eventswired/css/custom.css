@@ -1184,8 +1184,30 @@ a:hover { color: #333; }
 #shopping-cart-table input.input-text { border-color:#e8e0d9; }
 #shopping-cart-table input.input-text:hover { border-color:#b8b0a9; }
 
-.product-options dd div.input-box { display: none; }
 
+.product-options {
+  margin: 25px 0 75px 0;
+  padding: 5px 30px;
+  border-top: 5px solid #D8D0C9;
+  border-bottom: 5px solid #D8D0C9;
+}
+.product-options dd {
+  margin: 0;
+}
+.product-options dd div.input-box ul.options-list {
+  border: 1px dashed #888;
+  padding: 10px 20px;
+  margin: 15px 0;
+  list-style: none;
+}
+.product-options dd div.input-box ul.options-list li input.checkbox {
+  float: left;
+  margin-right: 10px;
+}
+.product-options dd div.input-box ul.options-list li {
+  margin: 5px 0;
+  clear: both;
+}
 
 
 
