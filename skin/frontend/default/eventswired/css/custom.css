@@ -1186,3 +1186,62 @@ a:hover { color: #333; }
 
 .product-options dd div.input-box { display: none; }
 
+
+
+
+#checkoutSteps {
+  list-style-type: decimal;
+  margin: 10px 0;
+  padding: 0;
+}
+#checkoutSteps fieldset { width:auto; }
+
+#checkoutSteps li.section {
+  border-bottom: 4px solid #B8B0A9;
+  background: #D8D0C9;
+  margin: 0;
+  padding: 5px;
+}
+#checkoutSteps li.section ul.form-list {
+  padding: 10px 20px;
+  border: 1px dashed #888;
+}
+#checkoutSteps li.section ul.form-list label {
+  color: #454545;
+  font-weight: bold;
+  margin: 5px 0;
+}
+#checkoutSteps li.section h2 {
+  margin-bottom: 10px;
+  text-shadow: -2px 2px 0 #fff;
+}
+#checkoutSteps li.section input.radio {
+  float: left;
+  clear: both;
+  margin-right: 10px;
+}
+#checkoutSteps li.section dt,
+#checkoutSteps li.section dd { margin:10px 0; }
+#checkoutSteps li.section .buttons-set p { margin-bottom:0; }
+#checkoutSteps input.input-text { border-color:#e8e0d9; }
+#checkoutSteps input.input-text:hover { border-color:#b8b0a9; }
+
+#checkoutSteps table tbody { background:#fff; }
+
+#review-buttons-container p { margin-top:10px; font-size: 12px; }
+
+#checkout-progress-wrapper { margin-top:109px; }
+#checkout-progress-wrapper .block-title {
+  font-family: Quicksand,'Arial Narrow',Arial,sans-serif;
+  font-style: normal;
+  text-transform: uppercase;
+  text-shadow: -1px 1px 0 white;
+  background: #B8B0A9;
+  padding: 10px;
+  color: #C44427;
+}
+.ie #checkout-progress-wrapper .block-title { font-family:'Arial Narrow',Arial,sans-serif; }
+
+.block-progress dt.complete,
+.block-progress dd.complete { background:none; }
+.block-progress dd.complete { margin:5px 0 20px 40px; }
