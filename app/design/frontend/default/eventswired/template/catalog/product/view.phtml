@@ -51,14 +51,10 @@
             <div class="left">
                 <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
 
-<?php /*
-       * TODO: May need to put this back in the future
-       *
                 <div class="price">
                     <div class="price_text"><?php echo $this->getChildHtml('product_type_data') ?></div>
                     <div class="price_subtext"><?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?><?php echo $_product->getPriceSubtext() ?><?php endif; ?></div>
                 </div>
-*/ ?>
 
                 <?php if (!Mage::getSingleton('customer/session')->isLoggedIn()): ?>
                   <span>Become a <a href="<?php echo $this->getUrl('customer/account/create') ?>">member</a> or <a href="<?php echo $this->getUrl('customer/account/login') ?>">login</a> to see details and pricing!</span>

@@ -943,8 +943,8 @@ p.callout { font-size:18px; line-height:24px; }
   margin: -5px 0 25px 0;
 }
 #event_callout .left .price .price_text sup { position:relative; top:-18px; font-size:42px; }
-#event_callout .left .price .price_text     { font-size:70px; line-height:55px; }
-#event_callout .left .price .price_subtext  { font-size:30px; margin:2px 0 0 18px; }
+#event_callout .left .price .price_text     { font-size:50px; line-height:45px; }
+#event_callout .left .price .price_subtext  { font-size:24px; margin:2px 0 0 27px; }
 
 #event_callout .left ul { padding-left:17px; }
 #event_callout .left ul li { margin:8px 0; }
