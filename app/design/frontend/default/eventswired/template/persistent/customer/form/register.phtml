@@ -95,6 +95,7 @@
                         </div>
                     </div>
                 </li>
+<?php /**
                 <li class="wide">
                     <label for="street_1" class="required"><em>*</em><?php echo $this->__('Street Address') ?></label>
                     <div class="input-box">
@@ -108,6 +109,7 @@
                     </div>
                 </li>
             <?php endfor ?>
+     */ ?>
                 <li class="fields">
                     <div class="field">
                         <label for="city" class="required"><em>*</em><?php echo $this->__('City') ?></label>
@@ -131,12 +133,14 @@
                     </div>
                 </li>
                 <li class="fields">
+                    <?php /**
                     <div class="field">
                         <label for="zip" class="required"><em>*</em><?php echo $this->__('Zip/Postal Code') ?></label>
                         <div class="input-box">
                             <input type="text" name="postcode" value="<?php echo $this->htmlEscape($this->getFormData()->getPostcode()) ?>" title="<?php echo $this->__('Zip/Postal Code') ?>" id="zip" class="input-text validate-zip-international required-entry" />
                         </div>
                     </div>
+     */ ?>
                     <div class="field">
                         <label for="country" class="required"><em>*</em><?php echo $this->__('Country') ?></label>
                         <div class="input-box">

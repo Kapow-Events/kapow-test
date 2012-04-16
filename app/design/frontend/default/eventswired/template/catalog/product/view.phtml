@@ -51,10 +51,12 @@
             <div class="left">
                 <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
 
+                <?php if (!$_product->getCallToSchedule()): ?>
                 <div class="price">
                     <div class="price_text"><?php echo $this->getChildHtml('product_type_data') ?></div>
                     <div class="price_subtext"><?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?><?php echo $_product->getPriceSubtext() ?><?php endif; ?></div>
                 </div>
+                <?php endif; ?>
 
                 <?php if (!Mage::getSingleton('customer/session')->isLoggedIn()): ?>
                   <span>Become a <a href="<?php echo $this->getUrl('customer/account/create') ?>">member</a> or <a href="<?php echo $this->getUrl('customer/account/login') ?>">login</a> to see details and pricing!</span>
@@ -113,6 +115,9 @@
 
                 <?php $roleId = Mage::getSingleton('customer/session')->getCustomerGroupId(); ?>
                 <?php if (Mage::getSingleton('customer/session')->isLoggedIn() && $roleId != 4 && $_product->isSaleable()) : ?>
+
+                    <?php if (!$_product->getCallToSchedule()): ?>
+
                     <?php if ($_product->isSaleable() && $this->hasOptions()):?>
                         <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
                     <?php endif;?>
@@ -122,6 +127,7 @@
                     <hr style="margin:200px 0 15px 0;" />
                     <span style="float:left; margin-top:10px;">Need an invoice? Got a question? Call us! <?php echo Mage::getStoreConfig('general/store_information/phone'); ?></span>
                     <a href="#" onclick="productAddToCartForm.submit(this); return false;" title="Add to Cart" class="button_ribbon floatright" id="add_to_cart_large">add to cart</a>
+                    <?php endif; ?>
                 <?php endif; ?>
             </div>
         </div>

@@ -5,6 +5,16 @@
             <version>0.0.1</version>
         </EW_Customer>
     </modules>
+    <global>
+        <models>
+            <customer>
+                <rewrite>
+                    <address>EW_Customer_Model_Address</address>
+                    <form>EW_Customer_Model_Form</form>
+                </rewrite>
+            </customer>
+        </models>
+    </global>
     <frontend>
         <routers>
             <customer>
