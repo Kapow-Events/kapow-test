@@ -1099,6 +1099,14 @@ p.callout { font-size:18px; line-height:24px; }
   margin: 0 0 15px 0;
 }
 
+.account-create .buttons-set p.required,
+.account-create .form-list label.required em {
+  display: none;
+}
+
+
+
+
 /* ==|== media queries ======================================================
    PLACEHOLDER Media Queries for Responsive Design.
    These override the primary ('mobile first') styles
