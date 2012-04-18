@@ -850,15 +850,21 @@ ul.event_grid li .ribbon_red { position:absolute; top:10px; right:-5px; }
 ul.event_grid li .button_ribbon { position:absolute; bottom:-20px; left:90px; }
 
 p.callout { font-size:18px; line-height:24px; }
+
+.page-title h1, .page-title h2 { margin-top:0; }
 .page-title { padding:0; margin:0; }
 
 .block {
   border: 1px dashed #B8B0A9;
-  border-radius: 15px
-  -webkit-border-radius: 15px
-  -moz-border-radius: 15px
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
 }
-.block-title { border-bottom:1px dashed #B8B0A9; }
+.block .block-title { border-bottom:1px dashed #B8B0A9; }
+
+.pager { border:1px dashed #B8B0A9; padding:10px; }
+.pager p { margin-bottom:0; }
+.pager label { display:inline; font-style:normal; font-size:12px; font-family:Arial,sans-serif; }
 
 
 #main_content section,
@@ -1118,11 +1124,11 @@ p.callout { font-size:18px; line-height:24px; }
 }
 
 .my-account h2.legend { display:none; }
-.my-account fieldset {
+.my-account .fieldset {
   border: 1px dashed #B8B0A9;
-  border-radius: 15px
-  -webkit-border-radius: 15px
-  -moz-border-radius: 15px
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
 }
 
 .carousel-previous.disabled, .carousel-next.disabled
