@@ -166,10 +166,6 @@
                   <action method="addCartLink"></action>
               </block>
         </reference>
-        <block type="cms/block" name="login-welcome">
-            <action method="setBlockId"><block_id>login-welcome</block_id></action>
-        </block>
-
     </customer_logged_in>
 
     <checkout_cart_index>
