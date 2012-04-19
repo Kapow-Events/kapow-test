@@ -14,7 +14,7 @@
             <?php foreach ($initially_featured_product as $_product): ?>
               <li class="hidden">
                 <a href="#initially_featured_product"
-                   rel="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->resize(905,379); ?>"
+                   rel="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->keepAspectRatio(true)->resize(1150,null); ?>"
                 ></a>
               </li>
             <?php endforeach ?>
@@ -23,7 +23,7 @@
             <?php $i=1; foreach ($featured_products as $_product): ?>
               <li<?php if ($i == 3) { echo ' class="last"'; } ?>>
                 <a href="#featured_product_<?php echo $i ?>"
-                   rel="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->resize(905,379); ?>"
+                   rel="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->keepAspectRatio(true)->resize(1150,null); ?>"
                    <?php if ($i == 1) { echo ' class="active"'; } ?>>
                    <?php echo $i ?>
                 </a>
