@@ -41,7 +41,10 @@
                                           ->constrainOnly(false)
                                           ->keepAspectRatio(true)
                                           ->keepFrame(false)
-                                          ->resize(null, 450); ?>" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" />
+                                          ->resize(1211, null);
+                                          // 1211px is required to main aspect ratio and enough
+                                          // height when smaller images are enlarged ?>"
+               alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" />
         </li>
     <?php endforeach; ?>
     </ul>
