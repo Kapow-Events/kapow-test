@@ -854,13 +854,22 @@ p.callout { font-size:18px; line-height:24px; }
 .page-title h1, .page-title h2 { margin-top:0; }
 .page-title { padding:0; margin:0; }
 
-.block {
-  border: 1px dashed #B8B0A9;
-  border-radius: 15px;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
+.block { border:none; }
+.block .block-content { border:1px dashed #B8B0A9; border-top:none; }
+
+.block-title {
+  font-family: Quicksand,'Arial Narrow',Arial,sans-serif;
+  font-style: normal;
+  text-transform: uppercase;
+  text-shadow: -1px 1px 0 white;
+  border-bottom: none;
+  background: #d8d0c9;
+  padding: 10px;
+  color: #C44427;
 }
-.block .block-title { border-bottom:1px dashed #B8B0A9; }
+.ie .block-title { font-family:'Arial Narrow',Arial,sans-serif; }
+
+
 
 .pager { border:1px dashed #B8B0A9; padding:10px; }
 .pager p { margin-bottom:0; }
@@ -1124,12 +1133,7 @@ p.callout { font-size:18px; line-height:24px; }
 }
 
 .my-account h2.legend { display:none; }
-.my-account .fieldset {
-  border: 1px dashed #B8B0A9;
-  border-radius: 15px;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-}
+.my-account .fieldset { border:1px dashed #B8B0A9; }
 
 .carousel-previous.disabled, .carousel-next.disabled
 {
@@ -1216,27 +1220,6 @@ a:hover { color: #333; }
 #review-buttons-container p { margin-top:10px; font-size: 12px; }
 
 #checkout-progress-wrapper { margin-top:100px; }
-#checkout-progress-wrapper .block {
-  border: none;
-  border-radius: none;
-  -webkit-border-radius: none;
-  -moz-border-radius: none;
-}
-#checkout-progress-wrapper .block-content {
-  border: 1px dashed #B8B0A9;
-  border-top: none;
-}
-#checkout-progress-wrapper .block-title {
-  font-family: Quicksand,'Arial Narrow',Arial,sans-serif;
-  font-style: normal;
-  text-transform: uppercase;
-  text-shadow: -1px 1px 0 white;
-  border-bottom: none;
-  background: #d8d0c9;
-  padding: 10px;
-  color: #C44427;
-}
-.ie #checkout-progress-wrapper .block-title { font-family:'Arial Narrow',Arial,sans-serif; }
 
 .block-progress dt.complete,
 .block-progress dd.complete { background:none; }
