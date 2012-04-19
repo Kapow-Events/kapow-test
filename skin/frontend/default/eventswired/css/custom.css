@@ -1137,7 +1137,7 @@ p.callout { font-size:18px; line-height:24px; }
 
 .fieldset {
   padding: 10px 0;
-  margin: 20px;
+  margin: 20px 0;
 }
 .form-list .input-box {
   margin: 0 0 15px 0;
