@@ -927,6 +927,15 @@ p.callout { font-size:18px; line-height:24px; }
   text-align: right;
   margin: 0;
 }
+.categorypath-all-events .aw-sociable_services {
+  position: relative;
+  top: 20px;
+  margin-bottom: -20px;
+}
+.categorypath-all-events .aw-sociable_services ul {
+  padding: 0;
+  margin: 0;
+}
 
 #event_callout {
   position: relative;
