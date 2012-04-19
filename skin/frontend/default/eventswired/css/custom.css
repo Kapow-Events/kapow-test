@@ -1215,7 +1215,7 @@ a:hover { color: #333; }
 
 #review-buttons-container p { margin-top:10px; font-size: 12px; }
 
-#checkout-progress-wrapper { margin-top:109px; }
+#checkout-progress-wrapper { margin-top:100px; }
 #checkout-progress-wrapper .block {
   border: none;
   border-radius: none;
@@ -1223,7 +1223,7 @@ a:hover { color: #333; }
   -moz-border-radius: none;
 }
 #checkout-progress-wrapper .block-content {
-  border: 1px solid #B8B0A9;
+  border: 1px dashed #B8B0A9;
   border-top: none;
 }
 #checkout-progress-wrapper .block-title {
@@ -1232,7 +1232,7 @@ a:hover { color: #333; }
   text-transform: uppercase;
   text-shadow: -1px 1px 0 white;
   border-bottom: none;
-  background: #B8B0A9;
+  background: #d8d0c9;
   padding: 10px;
   color: #C44427;
 }
