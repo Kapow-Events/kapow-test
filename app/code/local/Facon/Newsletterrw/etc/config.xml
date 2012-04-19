@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config>
+	<global>
+    	<models>
+	        <newsletterrw>
+	             <class>Facon_Newsletterrw_Model</class>
+	        </newsletterrw>
+	
+			<newsletter>
+				<rewrite>
+					<subscriber>Facon_Newsletterrw_Model_Subscriber</subscriber>
+				</rewrite>
+			</newsletter>
+       </models>
+	</global>
+	
+	<default>
+        <newsletter>
+            <subscription>
+                <disablenewslettersuccesses>1</disablenewslettersuccesses>
+            </subscription>
+        </newsletter>
+    </default>
+</config>
