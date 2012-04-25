@@ -35,7 +35,7 @@
 
   <title><?php echo $this->getTitle() ?></title>
   <meta name="author" content="<?php echo Mage::app()->getStore()->getName() ?>">
-  <meta name="description" content="<?php echo htmlspecialchars($this->getDescription()) ?>" />
+  <meta name="description" content="<?php echo strip_tags($this->getDescription()) ?>" />
   <meta name="keywords" content="<?php echo htmlspecialchars($this->getKeywords()) ?>" />
   <meta name="robots" content="<?php echo htmlspecialchars($this->getRobots()) ?>" />
 
@@ -45,6 +45,10 @@
   <meta property="og:type"        content="website" />
   <meta property="og:site_name"   content="<?php echo Mage::app()->getStore()->getName() ?>" />
   <meta property="og:url"         content="<?php echo $this->helper('core/url')->getCurrentUrl() ?>" />
+<?php if (Mage::registry('current_product')) : ?>
+  <meta property="og:image" content="<?php echo Mage::helper('catalog/image')->init(Mage::registry('current_product'), 'small_image')->resize(200,200);?>" />
+  <meta property="og:title" content="<?php echo Mage::registry('current_product')->getMetaTitle()?>" /> 
+<?php endif;?>
 
   <!-- Mobile viewport optimized: h5bp.com/viewport -->
   <meta name="viewport" content="width=1150">
