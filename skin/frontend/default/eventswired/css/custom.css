@@ -943,7 +943,7 @@ p.callout { font-size:18px; line-height:24px; }
   height: 450px;
   width: 1060px;
   overflow: hidden;
-  margin-bottom: 40px;
+  margin: 45px 0;
 }
 
 #event_callout .left {
