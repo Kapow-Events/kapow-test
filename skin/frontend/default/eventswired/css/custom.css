@@ -905,7 +905,7 @@ p.callout { font-size:18px; line-height:24px; }
 }
 
 #about_events_wired img.floatleft, #about_kapow_events img.floatleft { margin-bottom:60px; }
-#about_events_wired, #about_kapow_events p.callout { width:475px; line-height:26px; margin-bottom:26px; }
+#about_events_wired p.callout, #about_kapow_events p.callout { width:475px; line-height:26px; margin-bottom:26px; }
 .ie7 #about_events_wired p.callout, .ie7 #about_kapow_events p.callout { width:340px; }
 #about_events_wired ul.basic_grid li, #about_kapow_events ul.basic_grid li { width:150px; text-align:center; margin:25px 19px; }
 #about_events_wired ul.basic_grid li p, #about_kapow_events ul.basic_grid li p { font-size:14px; }
