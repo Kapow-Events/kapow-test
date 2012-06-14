@@ -113,8 +113,7 @@
                 <?php echo $_helper->productAttribute($_product, $_product->getDescription()) ?>
 
 
-                <?php $roleId = Mage::getSingleton('customer/session')->getCustomerGroupId(); ?>
-                <?php if (Mage::getSingleton('customer/session')->isLoggedIn() && $roleId != 4 && $_product->isSaleable()) : ?>
+                <?php if (Mage::getSingleton('customer/session')->isLoggedIn() && $_product->isSaleable()) : ?>
 
                     <?php if (!$_product->getCallToSchedule()): ?>
 
