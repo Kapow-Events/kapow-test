@@ -64,7 +64,7 @@ class EW_Customer_Model_Form extends Mage_Eav_Model_Form
 
             if (Mage::helper('core/url')->getCurrentUrl() == Mage::getBaseUrl() .'customer/account/createpost/') {
                 $code = $attribute->getAttributeCode();
-                $notRequired = array('street', 'postcode');
+                $notRequired = array('street', 'postcode', 'city', 'telephone');
                 if (!in_array($code, $notRequired)) {
                     $result = $dataModel->validateValue($data[$attribute->getAttributeCode()]);
                 } else {

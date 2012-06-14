@@ -1192,6 +1192,7 @@ tr.summary-details-excluded { font-style:italic; }
 /* Account Register */
 .form-list input.input-text { width:89%; }
 .fieldset { border: none; background-color: transparent; }
+.login-info.right.fieldset { margin-bottom: 130px; }
 
 /* Clears ================================================================================ */
 .clearer:after,

@@ -62,7 +62,7 @@ class EW_Customer_AccountController extends Mage_Customer_AccountController
             $successUrl = $this->_getSession()->getBeforeAuthUrl(true);
         }
 
-        $successUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK) .'?thank-you';
+//        $successUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK) .'?thank-you';
 
         return $successUrl;
     }

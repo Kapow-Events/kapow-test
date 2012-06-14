@@ -349,27 +349,27 @@ class EW_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
 //            $errors[] = $helper->__('Please enter the street.');
 //        }
 
-        if (!Zend_Validate::is($this->getCity(), 'NotEmpty')) {
-            $errors[] = $helper->__('Please enter the city.');
-        }
+//        if (!Zend_Validate::is($this->getCity(), 'NotEmpty')) {
+//            $errors[] = $helper->__('Please enter the city.');
+//        }
 
-        if (!Zend_Validate::is($this->getTelephone(), 'NotEmpty')) {
-            $errors[] = $helper->__('Please enter the telephone number.');
-        }
+//        if (!Zend_Validate::is($this->getTelephone(), 'NotEmpty')) {
+//            $errors[] = $helper->__('Please enter the telephone number.');
+//        }
 
         $_havingOptionalZip = Mage::helper('directory')->getCountriesWithOptionalZip();
 //        if (!in_array($this->getCountryId(), $_havingOptionalZip) && !Zend_Validate::is($this->getPostcode(), 'NotEmpty')) {
 //            $errors[] = $helper->__('Please enter the zip/postal code.');
 //        }
 
-        if (!Zend_Validate::is($this->getCountryId(), 'NotEmpty')) {
-            $errors[] = $helper->__('Please enter the country.');
-        }
+//        if (!Zend_Validate::is($this->getCountryId(), 'NotEmpty')) {
+//            $errors[] = $helper->__('Please enter the country.');
+//        }
 
-        if ($this->getCountryModel()->getRegionCollection()->getSize()
-            && !Zend_Validate::is($this->getRegionId(), 'NotEmpty')) {
-            $errors[] = $helper->__('Please enter the state/province.');
-        }
+//        if ($this->getCountryModel()->getRegionCollection()->getSize()
+//            && !Zend_Validate::is($this->getRegionId(), 'NotEmpty')) {
+//            $errors[] = $helper->__('Please enter the state/province.');
+//        }
 
         if (empty($errors) || $this->getShouldIgnoreValidation()) {
             return true;
