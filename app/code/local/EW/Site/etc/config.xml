@@ -35,7 +35,7 @@
             </updates>
         </layout>
     </frontend>
-    <adminhtml>
+    <!-- adminhtml>
         <events>
             <customer_save_before>
                 <observers>
@@ -46,6 +46,6 @@
                 </observers>
             </customer_save_before>
         </events>
-    </adminhtml>
+    </adminhtml -->
 </config>
 
