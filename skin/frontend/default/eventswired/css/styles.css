@@ -1054,6 +1054,7 @@ tr.summary-details-excluded { font-style:italic; }
 .account-login {}
 .account-login .new-users {}
 .account-login .registered-users {}
+.formRow { clear: both; }
 
 .account-create {}
 /* Account Login/Create Pages ============================================================ */
