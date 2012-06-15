@@ -1143,10 +1143,10 @@ p.callout { font-size:18px; line-height:24px; }
   margin: 0 0 15px 0;
 }
 
-.account-create .buttons-set p.required,
-.account-create .form-list label.required em {
-  display: none;
-}
+/*.account-create .buttons-set p.required,*/
+/*.account-create .form-list label.required em {*/
+  /*padding-left: 5px;*/
+/*}*/
 
 .my-account h2.legend { display:none; }
 .my-account .fieldset { border:1px dashed #B8B0A9; }
