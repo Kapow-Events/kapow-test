@@ -55,8 +55,8 @@ var cj =
       'overlayShow': true,
       'overlayColor': '#000',
       'overlayOpacity': 0.7,
-      'showCloseButton': true,
-      'enableEscapeButton': true,
+      'showCloseButton': false,
+      'enableEscapeButton': false,
       'centerOnScroll': true,
       'padding': 0
     });
@@ -73,7 +73,8 @@ var cj =
       'overlayShow': true,
       'overlayColor': '#000',
       'overlayOpacity': 0.7,
-      'showCloseButton': true,
+      'showCloseButton': false,
+      'enableEscabeButton': false,
       'centerOnScroll': false,
       'padding': 10
     });
