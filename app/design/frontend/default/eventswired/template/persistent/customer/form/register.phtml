@@ -102,20 +102,6 @@
             <input type="hidden" name="create_address" value="1" />
             <h3><?php echo $this->__('Address Information') ?></h3>
             <ul class="form-list">
-                <li class="fields">
-                    <div class="field">
-                        <label for="company"><?php echo $this->__('Company') ?></label>
-                        <div class="input-box">
-                            <input type="text" name="company" id="company" value="<?php echo $this->htmlEscape($this->getFormData()->getCompany()) ?>" title="<?php echo $this->__('Company') ?>" class="input-text" />
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label for="telephone"><?php echo $this->__('Telephone') ?></label>
-                        <div class="input-box">
-                            <input type="text" name="telephone" id="telephone" value="<?php echo $this->htmlEscape($this->getFormData()->getTelephone()) ?>" title="<?php echo $this->__('Telephone') ?>" class="input-text" />
-                        </div>
-                    </div>
-                </li>
 
                 <li>
                     <label for="street_1"><?php echo $this->__('Street Address') ?></label>
@@ -173,6 +159,25 @@
             <input type="hidden" name="default_billing" value="1" />
             <input type="hidden" name="default_shipping" value="1" />
         </div>
+        <div class="right fieldset">
+            <h3><?php echo $this->__('Contact Information') ?></h3>
+            <ul class="form-list">
+                <li class="fields">
+                    <div class="field">
+                        <label for="company"><?php echo $this->__('Company') ?></label>
+                        <div class="input-box">
+                            <input type="text" name="company" id="company" value="<?php echo $this->htmlEscape($this->getFormData()->getCompany()) ?>" title="<?php echo $this->__('Company') ?>" class="input-text" />
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="telephone"><?php echo $this->__('Telephone') ?></label>
+                        <div class="input-box">
+                            <input type="text" name="telephone" id="telephone" value="<?php echo $this->htmlEscape($this->getFormData()->getTelephone()) ?>" title="<?php echo $this->__('Telephone') ?>" class="input-text" />
+                        </div>
+                    </div>
+                </li>
+            </ul>
+         </div>
     <?php endif; ?>
 
         <div class="buttons-set">
