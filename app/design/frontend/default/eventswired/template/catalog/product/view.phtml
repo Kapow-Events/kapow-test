@@ -64,17 +64,17 @@
 
                 <?php echo $_helper->productAttribute($_product, $_product->getProductStats()) ?>
 
-<?php /*
-       * TODO: May need to put this back in the future
-       *
+                <?php if ($_product->getInventoryCallToAction()): ?>
                 <div class="ribbon_red no_ribbon_red_hover">
-                  <div class="amount"><?php echo (int)Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty(); ?></div> available
+                  <div class="amount"><?php echo (int)Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty(); ?></div> <?php echo $_helper->productAttribute($_product, $_product->getInventoryCallToAction()) ?>
                 </div>
-
+                <?php endif; ?>
+<?php /**
                 <?php if (Mage::getSingleton('customer/session')->isLoggedIn() && $_product->isSaleable()) : ?>
                   <?php echo $this->getChildHtml('addtocart') ?>
                 <?php endif ?>
 */ ?>
+
             </div>
 
             <div class="right">
