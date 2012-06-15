@@ -53,7 +53,7 @@
 
                 <?php if (!$_product->getCallToSchedule()): ?>
                 <div class="price">
-                    <div class="price_text"><?php echo $this->getChildHtml('product_type_data') ?></div>
+                    <div class="price_text"><?php echo $this->getPriceHtml($_product, false, '_clone') ?></div>
                     <div class="price_subtext"><?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?><?php echo $_product->getPriceSubtext() ?><?php endif; ?></div>
                 </div>
                 <?php endif; ?>
