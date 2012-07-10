@@ -62,7 +62,7 @@
                   <span>Become a <a href="<?php echo $this->getUrl('customer/account/create') ?>">member</a> or <a href="<?php echo $this->getUrl('customer/account/login') ?>">login</a> to see details and pricing!</span>
                 <?php endif; ?>
 
-                <?php echo $_helper->productAttribute($_product, $_product->getProductStats()) ?>
+                <?php echo $_helper->productAttribute($_product, $_product->getProductStats(), 'product_stats') ?>
 
                 <?php if ($_product->getInventoryCallToAction()): ?>
                 <div class="ribbon_red no_ribbon_red_hover">
@@ -110,7 +110,7 @@
                 <?php endforeach;?>
 */ ?>
 
-                <?php echo $_helper->productAttribute($_product, $_product->getDescription()) ?>
+                <?php echo $_helper->productAttribute($_product, $_product->getDescription(), 'description') ?>
 
 
                 <?php if (Mage::getSingleton('customer/session')->isLoggedIn() && $_product->isSaleable()) : ?>
