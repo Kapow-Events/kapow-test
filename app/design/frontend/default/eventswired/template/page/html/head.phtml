@@ -54,7 +54,8 @@
   <meta name="viewport" content="width=1150">
 
   <?php if ( Mage::registry('current_product') && (Mage::app()->getFrontController()->getRequest()->getRouteName() != 'customer') && !$this->helper('customer')->isLoggedIn() && !isset($_GET['show_status_warning']) ) : ?>
-    <meta http-equiv="refresh" content="0;url=<?php echo Mage::helper('core/url')->getCurrentUrl() ?>?show_status_warning" />
+  <?php $operator = (strstr(Mage::helper('core/url')->getCurrentUrl(), '?')) ? '&' : '?'; ?>
+    <meta http-equiv="refresh" content="0;url=<?php echo Mage::helper('core/url')->getCurrentUrl() . $operator ?>show_status_warning" />
   <?php endif ?>
 
   <? /** php $roleId = Mage::getSingleton('customer/session')->getCustomerGroupId(); ?>
