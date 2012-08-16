@@ -1,0 +1,47 @@
+<?php if (!Mage::registry('aw_social_script')): ?>
+    <?php Mage::register('aw_social_script', TRUE); ?>
+    <script type="text/javascript">
+                                                                                        
+        var aw_sociable_id=0;  
+        function awSociableSaveClick(){
+            var U = "<?php echo $this->getAjaxUrl(); ?>"
+                + 'service_id/'+encodeURIComponent(aw_sociable_id)
+                +'/<?php echo $this->getAjaxParams() ?>';
+            new Ajax.Request(U, {method: 'get'});
+        }
+        document.observe('dom:loaded', function(){
+            $$('ul.aw-sociable_services-list li a[rel="external"]').each(function(item){
+                item.writeAttribute('target','_blank')
+            });
+            $$("ul.aw-sociable_services-list li").each(function(item){
+                item.observe('mouseover', function() {
+                    var srv_id=item.getAttribute('class').match("srv_(.*?)_id");
+                    if(srv_id!=null){  aw_sociable_id=srv_id[1]; }
+                });
+               // item.observe('mouseout', function() {aw_sociable_id='';});
+            });
+        });  
+    </script>
+<?php endif; ?>
+
+<?php if ($this->getIsShow()): ?>
+    <?php $services = $this->getServicesList(); ?>
+    
+    <?php if (!empty($services)): ?>
+        <div class="aw-sociable_services  <?php echo $this->getDivClass(); ?>">
+            <ul class="aw-sociable_services-list">
+                <?php foreach ($services as $service): ?>
+                    <li class="aw-sociable_services_link-<?php echo $service['class'] ?> srv_<?php echo $service['id']; ?>_id">
+                        <?php if ($service['service_script']): ?>
+                           <?php echo $service['service_script']; ?>
+                        <?php else: ?>
+                            <a href="<?php echo $this->getLinkToSociable($service['id']); ?>" class="aw-sociable_services_link" rel="<?php echo ($service['new_window']) ? 'external' : '' ?>" title="<?php echo $service['title'] ?>">
+                                <img src="<?php echo $service['icon'] ?>" class="aw-sociable_services_thumbnail" alt="<?php echo $service['title'] ?>" />
+                            </a>
+                        <?php endif; ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>

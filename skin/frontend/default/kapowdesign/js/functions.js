@@ -75,7 +75,7 @@ var cj =
       'overlayColor': '#000',
       'overlayOpacity': 0.7,
       'showCloseButton': false,
-      'enableEscapeButton': false,
+      'enableEscabeButton': false,
       'centerOnScroll': false,
       'padding': 10
     });
@@ -358,14 +358,13 @@ var cj =
   
   homeEvents: function() {
 		jQuery('#homepage_events_container').carousel({
-			btnsPosition: 'inside',
+			btnsPosition: 'outside',
 			autoSlide: false,
 			dispItems :  3,
 			animSpeed: 1000
 		});
 	}
 };
-
 
 
 jQuery.noConflict();
@@ -377,3 +376,4 @@ jQuery(document).ready(function(){
 jQuery(window).resize(function(){
   cj.setupHomepageHeader();
 });
+
