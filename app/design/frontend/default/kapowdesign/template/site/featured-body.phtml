@@ -31,9 +31,9 @@ echo render_flat_nav($categories);
 			<section id="homepage_events">
 				<div id="homepage_events_header">kapow events</div>
 				<a href="?" class="homepage_events_header_link<?php echo (!isSet($_GET['cid']) ? ' header_active' : '') ?>">See All Events</a>
-				<a href="?cid=15" class="homepage_events_header_link"<?php echo ($_GET['cid'] == 15 ? ' header_active' : '') ?>>Bar Events</a>
-				<a href="?cid=16" class="homepage_events_header_link"<?php echo ($_GET['cid'] == 16 ? ' header_active' : '') ?>>Dining Events</a>
-				<a href="?cid=17" class="homepage_events_header_link"<?php echo ($_GET['cid'] == 17 ? ' header_active' : '') ?>>Sporting Events</a>
+				<a href="?cid=15" class="homepage_events_header_link"<?php echo (isset($_GET['cid']) && $_GET['cid'] == 15) ? ' header_active' : '' ?>>Bar Events</a>
+				<a href="?cid=16" class="homepage_events_header_link"<?php echo (isset($_GET['cid']) && $_GET['cid'] == 16) ? ' header_active' : '' ?>>Dining Events</a>
+				<a href="?cid=17" class="homepage_events_header_link"<?php echo (isset($_GET['cid']) && $_GET['cid'] == 17) ? ' header_active' : '' ?>>Sporting Events</a>
 				<div id="homepage_events_container">
 					<ul>
 						<?php $i=1; foreach ($featured_products as $_product): ?>
