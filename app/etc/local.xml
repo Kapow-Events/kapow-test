@@ -41,9 +41,9 @@
             <default_setup>
                 <connection>
                     <host><![CDATA[localhost]]></host>
-                    <username><![CDATA[magentouser]]></username>
-                    <password><![CDATA[otnegam]]></password>
-                    <dbname><![CDATA[magento]]></dbname>
+                    <username><![CDATA[vagrant]]></username>
+                    <password><![CDATA[vagrant]]></password>
+                    <dbname><![CDATA[ew_dev]]></dbname>
                     <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
                     <model><![CDATA[mysql4]]></model>
                     <type><![CDATA[pdo_mysql]]></type>
@@ -52,7 +52,7 @@
                 </connection>
             </default_setup>
         </resources>
-        <session_save><![CDATA[files]]></session_save>
+        <session_save><![CDATA[db]]></session_save>
 
         <page>
             <layouts>

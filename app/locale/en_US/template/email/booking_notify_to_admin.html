@@ -1,0 +1,31 @@
+<div>
+    <table cellspacing="0" cellpadding="0" border="0" width="98%" style="margin-top: 10px; margin-bottom: 10px;">
+        <tbody><tr>
+            <td align="center" valign="top">
+                <table cellspacing="0" cellpadding="0" border="0" width="650">
+                    <tbody><tr>
+                        <td valign="top">
+							<p><strong>Dear, Admin</strong></p>
+							<p>
+								The reservation for <strong>{{var product_sku}}</strong> <a href="{{var product_link}}"><strong>{{var product_name}}</strong></a> has been paid but it can’t be completed because of the product settings. Please, pay attention:
+								Currently, <a href="{{var product_link}}"><strong>{{var product_name}}</strong></a> has <strong>{{var current_reservations}}</strong> paid reservations but only <strong>{{var reservations_available}}</strong> are available.
+							</p>
+							<br/><br/>
+							<p>Order information:</p>
+							<p><strong>{{var order_date}}</strong> <a href="{{var order_link}}"><strong>#{{var order_id}}</strong></a> from <strong>
+							{{depend customer_link}}
+								<a href="{{var customer_link}}">							
+							{{/depend}}
+							{{var customer_name}}
+							{{depend customer_link}}
+								</a>							
+							{{/depend}}
+							</strong></p>
+                        </td>
+                    </tr>
+                </tbody></table>
+
+            </td>
+        </tr>
+    </tbody></table>
+</div>

@@ -1,0 +1,82 @@
+<?php
+/**
+* aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * aheadWorks does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * aheadWorks does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Booking
+ * @version    1.2.3
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ */
+?>
+<?php
+?>
+<label for="id_<?php echo $this->getDisplayFieldName(AW_Booking_Block_Catalog_Product_View::DATE_FROM_NAME)?>"><?php echo $this->__('From')?>:</label>
+
+<input type="text" id="id_<?php echo $this->getDisplayFieldName(AW_Booking_Block_Catalog_Product_View::DATE_FROM_NAME)?>" name="<?php echo $this->getDisplayFieldName(AW_Booking_Block_Catalog_Product_View::DATE_FROM_NAME)?>" size="8" readonly="readonly" value="<?php echo $this->formatDate($this->getFirstAvailableDay())?>"/>
+<input type="hidden" id="id_<?php echo AW_Booking_Block_Catalog_Product_View::DATE_FROM_NAME?>" name="<?php echo AW_Booking_Block_Catalog_Product_View::DATE_FROM_NAME?>"  readonly="readonly" value="<?php echo $this->formatDate($this->getFirstAvailableDay())?>"/>
+<br/>
+<label for="id_<?php echo $this->getDisplayFieldName(AW_Booking_Block_Catalog_Product_View::DATE_TO_NAME)?>"><?php echo $this->__('To')?>:</label>
+<input type="text" id="id_<?php echo $this->getDisplayFieldName(AW_Booking_Block_Catalog_Product_View::DATE_TO_NAME)?>" name="<?php echo $this->getDisplayFieldName(AW_Booking_Block_Catalog_Product_View::DATE_TO_NAME)?>" size="8" value="<?php echo $this->formatDate($this->getFirstAvailableDay())?>"/>
+<input type="hidden" id="id_<?php echo AW_Booking_Block_Catalog_Product_View::DATE_TO_NAME?>" name="<?php echo AW_Booking_Block_Catalog_Product_View::DATE_TO_NAME?>"/>
+
+<script type="text/javascript">
+
+
+    Booking.__onCalendarRender.push(function(cal){
+
+        cal.selectEvent.subscribe(function(evt) {
+            // Select selected days
+            var dates = cal.getSelectedDates();
+            var From = $A(dates).first();
+            var To = $A(dates).last();
+
+            if(!(Booking.isPeriodAvail(new Date(From), new Date(To)))){
+                this.deselectAll();
+                return this.render();
+            }
+
+            $(Booking.fieldFromDisplayId, Booking.fieldFromId).each(function(el){el.setValue(Booking.formatDate(From))});
+            $(Booking.fieldToDisplayId, Booking.fieldToId).each(function(el){el.setValue(Booking.formatDate(To))});
+            Booking.updatePrice()
+        }
+        ,  cal, true);
+        Booking.updatePrice()
+    });
+
+
+    Booking.getCurrentPrice = function(){
+        // Check price via AJAX
+        var dates = Booking.Calendar.getSelectedDates();
+
+        var dateFromStr = dates.first().getFullYear()+'-'+((100+dates.first().getMonth()+1)+'').substr(1)+'-'+((100+dates.first().getDate())+'').substr(1)
+        var dateToStr = dates.last().getFullYear()+'-'+((100+dates.last().getMonth()+1)+'').substr(1)+'-'+((100+dates.last().getDate())+'').substr(1)
+
+        dateFromStr += ' 00:00:00';
+        dateToStr += ' 00:00:00';
+
+        new Ajax.Request('<?php echo Mage::getUrl("booking_front/ajax/getprice/",array('product_id'=>$this->getProduct()->getId()))?>from/'+dateFromStr+'/to/'+dateToStr+'/', {
+            onSuccess: function(response) {
+                Booking.updatePrice(eval("("+response.responseText+")"))
+            }
+        });
+    }
+
+</script>

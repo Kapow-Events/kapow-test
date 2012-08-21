@@ -1,0 +1,191 @@
+<?php
+/**
+* aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * aheadWorks does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * aheadWorks does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Booking
+ * @version    1.2.3
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ */
+?>
+<?php
+?>
+<?php $product = $this->getProduct();
+
+ ?>
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('aw_booking/css/main.css') ?>" media="all" />
+<script src="<?php echo $this->getSkinUrl('aw_booking/js/yuical.js') ?>"></script>
+
+<script>
+	BookingConfig = {
+		qratio : '<?php echo $product->getAwBookingQratio()?>',
+		qratioMultiplier : '<?php echo $product->getAwBookingQratioMultiplier()?>'
+	}
+
+</script>
+
+<script>
+
+
+
+
+</script>
+
+<script type="text/javascript" defer="defer">
+
+
+var Booking = new Object;
+
+Booking.APIURL = "<?php echo Mage::getSingleton('adminhtml/url')->getUrl('booking/adminhtml_booking/ajax')?>";
+Booking.ItemString = "<?php echo $this->__('<td>%s</td><td>%s</td><td>%s</td><td>%s</td>')?>";
+
+
+ 
+String.prototype.sprintf = function(){
+		var list = arguments;
+		var pointer = 0;
+		return (this.replace(/%[0-9a-z]+/ig, function(arg){
+			var i = arg.substr(1);
+			if(i=='s'){
+				pointer ++;
+				return (list[pointer-1]) || '';
+			}else if(i=='d'){
+				pointer ++;
+				return parseInt(list[pointer-1])
+			}else if(i=='D'){
+				pointer ++;
+				return Math.abs(parseInt(list[pointer-1]))
+			}else if(i=='f'){
+				pointer ++;
+				return parseFloat(list[pointer-1])
+			}else if(i=='F'){
+				pointer ++;
+				return Math.abs(parseFloat(list[pointer-1]))
+			}
+			else
+				return (list[i]) || ''
+		}))
+	
+}
+
+function getBookingInfo(y,m,d){
+
+	var url = Booking.APIURL + 'productId/<?php echo $product->getId()?>/y/' + encodeURIComponent(y) + '/m/' + encodeURIComponent(m) +'/d/' + encodeURIComponent(d);
+	// notice the use of a proxy to circumvent the Same Origin Policy.
+
+	new Ajax.Request(url, {
+	  method: 'post',
+	  onSuccess: function(transport) {
+		  
+		try{
+			var obj = eval('('+transport.responseText+')');
+
+			setBookingInfo(obj);
+		}catch(e){
+			$('booking_details').innerHTML = transport.responseText;
+		}
+	  }
+	});
+}
+
+
+setBookingInfo = function (obj){
+	var c = '';
+	for(var i=0; i<obj.length; i++){
+		var lnk = (obj[i].customerId > 0 ? 
+			('<a href="'+obj[i].customerHref+'">'+obj[i].customerName+'</a>') 
+			: obj[i].customerName);
+		
+		c += ('<tr'+ (obj[i].isCanceled*1 ? ' class="canceled"':'') +'>' + 
+			'<td>' + obj[i].orderHref + '</td>' +
+			'<td>' + obj[i].createdTime + '</td>' +
+			'<td>' + lnk + '</td>' +
+            '<td>' + obj[i].customerEmail + '</td>' +
+            '<td>' + obj[i].customerPhone + '</td>' +    
+			'<td>' + obj[i].bindStart + '</td>' +
+			'<td>' + obj[i].bindEnd + '</td>' +
+			'<td>' + obj[i].totalItems + '</td>' +
+			'</tr>');
+	}
+	$('booking_details').innerHTML = '<table id="awbookingdetails">'+
+			'<thead><tr>'+
+			'<td>' + '<?php echo $this->__('Ordered ID')?>' + '</td>' +
+			'<td>' + '<?php echo $this->__('Ordered at')?>' + '</td>' +
+			'<td>' + '<?php echo $this->__('Customer Name')?>' + '</td>' +
+            '<td>' + '<?php echo $this->__('Customer Email')?>' + '</td>' +
+            '<td>' + '<?php echo $this->__('Customer Phone')?>' + '</td>' +
+			'<td>' + '<?php echo $this->__('Reserved from')?>' + '</td>' +
+			'<td>' + '<?php echo $this->__('Reserved to')?>' + '</td>' +
+			'<td>' + '<?php echo $this->__('Quantity')?>' + '</td>' +
+			'</tr></thead>'+
+			c+
+			'</table>';
+}
+
+
+
+
+
+YAHOO.util.Event.onDOMReady(function() {
+
+	bindedDates = "<?php echo $this->getBindedDates();?>";
+	bindedDateObjects = [];
+	
+
+
+/*    var inTxt = YAHOO.util.Dom.get("in"),
+        outTxt = YAHOO.util.Dom.get("out"),
+        inDate, outDate, interval;
+
+	
+	
+    var inField = YAHOO.util.Dom.get("id_aw_booking_from");
+   var  outField = YAHOO.util.Dom.get("id_aw_booking_to");
+*/
+    cal = new YAHOO.widget.CalendarGroup("cal","cal1Container",  
+		{
+			pagedate:"<?php echo Mage::helper('booking/yui')->formatDate($product->getAwBookingDateFrom())?>", 
+			pages:1,
+			mindate:"<?php echo Mage::helper('booking/yui')->formatDay($product->getAwBookingDateFrom())?>",
+			maxdate:"<?php echo Mage::helper('booking/yui')->formatDay($product->getAwBookingDateTo())?>",
+			navigator:true
+		}
+	);
+	function doubleFormat(d){
+		if(d>=10) return d+'';
+		else return '0'+d;
+	}
+	
+	function mySelectHandler(type,args,obj) { 
+		var selected = args[0]; 
+		var selDate = this.toDate(selected[0]); 
+ 
+		getBookingInfo(selDate.getFullYear(), selDate.getMonth()+1, selDate.getDate());
+		
+	};
+
+	cal.selectEvent.subscribe(mySelectHandler, cal, true); 
+	cal.render();
+	setBookingInfo(<?php echo json_encode(Mage::helper('booking')->getBindDetails(date('Y'), date('m'), date('d'), $product))?>);
+});
+
+
+</script>

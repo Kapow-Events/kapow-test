@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+    <sales_order_view>
+        <reference name="order_items">
+            <action method="addItemRender"><type>bookable</type><block>booking/sales_order_items_renderer</block><template>booking/sales/order/items/renderer.phtml</template></action>
+        </reference>
+    </sales_order_view>
+    <sales_order_invoice>
+        <reference name="invoice_items">
+            <action method="addItemRender"><type>bookable</type><block>booking/sales_order_items_renderer</block><template>sales/order/invoice/items/renderer/default.phtml</template></action>
+        </reference>
+    </sales_order_invoice>
+    <sales_order_shipment>
+        <reference name="shipment_items">
+            <action method="addItemRender"><type>bookable</type><block>booking/sales_order_items_renderer</block><template>booking/sales/order/items/renderer.phtml</template></action>
+        </reference>
+    </sales_order_shipment>
+    <sales_order_creditmemo>
+        <reference name="creditmemo_items">
+            <action method="addItemRender"><type>bookable</type><block>booking/sales_order_items_renderer</block><template>booking/sales/order/items/renderer.phtml</template></action>
+        </reference>
+    </sales_order_creditmemo>
+
+<!-- Orders details via email -->
+	<sales_email_order_items>
+ 		<reference name="items">
+            <action method="addItemRender"><type>bookable</type><block>booking/sales_order_items_renderer</block><template>email/order/items/order/default.phtml</template></action>
+        </reference>
+    </sales_email_order_items>
+
+	<sales_email_order_invoice_items>
+        <reference name="items">
+            <action method="addItemRender"><type>bookable</type><block>booking/sales_order_items_renderer</block><template>email/order/items/invoice/default.phtml</template></action>
+        </reference>
+    </sales_email_order_invoice_items>
+
+    <sales_email_order_shipment_items>
+        <reference name="items">
+            <action method="addItemRender"><type>bookable</type><block>booking/sales_order_items_renderer</block><template>email/order/items/shipment/default.phtml</template></action>
+        </reference>
+    </sales_email_order_shipment_items>
+
+    <sales_email_order_creditmemo_items>
+        <reference name="items">
+            <action method="addItemRender"><type>bookable</type><block>booking/sales_order_items_renderer</block><template>email/order/items/creditmemo/default.phtml</template></action>
+        </reference>
+    </sales_email_order_creditmemo_items>
+
+<!-- Orders details at customer area - print section -->
+	<sales_order_printinvoice>
+        <reference name="sales.order.print.invoice">
+            <action method="addItemRender"><type>bookable</type><block>booking/sales_order_items_renderer</block><template>sales/order/invoice/items/renderer/default.phtml</template></action>
+        </reference>
+    </sales_order_printinvoice>
+	<sales_order_printcreditmemo>
+        <reference name="sales.order.print.creditmemo">
+            <action method="addItemRender"><type>bookable</type><block>booking/sales_order_items_renderer</block><template>sales/order/creditmemo/items/renderer/default.phtml</template></action>
+        </reference>
+    </sales_order_printcreditmemo>
+	<sales_order_printshipment>
+        <reference name="sales.order.print.shipment">
+            <action method="addItemRender"><type>bookable</type><block>booking/sales_order_items_renderer</block><template>sales/order/shipment/items/renderer/default.phtml</template></action>
+        </reference>
+    </sales_order_printshipment>
+	<sales_order_print>
+        <reference name="sales.order.print">
+            <action method="addItemRender"><type>bookable</type><block>booking/sales_order_items_renderer</block><template>sales/order/items/renderer/default.phtml</template></action>
+        </reference>
+    </sales_order_print>
+
+    <!--
+Shopping cart item renderer
+-->
+
+    <checkout_cart_index>
+        <reference name="checkout.cart">
+            <action method="addItemRender"><type>bookable</type><block>booking/checkout_cart_item_renderer</block><template>checkout/cart/item/default.phtml</template></action>
+        </reference>
+        <reference name="checkout.cart.crosssell">
+            <action method="addPriceBlockType"><type>bookable</type><block>booking/catalog_product_price</block><template>bundle/catalog/product/price.phtml</template></action>
+        </reference>
+    </checkout_cart_index>
+
+    <!--
+Onepage Checkout Review Page
+-->
+
+    <checkout_onepage_review>
+        <reference name="root">
+            <action method="addItemRender"><type>bookable</type><block>booking/checkout_cart_item_renderer</block><template>checkout/onepage/review/item.phtml</template></action>
+        </reference>
+    </checkout_onepage_review>
+
+    <checkout_multishipping_addresses>
+        <reference name="checkout_addresses">
+            <action method="addItemRender"><type>bookable</type><block>booking/checkout_cart_item_renderer</block><template>checkout/multishipping/item/default.phtml</template></action>
+        </reference>
+    </checkout_multishipping_addresses>
+
+    <checkout_multishipping_shipping>
+        <reference name="checkout_shipping">
+            <action method="addItemRender"><type>bookable</type><block>booking/checkout_cart_item_renderer</block><template>checkout/multishipping/item/default.phtml</template></action>
+        </reference>
+        <reference name="checkout_billing_items">
+            <action method="addItemRender"><type>bookable</type><block>booking/checkout_cart_item_renderer</block><template>checkout/multishipping/item/default.phtml</template></action>
+        </reference>
+    </checkout_multishipping_shipping>
+
+    <checkout_multishipping_overview>
+        <reference name="checkout_overview">
+            <action method="addItemRender"><type>bookable</type><block>booking/checkout_cart_item_renderer</block><template>checkout/multishipping/item/default.phtml</template></action>
+        </reference>
+    </checkout_multishipping_overview>
+
+
+    <PRODUCT_TYPE_bookable>
+        <reference name="head">
+            <!-- CSS and JavaScript inserted in head -->
+            <block type="core/template" name="booking_head" template="booking/catalog/product/view/head.phtml"/>
+            <action method="addJs"><script>aw_booking/dateformat-prototype.js</script></action>
+        </reference>
+        <reference name="product.info">
+            <block type="booking/catalog_product_view_type_simple" name="product.info.simple" as="product_type_data"/>
+
+            <block type="booking/catalog_product_view" name="product.info.booking" as="other" template="booking/catalog/product/view.phtml">
+            <block type="booking/catalog_product_view_yuical" name="product.info.booking.yuical" as="yuical-init" template="booking/catalog/product/view/yuical.phtml"/>
+            <block type="booking/catalog_product_view" name="product.info.booking.type.time" as="time" template="booking/catalog/product/view/type/time.phtml">
+            <block type="booking/catalog_product_view_timetable" name="product.info.booking.timetable" as="timetable" template="booking/catalog/product/view/timetable.phtml"/>
+            </block>
+            <block type="booking/catalog_product_view" name="product.info.booking.type.date" as="date" template="booking/catalog/product/view/type/date.phtml"/>
+            <block type="booking/catalog_product_view" name="product.info.booking.type.datetime" as="datetime" template="booking/catalog/product/view/type/datetime.phtml">
+                <block type="booking/catalog_product_view_timetable" name="product.info.booking.timetable" as="timetable" template="booking/catalog/product/view/timetable.phtml"/>
+                </block>
+            </block>
+
+
+            <!--block type="booking/order" name="product.info.booking.fields" as="other" template="booking/order.phtml">
+                <block type="booking/order_hours" name="product.info.booking.timetable" as="timetable"/>
+            </block-->
+        </reference>
+
+
+
+        <!--reference name="product.info">
+            <block type="booking/order" name="product.info.booking.fields" template="booking/order.phtml"/>
+            <action method="insert"><block>product.info.booking.fields</block></action>
+        </reference-->
+    </PRODUCT_TYPE_bookable>
+
+    <catalog_product_view>
+        <reference name="head">
+            <action method="addJs"><script>aw_booking/yuical.js</script></action>
+            <action method="addCss"><script>aw_booking/css/main.css</script></action>
+        </reference>
+    </catalog_product_view>
+
+    <review_product_list>
+        <reference name="head">
+            <action method="addJs"><script>aw_booking/yuical.js</script></action>
+            <action method="addCss"><script>aw_booking/css/main.css</script></action>
+        </reference>
+    </review_product_list>
+
+</layout> 

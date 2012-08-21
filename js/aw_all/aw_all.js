@@ -9,4 +9,3 @@ function initAwall(){
 Event.observe(window, 'load', function() {
    initAwall();
 });
-;

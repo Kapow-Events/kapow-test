@@ -1,0 +1,249 @@
+<?php
+/**
+* aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * aheadWorks does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * aheadWorks does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Booking
+ * @version    1.2.3
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ */
+?>
+<?php
+?>
+<?php $_htmlId      = $this->getElement()->getHtmlId() ?>
+<?php $_htmlClass   = $this->getElement()->getClass() ?>
+<?php $_storeId		= $this->getProduct()->getStoreId() ?>
+<?php $_htmlName    = $this->getElement()->getName() ?>
+<?php $_readonly    = $this->getElement()->getReadonly() ?>
+<?php $_multiWebsite= 0 && !Mage::app()->isSingleStoreMode() ?>
+
+<tr>
+    <td class="label"><?php echo $this->getElement()->getLabel() ?></td>
+    <td colspan="10" class="grid prices" style="position:static;">
+    <table cellspacing="0" class="data border" id="prices_table">
+      
+        <col width="135" />
+      
+         <col width="135" />
+        <col width="120" />
+        <col width="180" />
+        <?php if (!$_storeId): ?><col/><?php endif; ?>
+        <col width="125" />
+        <col/>
+        <thead>
+            <tr class="headings">
+                <th><?php echo $this->__('From') ?></th>
+                <th><?php echo $this->__('To') ?></th>
+                <th><?php echo $this->__('Type') ?></th>
+                <th><?php echo $this->__('Price') ?></th>
+                <th <?php if (!$_storeId): ?>style="display:none"<?php endif; ?>></th>
+                <th class="last"><?php echo Mage::helper('catalog')->__('Action') ?></th>
+            </tr>
+            <tr id="<?php echo $_htmlId ?>_add_template" class="template no-display">
+                <td>
+					<?php echo $this->createDateBlock($_htmlName, 'from') ?>
+                </td>
+                <td>
+					<?php echo $this->createDateBlock($_htmlName, 'to') ?>
+                </td>               
+                <td>
+					<select onchange="changePriceType(this, __index__)" disabled="no-template" class="<?php echo $_htmlClass ?> required-entry" name="<?php echo $_htmlName ?>[__index__][is_progressive]" id="prices_row___index___is_progressive">
+						<option value="0"><?php echo $this->__("Fixed");?></option>
+						<option value="1"><?php echo $this->__("Gradually");?></option>
+					</select>
+                </td>
+                <td class="nobr">
+					<span id="lbl_prices_fixed___index__"><?php echo $this->__('Price')?>:</span>
+					<span id="lbl_prices_gradually___index__" style="display:none;"><?php echo $this->__('Price, from-to')?>:</span>
+					<input type="text" size="5" name="<?php echo $_htmlName ?>[__index__][price_from]" id="prices_row___index___price_from"/>
+					<span style="display:none" id="price_to___index___wrapper"><input type="text" size="5" name="<?php echo $_htmlName ?>[__index__][price_to]" id="prices_row___index___price_to"/></span>					
+                </td>
+                
+                <td <?php if (!$_storeId): ?>style="display:none"<?php endif; ?> class="nobr">
+					<input type="checkbox" name="<?php echo $_htmlName ?>[__index__][use_default_value]" id="prices_row___index___use_default_value"/> Use default value
+                </td>
+
+                <td class="last"><input type="hidden" name="<?php echo $_htmlName ?>[__index__][delete]" class="delete" disabled="no-template" value="" /><button title="Delete Rule" class="scalable delete icon-btn delete-product-option" onclick="pricesControl.deleteItem(event);return false"><span>Delete</span></button></td>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td <?php if (!$_multiWebsite): ?>style="display:none"<?php endif; ?>></td>
+                <td colspan="6" class="a-right"><?php echo $this->getChildHtml('add_button') ?></td>
+            </tr>
+        </tfoot>
+        <tbody id="<?php echo $_htmlId ?>_container">
+        </tbody>
+    </table>
+
+<script type="text/javascript">
+//<![CDATA[
+    var pricesControl = {
+        template : new Template('<tr>' + $('<?php echo $_htmlId ?>_add_template').innerHTML.replace(/__index__/g, '#{index}').replace(/ disabled="?no-template"?/g, '').replace(/ disabled/g, '').replace(/="'([^']*)'"/g, '="$1"') + '</tr>'),
+        itemsCount : 0,
+        defaultStoreId : <?php echo $_storeId;?>,
+        deleteButton: false,
+        addItem  : function () {
+            <?php if ($_readonly): ?>
+            if (arguments.length < 5) {
+                return;
+            }
+            <?php endif; ?>
+            data = {};
+            data.store_id = <?php echo $_storeId;?>;
+            data.is_progressive = 0;
+            
+            data.index = this.itemsCount++;
+            
+            if(arguments.length >= 5) {
+                data.store_id = parseInt(arguments[0]);
+                data.date_from      = arguments[1];
+				data.date_to  = arguments[2];
+                data.price_from        = arguments[3];
+                data.price_to        = arguments[4];
+                data.is_progressive = arguments[5];
+            }
+          
+            Element.insert($('<?php echo $_htmlId ?>_container'), {'bottom':this.template.evaluate(data)});
+            $('prices_row_'+data.index+'_date_from').setValue(data.date_from);
+            $('prices_row_'+data.index+'_date_to').setValue(data.date_to);
+            $('prices_row_'+data.index+'_price_from').setValue(data.price_from);
+            $('prices_row_'+data.index+'_price_to').setValue(data.price_to);
+            $('prices_row_'+data.index+'_is_progressive').setValue(data.is_progressive);
+            
+            $('prices_row_'+data.index+'_use_default_value').setValue(data.store_id == 0);
+            if(data.store_id && (typeof arguments[6] == 'undefined')){
+				$($('prices_row_'+data.index+'_use_default_value').parentNode).style.visibility='hidden';
+			}
+            
+            fireChangeEvt($('prices_row_'+data.index+'_is_progressive'))
+           
+            $('prices_row_'+data.index+'_use_default_value').onclick = function(){
+				if(this.checked){
+					$(this.parentNode.parentNode).select('input', 'select', 'button')
+						.each(pricesControl.disableElement);
+				}else{
+					$(this.parentNode.parentNode).select('input', 'select', 'button')
+						.each(procesControl.enableElement);
+				}
+			}
+
+			if(!data.store_id && parseInt(this.defaultStoreId)){
+				 $($('prices_row_'+data.index+'_use_default_value').parentNode.parentNode)
+						.select('input', 'select', 'button')
+						.each(pricesControl.disableElement);
+						
+			}
+			
+			
+            
+            <?php if ($_readonly): ?>
+            $('<?php echo $_htmlId ?>_container').select('input', 'select')
+                .each(this.disableElement);
+            $('<?php echo $_htmlId ?>_container').up('table').select('button')
+                .each(this.disableElement);
+            <?php endif; ?>
+            
+          
+            // Setup calendar
+            Calendar.setup({
+                inputField  : "prices_row_"+data.index+"_date_from",
+                ifFormat    : "<?php echo Mage::app()->getLocale()->getDateStrFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT)?>",
+                button      : "prices_row_"+data.index+"_date_from_trig",
+                align       : "Bl",
+                singleClick : true
+            });
+             Calendar.setup({
+                inputField  : "prices_row_"+data.index+"_date_to",
+                ifFormat    : "<?php echo Mage::app()->getLocale()->getDateStrFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT)?>",
+                button      : "prices_row_"+data.index+"_date_to_trig",
+                align       : "Bl",
+                singleClick : true
+            });           
+             
+        },
+        disableElement: function(elem) {
+            if(elem.type == 'checkbox') return;
+            elem.disabled = true
+            elem.addClassName('disabled');
+        },
+        enableElement: function(elem) {
+            elem.disabled = false
+            elem.removeClassName('disabled');
+        },       
+        deleteItem : function(event) {
+            var tr = Event.findElement(event, 'tr');
+            if (tr) {
+                Element.select(tr, '.delete').each(function(elem){elem.value='1'});
+                Element.select(tr, ['input', 'select']).each(function(elem){elem.hide()});
+                Element.hide(tr);
+                Element.addClassName(tr, 'no-display template');
+            }
+        }
+    }
+    
+    var changePriceType = function(el, index){
+		
+		if(1*$F(el)){
+			$('lbl_prices_fixed_'+index).hide()
+			$('lbl_prices_gradually_'+index).show()
+			$('price_to_'+index+'_wrapper').show()
+		}else{
+			$('lbl_prices_fixed_'+index).show()
+			$('lbl_prices_gradually_'+index).hide()
+			$('price_to_'+index+'_wrapper').hide()
+			
+		}
+	}
+    
+    <?php foreach ($this->getValues() as $_item): 
+    
+		$_item['date_from'] = $this->formatDate($_item['date_from']);
+		$_item['date_to'] = $this->formatDate($_item['date_to']);
+		
+    ?>
+    pricesControl.addItem('<?php echo $_item['store_id'] ?>', '<?php echo $_item['date_from'] ?>', '<?php echo $_item['date_to'] ?>', '<?php echo $_item['price_from']?>', '<?php echo $_item['price_to']?>', <?php echo intval($_item['is_progressive'])?>,true);
+    <?php endforeach; ?>
+    <?php if ($_readonly): ?>
+        $('<?php echo $_htmlId ?>_container').up('table').select('button')
+            .each(price.disableElement);
+    <?php endif; ?>
+//]]>
+	
+	function fireChangeEvt(obj){
+			
+			if(typeof document.createEvent !== 'undefined'){
+				var e = document.createEvent('HTMLEvents');
+				e.initEvent('change', false, false);
+				obj.dispatchEvent(e);
+			}else{
+				obj.fireEvent('onchange')
+			}
+		}
+	
+
+</script>
+
+
+
+</td>
+</tr>
+

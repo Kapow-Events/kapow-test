@@ -1,0 +1,141 @@
+<?php
+/**
+* aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * aheadWorks does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * aheadWorks does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Booking
+ * @version    1.2.3
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ */
+?>
+<?php
+?>
+<?php
+$TimeFrom = $this->getTimeBlock('aw_booking_time_from')
+    ->setId('aw_booking_time_from')
+    ->setTime(max($this->getProduct()->getAwBookingTimeTo(), $this->getProduct()->getAwBookingTimeFrom()));
+$TimeTo = $this
+    ->getTimeBlock('aw_booking_time_to')
+    ->setId('aw_booking_time_to')
+    ->setTime(max($this->getProduct()->getAwBookingTimeTo(), $this->getProduct()->getAwBookingTimeFrom()));
+
+?>
+
+
+<label for="aw_in"><?php echo $this->__('Date')?></label>
+<p>
+    <input type="text" id="id_<?php echo $this->getDisplayFieldName(AW_Booking_Block_Catalog_Product_View::DATE_FROM_NAME)?>" name="<?php echo $this->getDisplayFieldName(AW_Booking_Block_Catalog_Product_View::DATE_FROM_NAME)?>" size="8" readonly="readonly" value="<?php echo $this->formatDate($this->getFirstAvailableDay())?>"/>
+    <input type="hidden" id="id_<?php echo AW_Booking_Block_Catalog_Product_View::DATE_FROM_NAME?>" name="<?php echo AW_Booking_Block_Catalog_Product_View::DATE_FROM_NAME?>"  readonly="readonly" value="<?php echo $this->formatDate($this->getFirstAvailableDay())?>"/>
+</p>
+<label for="id_<?php echo $this->getDisplayFieldName(AW_Booking_Block_Catalog_Product_View::DATE_FROM_NAME)?>"><?php echo $this->__('From')?>:</label>
+<?php echo $TimeFrom->getElementHtml();?>		
+
+<label for="aw_in"><?php echo $this->__('To')?>:</label>
+<?php echo $TimeTo->getElementHtml();?>		
+<br/>
+
+<script type="text/javascript">
+    intId = setInterval(
+    function(){
+        if(typeof productAddToCartForm != 'undefined'){
+            var saveHandler = function(frm){
+                return frm.form.submit;
+            }(productAddToCartForm)
+
+            productAddToCartForm.submit = function(){
+                if(parseInt(<?php echo $TimeFrom->getJsObjectName()?>.getMinutes()) < parseInt(<?php echo $TimeTo->getJsObjectName()?>.getMinutes())){
+                    productAddToCartForm.form.submit()
+                }else{
+                    alert("<?php echo $this->__("Please ensure time interval you entered is correct")?>");
+                    return false;
+                }
+
+            }
+            clearInterval(intId);
+        }
+    },
+    500
+)
+
+
+    /**
+     * Load booked days details
+     */
+    Booking.getDayDetails = function(date){
+        date = date.getFullYear()+'-'+((100+date.getMonth()+1)+'').substr(1)+'-'+((100+date.getDate())+'').substr(1)
+        new Ajax.Request('<?php echo Mage::getUrl('booking_front/ajax/getdate/',array('id'=>$this->getProduct()->getId()) )?>date/'+date,
+        {
+            method:'get',
+            onLoading: function(){
+                $('aw_booking_timetable').innerHTML = '<?php echo $this->__('Loading...')?>';
+                $('aw_booking_timetable').className = 'loading'
+            },
+            onSuccess: function(transport){
+                var html = transport.responseText || "no response text";
+                $('aw_booking_timetable').innerHTML = html;
+                $('aw_booking_timetable').className = ''
+            },
+            onFailure: function(){ console.log(arguments) }
+        });
+        Booking.getCurrentPrice();
+    }
+
+
+    Booking.__onCalendarRender.push(function(cal){
+        cal.selectEvent.subscribe(function(evt) {
+            // Select selected days
+            var dates = this.getSelectedDates();
+            $(Booking.fieldFromDisplayId, Booking.fieldFromId).each(function(el){el.setValue(Booking.formatDate(dates[0]))});
+            Booking.getDayDetails(dates[0]);
+        }
+        ,  cal, true)
+    }
+);
+
+    $$('#aw_booking_time_from-hours', '#aw_booking_time_to-hours', '#aw_booking_time_from-daypart', '#aw_booking_time_to-daypart','#aw_booking_time_from-minutes','#aw_booking_time_to-minutes').each(function(el){
+        el.observe('change', function(){ Booking.updatePrice()});
+    })
+
+    Booking.getCurrentPrice = function(){
+        // Check price via AJAX
+        var dates = Booking.Calendar.getSelectedDates();
+
+        var dateFromStr = dates.first().getFullYear()+'-'+((100+dates.first().getMonth()+1)+'').substr(1)+'-'+((100+dates.first().getDate())+'').substr(1)
+        var dateToStr = dates.last().getFullYear()+'-'+((100+dates.last().getMonth()+1)+'').substr(1)+'-'+((100+dates.last().getDate())+'').substr(1)
+
+        dateFromStr += ' '+<?php echo $TimeFrom->getJsObjectName()?>.getValueString();
+        dateToStr += ' '+<?php echo $TimeTo->getJsObjectName()?>.getValueString();
+
+        new Ajax.Request('<?php echo Mage::getUrl("booking_front/ajax/getprice/",array('product_id'=>$this->getProduct()->getId()))?>from/'+dateFromStr+'/to/'+dateToStr+'/', {
+            onSuccess: function(response) {
+                Booking.updatePrice(eval("("+response.responseText+")"));
+            }
+        });
+    }
+
+
+
+</script>	
+
+
+<br/>
+<br/>
+<?php echo $this->getChild('timetable')->setDate($this->getFirstAvailableDay())->toHtml();?>

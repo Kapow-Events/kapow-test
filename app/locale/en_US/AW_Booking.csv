@@ -1,0 +1,39 @@
+"Booking","Booking"
+SKU,SKU
+Customer name,Customer name
+Product Name,Product Name
+Ordered ID,Ordered ID
+Ordered at,Ordered at
+"From","From"
+"To","To"
+Reserved from,Reserved from
+Reserved to,Reserved to
+Booked detail,Booked detail
+"Time is out of allowed bounds (%s - %s)","Time is out of allowed bounds (%s - %s)"
+"<From> time must be less than <to>","<From> time must be less than <to>"
+"Loading...","Loading..."
+Reserve date,Reserve date
+Date,Date
+Free time,Free time
+Busy time,Busy time
+Please specify reservation information,Please specify reservation information
+"Sorry, the period you specified is inaccessible","Sorry, the period you specified is inaccessible" 
+AM,AM
+PM,PM
+Order,Order
+Order date,Order date
+Reservation from,Reservation from
+Reservation to,Reservation to
+View,View
+Product Details,Product Details
+Id,Id
+Name,Name
+Last order,Last order
+"Product '%s' Details","Product '%s' Details"
+"Order #","Order #"
+Customer,Customer
+Purchased On,Purchased On
+Booking Information,Booking Information
+Latest orders,Latest orders
+Booked Dates,Booked Dates
+Recently Booked Products,Recently Booked Products
