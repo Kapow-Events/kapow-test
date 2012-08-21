@@ -1,0 +1,174 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+$currentUrl = $this->helper('core/url')->getCurrentUrl();
+?>
+  <footer id="footer" class="outer_wrapper">
+  	<div id="contact_logo"></div>
+    <div id="contact" class="inner_wrapper">
+      <h2>contact us today <?php if (isset($_GET['message_sent'])) { echo '<small class="floatright">Message Sent!</small>'; } ?></h2>
+      <div class="content clearfix">
+        <div class="left">
+          <div id="email_us_button" class="floatleft">
+            <div class="list_item_round_beige_large">
+              <a class="icon_email" href="mailto:<?php echo Mage::getStoreConfig('trans_email/ident_support/email'); ?>"><?php echo Mage::getStoreConfig('trans_email/ident_support/email'); ?></a>
+            </div>
+            <a class="button_ribbon_small" href="mailto:<?php echo Mage::getStoreConfig('trans_email/ident_support/email'); ?>">email us</a>
+          </div>
+
+          <div class="floatright clearfix">
+            <h2 class="fancy_phone_number"><?php echo Mage::getStoreConfig('general/store_information/phone'); ?></h2>
+            <hr />
+            <?php echo $this->getChildHtml('footerConnectWithUs') ?>
+          </div>
+
+          <div id="contact_information">
+            <?php echo $this->getChildHtml('footerAddress') ?>
+          </div>
+        </div><!-- footer.content.left -->
+
+        <div class="right">
+          <form action="<?php echo $this->getUrl('contacts/index/post'); ?>" id="contactForm" method="post">
+            <input type="hidden" name="return_url" value="<?php echo str_replace('//', '/', $currentUrl.'/?message_sent#contact') ?>" />
+            <fieldset>
+              <legend>got a question? let us know.</legend>
+              <table>
+                <tr>
+                  <td style="padding-right:10px;"><label for="name" class="required">Name:</label><input type="text" id="name" name="name" value="" class="input-text required-entry" /></td>
+                  <td style="padding-left:10px;"><label for="email" class="required">Email:</label><input type="text" id="email" name="email" value="" class="input-text required-entry" /></td>
+                </tr>
+                <tr>
+                  <td colspan="2"><label for="message" class="required">Message:</label><textarea id="comment" class="required-entry" name="comment"></textarea></td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                      <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
+                      <input type="submit" value="send message" class="button_ribbon floatright" />
+                  </td>
+                </tr>
+              </table>
+            </fieldset>
+          </form>
+        </div><!-- footer.content.right -->
+      </div><!-- footer.content -->
+    </div><!-- footer.inner_wrapper -->
+  </footer><!-- footer.outer_wrapper -->
+  
+  <div id="footer_sublinks">
+      <div id="footer_sublinks_left">
+        <a href="/terms-of-use">terms of use</a>
+        <a href="/privacy-statement">privacy statement</a>
+      </div>
+      <div id="footerlogo"></div>
+      <div id="footer_sublinks_right">
+        <a href="/faqs">faq's</a>
+        <a href="/site-map" class="last">site map</a>
+      </div>
+  </div>
+	<div id="copy">
+		&copy; kapow events, llc,  All rights reserved.
+	</div>
+
+  <script type="text/javascript">
+  //<![CDATA[
+    var contactForm = new VarienForm('contactForm', false);
+  //]]>
+  </script>
+
+  <!-- JavaScript at the bottom for fast page loading -->
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS); ?>/jquery-1.7.1.min.js"><\/script>')</script>
+
+  <script src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS); ?>jquery.carousel.min.js"></script>
+  <script src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS); ?>jquery.cookie.js"></script>
+  <script src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS); ?>jquery.backstretch.min.js"></script>
+  <script src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS); ?>fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+  <script src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS); ?>functions.js"></script>
+
+  <?php if ($this->getIsHomePage()) : ?>
+    <script> cj.isFrontpage = true; </script>
+  <?php endif; ?>
+  <!-- end scripts -->
+
+  <!-- LOGIN WARNING Lightbox -->
+  <div class="hidden">
+    <?php // automatically show the lightbox by including this link for the JS to find and auto-click ?>
+    <?php if (isset($_GET['show_status_warning'])) : ?>
+      <a href="#lightbox-signup-or-login" class="lightbox-modal-link" rel="showOnLoad"></a>
+    <?php endif ?>
+
+    <div id="lightbox-signup-or-login" class="lightbox-modal">
+      <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('lightbox-login-or-signup')->toHtml(); ?>
+      <?php $url = stristr($this->helper('core/url')->getCurrentUrl(), '?show_status_warning', true); ?>
+      <div><a class="button_ribbon floatright" href="/customer/account/create/">become a member</a><a class="button_ribbon_small" href="/customer/account/login/referer/<?php echo Mage::helper('core')->urlEncode($url); ?>/">sign in</a></div>
+    </div>
+  </div>
+
+  <!-- PURGATORY Lightbox -->
+  <div class="hidden">
+    <?php
+      // automatically show the lightbox by including this link for the JS to find and auto-click
+      $roleId = Mage::getSingleton('customer/session')->getCustomerGroupId();
+    ?>
+    <?php if (isset($_GET['show_purgatory_warning'])) : ?>
+      <a href="#lightbox-purgatory" class="lightbox-modal-link" rel="showOnLoad"></a>
+    <?php endif ?>
+
+    <div id="lightbox-purgatory" class="lightbox-modal">
+      <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('purgatory-welcome-message')->toHtml(); ?>
+    </div>
+  </div>
+
+  <!-- APPLICATION RECEIVED CONFIRMATION Lightbox -->
+  <div class="hidden">
+    <?php // automatically show the lightbox by including this link for the JS to find and auto-click ?>
+    <?php if (isset($_GET['thank-you'])) : ?>
+      <a href="#lightbox-application-received" class="lightbox-modal-link" rel="showOnLoad"></a>
+    <?php endif ?>
+
+    <div id="lightbox-application-received" class="lightbox-modal">
+      <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('lightbox-application-received-confirmation')->toHtml(); ?>
+    </div>
+  </div>
+
+  <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID. mathiasbynens.be/notes/async-analytics-snippet -->
+  <?php $google_analytics_site_id = Mage::getModel('core/variable')->loadByCode('google_analytics_site_id')->getValue('plain'); ?>
+  <?php if ($google_analytics_site_id != 'UA-XXXXX-X') : ?>
+    <script>
+      var _gaq=[['_setAccount','<?php echo $google_analytics_site_id ?>'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+  <?php endif ?>
+
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->

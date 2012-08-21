@@ -21,6 +21,7 @@ var cj =
     this.setupHomepageHeader();
     this.addPlaceholderSupport();
     this.startCarousel();
+    this.homeEvents();
   },
 
   performAutoScroll: function ()
@@ -353,7 +354,16 @@ var cj =
       //autoSlideInterval: 4000,
       animSpeed: 1000
     });
-  }
+  },
+  
+  homeEvents: function() {
+		jQuery('#homepage_events_container').carousel({
+			btnsPosition: 'inside',
+			autoSlide: false,
+			dispItems :  3,
+			animSpeed: 1000
+		});
+	}
 };
 
 

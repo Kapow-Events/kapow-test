@@ -3,15 +3,23 @@
 class EW_Site_Block_Featured extends Mage_Core_Block_Template
 {
 
-    public function getInitiallyFeaturedProduct()
+    public function getInitiallyFeaturedProduct($cid)
     {
-        $category_id = 8;
-        $product = Mage::getModel('catalog/category')->load($category_id)
-            ->getProductCollection()
-            ->addAttributeToSelect('*')
-            ->addAttributeToFilter('status', 1)
-            ->setPageSize(1);
+    	if ($cid != 0) {
+       /*  $category_id = 8; */
+	        $product = Mage::getModel('catalog/category')->load($cid)
+	            ->getProductCollection()
+	            ->addAttributeToSelect('*')
+	            ->addAttributeToFilter('status', 1);
+	            /* ->setPageSize(1); */
+        }
+        else {
+	        $product = Mage::getModel('catalog/product')
+                        ->getCollection()
+                        ->addAttributeToSelect('*')
+                        ->addAttributeToFilter('status', 1);
 
+        }
         return $product;
     }
 

@@ -1,0 +1,83 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+
+
+
+  <meta charset="utf-8">
+
+  <!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/b/378 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title><?php echo $this->getTitle() ?></title>
+  <meta name="author" content="<?php echo Mage::app()->getStore()->getName() ?>">
+  <meta name="description" content="<?php echo strip_tags($this->getDescription()) ?>" />
+  <meta name="keywords" content="<?php echo htmlspecialchars($this->getKeywords()) ?>" />
+  <meta name="robots" content="<?php echo htmlspecialchars($this->getRobots()) ?>" />
+
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title"       content="<?php echo $this->getTitle() ?>" />
+  <meta property="og:description" content="<?php echo htmlspecialchars($this->getDescription()) ?>" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:site_name"   content="<?php echo Mage::app()->getStore()->getName() ?>" />
+  <meta property="og:url"         content="<?php echo $this->helper('core/url')->getCurrentUrl() ?>" />
+<?php if (Mage::registry('current_product')) : ?>
+  <meta property="og:image" content="<?php echo Mage::helper('catalog/image')->init(Mage::registry('current_product'), 'small_image')->resize(200,200);?>" />
+  <meta property="og:title" content="<?php echo Mage::registry('current_product')->getMetaTitle()?>" /> 
+<?php endif;?>
+
+  <!-- Mobile viewport optimized: h5bp.com/viewport -->
+  <meta name="viewport" content="width=1150">
+
+  <?php if ( Mage::registry('current_product') && (Mage::app()->getFrontController()->getRequest()->getRouteName() != 'customer') && !$this->helper('customer')->isLoggedIn() && !isset($_GET['show_status_warning']) ) : ?>
+  <?php $operator = (strstr(Mage::helper('core/url')->getCurrentUrl(), '?')) ? '&' : '?'; ?>
+    <meta http-equiv="refresh" content="0;url=<?php echo Mage::helper('core/url')->getCurrentUrl() . $operator ?>show_status_warning" />
+  <?php endif ?>
+
+  <? /** php $roleId = Mage::getSingleton('customer/session')->getCustomerGroupId(); ?>
+  <?php if ( Mage::registry('current_product') && $this->helper('customer')->isLoggedIn() && $roleId == 4) : ?>
+    <meta http-equiv="refresh" content="0;url=<?php echo Mage::helper('core/url')->getHomeUrl() ?>?show_purgatory_warning" />
+  <?php endif  */ ?>
+
+  <link href='http://fonts.googleapis.com/css?family=Quicksand:400,300,700|Cabin:400,600,500|Homenaje' rel='stylesheet' type='text/css'>
+
+  <link rel="icon"             href="<?php echo $this->getSkinUrl() ?>images/favicon.gif" type="image/x-icon" />
+  <link rel="shortcut icon"    href="<?php echo $this->getSkinUrl() ?>images/favicon.gif" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="<?php echo $this->getSkinUrl() ?>images/apple-touch-icon.png" />
+
+<!--[if lt IE 7]>
+<script type="text/javascript">
+//<![CDATA[
+    var BLANK_URL = '<?php echo $this->helper('core/js')->getJsUrl('blank.html') ?>';
+    var BLANK_IMG = '<?php echo $this->helper('core/js')->getJsUrl('spacer.gif') ?>';
+//]]>
+</script>
+<![endif]-->
+<?php echo $this->getCssJsHtml() ?>
+<?php echo $this->getChildHtml() ?>
+<?php echo $this->helper('core/js')->getTranslatorScript() ?>
+<?php echo $this->getIncludes() ?>
