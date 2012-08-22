@@ -115,7 +115,8 @@ $currentUrl = $this->helper('core/url')->getCurrentUrl();
   <!-- end scripts -->
 
   <!-- LOGIN WARNING Lightbox -->
-  <div class="hidden">
+  <div id="fixedbg"></div>
+  <div class="modal hidden-">
     <?php // automatically show the lightbox by including this link for the JS to find and auto-click ?>
     <?php if (isset($_GET['show_status_warning'])) : ?>
       <a href="#lightbox-signup-or-login" class="lightbox-modal-link" rel="showOnLoad"></a>
@@ -123,9 +124,46 @@ $currentUrl = $this->helper('core/url')->getCurrentUrl();
 
     <div id="lightbox-signup-or-login" class="lightbox-modal">
       <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('lightbox-login-or-signup')->toHtml(); ?>
-      <?php $url = stristr($this->helper('core/url')->getCurrentUrl(), '?show_status_warning', true); ?>
-      <div><a class="button_ribbon floatright" href="/customer/account/create/">become a member</a><a class="button_ribbon_small" href="/customer/account/login/referer/<?php echo Mage::helper('core')->urlEncode($url); ?>/">sign in</a></div>
+      <?php $url = stristr($this->helper('core/url')->getCurrentUrl(), '?show_status_warning', true); ?> 
+      <div class="modal-form">
+	      <input type="text" name="modal-email" id="modal-email" value="E-Mail Address" class="modal-input" maxlength="255" /><br/>
+	      <input type="password" name="modal-password" id="modal-password" value="" class="modal-input" maxlength="255" />
+	      <div id="modal-button-contain">
+		      <button class="modal-signin">
+		      	<span>Sign In &gt;</span>
+		      </button>
+	      </div>
+      </div>
+      <div class="modal-links">
+	      <div><a class="modal-reset" href="/customer/account/reset/">Reset Password</a></div>
+	      <div class="spacerdot"></div>
+	      <div><a class="modal-signup_link" href="/customer/account/create/">Not a Member? Sign Up It's Free!</a></div>
+      </div>
+      <!-- <div><a class="button_ribbon floatright" href="/customer/account/create/">become a member</a><a class="button_ribbon_small" href="/customer/account/login/referer/<?php echo Mage::helper('core')->urlEncode($url); ?>/">sign in</a></div> -->
     </div>
+    <script>
+	jQuery(document).ready(function() {
+		jQuery("#modal-email").focus(function() {
+			if (jQuery(this).val() == "E-Mail Address") {
+				jQuery(this).val("");
+			}
+		});
+		jQuery("#modal-email").blur(function() {
+			if (jQuery(this).val() == "") {
+				jQuery(this).val("E-Mail Address");
+			}
+		});
+		jQuery('#fixedbg').click(function() {
+			jQuery(this).addClass("hidden");
+			jQuery('.modal').addClass("hidden");
+		})
+    	/* This doesn't work because of IE. Stupid IE...
+	    	jQuery('#modal-password').click(function() {
+	    		$(this).attr("type","password");
+	    	});
+		*/
+	});
+    </script>
   </div>
 
   <!-- PURGATORY Lightbox -->
