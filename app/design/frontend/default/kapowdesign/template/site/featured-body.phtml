@@ -57,7 +57,12 @@ echo render_flat_nav($categories);
 								$font_size 		= strlen($name) > 50  ? ' three_plus_lines' : '';
 								$group_size_min = $_product->getResource()->getAttribute('event_group_size_min')->getFrontend()->getValue($_product);
 								$group_size_max = $_product->getResource()->getAttribute('event_group_size_max')->getFrontend()->getValue($_product);
-								$cost 			= round($_product->getResource()->getAttribute('price')->getFrontend()->getValue($_product));
+								if ($_product->getResource()->getAttribute('per_person_cost')->getFrontend()->getValue($_product) == "") {
+									$cost 		= round($_product->getResource()->getAttribute('price')->getFrontend()->getValue($_product));
+								}
+								else {
+									$cost 		= round($_product->getResource()->getAttribute('per_person_cost')->getFrontend()->getValue($_product));
+								}
 								$categories		= $_product->getCategoryIds();
 								$event_icons	= array("","","","","","");
 								foreach ($categories as $cat) {
