@@ -31,7 +31,7 @@
  * @author      Magento Core Team <core@magentocommerce.com>
  */
 
-class EW_Customer_Model_Address_Abstract extends Mage_Core_Model_Abstract
+class EW_Customer_Model_Address_Abstract extends Mage_Customer_Model_Address_Abstract
 {
     protected $_eventPrefix = 'customer_address';
     protected $_eventObject = 'customer_address';
