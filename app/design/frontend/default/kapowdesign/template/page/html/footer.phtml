@@ -128,6 +128,7 @@ $currentUrl = $this->helper('core/url')->getCurrentUrl();
       <div class="modal-form">
           <form action="<?php echo $this->helper('customer')->getLoginPostUrl(); ?>" id="login-form" method="post">
 	      <input type="text" name="login[username]" id="modal-email" value="E-Mail Address" class="modal-input" maxlength="255" /><br/>
+	      <input type="text" name="x" id="modal-passwordText" class="modal-input" value="Password" maxlength="255" />
 	      <input type="password" name="login[password]" id="modal-password" value="" class="modal-input" maxlength="255" />
 	      <div id="modal-button-contain">
 		      <button class="modal-signin">
@@ -142,6 +143,7 @@ $currentUrl = $this->helper('core/url')->getCurrentUrl();
 	      <div><a class="modal-signup_link" href="/customer/account/create/">Not a Member? Sign Up It's Free!</a></div>
       </div>
       <!-- <div><a class="button_ribbon floatright" href="/customer/account/create/">become a member</a><a class="button_ribbon_small" href="/customer/account/login/referer/<?php echo Mage::helper('core')->urlEncode($url); ?>/">sign in</a></div> -->
+	    <div id="closebtn"></div>
     </div>
     <script>
 	jQuery(document).ready(function() {
@@ -155,15 +157,24 @@ $currentUrl = $this->helper('core/url')->getCurrentUrl();
 				jQuery(this).val("E-Mail Address");
 			}
 		});
-		jQuery('#fixedbg').click(function() {
-			jQuery(this).addClass("hidden");
-			jQuery('.modal').addClass("hidden");
-		})
-    	/* This doesn't work because of IE. Stupid IE...
-	    	jQuery('#modal-password').click(function() {
-	    		$(this).attr("type","password");
-	    	});
-		*/
+		jQuery("#fancybox-overlay").click(function() {
+    		jQuery.fancybox.close();
+		});
+		jQuery("#modal-passwordText").focus(function() {
+			jQuery(this).hide();  
+			jQuery("#modal-password").show();
+			jQuery("#modal-password").focus();
+		});
+		jQuery("#modal-password").blur(function() {
+		    if(jQuery(this).val().length == 0)
+		    {
+		       jQuery(this).hide();  
+		       jQuery("#modal-passwordText").show();
+		    }      
+		});
+    	jQuery('#closebtn').click(function() {
+    		jQuery.fancybox.close();
+    	})
 	});
     </script>
   </div>
