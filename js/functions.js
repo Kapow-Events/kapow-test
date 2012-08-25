@@ -363,6 +363,17 @@ var cj =
 			dispItems :  3,
 			animSpeed: 1000
 		});
+	},
+	
+	swapModal: function(type) {
+		if (type == "new") {
+			jQuery('#login-modal').toggle('slow');
+			jQuery('#signup-modal').delay(500).toggle('slow');
+		}
+		else {
+			jQuery('#signup-modal').toggle('slow');
+			jQuery('#login-modal').delay(500).toggle('slow');
+		}
 	}
 };
 

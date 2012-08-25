@@ -1632,16 +1632,42 @@ p.callout { font-size:18px; line-height:24px; }
 }
 .lightbox-modal {
 	width: 560px;
-	padding: 57px 30px 56px;
+	padding: 57px 30px 40px;
 	position: fixed;
 	top: 20%;
 	left: 23%;
 	z-index: 1501;
-	background: #000 url(../images/modal-ribbons.png) no-repeat;
 	text-align: center;
+	background: #000;
 	color: #fff;
 	font-family: 'BrandonG Light Italic', 'Arial Narrow', sans-serif;
 	font-style: normal;
+	overflow: hidden;
+}
+.lightbox-modal .bg-ribbon {
+	width:30px;
+	height:30px;
+	position:absolute;
+}
+.lightbox-modal #bgribbon_tl {
+	background: url(../images/tl_ribbon.png) no-repeat;
+	top:0;
+	left:0;
+}
+.lightbox-modal #bgribbon_tr {
+	background: url(../images/tr_ribbon.png) no-repeat;
+	top:0;
+	right:0;
+}
+.lightbox-modal #bgribbon_bl {
+	background: url(../images/bl_ribbon.png) no-repeat;
+	bottom:0;
+	left:0;
+}
+.lightbox-modal #bgribbon_br {
+	background: url(../images/br_ribbon.png) no-repeat;
+	bottom:0;
+	right:0;
 }
 .lightbox-modal .modal-header {
 	font-size:44px;
@@ -1657,6 +1683,7 @@ p.callout { font-size:18px; line-height:24px; }
 .lightbox-modal .modal-input {
 	width: 372px;
 	padding:11px;
+	margin-bottom:10px;
 	background:#110e0e;
 	font-family: 'BrandonG Light Italic', 'Arial Narrow', sans-serif;
 	color:#fff;
@@ -1676,11 +1703,47 @@ p.callout { font-size:18px; line-height:24px; }
 	right: 2px;
 	top: -90px;
 }
-#modal-button-contain {
+#signin-button {
 	background: url(../images/signin_bg.png) no-repeat;
 	height:41px;
 	width:561px;
 	margin-top:40px;
+}
+#signup-modal {
+	width: 492px;
+	margin: 0 auto;
+	font-size: 21px;
+	line-height: 21px;
+	font-style: normal;
+	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
+	color:#ccc;
+}
+#signup-modal #signup-top {
+	margin-top: -20px;
+	padding-bottom: 35px;
+	border-bottom: 1px #222 solid;
+}
+#signup-modal #signup-bottom {
+	margin-top: 35px;
+	margin-bottom: 20px;
+	padding-bottom: 35px;
+	border-bottom: 1px #222 solid;
+}
+#signup-form {
+	width:398px;
+	margin: 0 auto;
+	border-bottom:1px #222 solid;
+	padding-bottom: 18px;
+}
+#signup-modal #signup-phone {
+	float:left;
+	width:145px;
+	margin-top:-21px;
+	margin-left:18px;
+}
+#signup-modal #signup-fullname {
+	float:left;
+	width:190px;
 }
 .lightbox-modal .modal-signin {
 	background: url(../images/modal-signin.png) no-repeat;
@@ -1700,6 +1763,27 @@ p.callout { font-size:18px; line-height:24px; }
 	width:325px;
 	margin: 28px auto;
 }
+#signuplinks {
+	width:200px;
+	margin: 20px auto -20px;
+	font-size: 16px;
+	font-family: 'BrandonG Light Italic', 'Arial Black', sans-serif;
+}
+
+.lightbox-modal .modal-continue {
+	background: url(../images/modal_continue.png) no-repeat;
+	width:168px;
+	height:41px;
+	border:none;
+	margin-top:10px;
+}
+.lightbox-modal .modal-continue span {
+	display: block;
+	color:#fff;
+	text-shadow:  1px 1px 2px #000;
+	font-size:20px;
+	font-family: 'BrandonG Bold', 'Arial Black', sans-serif;
+}
 .lightbox-modal .modal-links div {
 	float:left;
 }
@@ -1711,6 +1795,9 @@ p.callout { font-size:18px; line-height:24px; }
 }
 .lightbox-modal .modal-links .modal-signup_link {
 	color:#fff;
+}
+.lightbox-modal #signup-modal {
+	display:none;
 }
 
 #slidebox {
