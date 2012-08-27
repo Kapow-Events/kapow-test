@@ -1,0 +1,92 @@
+<?php
+/**
+* aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * aheadWorks does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * aheadWorks does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Booking
+ * @version    1.2.3
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ */
+?>
+<?php
+?>
+<script>
+
+Booking = {};
+
+
+
+/**
+ * date => is available for bind cache
+ */
+Booking.__BIND_CACHE__ = {};
+
+/**
+ * onCalendarRender setup
+ * This can be used by different click handlers and so on
+ */
+Booking.__onCalendarRender = {
+    data : [],
+    isLoaded : false,
+    push : function(item){
+	if(Booking.__onCalendarRender.isLoaded){
+	   var res = function(el){el(Booking.Calendar)}(item);
+	}
+	Booking.__onCalendarRender.data.push(item)
+    }
+};
+
+
+Booking.onCalendarRender = function(){
+   Booking.__onCalendarRender.isLoaded = 1;
+   $A(Booking.__onCalendarRender.data).each(function(el){el(Booking.Calendar)})
+
+}
+/**
+ * Returns formatted date regarding to Magento locale settings
+ */
+Booking.formatDate = function(D){
+    var oDate = new DateFormat({lang:"en"});
+    oDate.setDate({
+	'year' : D.getFullYear(),
+	'month' : D.getMonth()+1,
+	'date' : D.getDate()
+    },'object');
+    return  oDate.toFormat("<?php echo Mage::app()->getLocale()->getDateStrFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT)?>");
+}
+
+/**
+ * Format date to internal format
+ * @return string
+ */
+Booking.formatDateInternal = function(z){
+     if(typeof z.charAt == 'function'){
+	 return z;
+     }else if(z instanceof Date){
+	 f = [z.getFullYear(), z.getMonth(), z.getDate()];
+     }else{
+	 f = z;
+     }
+     var str = f[0]+'-'+(100+f[1]+1+'').substr(1)+'-'+(100+f[2]+'').substr(1);
+     return str;
+}
+
+</script>

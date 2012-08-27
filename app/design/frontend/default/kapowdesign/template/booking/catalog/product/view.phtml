@@ -1,0 +1,140 @@
+<?php
+/**
+* aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * aheadWorks does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * aheadWorks does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Booking
+ * @version    1.2.3
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ */
+?>
+<?php
+?>
+<?php if($this->getProduct() && $this->getProduct()->isSalable()): ?>
+<?php $customOptions = $this->getCustomOptions();?>
+<h4><?php echo $this->__('Reserve date')?></h4>
+<div id="booking_order" class="yui-skin-sam booking-order" style="clear:both;">
+
+    <div id="cal1Container"><div class="yuical-busy"></div></div>
+    <div id="dates" class="booking-dates">
+            <?php if ($this->getProduct()->getAwBookingRangeType() == AW_Booking_Model_Entity_Attribute_Source_Rangetype::TIME):?>
+                <?php echo $this->getChildHtml('time')?>
+            <?php endif; ?>
+            <?php if ($this->getProduct()->getAwBookingRangeType() == AW_Booking_Model_Entity_Attribute_Source_Rangetype::DATE):?>
+                <?php echo $this->getChildHtml('date')?>
+            <?php endif; ?>
+            <?php if ($this->getProduct()->getAwBookingRangeType() == AW_Booking_Model_Entity_Attribute_Source_Rangetype::DATETIME):?>
+                <?php echo $this->getChildHtml('datetime')?>
+            <?php endif; ?>
+    </div>
+</div>
+    <?php echo $this->getChild('yuical-init')->setProduct($this->getProduct())->toHtml() ?>
+
+
+<script type="text/javascript">
+    if (typeof(optionsPrice.productPrice)=='undefined')
+        optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig()?>);
+
+    /** Product id */
+    Booking.productId = <?php echo $this->getProduct()->getId()?>
+    /** Multiply options or not */
+    Booking.multiplyOptions = <?php echo Zend_Json::encode((int)$this->getProduct()->getAwBookingMultiplyOptions())?>
+
+    Booking.fieldFromDisplayId = "id_<?php echo $this->getDisplayFieldName(AW_Booking_Block_Catalog_Product_View::DATE_FROM_NAME)?>";
+    Booking.fieldFromId = "id_<?php echo AW_Booking_Block_Catalog_Product_View::DATE_FROM_NAME?>";
+    Booking.fieldToDisplayId = "id_<?php echo $this->getDisplayFieldName(AW_Booking_Block_Catalog_Product_View::DATE_TO_NAME)?>";
+    Booking.fieldToId = "id_<?php echo AW_Booking_Block_Catalog_Product_View::DATE_TO_NAME?>";
+
+    Booking.updatePrice = function(price){
+        var price = price || Booking.getCurrentPrice()
+        if(price instanceof Array){
+            optionsPrice.productPrice = price[0];
+             try{
+                if(Booking.multiplyOptions && (opConfig instanceof Object)){
+                var currentOption = 0;
+                var customOptions = '<?php echo $customOptions?>'.evalJSON();
+                for(var i in opConfig.config){
+                    for(var k in opConfig.config[i]){
+
+                        if(customOptions[k].price_type == 'percent')
+                            opConfig.config[i][k] = price[0] / 100 * customOptions[k].price;
+                        else
+                            opConfig.config[i][k] = function(){ return Booking.opConfig[i][k] * price[1]}();
+
+                        var ul = $('options-' + i + '-list');
+                        if(ul){
+                        ul.childElements().each(function(li){
+                            li.childElements().each(function(subli){
+                                if(subli.hasClassName('product-custom-option')){
+                                    currentOption = subli.readAttribute('value');
+                                }
+                                if(subli.hasClassName('label')){
+                                    subli.childElements().each(function(priceNotice){
+                                        priceNotice.childElements().each(function(priceSpanCont){
+                                            priceSpanCont.childElements().each(function(priceSpan){
+                                                var addPrice = opConfig.config[i][currentOption];
+                                                addPrice = parseFloat(addPrice).toFixed(2);
+                                                priceSpan.update('<?php echo Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol();?>' + addPrice);
+
+                                            });
+                                        });
+                                    })
+                                    }
+                                })
+                            })
+                        }
+                    }
+                }
+            }
+            
+                opConfig.reloadPrice()
+            }catch(e){
+
+            }
+            optionsPrice.reload();
+        }else if(price){
+            optionsPrice.productPrice = price;
+            optionsPrice.reload();
+        }
+    }
+
+    document.observe('dom:loaded', function(){
+
+        if(typeof(opConfig) != 'undefined' && opConfig instanceof Object){
+            // Clone original opConfig
+            Booking.opConfig = {}
+            for(var i in opConfig.config){
+                Booking.opConfig[i] = {}
+                for(var k in opConfig.config[i]){
+                    Booking.opConfig[i][k] = opConfig.config[i][k];
+                }
+            }
+        }
+        Booking.updatePrice(<?php echo $this->getFirstAvailableDayPrice()?>)
+       
+    });
+
+
+
+</script>
+
+
+<?php endif; ?>

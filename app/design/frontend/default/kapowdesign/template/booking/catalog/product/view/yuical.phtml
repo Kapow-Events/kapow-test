@@ -1,0 +1,287 @@
+<?php
+/**
+* aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * aheadWorks does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * aheadWorks does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Booking
+ * @version    1.2.3
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ */
+?>
+<?php
+?>
+<script type="text/javascript">
+    Booking.UnavailDays = <?php echo ($this->getUnavailDaysJSON())?>;
+    Booking.currentBinds = <?php echo ($this->getBindedDaysJSON())?>;
+    Booking.currentDatePeriod = '<?php echo ($this->getFirstDayOfCurrentMonth()->toString(AW_Core_Model_Abstract::DB_DATE_FORMAT))?>'
+
+
+
+    /** Id of calendar container */
+    Booking.calendarContainerId = 'cal1Container';
+
+
+    /**
+     * Reset date object to dates-month-years value only
+     */
+    Booking.resetDate = function(d){
+        d.setHours(0)
+        d.setMinutes(0)
+        d.setSeconds(0)
+        d.setMilliseconds(0)
+        return d;
+    }
+
+    Booking.checkDate = function(d){
+        d = this.resetDate(d)
+        return  Booking.checkBind(d) && Booking.check_recurrent_day(d) &&  Booking.check_single(d) && Booking.check_recurrent_date(d) && Booking.check_period(d) && Booking.check_recurrent_period(d);
+    }
+
+    /**
+     * Check if recurrent day of week is valid
+     * @param {Object} d
+     */
+    Booking.check_recurrent_day = function(d){
+        var weekDay = d.getDay();
+        return Booking.UnavailDays.recurrent_day.indexOf(weekDay) == -1;
+    }
+
+    /**
+     * Check single date
+     * @param {Object} d
+     */
+    Booking.check_single = function(d){
+        var dateStr = (d.getMonth()+1)+'/'+d.getDate()+'/'+d.getFullYear();
+        return Booking.UnavailDays.single.indexOf(dateStr) == -1;
+    }
+
+    /**
+     * Recurrent date check
+     * @param {Object} d
+     */
+    Booking.check_recurrent_date = function(d){
+        var date = d.getDate();
+        return Booking.UnavailDays.recurrent_date.indexOf(date) == -1;
+    }
+
+
+    /**
+     * Check period
+     * @param {Object} d
+     */
+    Booking.check_period = function(d){
+        for(var i=Booking.UnavailDays.period.length-1; i>=0; i--){
+            var item = Booking.UnavailDays.period[i];
+
+            var fromSplit = item['from'].split('/');
+            var toSplit = item['to'].split('/');
+
+            var from = this.resetDate(new Date);
+            var to = this.resetDate(new Date);
+
+            from.setFullYear(fromSplit[2]);
+            to.setFullYear(toSplit[2]);
+
+            from.setMonth(fromSplit[0] -1);
+            from.setDate(fromSplit[1]);
+
+            to.setMonth(toSplit[0] -1)
+            to.setDate(toSplit[1]);
+
+            if((d >= from) && (d <= to)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    /**
+     * Check recurrent period
+     * @param {Object} d
+     */
+    Booking.check_recurrent_period = function(d){
+        d = this.resetDate(d)
+        for(var i=Booking.UnavailDays.recurrent_period.length-1; i>=0; i--){
+            var item = Booking.UnavailDays.recurrent_period[i];
+
+            var fromSplit = item['from'].split('/');
+            var toSplit = item['to'].split('/');
+
+            var from = this.resetDate(new Date);
+            var to = this.resetDate(new Date);
+
+            from.setFullYear(d.getFullYear());
+            to.setFullYear(d.getFullYear());
+
+            var type = item.period;
+            switch(type){
+                case 'yearly':
+                    from.setMonth(fromSplit[0] -1)
+                    from.setDate(fromSplit[1]);
+                    to.setMonth(toSplit[0] -1)
+                    to.setDate(toSplit[1]);
+                    break;
+                default:
+                    from.setMonth(d.getMonth())
+                    from.setDate(fromSplit[1]);
+                    to.setMonth(d.getMonth())
+                    to.setDate(toSplit[1]);
+            }
+            if((d >= from) && (d <= to)){
+                return false;
+            }
+        }
+
+        return true;
+    }
+    /**
+     * Check if date is binded
+     */
+    Booking.checkBind = function(D){
+        if(typeof Booking.currentBinds[Booking.formatDateInternal(D)] != 'undefined'){
+            return Booking.currentBinds[Booking.formatDateInternal(D)];
+        }
+        return true;
+    }
+
+<?php
+/**
+ * @var Zend_Date first available date
+ */
+$MinDate = $this->getProduct()->getTypeInstance()->getFirstAvailableDate();
+$MaxDate = $this->getProduct()->getTypeInstance()->getDateTo();
+?>
+
+    document.observe('dom:loaded', function(){
+<?php $type = $this->getProduct()->getAwBookingRangeType() == AW_Booking_Model_Entity_Attribute_Source_Rangetype::TIME ? 'example.calendar.IntervalCalendar' : 'example.calendar.IntervalCalendar'?>;
+            var config = {
+                pages : <?php echo Mage::getStoreConfig(AW_Booking_Helper_Config::XML_PATH_APPEARANCE_CALENDAR_PAGES)?>,
+                navigator: true,
+                mindate : '<?php echo $MinDate->toString(AW_Booking_Block_Catalog_Product_View_Yuical::READ_DATE_FORMAT)?>',
+<?php if($MaxDate !== AW_Booking_Model_Product_Type_Bookable::HAS_NO_PERIOD_TO): ?>
+                maxdate: '<?php echo $MaxDate->toString(AW_Booking_Block_Catalog_Product_View_Yuical::READ_DATE_FORMAT)?>',
+<?php endif; ?>
+                selected : '<?php echo $MinDate->toString(AW_Booking_Block_Catalog_Product_View_Yuical::READ_DATE_FORMAT)?>',
+                multi_select : <?php echo Zend_Json::encode($this->getProduct()->getAwBookingRangeType() != AW_Booking_Model_Entity_Attribute_Source_Rangetype::TIME) ?>,
+                pagedate : '<?php echo $MinDate->toString(AW_Booking_Block_Catalog_Product_View_Yuical::READ_DATE_PAGE_FORMAT)?>',
+                START_WEEKDAY : '<?php echo Mage::getStoreConfig(AW_Booking_Helper_Config::XML_PATH_GENERAL_LOCALE_FIRSTDAY)?>'
+            };
+            Booking.Calendar = new YAHOO.<?php echo $type?>("cal1Container", config);
+
+            /**
+             * Cell renderer
+             */
+            var disableRenderer = function(workingDate, cell) {
+                wd = new Date(workingDate.getTime());
+                if(Booking.resetDate(wd) >= Booking.resetDate(new Date)){
+                    if(Booking.checkDate(wd)) return  Booking.Calendar.renderCellDefault(wd, cell);
+                    cell.innerHTML = "X";
+                }else{
+                    $(cell).addClassName('expired');
+                }
+                $(cell).addClassName("sunday");
+
+                return YAHOO.widget.Calendar.STOP_RENDER;
+            }
+
+            // Add cell renderer to all days
+            $A([1,2,3,4,5,6,7]).each(function(el){ Booking.Calendar.addWeekdayRenderer(el, disableRenderer)})
+
+            Booking.Calendar.render();
+
+            Booking.Calendar.refreshBinds = function(t, force){
+                if(!(t instanceof Object)){
+                    t = Booking.currentDatePeriod
+                }
+                var toStr = Booking.formatDateInternal(t);
+                if(typeof Booking.__BIND_CACHE__[toStr] != 'undefined' && !force){
+                    Booking.currentBinds = Booking.__BIND_CACHE__[toStr];
+                    Booking.Calendar.render()
+                    return;
+                }
+                $$('.yui-calcontainer').each(function(el){
+                    if(el.id !== Booking.calendarContainerId){
+                        el.style.visibility = 'hidden';
+                    }
+                })
+
+                $('cal1Container').addClassName('loading')
+                new Ajax.Request('<?php echo Mage::getUrl("booking_front/ajax/getbindeddates/",array('product_id'=>$this->getProduct()->getId()))?>'+'to/'+toStr+'/', {
+                    onSuccess: function(response) {
+                        try{
+                            var bindedDates = eval("("+response.responseText+")");
+                            Booking.currentBinds = bindedDates;
+                            Booking.__BIND_CACHE__[toStr] = bindedDates;
+                            $$('.yui-calcontainer').each(function(el){
+                                if(el.id !== Booking.calendarContainerId){
+                                    el.style.visibility = 'visible';
+                                }
+                            })
+                            $('cal1Container').removeClassName('loading')
+                            Booking.Calendar.render()
+                        }catch(e){
+                            console.log(e)
+                        }
+                    }
+                });
+            }
+            var cal = Booking.Calendar
+            cal.changePageEvent.subscribe(function(a, dates) {
+                Booking.currentDatePeriod = Booking.formatDateInternal(dates[1]);
+                Booking.Calendar.refreshBinds(dates[1])
+            });
+            var pageArray = cal.pages;
+            for (var i = 1; i < pageArray.length; i++) {
+                var fn = pageArray[i].changePageEvent.subscribers[1].fn;
+                pageArray[i].changePageEvent.unsubscribe(fn);
+            }
+            // Fire onCalendarRender "event"
+            Booking.onCalendarRender();
+        })
+
+        if((typeof AW_ACP != 'undefined') && (AW_ACP.onRender instanceof Array)){
+            AW_ACP.onRender.push(function(){Booking.Calendar.refreshBinds(null, true)});
+        }
+
+
+
+        /**
+         * Check if period is available
+         */
+        Booking.isPeriodAvail = function(from, to){
+            from = Booking.resetDate(from);
+            to = Booking.resetDate(to);
+            var oneDay = 1000*24*60*60;
+            while(to > from){
+                if(!Booking.checkDate(from)){
+                    return false;
+                }
+                from.setTime(from.getTime() + oneDay);
+            }
+            return true;
+        }
+
+
+</script>	
+
+
+

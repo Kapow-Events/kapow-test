@@ -1,0 +1,143 @@
+<?php
+/**
+* aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * aheadWorks does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * aheadWorks does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Booking
+ * @version    1.2.3
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ */
+?>
+<?php
+?>
+<?php
+$TimeFrom = $this->getTimeBlock('aw_booking_time_from')->setId('aw_booking_time_from');
+$TimeTo = $this
+    ->getTimeBlock('aw_booking_time_to')
+    ->setId('aw_booking_time_to')
+    ->setTime($this->getProduct()->getAwBookingTimeTo());
+
+?>
+
+
+<label for="aw_in"><?php echo $this->__('From')?></label>
+<p>
+    <input type="text" id="id_<?php echo $this->getDisplayFieldName(AW_Booking_Block_Catalog_Product_View::DATE_FROM_NAME)?>" name="<?php echo $this->getDisplayFieldName(AW_Booking_Block_Catalog_Product_View::DATE_FROM_NAME)?>" size="8" readonly="readonly" value="<?php echo $this->formatDate($this->getFirstAvailableDay())?>"/>
+    <input type="hidden" id="id_<?php echo AW_Booking_Block_Catalog_Product_View::DATE_FROM_NAME?>" name="<?php echo AW_Booking_Block_Catalog_Product_View::DATE_FROM_NAME?>"  readonly="readonly" value="<?php echo $this->formatDate($this->getFirstAvailableDay())?>"/>
+
+    <label for="id_<?php echo $this->getDisplayFieldName(AW_Booking_Block_Catalog_Product_View::DATE_FROM_NAME)?>"></label>
+    <?php echo $TimeFrom->getElementHtml();?>
+</p>
+
+
+
+<label for="aw_in"><?php echo $this->__('To')?></label>
+<p>
+    <input type="text" id="id_<?php echo $this->getDisplayFieldName(AW_Booking_Block_Catalog_Product_View::DATE_TO_NAME)?>" name="<?php echo $this->getDisplayFieldName(AW_Booking_Block_Catalog_Product_View::DATE_TO_NAME)?>" size="8" readonly="readonly" value="<?php echo $this->formatDate($this->getFirstAvailableDay())?>"/>
+    <input type="hidden" id="id_<?php echo AW_Booking_Block_Catalog_Product_View::DATE_TO_NAME?>" name="<?php echo AW_Booking_Block_Catalog_Product_View::DATE_TO_NAME?>"  readonly="readonly" value="<?php echo $this->formatDate($this->getFirstAvailableDay())?>"/>
+    <label></label>
+    <?php echo $TimeTo->getElementHtml();?>
+
+</p>
+<br/>
+
+<script type="text/javascript">
+    intId = setInterval(
+    function(){
+        if(typeof productAddToCartForm != 'undefined'){
+            var saveHandler = function(frm){
+                return frm.form.submit;
+            }(productAddToCartForm)
+
+            productAddToCartForm.submit = function(){
+                if(
+                ($('id_<?php echo $this->getDisplayFieldName(AW_Booking_Block_Catalog_Product_View::DATE_FROM_NAME)?>').value != $("id_<?php echo $this->getDisplayFieldName(AW_Booking_Block_Catalog_Product_View::DATE_TO_NAME)?>").value) ||
+                    (<?php echo $TimeFrom->getJsObjectName()?>.getMinutes() < <?php echo $TimeTo->getJsObjectName()?>.getMinutes())
+            ){
+                    productAddToCartForm.form.submit()
+                }else{
+                    alert("<?php echo $this->__("Please ensure time interval you entered is correct")?>");
+                    return false;
+                }
+
+            }
+            clearInterval(intId);
+        }
+    },
+    500
+)
+
+    Booking.__onCalendarRender.push(function(cal){
+        cal.selectEvent.subscribe(function(evt) {
+            // Select selected days
+            var dates = cal.getSelectedDates();
+            var From = $A(dates).first();
+            var To = $A(dates).last();
+            if(!(Booking.isPeriodAvail(new Date(From), new Date(To)))){
+                this.deselectAll();
+                return this.render();
+            }
+
+            $(Booking.fieldFromDisplayId, Booking.fieldFromId).each(function(el){el.setValue(Booking.formatDate(From))});
+            $(Booking.fieldToDisplayId, Booking.fieldToId).each(function(el){el.setValue(Booking.formatDate(To))});
+            Booking.updatePrice()
+        }
+        ,  cal, true)
+        Booking.updatePrice()
+    }
+
+
+
+);
+
+
+    $$('#aw_booking_time_from-hours', '#aw_booking_time_to-hours', '#aw_booking_time_from-daypart', '#aw_booking_time_to-daypart','#aw_booking_time_from-minutes','#aw_booking_time_to-minutes').each(function(el){
+        el.observe('change', function(){ Booking.updatePrice()});
+    })
+
+    Booking.getCurrentPrice = function(){
+        // Check price via AJAX
+        var dates = Booking.Calendar.getSelectedDates();
+
+        var dateFromStr = dates.first().getFullYear()+'-'+((100+dates.first().getMonth()+1)+'').substr(1)+'-'+((100+dates.first().getDate())+'').substr(1)
+        var dateToStr = dates.last().getFullYear()+'-'+((100+dates.last().getMonth()+1)+'').substr(1)+'-'+((100+dates.last().getDate())+'').substr(1)
+
+        if(<?php echo ($this->getProduct()->getAwBookingQratioMultiplier() == AW_Booking_Model_Entity_Attribute_Source_Qratiomultipliertype::DAYS) ? 1 : 0;?>){
+            dateFromStr += ' 00:00:00';
+            dateToStr += ' 00:00:00';
+        }
+        else{
+            dateFromStr += ' '+<?php echo $TimeFrom->getJsObjectName()?>.getValueString();
+            dateToStr += ' '+<?php echo $TimeTo->getJsObjectName()?>.getValueString();
+        }
+
+        new Ajax.Request('<?php echo Mage::getUrl("booking_front/ajax/getprice/",array('product_id'=>$this->getProduct()->getId()))?>from/'+dateFromStr+'/to/'+dateToStr+'/', {
+            onSuccess: function(response) {
+                Booking.updatePrice(eval("("+response.responseText+")"));
+            }
+        });
+    }
+
+
+</script>
+
+
+
