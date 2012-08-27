@@ -1690,7 +1690,7 @@ p.callout { font-size:18px; line-height:24px; }
 	border: none;
 	font-size:18px;
 }
-.lightbox-modal #modal-password {
+.lightbox-modal #modal-password, .lightbox-modal #signup-password, .lightbox-modal #signup-confirmation {
 	display:none;
 }
 .lightbox-modal #closebtn {
@@ -1741,9 +1741,13 @@ p.callout { font-size:18px; line-height:24px; }
 	margin-top:-21px;
 	margin-left:18px;
 }
-#signup-modal #signup-fullname {
+#signup-modal #signup-firstname, #signup-modal #signup-password, #signup-modal #signup-passwordText {
 	float:left;
-	width:190px;
+	width:177px;
+}
+#signup-modal #signup-lastname, #signup-modal #signup-confirmation, #signup-modal #signup-confirmationText {
+    float:right;
+    width:177px;
 }
 .lightbox-modal .modal-signin {
 	background: url(../images/modal-signin.png) no-repeat;

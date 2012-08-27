@@ -137,17 +137,21 @@ $currentUrl = $this->helper('core/url')->getCurrentUrl();
 	      </div>
           </form>
           <div class="modal-links">
-		      <div><a class="modal-reset" href="/customer/account/reset/">Reset Password</a></div>
+		      <div><a class="modal-reset" href="/customer/account/forgotpassword/">Reset Password</a></div>
 		      <div class="spacerdot"></div>
 		      <div><a class="modal-signup_link" id="newmember" href="#">Not a Member? Sign Up It's Free!</a></div>
 	      </div>
       	</div>
       	<div id="signup-modal">
 	      <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('lightbox-signup')->toHtml(); ?>
-          <form action="<?php echo $this->helper('customer')->getLoginPostUrl(); ?>" id="signup-form" method="post">
-	      <input type="text" name="signup[fullname]" id="signup-fullname" value="Name" class="modal-input" maxlength="255" /><br/>
-	      <input type="text" name="signup[phone]" id="signup-phone" value="Phone" class="modal-input" maxlength="255" /><br/>
-	      <input type="text" name="signup[username]" id="signup-email" value="E-Mail" class="modal-input" maxlength="255" />
+          <form action="<?php echo $this->helper('customer')->getRegisterPostUrl(); ?>" id="signup-form" method="post">
+          <input type="text" name="firstname" id="signup-firstname" value="First Name" class="modal-input" maxlength="255" />
+	      <input type="text" name="lastname" id="signup-lastname" value="Last Name" class="modal-input" maxlength="255" />
+          <input type="text" name="email" id="signup-email" value="E-Mail" class="modal-input" maxlength="255" />
+          <input type="text" id="signup-passwordText" value="Password" class="modal-input" maxlength="255" />
+          <input type="password" name="password" id="signup-password" class="modal-input" maxlength="255" />
+          <input type="text" id="signup-confirmationText" class="modal-input" value="Confirm Password" maxlength="255" />
+          <input type="password" name="confirmation" id="signup-confirmation" class="modal-input" maxlength="255" />
 	      <div id="modal-button-contain">
 		      <button class="modal-continue">
 		      	<span>Continue</span>
@@ -179,16 +183,26 @@ $currentUrl = $this->helper('core/url')->getCurrentUrl();
 				jQuery(this).val("E-Mail Address");
 			}
 		});
-		jQuery("#signup-fullname").focus(function() {
-			if (jQuery(this).val() == "Name") {
+		jQuery("#signup-firstname").focus(function() {
+			if (jQuery(this).val() == "First Name") {
 				jQuery(this).val("");
 			}
 		});
-		jQuery("#signup-fullname").blur(function() {
+		jQuery("#signup-firstname").blur(function() {
 			if (jQuery(this).val() == "") {
-				jQuery(this).val("Name");
+				jQuery(this).val("First Name");
 			}
 		});
+        jQuery("#signup-lastname").focus(function() {
+            if (jQuery(this).val() == "Last Name") {
+                jQuery(this).val("");
+            }
+        });
+        jQuery("#signup-lastname").blur(function() {
+            if (jQuery(this).val() == "") {
+                jQuery(this).val("Last Name");
+            }
+        });
 		jQuery("#signup-email").focus(function() {
 			if (jQuery(this).val() == "E-Mail") {
 				jQuery(this).val("");
@@ -224,7 +238,31 @@ $currentUrl = $this->helper('core/url')->getCurrentUrl();
 		       jQuery("#modal-passwordText").show();
 		    }      
 		});
-    	jQuery('#closebtn').click(function() {
+        jQuery("#signup-passwordText").focus(function() {
+            jQuery(this).hide();
+            jQuery("#signup-password").show();
+            jQuery("#signup-password").focus();
+        });
+        jQuery("#signup-password").blur(function() {
+            if(jQuery(this).val().length == 0)
+            {
+                jQuery(this).hide();
+                jQuery("#signup-passwordText").show();
+            }
+        });
+        jQuery("#signup-confirmationText").focus(function() {
+            jQuery(this).hide();
+            jQuery("#signup-confirmation").show();
+            jQuery("#signup-confirmation").focus();
+        });
+        jQuery("#signup-confirmation").blur(function() {
+            if(jQuery(this).val().length == 0)
+            {
+                jQuery(this).hide();
+                jQuery("#signup-confirmationText").show();
+            }
+        });
+        jQuery('#closebtn').click(function() {
     		jQuery.fancybox.close();
     	});
     	jQuery('#newmember').click(function() {
