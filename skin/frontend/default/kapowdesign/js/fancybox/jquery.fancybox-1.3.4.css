@@ -102,7 +102,7 @@
 	background: transparent url('fancybox.png') -40px 0px;
 	cursor: pointer;
 	z-index: 1103;
-	display: none;
+	display:none;
 }
 
 #fancybox-error {

@@ -115,7 +115,6 @@ $currentUrl = $this->helper('core/url')->getCurrentUrl();
   <!-- end scripts -->
 
   <!-- LOGIN WARNING Lightbox -->
-  <div id="fixedbg hidden"></div>
   <div class="modal hidden">
     <?php // automatically show the lightbox by including this link for the JS to find and auto-click ?>
     <?php if (isset($_GET['show_status_warning'])) : ?>
@@ -123,25 +122,50 @@ $currentUrl = $this->helper('core/url')->getCurrentUrl();
     <?php endif ?>
 
     <div id="lightbox-signup-or-login" class="lightbox-modal">
-      <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('lightbox-login-or-signup')->toHtml(); ?>
       <?php $url = stristr($this->helper('core/url')->getCurrentUrl(), '?show_status_warning', true); ?> 
       <div class="modal-form">
+      	<div id="login-modal">
+	      <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('lightbox-login-or-signup')->toHtml(); ?>
           <form action="<?php echo $this->helper('customer')->getLoginPostUrl(); ?>" id="login-form" method="post">
 	      <input type="text" name="login[username]" id="modal-email" value="E-Mail Address" class="modal-input" maxlength="255" /><br/>
+	      <input type="text" name="x" id="modal-passwordText" class="modal-input" value="Password" maxlength="255" />
 	      <input type="password" name="login[password]" id="modal-password" value="" class="modal-input" maxlength="255" />
-	      <div id="modal-button-contain">
+	      <div class="modal-button-contain" id="signin-button">
 		      <button class="modal-signin">
 		      	<span>Sign In &gt;</span>
 		      </button>
 	      </div>
-          <form>
+          </form>
+          <div class="modal-links">
+		      <div><a class="modal-reset" href="/customer/account/reset/">Reset Password</a></div>
+		      <div class="spacerdot"></div>
+		      <div><a class="modal-signup_link" id="newmember" href="#">Not a Member? Sign Up It's Free!</a></div>
+	      </div>
+      	</div>
+      	<div id="signup-modal">
+	      <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('lightbox-signup')->toHtml(); ?>
+          <form action="<?php echo $this->helper('customer')->getLoginPostUrl(); ?>" id="signup-form" method="post">
+	      <input type="text" name="signup[fullname]" id="signup-fullname" value="Name" class="modal-input" maxlength="255" /><br/>
+	      <input type="text" name="signup[phone]" id="signup-phone" value="Phone" class="modal-input" maxlength="255" /><br/>
+	      <input type="text" name="signup[username]" id="signup-email" value="E-Mail" class="modal-input" maxlength="255" />
+	      <div id="modal-button-contain">
+		      <button class="modal-continue">
+		      	<span>Continue</span>
+		      </button>
+	      </div>
+          </form>
+          <div class="modal-links" id="signuplinks">
+		      <div><a class="" id="signin-link" href="#">Already a Member? Sign in here!</a></div>
+	      </div>
+      	</div>
+	      <div class="bg-ribbon" id="bgribbon_tl"></div>
+	      <div class="bg-ribbon" id="bgribbon_tr"></div>
+	      <div class="bg-ribbon" id="bgribbon_bl"></div>
+	      <div class="bg-ribbon" id="bgribbon_br"></div>
       </div>
-      <div class="modal-links">
-	      <div><a class="modal-reset" href="/customer/account/reset/">Reset Password</a></div>
-	      <div class="spacerdot"></div>
-	      <div><a class="modal-signup_link" href="/customer/account/create/">Not a Member? Sign Up It's Free!</a></div>
-      </div>
+      
       <!-- <div><a class="button_ribbon floatright" href="/customer/account/create/">become a member</a><a class="button_ribbon_small" href="/customer/account/login/referer/<?php echo Mage::helper('core')->urlEncode($url); ?>/">sign in</a></div> -->
+	    <div id="closebtn"></div>
     </div>
     <script>
 	jQuery(document).ready(function() {
@@ -155,15 +179,60 @@ $currentUrl = $this->helper('core/url')->getCurrentUrl();
 				jQuery(this).val("E-Mail Address");
 			}
 		});
-		jQuery('#fixedbg').click(function() {
-			jQuery(this).addClass("hidden");
-			jQuery('.modal').addClass("hidden");
-		})
-    	/* This doesn't work because of IE. Stupid IE...
-	    	jQuery('#modal-password').click(function() {
-	    		$(this).attr("type","password");
-	    	});
-		*/
+		jQuery("#signup-fullname").focus(function() {
+			if (jQuery(this).val() == "Name") {
+				jQuery(this).val("");
+			}
+		});
+		jQuery("#signup-fullname").blur(function() {
+			if (jQuery(this).val() == "") {
+				jQuery(this).val("Name");
+			}
+		});
+		jQuery("#signup-email").focus(function() {
+			if (jQuery(this).val() == "E-Mail") {
+				jQuery(this).val("");
+			}
+		});
+		jQuery("#signup-email").blur(function() {
+			if (jQuery(this).val() == "") {
+				jQuery(this).val("E-Mail");
+			}
+		});
+		jQuery("#signup-phone").focus(function() {
+			if (jQuery(this).val() == "Phone") {
+				jQuery(this).val("");
+			}
+		});
+		jQuery("#signup-phone").blur(function() {
+			if (jQuery(this).val() == "") {
+				jQuery(this).val("Phone");
+			}
+		});
+		jQuery("#fancybox-overlay").click(function() {
+    		jQuery.fancybox.close();
+		});
+		jQuery("#modal-passwordText").focus(function() {
+			jQuery(this).hide();  
+			jQuery("#modal-password").show();
+			jQuery("#modal-password").focus();
+		});
+		jQuery("#modal-password").blur(function() {
+		    if(jQuery(this).val().length == 0)
+		    {
+		       jQuery(this).hide();  
+		       jQuery("#modal-passwordText").show();
+		    }      
+		});
+    	jQuery('#closebtn').click(function() {
+    		jQuery.fancybox.close();
+    	});
+    	jQuery('#newmember').click(function() {
+	    	cj.swapModal('new');
+    	});
+    	jQuery('#signin-link').click(function() {
+	    	cj.swapModal('signin');
+    	});
 	});
     </script>
   </div>
