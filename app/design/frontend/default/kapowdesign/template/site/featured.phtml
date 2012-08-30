@@ -66,7 +66,8 @@
 			<section id="homepage_center_stage">
 				<div id="testimonial">
 					<div id="openquote" class="quoteimage"></div>
-			<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header_testimonial')->toHtml() ?> 
+                    <?php echo $this->getLayout()->createBlock('testimonial/block')->setTemplate('testimonial/block.phtml')->toHtml(); ?>
+			<?php //echo $this->getLayout()->createBlock('cms/block')->setBlockId('header_testimonial')->toHtml() ?>
 					<div id="closequote" class="quoteimage"></div>
 				</div>
 				<div id="statement">

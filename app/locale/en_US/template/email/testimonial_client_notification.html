@@ -1,0 +1,58 @@
+<!--
+/**
+ * Advance Testimonial extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   FME
+ * @package    Advance Testimonial
+ * @author     Kamran Rafiq Malik <support@fmeextensions.com>
+ *             Asif Hussain <support@fmeextensions.com>
+ * 	       
+ * @copyright  Copyright 2012 © www.fmeextensions.com All right reserved
+ */
+ -->
+
+<body style="background:#F6F6F6; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px; margin:0; padding:0;">
+<div style="background:#F6F6F6; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px; margin:0; padding:0;">
+<table cellspacing="0" cellpadding="0" border="0" height="100%" width="100%">
+    <tr>
+        <td align="center" valign="top" style="padding:20px 0 20px 0">
+            <!-- [ header starts here] -->
+            <table bgcolor="FFFFFF" cellspacing="0" cellpadding="10" border="0" width="650" style="border:1px solid #E0E0E0;">
+                <tr>
+                    <td valign="top">
+                        <a href="{{store url=""}}" style="color:#1E7EC8;"><img src="{{skin url="images/logo_email.gif" _area='frontend'}}" alt="{{var store.getFrontendName()}}" border="0"/></a>
+                    </td>
+                </tr>
+                <!-- [ middle starts here] -->
+                <tr>
+                    <td valign="top">
+                        <h1 style="font-size:22px; font-weight:normal; line-height:22px; margin:0 0 11px 0;">{{var c_subject}}</h1>
+                        <h1 style="font-size:22px; font-weight:normal; line-height:22px; margin:0 0 11px 0;">Dear {{var contact_name}},</h1>
+                        <p style="font-size:12px; line-height:16px; margin:0 0 8px 0;"><strong>Thankyou for publishing testimonial...</strong></p>
+                        <p style="font-size:12px; line-height:16px; margin:0;">Here is the information of testimonial.<p>
+                        
+                        <p style="font-size:12px; line-height:16px; margin:0 0 8px 0;"><strong>Testimonila Status : </strong> {{var status}}</p>
+                        <p style="font-size:12px; line-height:16px; margin:0 0 8px 0;"><strong>Company Name : </strong> {{var company_name}}</p>
+                        <p style="font-size:12px; line-height:16px; margin:0 0 8px 0;"><strong>Email : </strong> {{var email}}</p>
+                        <p style="font-size:12px; line-height:16px; margin:0 0 8px 0;"><strong>Website : </strong> {{var website}}</p>
+                        <p style="font-size:12px; line-height:16px; margin:0 0 8px 0;"><strong>Short Description : </strong> {{var short_description}}</p>
+                        <p style="font-size:12px; line-height:16px; margin:0 0 8px 0;"><strong>Testimonila Detail : </strong> {{var testimonial}}</p>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td bgcolor="#EAEAEA" align="center" style="background:#EAEAEA; text-align:center;"><center><p style="font-size:12px; margin:0;">Thank you again, <strong>{{var store.getFrontendName()}}</strong></p></center></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</div>
+</body>

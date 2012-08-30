@@ -1,0 +1,41 @@
+<?php
+/**
+ * Advance Testimonial extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   FME
+ * @package    Advance Testimonial
+ * @author     Kamran Rafiq Malik <support@fmeextensions.com>
+ *
+ *             Asif Hussain <support@fmeextensions.com>
+ * 	       1 - Created - 23-03-2012
+ * 	       
+ * @copyright  Copyright 2012 © www.fmeextensions.com All right reserved
+ */
+
+
+class FME_Testimonial_Model_System_Config_Source_Themeoptions
+{
+
+    /**
+     * Options getter
+     *
+     * @return array
+     */
+    public function toOptionArray()
+    {
+        return array(
+            array('value' => 'theme1', 'label'=>Mage::helper('testimonial')->__('Theme 1')),
+            array('value' => 'theme2', 'label'=>Mage::helper('testimonial')->__('Theme 2')),
+            array('value' => 'theme3', 'label'=>Mage::helper('testimonial')->__('Theme 3')),
+            array('value' => 'theme4', 'label'=>Mage::helper('testimonial')->__('Theme 4')),
+        );
+    }
+
+}

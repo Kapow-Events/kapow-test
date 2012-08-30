@@ -1,0 +1,219 @@
+<?php
+/**
+ * Advance Testimonial extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   FME
+ * @package    Advance Testimonial
+ * @author     Kamran Rafiq Malik <support@fmeextensions.com>
+ *             1- Created - 10-10-2010
+ *             
+ * 	       Asif Hussain <support@fmeextensions.com>
+ * 	       1 - Theme - 23-03-2012
+ * 	       2 - Prototype effects - 23-03-2012
+ * 	       
+ * @copyright  Copyright 2012 � www.fmeextensions.com All right reserved
+ */
+?>
+
+
+<script type="text/javascript" src="<?php echo $this->getJsUrl('testimonial/Slider/carousel.js') ?>"></script>
+
+<?php
+
+$counter = Mage::getStoreConfig('testimonial/featuredtestimonials/no_of_testimonials');
+if($counter == 0 or $counter == "") {
+	$counter = 5;
+}
+
+?>
+
+<?php $collection = $this->getItems($counter); ?>
+
+<?php $count = 1; ?>
+
+
+<?php if(Mage::getStoreConfig('testimonial/themes/select_theme') == 'theme1'): ?>
+<div class="block-theme1">
+<?php elseif(Mage::getStoreConfig('testimonial/themes/select_theme') == 'theme2'): ?>
+<div class="block-theme2">
+<?php elseif(Mage::getStoreConfig('testimonial/themes/select_theme') == 'theme3'): ?>
+<div class="block-theme3">
+<?php elseif(Mage::getStoreConfig('testimonial/themes/select_theme') == 'theme4'): ?>
+<div class="block-theme4">
+<?php else : ?>
+<div>
+<?php endif; ?>
+	
+<?php if ( count($collection) == 0 ) : ?>
+<div class="main_div">
+	<h1><?php echo Mage::helper('testimonial')->__(Mage::getStoreConfig('testimonial/featuredtestimonials/block_title')) ?></h1>
+    <img src="<?php echo $this->getSkinUrl('')?>images/testimonial/dvd2_text.jpg" class="dvd2_test" alt=" " width="270" height="1" border="0" />
+	<p><?php echo $this->__('No testimonial yet...'); ?></p>
+</div>
+<?php else : ?>
+
+<div class="main_div">
+    <?php if (Mage::helper('testimonial')->__(Mage::getStoreConfig('testimonial/featuredtestimonials/block_title'))): ?>
+        <h1><span class="featured_testimonials_heading"><?php echo Mage::helper('testimonial')->__(Mage::getStoreConfig('testimonial/featuredtestimonials/block_title')) ?></span></h1>
+    <?php endif; ?>
+<!--    <img src="--><?php //echo $this->getSkinUrl('')?><!--images/testimonial/dvd2_text.jpg" class="dvd2_test" alt=" " width="270" height="1" border="0" />-->
+
+
+<div id="carousel-wrapper">
+	
+    <div id="carousel-content">	
+    	
+	<?php $m_count = 1;   ?>
+    	<?php foreach ( $collection as $_item ) : ?>
+                
+		
+		<div class="slide" id="slide-<?php echo $m_count; ?>">
+			
+<!--            <img class="block-icon-left" src="--><?php //echo $this->getSkinUrl('')?><!--images/testimonial/left2.png" alt=" " width="22" height="18" border="0" />-->
+                        
+			<?php if(Mage::getStoreConfig('testimonial/featuredtestimonials/allow_read_more')): ?>
+				<span class="text_1"><?php echo $_item['short_description'] ?></span>
+			<?php else: ?>
+				<span class="text_1"><?php echo $_item['testimonial'] ?></span>
+			<?php endif; ?>
+			
+			
+			
+			<?php
+				if($_item['url_identifier'] != ''): 
+				    $testimonial_url = Mage::getBaseUrl().Mage::helper('testimonial')->getListIdentifier().'/'.$_item['url_identifier'].Mage::helper('testimonial')->getSeoUrlSuffix();
+				else:
+				    $testimonial_url = Mage::getUrl('testimonial/index/detail',array('id' => $_item["testimonial_id"]));
+				endif;
+			
+			?>
+			<?php if(Mage::getStoreConfig('testimonial/featuredtestimonials/allow_read_more')): ?>
+				<a class="read_more" href="<?php echo $testimonial_url; ?>"> <?php echo $this->__('Read More'); ?></a>
+			<?php endif; ?>
+			
+			
+<!--			<img class="block-icon-right" src="--><?php //echo $this->getSkinUrl('')?><!--images/testimonial/right2.png" alt=" " width="22" height="18" border="0" />-->
+                    </div>
+		    
+	<?php $m_count++;   ?>
+	<?php endforeach; ?>
+    </div>
+    
+</div>
+
+
+<?php
+$allow_pagination = Mage::getStoreConfig('testimonial/featuredtestimonials/allow_pagination');
+
+if($allow_pagination == 1) :
+
+
+	
+?>
+
+    
+    <div id="p-select" class="pagination">
+	
+	<a href="javascript:" class="left-t" id="prev_page">&nbsp;</a>
+	<a href="javascript:" class="right-t"  id="next_page">&nbsp;</a>
+		
+    	<div id="nav1" class="carousel-control">
+		<div style="width:600px; position: relative; left:0px;" id="page_scroll">
+			
+			<?php $count = 1;   ?>
+			<?php foreach ( $collection as $_item ) : ?>
+				<a href="javascript:" class="carousel-jumper" rel="slide-<?php echo $count; ?>"><?php echo $count;?></a>
+			     <?php $count++;   ?>
+			<?php endforeach; ?>
+		
+		</div>
+     	</div>
+    </div>
+    
+    
+<?php endif; ?>
+
+    
+</div>
+
+
+
+<?php
+
+$total_pages = count($collection); 
+
+$slide_effect = Mage::getStoreConfig('testimonial/featuredtestimonials/Js_effect');
+$slide_effect_duration = Mage::getStoreConfig('testimonial/featuredtestimonials/effect_duration');
+
+if($slide_effect == '') :
+	$slide_effect = "scroll";
+endif;
+if($slide_effect_duration == '') :
+	$slide_effect_duration = 1;
+endif;
+
+?>
+
+<script type="text/javascript">
+	
+	new Carousel($$('#carousel-wrapper').first(), $$('#carousel-content .slide'), $$('.carousel-control a'), {auto: true, effect: "<?= $slide_effect; ?>", duration:<?= $slide_effect_duration; ?>,  frequency: 6} );
+	
+	
+	//For Block pagination
+	
+	Event.observe(window, 'load', function() {
+                
+		var total_pages = <?= $total_pages; ?>;
+		var total_width = total_pages * 36;
+		
+		$('page_scroll').setStyle({width : total_width+'px' });
+		
+        });
+	
+	Event.observe($('next_page'), 'click', function() {
+                var total_w = parseInt($('page_scroll').getStyle('width'));
+		
+		var current_postition = $('page_scroll').getStyle('left');		
+		var next_postition = parseInt(current_postition) - 36;
+		if(next_postition <= -total_w+72){
+			$('page_scroll').setStyle({left : '0px'});
+			 
+		}else{
+			$('page_scroll').setStyle({left : next_postition+'px' });
+		}
+		
+        });
+	
+	Event.observe($('prev_page'), 'click', function(event) {
+                
+		
+		
+		var current_postition = $('page_scroll').getStyle('left');
+		var prev_postition = parseInt(current_postition) + 36;
+		
+		if(prev_postition >= 36){
+			$('page_scroll').setStyle({left : '0px'});
+			
+		}else{		
+			$('page_scroll').setStyle({left : prev_postition+'px'});
+		}
+		
+		
+        });
+	
+	
+                                
+</script>
+
+
+
+<?php endif; ?>
+
+</div>

@@ -1,0 +1,201 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	padding:0px;
+	margin:0px;
+}
+body {
+	/*background:#FFF;*/
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#727272;
+}
+
+form { margin:0px; }
+
+a {
+	text-decoration:none;
+	outline:none;
+	color:#878787;
+}
+a img {
+	border:none;
+}
+.clear {
+	clear:both;
+}
+.colr {
+	color:#216472 !important;
+}
+.bold {
+	font-weight:bold;
+}
+
+p {
+	line-height:18px;
+}
+.left {
+	float:left !important;
+}
+.right {
+	float:right !important;
+}
+.heading {
+	padding:10px 0px 0px 10px;
+	width:100%;
+	margin-bottom:10px;
+	text-transform:none;
+}
+input {
+	font-size:11px;
+}
+.itlc {
+	font-style:italic;
+}
+
+
+/*
+=======================================================================
+	Wrapper
+=======================================================================
+*/
+
+#wrapper { width:600px; margin:0 auto; }
+
+.heading_1 { font-size:20px; color:#000; }
+
+/*
+=======================================================================
+	Theme1
+=======================================================================
+*/
+
+.theme1 { width:600px; /*background:#FFF;*/ }
+
+.theme1 .testimonial { width:500px; margin:0 auto; padding:40px; border-bottom:#ccc 1px dashed; }
+
+.theme1 .testimonial p { font-family:Arial; font-size:12px; font-weight:normal; color:#727272; line-height:20px; }
+
+.theme1 .testimonial p .quote1 { margin-left:-40px; padding-right:8px; float:left; }
+
+.theme1 .testimonial p .quote2 { margin-right:-35px; padding-left:8px; float:right; }
+
+.theme1 .testimonial .quote2 { margin-right:-35px; padding-left:8px; float:right; }
+
+.theme1 .testimonial .testi-pic { clear:both; float:left; width:75px; height:75px; margin-top:20px; *margin-top:10px; display:inline; border:#d7d7d7 1px solid; }
+
+.theme1 .testimonial .testi-name { float:left; padding:40px 0 0 15px; *padding:30px 0 0 15px; }
+
+.theme1 .testimonial .read_more{ float:right; display:block; color:#106494;  padding-right: 30px;}
+/*
+=======================================================================
+	Theme2
+=======================================================================
+*/
+
+.theme2 { width:600px;/* background:#FFF;*/ }
+
+.theme2 .testimonial2 { width:500px; margin:0 auto; padding:20px; background:url(../images/testi_bottom.png) no-repeat center bottom; }
+
+.theme2 .testimonial2 .content .content_inner { font-family:Arial; font-size:12px; font-weight:normal; color:#727272; line-height:20px; padding:15px; }
+
+
+.theme2 .testimonial2 .inner { width:470px; margin:0 auto; /*padding:15px;*/ }
+
+.theme2 .testimonial2 .inner .thumbnail { width:75px; height:75px; background:#e9e9e9; border:#ccc 1px solid; float:left; margin:30px 0 10px 0; }
+
+.theme2 .testimonial2 .inner .content { width:370px; float:right; margin:10px 20px 10px 0; }
+
+.theme2 .testimonial2 .inner .content p { font-family:Verdana; font-size:11px; font-weight:normal; color:#5f5f5f; line-height:18px; margin:0;}
+
+.theme2 .testimonial2 .inner .content h4 { font-family:Verdana; font-size:11px; font-weight:normal; color:#5f5f5f; line-height:18px; padding-top:15px; padding-left:10px; line-height:20px; }
+
+.theme2 .testimonial2 .inner .content .right_coma { float:right; /*padding-top:15px;*/ }
+
+.theme2 .testimonial2 .read_more{ padding-top:31px; float:right; display:block; color:#106494; }
+/*
+=======================================================================
+	Theme3
+=======================================================================
+*/
+
+.theme3 { width:600px;/* background:#FFF; */}
+
+.theme3 .testimonial3 { width:580px; margin:0 auto; padding:10px; border-bottom:#ccc 1px dotted; padding-top:25px; padding-bottom:30px; *padding-bottom:0px; }
+
+.theme3 .testimonial3 .client { width:120px; float:left; text-align:center; }
+
+.theme3 .testimonial3 .client .thumb { width:75px; height:75px; border:#ccc 1px solid; margin-left:20px; *margin-left:0px; }
+
+.theme3 .testimonial3 .client p { font-weight:bold; line-height:22px; padding-top:10px; margin:0; }
+
+.theme3 .testimonial3 .detail { width:410px; float:right; border-left:#ccc 1px solid; padding-left:40px; }
+
+.theme3 .testimonial3 .detail p { font-weight:normal; line-height:20px; margin:0; /*padding:15px; padding-top:8px;*/ }
+
+.theme3 .testimonial3 .detail .content_inner { padding:15px; padding-top:8px; }
+
+.theme3 .testimonial3 .detail .left_coma { float:left; padding-right:4px; margin-left:-38px; }
+
+.theme3 .testimonial3 .detail .right_coma { float:right; /*padding-top:10px;*/ *padding-top:0px; margin-right:-10px; }
+
+.theme3 .testimonial3 .read_more{ padding-top:10px; display:block; color:#106494; }
+/*
+=======================================================================
+	Theme4
+=======================================================================
+*/
+
+.theme4 { width:600px;/* background:#FFF;*/ }
+
+.theme4 .testimonial4 { width:590px; margin:0 auto; padding:10px; border-bottom:#ccc 1px solid; padding-top:25px; padding-bottom:30px; *padding-bottom:0px; }
+
+.theme4 .testimonial4 .client { width:110px; float:left; text-align:center; }
+
+.theme4 .testimonial4 .client .thumb { width:75px; height:75px; border:#ccc 1px solid; margin-left:20px; *margin-left:0px; }
+
+.theme4 .testimonial4 .client p { font-weight:bold; line-height:22px; padding-top:6px; }
+
+.theme4 .testimonial4 .detail { width:460px; float:right; padding-left:5px; border:#ccc 1px solid; border-bottom:#ccc 2px solid; -webkit-border-radius: 0px; /* Safari prototype */
+-moz-border-radius: 0px; /* Gecko browsers */ border-radius: 0px; position:relative; }
+
+.theme4 .testimonial4 .detail .arrow { position:absolute; left:-14px; top:13px; width:14px; height:14px; }
+
+.theme4 .testimonial4 .detail .content_inner { font-family:Georgia, "Times New Roman", Times, serif; font-style:italic; font-weight:normal; line-height:20px; padding:10px; }
+
+.theme4 .testimonial4 .read_more{ float:right; color:#106494; }
+
+.theme4 .testimonial4 .content_div{ float:right; font-weight:bold; }
+
+/*
+=======================================================================
+	Pagination
+=======================================================================
+*/
+
+.paginationControl { margin:0 auto; margin-top:18px;  text-align: center; height:45px; }
+
+.paginationControl a{ color:#106494;}
+
+.slideup_arrow { float:left; width:15px; padding-top:8px;}
+
+
+/*
+=======================================================================
+	IE Fixes
+=======================================================================
+*/
+
+.popupForm label {*position:static !important;}
+
+.popupForm .fieldset .legend {*position:static !important;}
+
+.popupForm  {padding-bottom: 15px;}
+
+#MB_content {
+    background: none repeat scroll 0 0 #FFFFFF;
+    height: auto !important;
+    
+}
+

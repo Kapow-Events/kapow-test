@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Advance Testimonial extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   FME
+ * @package    Advance Testimonial
+ * @author     Kamran Rafiq Malik <support@fmeextensions.com>
+ *             1- Created - 10-10-2010
+ *
+ * 	       Asif Hussain <support@fmeextensions.com>
+ * 	       1 - Jquery to Prototype - 23-03-2012
+ * 	       2 - Default - left - 23-03-2012
+ * 	       3 - Testimonial - index - detail - 23-03-2012
+ *
+ * @copyright  Copyright 2012 © www.fmeextensions.com All right reserved
+ */
+ -->
+ 
+<layout version="0.1.0">
+	<default>
+		<reference name="head">	
+			<action method="addCss"><stylesheet>css/testimonial/testimonial.css</stylesheet></action>
+			<action method="addCss"><stylesheet>css/testimonial/featuredcontentglider.css</stylesheet></action>
+			
+			<!-- FOR POPUP-->
+			<action method="addCss"><stylesheet>css/testimonial/modalbox.css</stylesheet></action>			
+			<action method="addJs"><script>testimonial/Modalbox/scriptaculous.js?¬load=builder,effects</script></action>
+			<action method="addJs"><script>testimonial/Modalbox/modalbox.js</script></action>
+			
+		</reference>
+		<reference name="left">
+			<block type="testimonial/block" name="testimonial.block">
+				<action method="setTemplate" ifconfig="testimonial/featuredtestimonials/enable" ifvalue="1">
+					<template>testimonial/block.phtml</template> 
+				</action>
+			</block>
+		</reference>
+		
+		<reference name="footer_links">
+			<action method="addLink" translate="label title" module="testimonial"><label>Testimonials</label><url helper="testimonial/getNewurlIdentifier" /><title>Testimonials</title><prepare/><urlParams/></action>
+		</reference>
+		
+	</default>
+	<testimonial_index_index>
+		<reference name="root">
+		    <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+		</reference>
+		<reference name="content">
+		   <block type="testimonial/items" name="testimonial" template="testimonial/testimonial.phtml">
+		            <block type="testimonial/pagination" name="testimonial.pagination" as="pagination" template="testimonial/pagination.phtml"/>
+		    </block>
+		</reference>
+	</testimonial_index_index>
+	
+	<testimonial_index_detail>
+		<reference name="root">
+		    <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+		</reference>
+		<reference name="content">
+		   <block type="testimonial/detail" name="testimonial.detail" template="testimonial/detail.phtml" />
+		</reference>
+	</testimonial_index_detail>
+	
+	
+	<testimonial_index_add>
+		<reference name="root">
+		    <action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+		</reference>
+		<reference name="content">
+		   <block type="testimonial/testimonial" name="testimonial" template="testimonial/addtestimonial.phtml"></block>
+		</reference>
+	</testimonial_index_add>
+	
+	
+	
+</layout> 

@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * Advance Testimonial extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   FME
+ * @package    Advance Testimonial
+ * @author     Kamran Rafiq Malik <support@fmeextensions.com>
+ *             1- Created - 10-10-2010
+ *
+ * 	       Asif Hussain <support@fmeextensions.com>
+ * 	       1 - Adminhtml menu - 23-03-2012
+ * 	       2 - Template email - 23-03-2012
+ *
+ * @copyright  Copyright 2012 © www.fmeextensions.com All right reserved
+ */
+ -->
+<config>
+    <modules>
+        <FME_Testimonial>
+            <version>1.0.0</version>
+        </FME_Testimonial>
+    </modules>
+    <frontend>
+        <routers>
+            <testimonial>
+                <use>standard</use>
+                <args>
+                    <module>FME_Testimonial</module>
+                    <frontName>testimonial</frontName>
+                </args>
+            </testimonial>
+        </routers>
+	<translate>
+            <modules>
+                <FME_Testimonial>
+                    <files>
+                        <default>FME_Testimonial.csv</default>
+                    </files>
+                </FME_Testimonial>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <testimonial>
+                    <file>testimonial.xml</file>
+                </testimonial>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<testimonial_admin>
+				<use>admin</use>
+				<args>
+					<module>FME_Testimonial</module>
+					<frontName>testimonial_admin</frontName>
+				</args>
+			</testimonial_admin>
+        </routers>
+    </admin>
+    <adminhtml>
+		
+		<translate>
+		    <modules>
+			<FME_Testimonial>
+			    <files>
+				<default>FME_Testimonial.csv</default>
+			    </files>
+			</FME_Testimonial>
+		    </modules>
+		</translate>
+	
+		<layout>
+			<updates>
+				<testimonial>
+					<file>testimonial.xml</file>
+				</testimonial>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <testimonial>
+                <class>FME_Testimonial_Model</class>
+                <resourceModel>testimonial_mysql4</resourceModel>
+            </testimonial>
+            <testimonial_mysql4>
+                <class>FME_Testimonial_Model_Mysql4</class>
+                <entities>
+                    <testimonial>
+                        <table>testimonial</table>
+                    </testimonial>
+					<testimonial_store>
+                        <table>testimonial_store</table>
+                    </testimonial_store>
+                </entities>
+            </testimonial_mysql4>
+        </models>
+        <resources>
+            <testimonial_setup>
+                <setup>
+                    <module>FME_Testimonial</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </testimonial_setup>
+            <testimonial_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </testimonial_write>
+            <testimonial_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </testimonial_read>
+        </resources>
+        <blocks>
+            <testimonial>
+                <class>FME_Testimonial_Block</class>
+            </testimonial>
+        </blocks>
+        <helpers>
+            <testimonial>
+                <class>FME_Testimonial_Helper</class>
+            </testimonial>
+        </helpers>
+	<events>
+            <controller_front_init_routers>
+                <observers>
+                    <testimonial>
+                        <type>singleton</type>
+                        <class>FME_Testimonial_Controller_Router</class>
+                        <method>initControllerRouters</method>
+                    </testimonial>
+                </observers>
+            </controller_front_init_routers>
+	</events>
+	<template>
+	    <email>
+		<testimonial_email_settings_moderator_email_template translate="label" module="testimonial">
+		    <label>Testimonial Moderator Notification</label>
+		    <file>testimonial_moderator_notification.html</file>
+		    <type>html</type>
+		</testimonial_email_settings_moderator_email_template>
+		<testimonial_email_settings_client_email_template translate="label" module="testimonial">
+		    <label>Testimonial Client Notification</label>
+		    <file>testimonial_client_notification.html</file>
+		    <type>html</type>
+		</testimonial_email_settings_client_email_template>
+	    </email>
+	</template>
+       
+       
+       
+       
+       
+    </global>
+</config>

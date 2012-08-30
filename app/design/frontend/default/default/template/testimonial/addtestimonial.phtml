@@ -1,0 +1,214 @@
+<?php
+/**
+ * Advance Testimonial extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   FME
+ * @package    Advance Testimonial
+ * @author     Kamran Rafiq Malik <support@fmeextensions.com>
+ *             1- Created - 10-10-2010
+ *             
+ * 	       Asif Hussain <support@fmeextensions.com>
+ * 	       1 - Short description - 23-03-2012
+ * 	       2 - Custom fields - 23-03-2012
+ * 	       3 - Validation - 23-03-2012
+ * 	       
+ * @copyright  Copyright 2012 © www.fmeextensions.com All right reserved
+ */
+?>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<div class="page-title">
+    <h1><?php echo Mage::helper('testimonial')->__('Testimonials') ?></h1>
+</div>
+<form action="<?php echo $this->getFormAction(); ?>" id="testimonialForm" method="post" enctype="multipart/form-data">
+
+<?
+	$value = 0;
+	$status = Mage::helper('testimonial')->getAdminApproval();
+	if($status == 0) {
+		$value = 1;
+	} elseif($status == 1) {
+		$value = 0;
+	} else {
+		$value = 0;
+	}
+
+
+?>
+        
+<input name="status" id="status" value="<?php echo $value; ?>" type="hidden"  />
+		
+        <input name="stores[]" id="stores[]" value="<?php echo Mage::app()->getStore()->getStoreId(); ?>" type="hidden"  />
+
+        <div class="fieldset">
+        <h2 class="legend"><?php echo Mage::helper('testimonial')->__('Testimonial Information') ?></h2>
+        <ul class="form-list">
+            <li class="fields">
+            	<?php 
+					if(Mage::getStoreConfig('testimonial/formfields/company_name')) {
+				?>
+                <div class="field">
+                    <label for="company_name"><?php echo Mage::helper('testimonial')->__('Company') ?></label>
+                    <div class="input-box">
+                    <input name="company_name" id="company_name" title="<?php echo Mage::helper('testimonial')->__('Company Name ') ?>" value="" class="input-text" type="text" />
+                    </div>
+                </div>
+                <?php } ?>
+                <?php 
+					if(Mage::getStoreConfig('testimonial/formfields/contact_name')) {
+				?>
+                <div class="field">
+                    <label for="contact_name"><?php echo Mage::helper('testimonial')->__('Contact Name') ?></label>
+                    <div class="input-box">
+                        <input name="contact_name" id="contact_name" title="<?php echo Mage::helper('contacts')->__('Contact Name') ?>" value="<?php echo $this->htmlEscape($this->helper('contacts')->getUserName()) ?>" class="input-text" type="text" />
+                    </div>
+                </div>
+                <?php } ?>
+            </li>
+            
+            <li class="fields">
+            	<?php 
+					if(Mage::getStoreConfig('testimonial/formfields/email')) {
+				?>
+                <div class="field">
+                    <label for="email" class="required"><em>*</em><?php echo Mage::helper('testimonial')->__('Email') ?></label>
+                    <div class="input-box">
+                    <input name="email" id="email" title="<?php echo Mage::helper('testimonial')->__('Email') ?>" value="<?php echo $this->htmlEscape($this->helper('testimonial')->getUserEmail()) ?>" class="input-text required-entry validate-email" type="text" />
+                    </div>
+                </div>
+                <?php } ?>
+                <?php 
+					if(Mage::getStoreConfig('testimonial/formfields/website')) {
+				?>
+                <div class="field">
+                    <label for="website"><?php echo Mage::helper('testimonial')->__('Website URL') ?></label>
+                    <div class="input-box">
+                        <input name="website" id="website" title="<?php echo Mage::helper('testimonial')->__('Website URL') ?>" value="" class="input-text validate-clean-url" type="text" />
+                    </div>
+                </div>
+                <?php } ?>
+            </li>
+            
+	    <!--Custom Fields Start-->
+	    
+	    <li class="fields">
+		
+		<?php $custom_field1_label = Mage::getStoreConfig('testimonial/form_custom_field/field1_label'); ?>
+            	<?php if(Mage::getStoreConfig('testimonial/form_custom_field/field1_status') && $custom_field1_label != ''){ ?>
+                <div class="field">
+                    <label for="custom_field1_value" ><?php echo Mage::helper('testimonial')->__($custom_field1_label) ?></label>
+                    <div class="input-box">
+			<input name="custom_field1_value" id="custom_field1_value" title="<?php echo Mage::helper('testimonial')->__($custom_field1_label) ?>" value="" class="input-text" type="text" />
+                    </div>
+                </div>
+                <?php } ?>
+		
+		
+		<?php $custom_field2_label = Mage::getStoreConfig('testimonial/form_custom_field/field2_label'); ?>
+                <?php if(Mage::getStoreConfig('testimonial/form_custom_field/field2_status') && $custom_field2_label != null){ ?>
+                <div class="field">
+                    <label for="custom_field2_value"><?php echo Mage::helper('testimonial')->__($custom_field2_label) ?></label>
+                    <div class="input-box">
+                        <input name="custom_field2_value" id="custom_field2_value" title="<?php echo Mage::helper('testimonial')->__($custom_field2_label) ?>" value="" class="input-text" type="text" />
+                    </div>
+                </div>
+                <?php } ?>
+            </li>
+	    
+	    
+	    <li class="fields">
+		
+		<?php $custom_field3_label = Mage::getStoreConfig('testimonial/form_custom_field/field3_label'); ?>
+            	<?php if(Mage::getStoreConfig('testimonial/form_custom_field/field3_status') && $custom_field3_label != ''){ ?>
+                <div class="field">
+                    <label for="custom_field3_value" ><?php echo Mage::helper('testimonial')->__($custom_field3_label) ?></label>
+                    <div class="input-box">
+			<input name="custom_field3_value" id="custom_field3_value" title="<?php echo Mage::helper('testimonial')->__($custom_field3_label) ?>" value="" class="input-text" type="text" />
+                    </div>
+                </div>
+                <?php } ?>
+		
+		
+		<?php $custom_field4_label = Mage::getStoreConfig('testimonial/form_custom_field/field4_label'); ?>
+                <?php if(Mage::getStoreConfig('testimonial/form_custom_field/field4_status') && $custom_field4_label != null){ ?>
+                <div class="field">
+                    <label for="custom_field4_value"><?php echo Mage::helper('testimonial')->__($custom_field4_label) ?></label>
+                    <div class="input-box">
+                        <input name="custom_field4_value" id="custom_field4_value" title="<?php echo Mage::helper('testimonial')->__($custom_field4_label) ?>" value="" class="input-text" type="text" />
+                    </div>
+                </div>
+                <?php } ?>
+            </li>
+	    
+	    
+	    
+	    
+	    <!--Custom Fields End-->
+	    <?php
+		$short_desc_req = false;
+		if(Mage::getStoreConfig('testimonial/list/allow_read_more') == 1 || Mage::getStoreConfig('testimonial/featuredtestimonials/allow_read_more') == 1):
+		    $short_desc_req = true;
+		else:
+		    $short_desc_req = false;
+		endif;
+	    ?>
+	    <?php if(Mage::getStoreConfig('testimonial/formfields/short_desc')): ?>
+	    <li class="wide">
+                <label for="short_description" class="required"><?php if($short_desc_req): ?><em>*</em><?php endif; ?><?php echo Mage::helper('testimonial')->__('Short Description') ?></label>
+                <div class="input-box">
+                    <textarea name="short_description" id="short_description" title="<?php echo Mage::helper('testimonial')->__('Short Description') ?>" class="<?php if($short_desc_req): ?>required-entry<?php endif; ?> input-text" cols="3" rows="2"></textarea>
+                </div>
+            </li>
+	    <?php endif; ?>
+	    
+            <li class="wide">
+                <label for="testimonial" class="required"><em>*</em><?php echo Mage::helper('testimonial')->__('Testimonial') ?></label>
+                <div class="input-box">
+                    <textarea name="testimonial" id="testimonial" title="<?php echo Mage::helper('testimonial')->__('Testimonial') ?>" class="required-entry input-text" cols="5" rows="3"></textarea>
+                </div>
+            </li>
+	    
+	    <li>
+            	<?php 
+					if(Mage::getStoreConfig('testimonial/formfields/contact_photo')) {
+				?>
+                <div class="field">
+                    <label for="contact_photo"><?php echo Mage::helper('testimonial')->__('Picture') ?></label>
+                    <div class="input-box">
+                        <input name="contact_photo" id="contact_photo" value="" class="input-text" type="file" />
+                    </div>
+                </div>
+                 <?php } ?>
+            </li>
+	    
+	    
+            <li class="wide"> 
+			    <input name="captacha_code" type="hidden" id="captacha_code" value="<?php echo $code=$this->getNewrandCode(6)?>" />
+			    <label for="image"><img src="<?php echo $this->getSecureImageUrl() ?>CaptchaSecurityImages.php?width=180&height=40&code=<?php echo $code?>" /></label><br/>
+			    <div class="input-box">
+				<label for="security_code" class="required"><em>*</em><b><?php echo $this->__('Security Code Message:'); ?></b></label><br />
+				<input id="security_code" name="security_code" type="text" /> <br />
+				<?php echo $this->__('If you have difficulty in reading the image above then refresh your browser a few times until you see an image that is clear enough to copy.'); ?>
+			
+			    </div> 
+	    </li>
+	    
+	    
+	    
+        </ul>
+        </div>
+        <div class="buttons-set">
+            <p class="required"><?php echo Mage::helper('testimonial')->__('* Required Fields') ?></p>
+            <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
+            <button type="submit" title="<?php echo Mage::helper('testimonial')->__('Submit') ?>" class="button"><span><span><?php echo Mage::helper('contacts')->__('Submit') ?></span></span></button>
+        </div>
+</form>
+<script type="text/javascript">
+    var bookafittingForm = new VarienForm('testimonialForm', true);
+</script>

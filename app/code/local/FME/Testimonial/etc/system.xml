@@ -1,0 +1,595 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Advance Testimonial extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   FME
+ * @package    Advance Testimonial
+ * @author     Kamran Rafiq Malik <support@fmeextensions.com>
+ *             1- Created - 10-10-2010
+ *
+ * 	       Asif Hussain <support@fmeextensions.com>
+ * 	       1 - List - 23-03-2012
+ * 	       2 - Add Testimonial Settings - 23-03-2012
+ * 	       3 - Form Custom Fields - 23-03-2012
+ * 	       4 - Featured Block - 23-03-2012
+ * 	       5 - Themes - 23-03-2012
+ * 	       6 - Email - 23-03-2012
+ *
+ * @copyright  Copyright 2012 © www.fmeextensions.com All right reserved
+ */
+-->
+<config>
+    <tabs>
+        <FME translate="label" module="testimonial">
+            <label>FME Extensions</label>
+            <sort_order>167</sort_order>
+        </FME>
+    </tabs>
+    <sections>
+        <testimonial translate="label comment" module="testimonial">
+            <tab>FME</tab>
+            <label>Advance Testimonials</label>
+            <frontend_type>text</frontend_type>
+            <sort_order>200</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>         
+                <list translate="label comment" module="testimonial">
+                    <label>Testimonials List</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>22</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <page_title translate="label">
+                        	<label>Page Title</label>
+                        	<frontend_type>text</frontend_type>
+                        	<sort_order>0</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<comment></comment>
+                        </page_title>
+                        <identifier translate="label">
+                        	<label>SEF URL Identifier</label>
+                        	<frontend_type>text</frontend_type>
+                        	<sort_order>1</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<comment>(eg: domain.com/identifier)</comment>
+                        </identifier>
+                        <items_per_page translate="label">
+                        	<label>Testimonial per page</label>
+                        	<frontend_type>text</frontend_type>
+                        	<sort_order>2</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<comment>Number of testimonial per page (0 for no limit)</comment>
+                        </items_per_page>
+                       
+                        <meta_keywords translate="label">
+                        	<label>META Keywords</label>
+                        	<frontend_type>textarea</frontend_type>
+                        	<sort_order>4</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<comment></comment>
+                        </meta_keywords>
+                        <meta_description translate="label">
+                        	<label>META Description</label>
+                        	<frontend_type>textarea</frontend_type>
+                        	<sort_order>5</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<comment></comment>
+                        </meta_description>
+			<allow_read_more translate="label">
+                        	<label>Allow Read More Link</label>
+                        	<frontend_type>select</frontend_type>
+				<source_model>adminhtml/system_config_source_yesno</source_model>
+				<sort_order>6</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<comment>Allow read more link with short description OR full description</comment>
+                        </allow_read_more>
+			<show_contact_photo translate="label">
+                        	<label>Show Image with Testimonials ?</label>
+                        	<frontend_type>select</frontend_type>
+				<source_model>adminhtml/system_config_source_yesno</source_model>
+				<sort_order>7</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<comment></comment>
+                        </show_contact_photo>
+			<sort_by translate="label">
+                        	<label>Sort By</label>
+                        	<frontend_type>select</frontend_type>
+				<source_model>testimonial/system_config_source_sortby</source_model>
+				<sort_order>8</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<comment></comment>
+                        </sort_by>	
+			
+                    </fields>
+                </list>
+		
+		<add_testimonial_settings translate="label comment" module="testimonial">
+                    <label>Add Testimonial Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>23</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+			<customer_allowed translate="label">
+				<label>Customers Allowed </label>
+				<frontend_type>select</frontend_type>
+				<source_model>testimonial/system_config_source_allowedcustomers</source_model>
+				<sort_order>0</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<comment>Customers allowed to add testimonials</comment>
+			</customer_allowed>
+			<admin_approval translate="label">
+                        	<label>Need Admin Approval</label>
+                        	<frontend_type>select</frontend_type>
+			        <source_model>adminhtml/system_config_source_yesno</source_model>
+                        	<sort_order>1</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<comment></comment>
+                        </admin_approval>
+			<open_form translate="label">
+				<label>Open Form Window</label>
+                        	<frontend_type>select</frontend_type>
+			        <source_model>testimonial/system_config_source_openformoptions</source_model>
+                        	<sort_order>2</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<comment>Options for form window to open</comment>
+			</open_form>
+		    
+		    </fields>
+		</add_testimonial_settings>
+		
+		<formfields translate="label comment" module="testimonial">
+                    <label>Show / Hide Form Fields</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>24</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <company_name translate="label">
+                        	<label>Company Name</label>
+                        	<frontend_type>select</frontend_type>
+				<source_model>adminhtml/system_config_source_yesno</source_model>
+                        	<sort_order>1</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<comment></comment>
+                        </company_name>
+			<contact_name translate="label">
+                        	<label>Contact Name</label>
+                        	<frontend_type>select</frontend_type>
+				<source_model>adminhtml/system_config_source_yesno</source_model>
+                        	<sort_order>2</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<comment></comment>
+                        </contact_name>
+			<email translate="label">
+                        	<label>Contact Email</label>
+                        	<frontend_type>select</frontend_type>
+				<source_model>adminhtml/system_config_source_yesno</source_model>
+                        	<sort_order>3</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<comment></comment>
+                        </email>
+			<website translate="label">
+                        	<label>Website</label>
+                        	<frontend_type>select</frontend_type>
+				<source_model>adminhtml/system_config_source_yesno</source_model>
+                        	<sort_order>4</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<comment></comment>
+                        </website>
+			<contact_photo translate="label">
+                        	<label>Contact Photo</label>
+                        	<frontend_type>select</frontend_type>
+				<source_model>adminhtml/system_config_source_yesno</source_model>
+                        	<sort_order>5</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<comment></comment>
+                        </contact_photo>
+			<short_desc translate="label">
+                        	<label>Short Description</label>
+                        	<frontend_type>select</frontend_type>
+				<source_model>adminhtml/system_config_source_yesno</source_model>
+                        	<sort_order>6</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<comment></comment>
+                        </short_desc>
+			
+			
+                    </fields>
+               </formfields>
+	       
+	       <form_custom_field translate="label comment" module="testimonial">
+		    <label>Manage Custom Form Fields</label>
+		    <frontend_type>text</frontend_type>
+		    <sort_order>25</sort_order>
+		    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+		    <fields>
+			
+			<field1_label translate="label">
+			    <label>Custom Field1 Label</label>
+			    <frontend_type>text</frontend_type>
+			    <sort_order>0</sort_order>
+			    <show_in_default>1</show_in_default>
+			    <show_in_website>1</show_in_website>
+			    <show_in_store>1</show_in_store>
+			    <comment></comment>
+			</field1_label>
+			<field1_status translate="label">
+			    <label>Enable Custom Field1</label>
+			    <frontend_type>select</frontend_type>
+			    <source_model>adminhtml/system_config_source_yesno</source_model>
+			    <sort_order>1</sort_order>
+			    <show_in_default>1</show_in_default>
+			    <show_in_website>1</show_in_website>
+			    <show_in_store>1</show_in_store>
+			    <comment>Enable for testimonial form</comment>
+			</field1_status>
+			
+			
+			<field2_label translate="label">
+			    <label>Custom Field2 Label</label>
+			    <frontend_type>text</frontend_type>
+			    <sort_order>2</sort_order>
+			    <show_in_default>1</show_in_default>
+			    <show_in_website>1</show_in_website>
+			    <show_in_store>1</show_in_store>
+			    <comment></comment>
+			</field2_label>
+			<field2_status translate="label">
+			    <label>Enable Custom Field2</label>
+			    <frontend_type>select</frontend_type>
+			    <source_model>adminhtml/system_config_source_yesno</source_model>
+			    <sort_order>3</sort_order>
+			    <show_in_default>1</show_in_default>
+			    <show_in_website>1</show_in_website>
+			    <show_in_store>1</show_in_store>
+			    <comment>Enable for testimonial form</comment>
+			</field2_status>
+			
+			
+			<field3_label translate="label">
+			    <label>Custom Field3 Label</label>
+			    <frontend_type>text</frontend_type>
+			    <sort_order>4</sort_order>
+			    <show_in_default>1</show_in_default>
+			    <show_in_website>1</show_in_website>
+			    <show_in_store>1</show_in_store>
+			    <comment></comment>
+			</field3_label>
+			<field3_status translate="label">
+			    <label>Enable Custom Field3</label>
+			    <frontend_type>select</frontend_type>
+			    <source_model>adminhtml/system_config_source_yesno</source_model>
+			    <sort_order>5</sort_order>
+			    <show_in_default>1</show_in_default>
+			    <show_in_website>1</show_in_website>
+			    <show_in_store>1</show_in_store>
+			    <comment>Enable for testimonial form</comment>
+			</field3_status>
+			
+			
+			<field4_label translate="label">
+			    <label>Custom Field4 Label</label>
+			    <frontend_type>text</frontend_type>
+			    <sort_order>6</sort_order>
+			    <show_in_default>1</show_in_default>
+			    <show_in_website>1</show_in_website>
+			    <show_in_store>1</show_in_store>
+			    <comment></comment>
+			</field4_label>
+			<field4_status translate="label">
+			    <label>Enable Custom Field4</label>
+			    <frontend_type>select</frontend_type>
+			    <source_model>adminhtml/system_config_source_yesno</source_model>
+			    <sort_order>7</sort_order>
+			    <show_in_default>1</show_in_default>
+			    <show_in_website>1</show_in_website>
+			    <show_in_store>1</show_in_store>
+			    <comment>Enable for testimonial form</comment>
+			</field4_status>
+			
+			
+		    </fields>
+	       </form_custom_field>
+	       
+	       
+	       
+	       
+	       
+	       
+	       
+	       
+		<featuredtestimonials translate="label comment" module="testimonial">
+                    <label>Testimonials Block Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>26</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enable translate="label">
+                        	<label>Enable Testimonials Block ?</label>
+                        	<frontend_type>select</frontend_type>
+				<source_model>adminhtml/system_config_source_yesno</source_model>
+                        	<sort_order>0</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<comment></comment>
+                        </enable>
+
+                        <block_type translate="label">
+                        	<label>Block Type</label>
+                        	<frontend_type>select</frontend_type>
+				<source_model>testimonial/system_config_source_blocktype</source_model>
+                        	<sort_order>1</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<comment></comment>
+                        </block_type>
+			
+			<block_title translate="label">
+                        	<label>Block Title</label>
+                        	<frontend_type>text</frontend_type>
+                        	<sort_order>2</sort_order>
+			        <show_in_default>1</show_in_default>
+			        <show_in_website>1</show_in_website>
+			        <show_in_store>1</show_in_store>
+			        <comment>Title of Block</comment>
+                        </block_title>
+			
+			<no_of_testimonials translate="label">
+				<label>Number of Testimonials</label>
+				<frontend_type>text</frontend_type>
+				<sort_order>3</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<comment>Number of testimonials display in featured block</comment>
+                        </no_of_testimonials>
+			
+			<allow_read_more translate="label">
+                        	<label>Allow Read More Link</label>
+                        	<frontend_type>select</frontend_type>
+				<source_model>adminhtml/system_config_source_yesno</source_model>
+				<sort_order>4</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<comment>Allow read more link with short description OR full description</comment>
+                        </allow_read_more>
+			
+			<Js_effect translate="label">
+                        	<label>Select Slider Effect</label>
+                        	<frontend_type>select</frontend_type>
+				<source_model>testimonial/system_config_source_slidereffect</source_model>
+				<sort_order>5</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<comment>Select effect 'Scroll or Fade' for block contents</comment>
+                        </Js_effect>
+			
+			<effect_duration translate="label">
+                        	<label>Slider Effect Duration</label>
+                        	<frontend_type>text</frontend_type>
+				<sort_order>6</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<comment>Slider effect duration i.e ( 1, 0.5, 1.3)</comment>
+                        </effect_duration>
+			
+			<allow_pagination translate="label">
+                        	<label>Allow Pagination</label>
+                        	<frontend_type>select</frontend_type>
+				<source_model>adminhtml/system_config_source_yesno</source_model>
+				<sort_order>7</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<comment>Allow pagination under block</comment>
+                        </allow_pagination>
+			
+						
+                    </fields>
+               </featuredtestimonials>
+		
+		
+		<themes translate="label comment" module="testimonial">	
+			    <label>Testimonials Theme</label>
+			    <frontend_type>text</frontend_type>
+			    <sort_order>27</sort_order>
+			    <show_in_default>1</show_in_default>
+			    <show_in_website>1</show_in_website>
+			    <show_in_store>1</show_in_store>
+			    <fields>
+				
+				<select_theme translate="label">
+				    <label>Select Theme</label>
+				    <frontend_type>select</frontend_type>
+				    <source_model>testimonial/system_config_source_themeoptions</source_model>
+				    <sort_order>0</sort_order>
+				    <show_in_default>1</show_in_default>
+				    <show_in_website>1</show_in_website>
+				    <show_in_store>1</show_in_store>
+			    	</select_theme>
+				<selected_image translate="label">
+				    <label>Theme</label>
+				    <frontend_type>imageviewer</frontend_type>
+				    <sort_order>1</sort_order>
+				    <show_in_default>1</show_in_default>
+				    <show_in_website>1</show_in_website>
+				    <show_in_store>1</show_in_store>
+				</selected_image>
+				
+				
+			    </fields>
+		</themes>
+		
+		
+		
+		<email_settings translate="label comment" module="testimonial">	
+			    <label>E-mail Settings</label>
+			    <frontend_type>text</frontend_type>
+			    <sort_order>28</sort_order>
+			    <show_in_default>1</show_in_default>
+			    <show_in_website>1</show_in_website>
+			    <show_in_store>1</show_in_store>
+			    <fields>
+				<email_sender translate="label">
+				    <label>E-mail Sender</label>
+				    <frontend_type>select</frontend_type>
+				    <source_model>adminhtml/system_config_source_email_identity</source_model>
+				    <sort_order>0</sort_order>
+				    <show_in_default>1</show_in_default>
+				    <show_in_website>1</show_in_website>
+				    <show_in_store>1</show_in_store>
+				</email_sender>
+				<enable_moderator_notification translate="label">
+				    <label>Enable Notification For Moderator</label>
+				    <frontend_type>select</frontend_type>
+				    <source_model>adminhtml/system_config_source_yesno</source_model>
+				    <sort_order>1</sort_order>
+				    <show_in_default>1</show_in_default>
+				    <show_in_website>1</show_in_website>
+				    <show_in_store>1</show_in_store>
+				    <comment>Enable/Disable notifications for moderator</comment>
+				</enable_moderator_notification>				
+				<moderator_email translate="label">
+				    <label>E-mail Of Testimonial Moderator</label>
+				    <frontend_type>text</frontend_type>
+				    <sort_order>2</sort_order>
+				    <show_in_default>1</show_in_default>
+				    <show_in_website>1</show_in_website>
+				    <show_in_store>1</show_in_store>
+				</moderator_email>
+				<moderator_email_subject translate="label">
+				    <label>E-mail Subject For Moderator</label>
+				    <frontend_type>text</frontend_type>
+				    <sort_order>3</sort_order>
+				    <show_in_default>1</show_in_default>
+				    <show_in_website>1</show_in_website>
+				    <show_in_store>1</show_in_store>
+				</moderator_email_subject>
+				<moderator_email_template translate="label">
+				    <label>E-mail Template For Moderator</label>
+				    <frontend_type>select</frontend_type>
+				    <source_model>adminhtml/system_config_source_email_template</source_model>
+				    <sort_order>4</sort_order>
+				    <show_in_default>1</show_in_default>
+				    <show_in_website>1</show_in_website>
+				    <show_in_store>1</show_in_store>
+				</moderator_email_template>
+				
+				
+				<enable_client_notification translate="label">
+				    <label>Enable Notification For Client</label>
+				    <frontend_type>select</frontend_type>
+				    <source_model>adminhtml/system_config_source_yesno</source_model>
+				    <sort_order>5</sort_order>
+				    <show_in_default>1</show_in_default>
+				    <show_in_website>1</show_in_website>
+				    <show_in_store>1</show_in_store>
+				    <comment>Enable/Disable notifications for testimonial submitter</comment>
+				</enable_client_notification>
+				<client_email_subject translate="label">
+				    <label>E-mail Subject For Client</label>
+				    <frontend_type>text</frontend_type>
+				    <sort_order>6</sort_order>
+				    <show_in_default>1</show_in_default>
+				    <show_in_website>1</show_in_website>
+				    <show_in_store>1</show_in_store>
+				</client_email_subject>
+				<client_email_template translate="label">
+				    <label>E-mail Template For Client</label>
+				    <frontend_type>select</frontend_type>
+				    <source_model>adminhtml/system_config_source_email_template</source_model>
+				    <sort_order>7</sort_order>
+				    <show_in_default>1</show_in_default>
+				    <show_in_website>1</show_in_website>
+				    <show_in_store>1</show_in_store>
+				</client_email_template>
+				
+				
+				
+			    </fields>
+		
+		</email_settings>	
+		
+		
+		
+		<seo translate="label comment" module="testimonial">
+			    <label>Search Engine Optimizations</label>
+			    <frontend_type>text</frontend_type>
+			    <sort_order>29</sort_order>
+			    <show_in_default>1</show_in_default>
+			    <show_in_website>1</show_in_website>
+			    <show_in_store>1</show_in_store>
+			    <fields>
+			        <url_suffix translate="label">
+                        	<label>URL Suffix</label>
+                        	<frontend_type>text</frontend_type>
+                        	<sort_order>0</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<comment>(eg: .html)</comment>
+				</url_suffix>
+			    </fields>
+		</seo>
+            </groups>
+        </testimonial>
+    </sections>
+</config>

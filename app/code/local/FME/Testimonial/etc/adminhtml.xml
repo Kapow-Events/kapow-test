@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : adminhtml.xml
+    Created on : October 12, 2011, 2:36 PM
+    Author     : Kaleem Ullah Khan
+    Description:
+        Purpose of the document follows.
+-->
+
+<config>
+    <menu>
+		    <translate>
+			<modules>
+			    <FME_Testimonial>
+				<files>
+				    <default>FME_Testimonial.csv</default>
+				</files>
+			    </FME_Testimonial>
+			</modules>
+		    </translate>
+		    <FME module="testimonial">
+			<title>FME Extensions</title>
+			<sort_order>71</sort_order>
+			<children>
+			    <testimonial module="testimonial">
+				    <title>Advance Testimonials</title>
+				    <sort_order>71</sort_order>               
+				    <children>
+					    <items module="testimonial">
+						    <title>Manage Testimonials</title>
+						    <sort_order>0</sort_order>
+						    <action>testimonial_admin/adminhtml_testimonial</action>
+					    </items>
+					    <config translate="title">
+						    <title>Configuration</title>
+						    <sort_order>1</sort_order>
+						    <action>adminhtml/system_config/edit/section/testimonial</action>
+					    </config>
+				    </children>
+			    </testimonial>
+			</children>
+		    </FME>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <testimonial translate="title" module="testimonial">
+                                        <title>Testimonial Configuration</title>
+                                        <sort_order>100</sort_order>
+                                    </testimonial>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+
+                    <FME module="testimonial">
+			<title>FME Extensions</title>
+			<sort_order>71</sort_order>
+			<children>
+			    <testimonial module="testimonial">
+				    <title>Advance Testimonials</title>
+				    <sort_order>71</sort_order>               
+				    <children>
+					    <items module="testimonial">
+						    <title>Manage Testimonials</title>
+						    <sort_order>0</sort_order>
+						    <action>testimonial_admin/adminhtml_testimonial</action>
+					    </items>
+					    <config translate="title">
+						    <title>Configuration</title>
+						    <sort_order>1</sort_order>
+						    <action>adminhtml/system_config/edit/section/testimonial</action>
+					    </config>
+				    </children>
+			    </testimonial>
+			</children>
+		    </FME>
+            </children>
+            </admin>
+        </resources>
+    </acl>
+
+</config>
