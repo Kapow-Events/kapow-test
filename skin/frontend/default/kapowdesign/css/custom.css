@@ -764,7 +764,7 @@ a#get_started {
 	height:21px;
 	text-decoration: none;
 	font-family: 'BrandonG Bold', Arial, sans-serif;
-	font-size:20px;	
+	font-size:20px;
 	position: absolute;
 	right: -56px;
 	bottom: 22px;
@@ -874,7 +874,7 @@ ul#steps {
 	height:100px;
 	width:27px;
 	margin-top:22px;
-	background: url(../images/event_name_pre.png) no-repeat;	
+	background: url(../images/event_name_pre.png) no-repeat;
 	float: left;
 }
 .featured_product_text .event_flare {
@@ -988,20 +988,20 @@ ul#steps {
 
   #secondary_navigation_left { float:left; width:262px; text-align:center; }
   #secondary_navigation_left li { float:right; }
-  #secondary_navigation_left li a { 
-	  margin-right:12px; 
+  #secondary_navigation_left li a {
+	  margin-right:12px;
 	  margin-left:12px;
   }
-  #secondary_navigation_left li.last { 
+  #secondary_navigation_left li.last {
 	  border-right:1px solid #c44427;
   }
   #secondary_navigation_right { float:left; width:456px; }
   #secondary_navigation_right li { float:right; }
   #secondary_navigation_right li a {
-	  margin-right:12px; 
+	  margin-right:12px;
 	  margin-left:12px;
   }
-  #secondary_navigation_right li:last-child { 
+  #secondary_navigation_right li:last-child {
 	  border-right:1px solid #c44427;
   }
   #secondary_navigation .arrow {
@@ -1020,7 +1020,10 @@ ul#steps {
   }
 
 .homepage #main_content {
-	background: url(../images/eventsbg.png) no-repeat;
+	background: #000 url(../images/eventsbg.png) center no-repeat;
+  -webkit-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  background-size: 100% auto;
 	margin-top:-48px;
 }
 #homepage_body_wrapper {
@@ -1046,7 +1049,7 @@ ul#steps {
 	font-family: 'BrandonG Light Italic', 'Arial Narrow', sans-serif;
 	font-size: 18px;
 	-moz-opacity:0.8;
-	filter:alpha(opacity=80); 
+	filter:alpha(opacity=80);
 	opacity:0.80;
 	margin-right:15px;
 }
@@ -1176,13 +1179,13 @@ ul#steps {
 	height: 28px;
 	float:left;
 	-moz-opacity:0.25;
-	filter:alpha(opacity=25); 
+	filter:alpha(opacity=25);
 	opacity:0.25;
 	margin-right:2px;
 }
 .minibubbles .active {
 	-moz-opacity:1;
-	filter:alpha(opacity=100); 
+	filter:alpha(opacity=100);
 	opacity:1;
 }
 .minibubbles_row1 .bubble_icon {
@@ -1254,7 +1257,7 @@ ul#steps {
 	font-family: 'BrandonG Bold Italic', 'Arial Narrow', sans-serif;
 	text-align: center;
 	font-style: normal;
-	font-size:14px;	
+	font-size:14px;
 	line-height: 13px;
 	text-transform: uppercase;
 	text-shadow:  1px 1px 2px black;
@@ -1366,7 +1369,7 @@ ul#steps {
 	position: absolute;
 	left: 39%;
 	top: -18px;
-	 
+
 }
 
 #copy {
