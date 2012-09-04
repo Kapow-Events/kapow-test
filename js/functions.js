@@ -357,7 +357,7 @@ var cj =
   },
   
   homeEvents: function() {
-		jQuery('#homepage_events_container').carousel({
+		jQuery('.homepage #eventlist_events_container').carousel({
 			btnsPosition: 'inside',
 			autoSlide: false,
 			dispItems :  3,

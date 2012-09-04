@@ -28,17 +28,17 @@ echo render_flat_nav($categories);
 <div id="homepage_body_wrapper" class="outer_wrapper">
 	<div id="homepage_body">
 		<div class="inner_wrapper clearfix">
-			<section id="homepage_events">
-				<div id="homepage_events_header">kapow events</div>
-				<a href="?" class="homepage_events_header_link<?php echo (!isSet($_GET['cid']) ? ' header_active' : '') ?>">See All Events</a>
-				<a href="?cid=15" class="homepage_events_header_link"<?php echo (isset($_GET['cid']) && $_GET['cid'] == 15) ? ' header_active' : '' ?>>Bar Events</a>
-				<a href="?cid=16" class="homepage_events_header_link"<?php echo (isset($_GET['cid']) && $_GET['cid'] == 16) ? ' header_active' : '' ?>>Dining Events</a>
-				<a href="?cid=17" class="homepage_events_header_link"<?php echo (isset($_GET['cid']) && $_GET['cid'] == 17) ? ' header_active' : '' ?>>Sporting Events</a>
-				<div id="homepage_events_container">
+			<section id="eventlist_events">
+				<div id="eventlist_events_header">kapow events</div>
+				<a href="?" class="eventlist_events_header_link<?php echo (!isSet($_GET['cid']) ? ' header_active' : '') ?>">See All Events</a>
+				<a href="?cid=15" class="eventlist_events_header_link"<?php echo (isset($_GET['cid']) && $_GET['cid'] == 15) ? ' header_active' : '' ?>>Bar Events</a>
+				<a href="?cid=16" class="eventlist_events_header_link"<?php echo (isset($_GET['cid']) && $_GET['cid'] == 16) ? ' header_active' : '' ?>>Dining Events</a>
+				<a href="?cid=17" class="eventlist_events_header_link"<?php echo (isset($_GET['cid']) && $_GET['cid'] == 17) ? ' header_active' : '' ?>>Sporting Events</a>
+				<div id="eventlist_events_container">
 					<ul>
 						<?php $i=1; foreach ($featured_products as $_product): ?>
-						<li id="homepage_event_<?php echo $i ?>_text" class="homepage_products">
-							<div class="homepage_product_info">
+						<li id="eventlist_event_<?php echo $i ?>_text" class="eventlist_products">
+							<div class="eventlist_product_info">
 								<?php
 								// Link to product or status/purgatory lightbox?
 								$roleId        = Mage::getSingleton('customer/session')->getCustomerGroupId();
@@ -87,23 +87,23 @@ echo render_flat_nav($categories);
 								
 								echo "<div class=\"product_header{$font_size}\">{$name}</div>";
 								?>
-								<div class="homepage_event_image" style="background: url(<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->keepAspectRatio(true)->resize(330,null); ?>) no-repeat;"></div>
+								<div class="eventlist_event_image" style="background: url(<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->keepAspectRatio(true)->resize(330,null); ?>) no-repeat;"></div>
 	
 								<p class="content">
 									<?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
 								</p>
-								<div class="homepage_event_details">
-									<div id="homepage_per_person" class="homepage_event_detail_bubble">
+								<div class="eventlist_event_details">
+									<div id="eventlist_per_person" class="eventlist_event_detail_bubble">
 										<div class="bubble_text">$<?php echo $cost ?></div>
-										<div id="homepage_per_person_tag" class="event_detail_tag">Per Person</div>
+										<div id="eventlist_per_person_tag" class="event_detail_tag">Per Person</div>
 									</div>
-									<div id="homepage_group_size" class="homepage_event_detail_bubble">
+									<div id="eventlist_group_size" class="eventlist_event_detail_bubble">
 										<div class="bubble_text">
 											<?php echo $group_size_min ?><div>to</div><?php echo $group_size_max ?>
 										</div>
-										<div id="homepage_group_size_tag" class="event_detail_tag">Group Size</div>
+										<div id="eventlist_group_size_tag" class="event_detail_tag">Group Size</div>
 									</div>
-									<div id="homepage_ideal_for" class="homepage_event_detail_bubble">
+									<div id="eventlist_ideal_for" class="eventlist_event_detail_bubble">
 										<div class="minibubbles">
 											<div class="minibubbles_row1">
 												<div class="bubble_icon summer_outing<?php echo $event_icons[0] ?>" title="Summer Outing"></div>
@@ -116,7 +116,7 @@ echo render_flat_nav($categories);
 												<div class="bubble_icon kapow<?php echo $event_icons[5] ?>" title="KaPow"></div>
 											</div>
 										</div>
-										<div id="homepage_ideal_for_tag" class="event_detail_tag">Ideal For</div>
+										<div id="eventlist_ideal_for_tag" class="event_detail_tag">Ideal For</div>
 									</div>
 								</div>
 								<div class="clearfix"></div>
@@ -131,7 +131,7 @@ echo render_flat_nav($categories);
 			</section>
 		</div>
 		<div class="bottom_border">
-			<a href="/all-events" title="View All Events" id="view_all_events">View All Events</a>
+			<a href="kapow-events" title="View All Events" id="view_all_events">View All Events</a>
 		</div>
 	</div>
 </div>

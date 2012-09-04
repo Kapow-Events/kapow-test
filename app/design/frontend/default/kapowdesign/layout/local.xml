@@ -27,14 +27,6 @@
                 <block type="cms/block" name="secondaryNavRight">
                         <action method="setBlockId"><block_id>header_secondary_navigation_right</block_id></action>
                 </block>
-                <!--
-
-                <block type="catalog/product_list" name="product_list">
-				   <action method="addAttribute"><code>event_group_size_min</code></action>
-				   <action method="addAttribute"><code>event_group_size_max</code></action>
-				   <action method="addAttribute"><code>event_cost_size</code></action>
-				</block>
--->
 
                 <!-- The remove tag removes the blocks with the specified name from the layout -->
                 <remove name="top.menu"/>
@@ -97,6 +89,7 @@
         </reference>
         <reference name="content">
             <block type="site/featured" name="featured_home" as="featured_home" template="site/featured-body.phtml" />
+            <block type="site/featured" name="recent_success" as="recent_success" template="site/success.phtml" />
         </reference>
     </cms_index_index>
     <!--CATALOG PAGES -->
@@ -111,6 +104,9 @@
         </reference>
         <reference name="content">
             <block type="sociable/services" name="sociable.product_page" template="sociable/sociable.phtml"  as="other" before="-" />
+            <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+                <block type="page/html_pager" name="product_list_toolbar_pager"/>
+            </block>
         </reference>
     </catalog_category_default>
 
@@ -160,6 +156,7 @@
     <customer_logged_out>
         <reference name="top.links">
               <remove name="checkout_cart_link"/>
+              <action method="addLink" translate="label title" module="customer"><label>Create Account</label><url helper="customer/getRegisterUrl"/><title>Create Account</title><prepare/><urlParams/><position>10</position></action>
         </reference>
     </customer_logged_out>
 
@@ -170,7 +167,7 @@
         <reference name="top.links">
               <remove name="checkout_cart_link"/>
               <block type="checkout/links" name="checkout_cart_link_custom">
-                  <action method="addCartLink"></action>
+                  <!-- <action method="addCartLink"></action> -->
               </block>
         </reference>
     </customer_logged_in>
