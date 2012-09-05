@@ -35,7 +35,8 @@
 							$extra_class   = $should_hijack ? ' lightbox-modal-link' : '';
 							
 							// Try to account for a 3 line name by adjusting the font size
-							$name      		= ($_product->getResource()->getAttribute('ribbon_title')->getFrontend()->getValue($_product) != "" ? $_product->getResource()->getAttribute('ribbon_title')->getFrontend()->getValue($_product) : $_helper->productAttribute($_product, $_product->getName(), 'name'));
+                            $ribbon         = $_product->getResource()->getAttribute('ribbon_title');
+							$name      		= ($ribbon && $ribbon->getFrontend()->getValue($_product) != "" ? $ribbon->getFrontend()->getValue($_product) : $_helper->productAttribute($_product, $_product->getName(), 'name'));
 							$font_size 		= strlen($name) >= 50 ? ' three_line' : '';
 							$font_size 		= strlen($name) > 50  ? ' three_plus_lines' : '';
 							$group_size_min = $_product->getResource()->getAttribute('event_group_size_min')->getFrontend()->getValue($_product);
