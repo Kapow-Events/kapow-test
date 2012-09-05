@@ -1,0 +1,9 @@
+<?php
+/**
+ *
+ */
+
+	$_helper = Mage::helper('wordpress');
+	
+?>
+<link rel="alternate" type="application/rss+xml" title="<?php echo $this->__('%s - RSS Feed', $_helper->getWpOption('blogname')) ?>" href="<?php echo $_helper->getUrl('feed') ?>" />

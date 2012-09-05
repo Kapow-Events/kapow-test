@@ -1,0 +1,229 @@
+<?php
+/**
+ * @category    Fishpig
+ * @package     Fishpig_Wordpress
+ * @license     http://fishpig.co.uk/license.txt
+ * @author      Ben Tideswell <help@fishpig.co.uk>
+ */
+
+class Fishpig_Wordpress_Helper_Abstract extends Mage_Core_Helper_Abstract
+{
+	/**
+	 * Internal cache variable
+	 *
+	 * @var array
+	 */
+	static protected $_cache = array();
+	
+	/**
+	  * Returns the URL used to access your Wordpress frontend
+	  *
+	  * @param string|null $extra = null
+	  * @param array $params = array
+	  * @return string
+	  */
+	public function getUrl($extra = null, array $params = array())
+	{
+		if (count($params) > 0) {
+			$extra = trim($extra, '/') . '/';
+			
+			foreach($params as $key => $value) {
+				$extra .= $key . '/' . $value . '/';
+			}
+		}
+		
+		if ($this->isFullyIntegrated()) {
+			$params = array(
+				'_direct' 	=> $this->getBlogRoute() . '/' . ltrim($extra, '/'), 
+				'_secure' 	=> false,
+				'_nosid' 	=> true,
+				'_store'		=> Mage::app()->getStore()->getId(),
+			);
+			
+			if (Mage::app()->getStore()->getCode() == 'admin') {
+				if ($storeCode = Mage::app()->getRequest()->getParam('store')) {
+					$params['_store'] = $storeCode;
+				}
+				else {
+					$params['_store'] = $this->getDefaultStore(Mage::app()->getRequest()->getParam('website', null))->getId();
+				}
+			}
+			
+			$url = $this->_getUrl('', $params);
+		}
+		else {
+			$url = $this->getWpOption('home') . '/' . ltrim($extra, '/');
+		}
+	
+		return htmlspecialchars($url);
+	}
+	
+	/**
+	  * Returns the blog route selected in the Magento config
+	  *
+	  * Returns null if full integration is disbaled
+	  *
+	  */
+	public function getBlogRoute()
+	{
+		return $this->isFullyIntegrated() ? strtolower($this->getConfigValue('wordpress/integration/route')) : null;
+	}
+	
+	/**
+	  * Returns true if full integration is enabled
+	  *
+	  */
+	public function isFullyIntegrated()
+	{
+		return $this->getConfigValue('wordpress/integration/full');
+	}
+	
+	/**
+	  * Gets a Wordpress option based on it's name
+	  *
+	  * If the value isn't found in the cache, it is fetched and added
+	  *
+	  */
+	public function getCachedWpOption($optionName, $default = null)
+	{
+		return $this->getWpOption($optionName, $default);
+	}
+	
+	/**
+	  * Gets a Wordpress option based on it's name
+	  *
+	  */
+	public function getWpOption($key, $default = null)
+	{
+		$cacheKey = '_wp_option_' . $key;
+		
+		if (!$this->_isCached($cacheKey)) {
+			$this->_cache($cacheKey, $default);
+			
+			try {
+				$option = Mage::getModel('wordpress/option')->load($key, 'option_name');
+				
+				if ($option->getId() && $option->getOptionValue()) {
+					$this->_cache($cacheKey, $option->getOptionValue());
+				}
+			}
+			catch (Exception $e) {
+				$this->_cache($cacheKey, '');
+			}
+		}
+		
+		return $this->_cached($cacheKey);
+	}
+	
+	/**
+	  * Logs an error to the Wordpress error log
+	  *
+	  */
+	public function log($message, $level = null, $file = 'wordpress.log')
+	{
+		if ($this->getConfigValue('wordpress/debug/log_enabled')) {
+			if ($message = trim($message)) {
+				return Mage::log($message, $level, $file, true);
+			}
+		}
+	}
+	
+	/**
+	 * Retrieve a cached config value
+	 *
+	 * @param string $key
+	 * @return mixed
+	 */
+	public function getConfigValue($key)
+	{
+		return Mage::helper('wordpress/config')->getConfigValue($key);
+	}
+
+	/**
+	 * Retrieve a cached config value as a bool
+	 *
+	 * @param string $key
+	 * @return bool
+	 */	
+	public function getConfigFlag($key)
+	{
+		return Mage::helper('wordpress/config')->getConfigFlag($key);
+	}
+
+	/**
+	 * Retrieve the default store model
+	 *
+	 * @return Mage_Core_Model_Store
+	 */
+	public function getDefaultStore($websiteCode = null)
+	{
+		if (!$this->_isCached('default_store')) {	
+			$connection = Mage::getSingleton('core/resource')->getConnection('core_read');
+			$select = $connection->select()
+				->from(array('_store_table' => Mage::helper('wordpress/db')->getTableName('core/store')), 'store_id')
+				->where('_store_table.store_id > ?', 0)
+				->where('_store_table.code != ?', 'admin')
+				->limit(1)
+				->order('_store_table.sort_order ASC');
+			
+			if (!is_null($websiteCode)) {
+				$select->join(
+					array('_website_table' => $this->getTableName('core/website')),
+					$connection->quoteInto('`_website_table`.`website_id`=`_store_table`.`website_id` AND `_website_table`.`code`=?', $websiteCode),
+					''
+				);
+			}
+			
+			$store = Mage::getModel('core/store')->load($connection->fetchOne($select));
+			
+			if (!$store->getId() && !is_null($websiteCode)) {
+				return $this->getDefaultStore();
+			}
+			
+			$this->_cache('default_store', $store);
+		}
+		
+		return $this->_cached('default_store');
+	}
+	
+	/**
+	 * Store a value in the cache
+	 *
+	 * @param string $key
+	 * @param mixed $value
+	 * @return $this;
+	 */
+	protected function _cache($key, $value)
+	{
+		self::$_cache[$key] = $value;
+		
+		return $this;
+	}
+	
+	/**
+	 * Determine whether there is a value in the cache for the key
+	 *
+	 * @param string $key
+	 * @return bool
+	 */
+	protected function _isCached($key)
+	{
+		return isset(self::$_cache[$key]);
+	}
+	
+	/**
+	 * Retrieve a value from the cache
+	 *
+	 * @param string $key
+	 * @param mixed $default = null
+	 * @return mixed
+	 */
+	protected function _cached($key, $default = null)
+	{
+		if ($this->_isCached($key)) {
+			return self::$_cache[$key];
+		}
+		
+		return $default;
+	}
+}

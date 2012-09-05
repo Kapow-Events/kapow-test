@@ -1,0 +1,21 @@
+<?php
+/**
+ * @category    Fishpig
+ * @package     Fishpig_Wordpress
+ * @license     http://fishpig.co.uk/license.txt
+ * @author      Ben Tideswell <help@fishpig.co.uk>
+ */
+?>
+<?php $posts = $this->getPosts() ?>
+<?php if ($this->getPosts()): ?>
+	<?php echo $this->getBeforeBlockHtml() ?>
+	<?php foreach($posts as $post): ?>
+		<?php echo $this->getBeforeEntryHtml() ?>
+			<a href="<?php echo $post->getPermalink() ?>"><?php echo $this->escapeHtml($post->getPostTitle()) ?></a>
+			<?php if ($this->canShowExcerpt()): ?>
+				<?php echo $this->getBeforeExcerptHtml() ?><?php echo $this->getPostExcerpt($post) ?><?php echo $this->getAfterExcerptHtml() ?>
+			<?php endif; ?>
+		<?php echo $this->getAfterEntryHtml() ?>
+	<?php endforeach; ?>
+	<?php echo $this->getAfterBlockHtml() ?>
+<?php endif; ?>
