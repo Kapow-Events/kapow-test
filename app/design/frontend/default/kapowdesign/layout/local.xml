@@ -89,7 +89,12 @@
         </reference>
         <reference name="content">
             <block type="site/featured" name="featured_home" as="featured_home" template="site/featured-body.phtml" />
-            <block type="site/featured" name="recent_success" as="recent_success" template="site/success.phtml" />
+            <block type="site/featured" name="recent_success" as="recent_success" template="site/success.phtml">
+                <block type="wordpress/sidebar_widget_posts" name="wordpress.widget.recent_posts" as="recent_posts" template="site/success/posts.phtml">
+                    <action method="setTitle"><title>Latest Posts</title></action>
+                    <action method="setPostCount"><post_count>8</post_count></action>
+                </block>
+            </block>
         </reference>
     </cms_index_index>
     <!--CATALOG PAGES -->
