@@ -16,6 +16,11 @@
                 <class>EW_Site_Model</class>
             </site>
         </models>
+        <helpers>
+            <site>
+                <class>EW_Site_Helper</class>
+            </site>
+        </helpers>
     </global>
     <frontend>
         <routers>

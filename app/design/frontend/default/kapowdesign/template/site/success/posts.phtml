@@ -6,6 +6,7 @@
  * @author      Ben Tideswell <help@fishpig.co.uk>
  */
 ?>
+<?php $_helper = $this->helper('site'); ?>
 <?php $posts = $this->getPosts() ?>
 <?php if (count($posts) > 0): ?>
 	<div class="block block-blog block-recent-posts">
@@ -14,8 +15,8 @@
 			<?php foreach($posts as $post): ?>
 				<li class="item">
                     <div>
-                        <?php echo $this->htmlEscape($post->getPostDate()) ?>
-                        <?php echo $this->htmlEscape($post->getPostAuthor()) ?>
+                        <?php echo $this->htmlEscape($post->getPostDate()) ?> By
+                        <?php echo $this->htmlEscape($_helper->getAuthorDisplayName($post->getPostAuthor())) ?>
                     </div>
                     <div>
                         <a href="<?php echo $post->getPermalink() ?>" title="<?php echo $this->htmlEscape($post->getPostTitle()) ?>"><?php echo $this->htmlEscape($post->getPostTitle()) ?></a>
