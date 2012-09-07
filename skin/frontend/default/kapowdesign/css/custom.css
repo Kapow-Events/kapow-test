@@ -1048,12 +1048,11 @@ ul#steps {
 	padding:0;
 }
 #eventlist_events_header {
-	font-size:24px;
+	font-size:26px;
 	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
 	font-style: normal;
 	color:#fff;
 	text-transform: uppercase;
-	font-size:26px;
 	margin-left:11px;
 	width:241px;
 	float:left;
@@ -1330,7 +1329,7 @@ ul#steps {
 	transition:        none;
 }
 #view_all_events:hover {
-	border: none;
+	border-bottom: 2px solid transparent;
 }
 
 .catalog-category-view .pager {
@@ -1407,27 +1406,174 @@ ul#steps {
 
 #cut_splitter {
 	background: url(../images/cut_paper.png) repeat-x;
-	height:16px;
+	height:25px;
 	width:100%;
 	margin-top: -10px;
 }
 #recent_success {
 	background:#FDF6EE url(../images/recent_bg.png);
-	min-height:250px;
+	min-height:300px;
 	margin-top: -10px;
+	padding: 35px 0 270px;
+	font-style: normal;
+	position: relative;
+}
+#recent_success .block .block-content {
+	border:none;
 }
 #recent_success #success_container {
 	width: 1060px;
-	margin: 0 auto;
+	margin: 0 auto 30px;
 	position: relative;
+	border-bottom:1px solid #ccc; 
 }
 #recent_success h2 {
 	color: #872828;
+	font-size:26px;
+	margin:0;
+	padding-bottom: 10px;
+}
+#success_container #followus {
+	position: absolute;
+	top:10px;
+	right:91px;
+	font-family: "BrandonG Light Italic", Arial Narrow, sans-serif;
+	font-size: 20px;
+	color: #666;
+}
+#success_container #followusarrow {
+	width:10px;
+	height:9px;
+	background: url(../images/followusarrow.png) no-repeat;
+	position: absolute;
+	top: 17px;
+	right: 75px;
+}
+#success_container .social_findus {
+	height:32px;
+	width:32px;
+	position: absolute;
+	top:5px;
+}
+#success_container a:hover {
+	border-bottom:2px transparent solid;
+}
+#success_container .twitter_findus {
+	background: url(../images/twitter-findus.png) no-repeat;
+	right:0;
+}
+#success_container .facebook_findus {
+	background: url(../images/facebook-findus.png) no-repeat;
+	right:34px;
+}
+#success_container #dateinfo {
+	border-top:1px solid #ccc; 
+	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
+	font-size:14px;
+	text-transform: uppercase;
+	padding: 5px 0;
+}
+#kapowissue {
+	float:right;
+}
+#recent_success ul {
+	width:1060px;
+	margin:0 auto;
+	padding:0;
+}
+#recent_success li {
+	width:236px;
+	height:248px;
+	list-style: none;
+	float:left;
+	border-right:1px #ccc solid;
+	padding:0 13px 25px;
+	overflow: hidden;
+}
+#recent_success li.endrow {
+	border-right: none;
+}
+#recent_success li.bottom_row {
+	padding-top:20px;
+	border-top:1px #ccc solid;
+	border-bottom: none;
+}
+#recent_success .featured-image {
+	height:82px;
+	width:236px;
+}
+#recent_success .success_header {
+	margin-top:10px;
+	height: 60px;
+	border-bottom:#ccc dashed 1px;
+}
+#recent_success .success_header a:link, #recent_success .success_header a:visited {
+	color: #333;
+	font-family: 'BrandonG Bold', Arial, sans-serif;
+	text-transform: uppercase;
+	font-size:15px;
+	-webkit-transition: none;
+	-moz-transition:    none;
+	transition:         none;
+}
+#recent_success .success_header a:hover {
+	border:none;
+	color:#872828;
+}
+#recent_success .success_info {
+	font-family: 'BrandonG Light', Arial, sans-serif;
+	font-size: 11px;
+	text-transform: uppercase;
+	padding-bottom:10px;
+	margin-bottom:10px;
+}
+#recent_success .success_content {
+	font-family: 'BrandonG Light', Arial, sans-serif;
+	text-transform: uppercase;
+	height: 98px;
+	overflow: hidden;
+	padding-top: 10px;
+}
+#recent_success .success_content p {
+	font-size: 12px;
+	line-height: 16px;
+	margin:0;
+	color:#000;
+}
+#recent_success #success_bottom {
+	width: 85%;
+	position: absolute;
+	bottom: 185px;
+	left: 7%;
+	border-top: 1px solid #CCC;
+}
+#success_bottom #viewallnews {
+	position: absolute;
+	bottom:-32px;
+	left:38%;
+	padding-top:20px;
+	height:40px;
+	width:257px;
+	display:block;
+	background:url(../images/view_all_news_ribbon.png) no-repeat;
+	color:#fff;
+	font-size:24px;
+	font-family: 'BrandonG Light Italic', 'Arial Narrow', sans-serif;
+	font-style: normal;
+	text-transform: uppercase;
+	text-align: center;
+	-webkit-transition:none;
+	-moz-transition:   none;
+	transition:        none;
+	z-index:150;
+}
+#success_bottom #viewallnews:hover {
+	border-bottom:2px solid transparent;
 }
 
 #footer {
   padding: 130px 0 30px 0;
-  margin: -50px 0 0 0;
+  margin: 0;
   -webkit-box-shadow: inset 0 5px 10px rgba(0,0,0,0.1);
   -moz-box-shadow:    inset 0 5px 10px rgba(0,0,0,0.1);
   box-shadow:         inset 0 5px 10px rgba(0,0,0,0.1);

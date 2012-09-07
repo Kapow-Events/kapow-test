@@ -5,29 +5,43 @@
  * @license     http://fishpig.co.uk/license.txt
  * @author      Ben Tideswell <help@fishpig.co.uk>
  */
-?>
-<?php $_helper = $this->helper('site'); ?>
-<?php $posts = $this->getPosts() ?>
-<?php if (count($posts) > 0): ?>
+ 
+$_helper 	= $this->helper('site');
+$posts 	 	= $this->getPosts();
+$post_count	= count($posts);
+$i 			= 1;
+
+if ($post_count > 0): ?>
 	<div class="block block-blog block-recent-posts">
 		<div class="block-content">
 			<ul id="<?php echo $this->getListId() ?>">
 			<?php foreach($posts as $post): ?>
-				<li class="item">
-                    <div>
-                        <?php echo $this->htmlEscape($post->getPostDate()) ?> By
-                        <?php echo $this->htmlEscape($_helper->getAuthorDisplayName($post->getPostAuthor())) ?>
-                    </div>
-                    <div>
-                        <a href="<?php echo $post->getPermalink() ?>" title="<?php echo $this->htmlEscape($post->getPostTitle()) ?>"><?php echo $this->htmlEscape($post->getPostTitle()) ?></a>
-                    </div>
-                    <div>
-                        <p>
-                            <?php echo $this->htmlEscape($post->getPostContent()) ?>
-                        </p>
-                    </div>
-
-				</li>
+				<?php if (($post_count > 4 && $post_count == 8) || $i <= 4): ?>
+					<?php
+						if ($post->getFeaturedImage()) {
+							$image = $post->getFeaturedImage()->getGuid();
+						}
+						else {
+							$image = "";
+						}
+					?>
+					<li class="item<?php echo ($i > 4 ? " bottom_row" : ($i%4 == 0 ? " endrow" : "")) ?>">
+						<div class="featured-image" style="background: url(<?php echo $image ?>) no-repeat"></div>
+	                    <div class="success_header">
+	                        <a href="<?php echo $post->getPermalink() ?>" title="<?php echo $this->htmlEscape($post->getPostTitle()) ?>"><?php echo $this->htmlEscape($post->getPostTitle()) ?></a>
+		                    <div class="success_info">
+		                        <?php echo $this->htmlEscape($post->getPostDate()) ?> By
+		                        <?php echo $this->htmlEscape($_helper->getAuthorDisplayName($post->getPostAuthor())) ?>
+		                    </div>
+	                    </div>
+	                    <div class="success_content">
+	                        <p>
+	                            <?php echo $post->getPostContent() ?>
+	                        </p>
+	                    </div>
+					</li>
+					<?php $i++ ?>
+				<?php endif; ?>
 			<?php endforeach; ?>
 			</ul>
 			<script type="text/javascript">decorateList('<?php echo $this->getListId() ?>')</script>
