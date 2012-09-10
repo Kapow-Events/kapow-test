@@ -1021,7 +1021,7 @@ ul#steps {
 	  right:54px;
   }
 
-.homepage #main_content, .catalog-category-view #main_content {
+.homepage #main_content, .catalog-category-view #main_content, .cms-about-us #main_content {
 	background: #000 url(../images/eventsbg.png) top center no-repeat;
   -webkit-background-size: 100% auto;
   -moz-background-size: 100% auto;
@@ -1571,6 +1571,321 @@ ul#steps {
 	border-bottom:2px solid transparent;
 }
 
+/* ======= ABOUT US PAGE ======== */
+
+.cms-about-us #main_content .inner_wrapper {
+	width:100%;
+}
+.cms-about-us #about-us-container {
+	margin-top:120px	;
+	font-style: normal;
+}
+.cms-about-us #our-mission {	
+	width: 1050px;
+	height:640px;
+	margin: 0 auto;
+	position: relative;
+	clear: both;
+}
+.cms-about-us #our-mission #followus {
+	position: absolute;
+	top:10px;
+	right:91px;	
+	font-family: "BrandonG Light Italic", Arial Narrow, sans-serif;
+	font-size: 20px;
+	color: #f63;
+}
+.cms-about-us #our-mission #followusarrow {
+	width:10px;
+	height:9px;
+	background: url(../images/followusarrow_red.png) no-repeat;
+	position: absolute;
+	top: 17px;
+	right: 75px;
+}
+.cms-about-us #our-mission .social_findus {
+	height:32px;
+	width:32px;
+	position: absolute;
+	top:5px;
+}
+.cms-about-us #our-mission a:hover {
+	border-bottom:2px transparent solid;
+}
+.cms-about-us #our-mission .twitter_findus {
+	background: url(../images/twitter-findus.png) no-repeat;
+	right:0;
+}
+.cms-about-us #our-mission .facebook_findus {
+	background: url(../images/facebook-findus.png) no-repeat;
+	right:34px;
+}
+.cms-about-us #our-mission .heading {	
+	padding: 0 0 50px;
+	color: white;
+	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
+	font-size: 40px;
+	text-transform: uppercase;
+	margin-bottom:45px;
+	border-bottom:1px solid #333;
+}
+.cms-about-us #our-mission #mission-block {
+	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
+	font-size:26px;
+	color:#fff;
+}
+.cms-about-us #our-mission #mission-block strong {
+	font-weight: normal;
+	font-family: 'BrandonG Bold', 'Arial Black', sans-serif;
+}
+.cms-about-us #our-mission #kapow-news {
+	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
+	font-size: 28px;
+	text-transform: uppercase;
+	color: #ca4327;
+	padding-top: 58px;
+}
+.cms-about-us #our-mission #mission-bottom-container {
+	width:345px;
+	position:absolute;
+	right: -24px;
+	bottom: 242px;
+	margin:0 auto;
+	height:125px;
+	font-family: 'BrandonG Bold', 'Arial Black', sans-serif;
+	font-size:24px;
+	text-transform: uppercase;
+	color:#fff;
+}
+.cms-about-us #our-mission .missionbottom {
+	width:290px;
+	height:125px;
+	float:left;
+}
+.cms-about-us #our-mission .missionbottom .linktext {
+	margin-top:40px;	
+	color:#fff;
+	display:block;
+}
+.cms-about-us #our-mission .missionbottom .linktext:hover {
+	color: #ca4327;
+}
+.cms-about-us #our-mission .missionbottom div {
+	font-family: 'BrandonG Light Italic', Arial, sans-serif;
+	font-size: 14px;
+	text-transform: none;
+}
+.cms-about-us #our-mission .missioniconlink {
+	height:116px;
+	width:116px;
+	margin-right:25px;
+	float:left;
+}
+.cms-about-us #our-mission .missioniconlink:hover {
+	border-bottom:2px solid transparent;
+}
+.cms-about-us #our-mission #watchour {
+	width:325px;
+	padding:0 0 30px;
+	border-bottom: 1px #333 solid;
+}
+.cms-about-us #our-mission #joinus {
+	padding:30px 0;
+}
+.cms-about-us #our-mission #watchourvideo {
+	background: url(../images/tastyvideo.png) no-repeat;
+}
+.cms-about-us #our-mission #joinuslink {
+	background: url(../images/joinuslink.png) no-repeat;
+	height:118px;
+}
+.cms-about-us #our-mission #newsblock-container {
+	margin-top:38px;
+}
+.cms-about-us #our-mission .newsbox {
+	width: 261px;
+	background: rgba(50,50,50,0.5);
+	padding: 20px 26px;
+	float:left;
+	margin-right: 47px;
+	position: relative;
+}
+.cms-about-us #our-mission .newsbox .newsheader {
+	padding-bottom: 18px;
+	color: white;
+	font-size: 26px;
+	font-family: 'BrandonG', Arial, sans-serif;
+	line-height: 26px;
+}
+.cms-about-us #our-mission .newsbox .newspostinfo {
+	padding: 3px 0;
+	margin-bottom:18px;
+	border-top: 1px solid #333;
+	border-bottom: 1px solid #333;
+	font-size: 12px;
+	color: #666;
+}
+.cms-about-us #our-mission .newsbox .newscontent {
+	font-family: 'BrandonG Light','Arial Narrow',sans-serif;
+	color: white;
+	line-height: 23px;
+}
+.cms-about-us #our-mission .newsbox p {
+	line-height: 24px;
+}
+.cms-about-us #our-mission .newsbox .news_readmore:link, .cms-about-us #our-mission .newsbox .news_readmore:visited  {
+	height:34px;
+	width:143px;
+	padding-top:8px;
+	position:absolute;
+	left: 27%;
+	bottom: -28px;
+	background: url(../images/news_readmore.png) no-repeat;
+	text-align: center;
+	color:#fff;
+	font-family: 'BrandonG Light Italic', 'Arial Narrow', sans-serif;
+	text-transform: uppercase;
+}
+.cms-about-us #our-mission .newsbox .news_readmore:hover {
+	color:#000;
+}
+.cms-about-us .about-container {
+	background: #FDF6EE url(../images/recent_bg.png);
+	margin-top: -10px;
+}
+.cms-about-us .about-container p {
+	margin:0;
+	line-height: 24px;
+}
+.cms-about-us #team, .cms-about-us #board, .cms-about-us #investors {
+	width:1050px;
+	height:310px;
+	margin: 0 auto;
+	padding: 50px 0 50px;
+	border-bottom:2px dashed #ccc;
+}
+.cms-about-us #board {
+	padding-bottom:90px;
+}
+.cms-about-us #investors {
+	border-bottom: none;
+}
+.cms-about-us #team .heading, .cms-about-us #board .heading, .cms-about-us #investors .heading {
+	padding:0;
+	margin:0;
+	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
+	font-size: 28px;
+	color:#663300;
+	text-transform: uppercase;
+}
+.cms-about-us #team #team-box {
+	width:360px;
+	margin-top:30px;
+	padding: 30px 0;
+	font-family: 'BrandonG', 'Arial', sans-serif;
+	line-height:16px;
+	border-top: 1px #CCC solid;
+	float:left;
+}
+.cms-about-us #team .faces {
+	position: absolute;
+	right: 115px;
+}
+.cms-about-us #board .faces, .cms-about-us #investors .faces {
+	width:880px;
+	margin:42px auto 0;
+}
+.cms-about-us #investors .faces {
+	width:920px;
+}
+.cms-about-us .facebox {
+	width: 200px;
+	float:left;
+	position: relative;
+	padding-top: 170px;
+	font-size: 37px;
+	font-family: 'BrandonG Bold', 'Arial Black', sans-serif;
+	text-transform: uppercase;
+	color: #4F1B10;
+	text-align: center;
+}
+.cms-about-us #investors .facebox, .cms-about-us #board .facebox {
+	padding: 170px 10px 0;
+}
+.cms-about-us .facebox div {
+	color:#b83e25;
+	font-size:30px;
+	margin-top:10px;
+}
+#about-us-container .clearfix {
+	background: #FDF6EE url(../images/recent_bg.png);
+}
+#about-us-container .aboutus-separator {
+	border-top:5px dotted #ccc;
+	height:5px;
+	width:139px;
+	margin:20px auto 10px;
+}
+#about-us-container .about_linked_in {
+	background: url(../images/about_linkedin.png) no-repeat;
+	height:29px;
+	width:29px;
+	display:block;	
+	position: absolute;
+	left: 80px;
+}
+#about-us-container .about_twitter {
+	background: url(../images/about_twitter.png) no-repeat;
+	height:29px;
+	width:29px;
+	display:block;	
+	position: absolute;
+	left: 114px;
+}
+.cms-about-us #team .about_linked_in {
+	left:71px;
+}
+.cms-about-us #team .about_twitter {
+	left:105px;
+}
+#investors_firestarter {
+	width:235px;
+}
+#investors_firestarter .about_linked_in {
+	left:100px;
+}
+#investors_firestarter .about_twitter {
+	left:133px;
+}
+#about-us-container .facebox a:hover {
+	border-bottom:2px solid transparent;
+}
+#about-us-container .faces #team_marchalpin {
+	background: url(../images/marc-haplin.png) no-repeat center top;
+}
+#about-us-container .faces #team_danielmccormick {
+	background: url(../images/daniel-mccormick.png) no-repeat center top;
+}
+#about-us-container .faces #team_michaeltimpone {
+	background: url(../images/michael-timpone.png) no-repeat center top;
+}
+#about-us-container .faces #board_patryanjr {
+	background: url(../images/pat-ryanjr.png) no-repeat center top;
+}
+#about-us-container .faces #board_stuartlarkins {
+	background: url(../images/stuart-larkins.png) no-repeat center top;
+}
+#about-us-container .faces #board_marchalpin {
+	background: url(../images/marc-haplin.png) no-repeat center top;
+}
+#about-us-container .faces #board_danielmccormick {
+	background: url(../images/daniel-mccormick.png) no-repeat center top;
+}
+#about-us-container #investors .facebox  {
+	padding-top:40px;
+}
+
+/* ======== FOOTER ======= */
 #footer {
   padding: 130px 0 30px 0;
   margin: 0;
@@ -1578,6 +1893,7 @@ ul#steps {
   -moz-box-shadow:    inset 0 5px 10px rgba(0,0,0,0.1);
   box-shadow:         inset 0 5px 10px rgba(0,0,0,0.1);
   position:relative;
+  background: #FDF6EE;
 }
 #footer p { font-family:'BrandonG Bold',Arial,sans-serif; font-style:normal; margin:10px 0; font-size:13px; }
 
