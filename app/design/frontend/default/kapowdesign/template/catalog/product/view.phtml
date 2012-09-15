@@ -33,6 +33,39 @@
 ?>
 <?php $_helper = $this->helper('catalog/output'); ?>
 <?php $_product = $this->getProduct(); ?>
+<?php
+	$group_size_min = $_product->getResource()->getAttribute('event_group_size_min')->getFrontend()->getValue($_product);
+	$group_size_max = $_product->getResource()->getAttribute('event_group_size_max')->getFrontend()->getValue($_product);
+
+	$perPerson  = $_product->getResource()->getAttribute('per_person_cost');
+    if (!$perPerson) {
+        $cost = '';
+    } else {
+        if ($perPerson && $perPerson->getFrontend()->getValue($_product) == "") {
+            $cost 		= round($_product->getResource()->getAttribute('price')->getFrontend()->getValue($_product));
+        }
+        else {
+            $cost 		= round($perPerson->getFrontend()->getValue($_product));
+        }
+    }
+    $categories		= $_product->getCategoryIds();
+	$event_icons	= array("","","","","","");
+	foreach ($categories as $cat) {
+		if ($cat == 9)
+			$event_icons[0] = " active";
+		if ($cat == 14)
+			$event_icons[1] = " active";
+		if ($cat == 13)
+			$event_icons[2] = " active";
+		if ($cat == 12)
+			$event_icons[3] = " active";
+		if ($cat == 3)
+			$event_icons[4] = " active";
+		if ($cat == 10)
+			$event_icons[5] = " active";
+	}
+
+?>
 <script type="text/javascript">
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
 </script>
@@ -46,60 +79,80 @@
         </div>
 
         <?php echo $this->getChildHtml('other');?>
-
+        
         <div id="event_callout" class="clearfix">
-            <div class="left">
-                <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
-
-                <?php if (!$_product->getCallToSchedule()): ?>
-                <div class="price">
-                    <div class="price_text"><?php echo $this->getPriceHtml($_product, false, '_clone') ?></div>
-                    <div class="price_subtext"><?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?><?php echo $_product->getPriceSubtext() ?><?php endif; ?></div>
-                </div>
-                <?php endif; ?>
-
-                <?php if (!Mage::getSingleton('customer/session')->isLoggedIn()): ?>
-                  <span>Become a <a href="<?php echo $this->getUrl('customer/account/create') ?>">member</a> or <a href="<?php echo $this->getUrl('customer/account/login') ?>">login</a> to see details and pricing!</span>
-                <?php endif; ?>
-
-                <?php echo $_helper->productAttribute($_product, $_product->getProductStats(), 'product_stats') ?>
-
-                <?php if ($_product->getInventoryCallToAction()): ?>
-                <div class="ribbon_red no_ribbon_red_hover">
-                  <!-- div class="amount"><?php echo (int)Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty(); ?></div --> <?php echo $_helper->productAttribute($_product, $_product->getInventoryCallToAction()) ?>
-                </div>
-                <?php endif; ?>
-<?php /**
-                <?php if (Mage::getSingleton('customer/session')->isLoggedIn() && $_product->isSaleable()) : ?>
-                  <?php echo $this->getChildHtml('addtocart') ?>
-                <?php endif ?>
-*/ ?>
-
-            </div>
-
-            <div class="right">
+        	<div class="imageholder">
                 <?php if ($_product->getCallToAction()): ?>
                 <p class="corner_info"> <?php echo $_product->getCallToAction() ?> </p>
                 <?php endif; ?>
                 <?php echo $this->getChildHtml('media') ?>
             </div>
+            <div class="event_info_contain">
+            	<div class="event_info">
+	                <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+	
+	                <?php if (!$_product->getCallToSchedule()): ?>
+	                <div class="price">
+	                    <div class="price_text"><?php echo $this->getPriceHtml($_product, false, '_clone') ?></div>
+	                    <div class="price_subtext"><?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?><?php echo $_product->getPriceSubtext() ?><?php endif; ?></div>
+	                </div>
+	                <?php endif; ?>
+	
+					<div id="glancecontainer">
+						<div id="glanceheader">
+							At a glance
+						</div>
+						
+						<div id="glance_perperson" class="infograb">
+							$<?php echo $perPerson ?>
+						</div>
+						<div id="glance_groupsize" class="infograb">
+							<?php echo $group_size_min ?>-<?php echo $group_size_max ?>
+						</div>
+	
+						<div id="glance_idealfor">
+							<div class="minibubbles">
+								<div class="minibubbles_row1">
+									<div class="bubble_icon summer_outing<?php echo $event_icons[0] ?>" title="Summer Outing"></div>
+									<div class="bubble_icon company_outing<?php echo $event_icons[1] ?>" title="Company Outing"></div>
+									<div class="bubble_icon team_activity<?php echo $event_icons[2] ?>" title="Team Activity"></div>
+								</div>
+								<div class="minibubbles_row2">
+									<div class="bubble_icon holiday_party<?php echo $event_icons[3] ?>" title="Holiday Party"></div>
+									<div class="bubble_icon client_entertainment<?php echo $event_icons[4] ?>" title="Client Entertainment"></div>
+									<div class="bubble_icon addon<?php echo $event_icons[5] ?>" title="Addon"></div>
+								</div>
+							</div>
+							<div id="glance_idealforimage"></div>
+						</div>
+					
+						<div id="glance_description">
+							<?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
+						</div>
+		
+						<a href="#" id="glance_kapowon">
+							Get your <br/>kapow on.
+							<div>Book now!</div>
+						</a>					</div>
+	                <?php if ($_product->getInventoryCallToAction()): ?>
+	                <div class="ribbon_red no_ribbon_red_hover">
+	                  <!-- div class="amount"><?php echo (int)Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty(); ?></div --> <?php echo $_helper->productAttribute($_product, $_product->getInventoryCallToAction()) ?>
+	                </div>
+	                <?php endif; ?>
+	<?php /**
+	                <?php if (Mage::getSingleton('customer/session')->isLoggedIn() && $_product->isSaleable()) : ?>
+	                  <?php echo $this->getChildHtml('addtocart') ?>
+	                <?php endif ?>
+	*/ ?>
+            	</div>
+            </div>
         </div>
 
+		<div id="cut_splitter"></div>
         <div class="content clearfix">
-            <div class="left w30p">
-                <h4>about this host</h4>
-                <?php
-                  $host_address = $_product->getHostAddress();
-                  if (!empty($host_address)) {
-                    $host_address = str_replace(' ', '+', $host_address);
-                    echo "<iframe width=\"303\" height=\"230\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\" src=\"http://maps.google.com/maps?q={$host_address}&amp;ie=UTF8&iwloc=&amp;t=m&amp;z=13&amp;output=embed\"></iframe>";
-                  }
-                ?>
-                <?php echo $_product->getAboutHost() ?>
-            </div>
 
-            <div class="right w70p">
-                <h4>event details</h4>
+            <h4>event details</h4>
+            <div class="left w70p">
 <?php /*
        * TODO: May need to put this back in the future
        *
@@ -128,6 +181,17 @@
                     <a href="#" onclick="productAddToCartForm.submit(this); return false;" title="Add to Cart" class="button_ribbon floatright" id="add_to_cart_large">add to cart</a>
                     <?php endif; ?>
                 <?php endif; ?>
+            </div>
+            <div class="right w30p">
+                <h4>about this host</h4>
+                <?php
+                  $host_address = $_product->getHostAddress();
+                  if (!empty($host_address)) {
+                    $host_address = str_replace(' ', '+', $host_address);
+                    echo "<iframe width=\"303\" height=\"230\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\" src=\"http://maps.google.com/maps?q={$host_address}&amp;ie=UTF8&iwloc=&amp;t=m&amp;z=13&amp;output=embed\"></iframe>";
+                  }
+                ?>
+                <?php echo $_product->getAboutHost() ?>
             </div>
         </div>
     </form>
