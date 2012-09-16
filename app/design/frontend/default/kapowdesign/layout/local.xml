@@ -161,7 +161,7 @@
     <customer_logged_out>
         <reference name="top.links">
               <remove name="checkout_cart_link"/>
-              <action method="addLink" translate="label title" module="customer"><label>Create Account</label><url helper="customer/getRegisterUrl"/><title>Create Account</title><prepare/><urlParams/><position>10</position></action>
+              <action method="addLink" translate="label title" module="customer"><label>My Account</label><url helper="customer/getAccountUrl"/><title>My Account</title><prepare/><urlParams/><position>10</position></action>
         </reference>
     </customer_logged_out>
 

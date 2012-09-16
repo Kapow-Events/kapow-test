@@ -56,10 +56,12 @@ var cj =
       'overlayShow': true,
       'overlayColor': '#000',
       'overlayOpacity': 0.7,
-      'showCloseButton': false,
+      'showCloseButton': true,
       'enableEscapeButton': false,
-      'centerOnScroll': true,
-      'padding': 0
+      'centerOnScroll': false,
+      'padding': 0,
+      'autoDimensions': true,
+      'autoScale':false
     });
 
     $links.each(function(){
@@ -363,7 +365,8 @@ var cj =
 			dispItems :  3,
 			animSpeed: 1000
 		});
-	},
+	}/*
+,
 	
 	swapModal: function(type) {
 		if (type == "new") {
@@ -375,6 +378,7 @@ var cj =
 			jQuery('#login-modal').delay(500).toggle('slow');
 		}
 	}
+*/
 };
 
 

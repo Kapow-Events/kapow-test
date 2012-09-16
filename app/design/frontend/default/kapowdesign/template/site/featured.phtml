@@ -56,8 +56,6 @@
 							<div class="event_details_info" id="event_detail_group">
 								Group Size - <?php echo 	$group_size_min; ?>-<?php echo $group_size_max; ?>
 							</div>
-							
-							
 							<a class="event_details_link" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>">Buy Now &gt;</a>
 						</div>
 						<div class="event_flare"></div>
@@ -68,7 +66,6 @@
 				<div id="testimonial">
 					<div id="openquote" class="quoteimage"></div>
                     <?php echo $this->getLayout()->createBlock('testimonial/block')->setTemplate('testimonial/block.phtml')->toHtml(); ?>
-			<?php //echo $this->getLayout()->createBlock('cms/block')->setBlockId('header_testimonial')->toHtml() ?>
 					<div id="closequote" class="quoteimage"></div>
 				</div>
 				<div id="statement">

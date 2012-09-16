@@ -90,7 +90,9 @@
             <div class="event_info_contain">
             	<div class="event_info">
 	                <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
-	
+	                <a id="backtoall" href="events">
+	                	&lt; back to all events
+	                </a>
 	                <?php if (!$_product->getCallToSchedule()): ?>
 	                <div class="price">
 	                    <div class="price_text"><?php echo $this->getPriceHtml($_product, false, '_clone') ?></div>
@@ -151,6 +153,9 @@
 		<div id="cut_splitter"></div>
         <div class="content clearfix">
 
+            <div id="followus">Follow Us On</div>
+<div id="followusarrow">&nbsp;</div>
+<a href="http://www.twitter.com/kapowchicago" class="twitter_findus social_findus"></a> <a href="https://www.facebook.com/KapowChicago" class="facebook_findus social_findus"></a>
             <h4>event details</h4>
             <div class="left w70p">
 <?php /*

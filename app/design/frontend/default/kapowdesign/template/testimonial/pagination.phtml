@@ -1,0 +1,63 @@
+<?php
+/**
+ * Advance Testimonial extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   FME
+ * @package    Advance Testimonial
+ * @author     Kamran Rafiq Malik <support@fmeextensions.com>
+ *             Asif Hussain <support@fmeextensions.com>
+ * 	       
+ * @copyright  Copyright 2012 © www.fmeextensions.com All right reserved
+ */
+?>
+<?php $paginator = $this->getPaginator(); ?>
+
+<?php if ($paginator->pageCount && $paginator->pageCount > 1): ?>
+
+	<div class="paginationControl">
+	<?php echo $paginator->firstItemNumber; ?> - <?php echo $paginator->lastItemNumber; ?>
+	<?php echo $this->__('of'); ?> <?php echo $paginator->totalItemCount; ?>
+	
+		<!-- First page link -->
+		<?php if ( isset($paginator->previous) ): ?>
+			<a href="<?php echo Mage::helper('testimonial')->getUrl() . '?page=' . $paginator->first; ?>">
+				<?php echo $this->__('First'); ?>
+			</a> |
+		<?php else: ?>
+			<span class="disabled"><?php echo $this->__('First'); ?></span> |
+		<?php endif; ?>
+	
+		<!-- Previous page link -->
+		<?php if ( isset($paginator->previous) ): ?>
+			<a href="<?php echo Mage::helper('testimonial')->getUrl() . '?page=' . $paginator->previous; ?>">
+				&lt; <?php echo $this->__('Previous'); ?>
+			</a> |
+		<?php else: ?>
+			<span class="disabled">&lt; <?php echo $this->__('Previous'); ?></span> |
+		<?php endif; ?>
+	
+		<!-- Next page link -->
+		<?php if ( isset($paginator->next) ): ?>
+			<a href="<?php echo Mage::helper('testimonial')->getUrl() . '?page=' . $paginator->next; ?>">
+				<?php echo $this->__('Next'); ?> &gt;
+			</a> |
+		<?php else: ?>
+			<span class="disabled"><?php echo $this->__('Next'); ?> &gt;</span> |
+		<?php endif; ?>
+	
+		<!-- Last page link -->
+		<?php if (isset($paginator->next)): ?>
+			<a href="<?php echo Mage::helper('testimonial')->getUrl() . '?page=' . $paginator->last; ?>"><?php echo $this->__('Last'); ?></a>
+		<?php else: ?>
+			<span class="disabled"><?php echo $this->__('Last'); ?></span>
+		<?php endif; ?>
+	
+</div>
+<?php endif; ?>

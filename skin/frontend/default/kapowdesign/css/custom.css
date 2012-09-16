@@ -27,7 +27,7 @@ audio:not([controls]) { display: none; }
 	src: url("../fonts/Brandon_reg.otf") format("opentype")
 }
 @font-face {
-	font-family: "BrandonG IT";
+	font-family: "BrandonG Italic";
 	/* src: url("type/filename.eot"); */
 	src: url("../fonts/Brandon_reg_it.otf") format("opentype")
 }
@@ -699,21 +699,21 @@ body.homepage #homepage_header_wrapper { display:block; }
 #testimonial p {
 	margin:0;
 	padding:0;
-}
-#testimonial .quote {
-	margin-bottom: 15px;
-	margin-top: 2px;
+	color:#fff;
 }
 #testimonial .test_name {
 	font-family: 'BrandonG Bold', Arial, sans-serif;
 	font-size:16px;
 	margin-left: 1px;
+	color: #fff;
+	margin-top: 15px;
 }
 #testimonial .test_company {
 	font-family: 'BrandonG', Arial, sans-serif;
 	font-size:12px;
 	margin-left: 1px;
 	margin-top: -2px;
+	color: #fff;
 }
 #testimonial .quoteimage {
 	position:absolute;
@@ -2319,6 +2319,39 @@ p.callout { font-size:18px; line-height:24px; }
 	position: absolute;
 	z-index: 199;
 }
+#event_detail #followus {
+	position: absolute;
+	top:0;
+	right:91px;
+	font-family: "BrandonG Light Italic", Arial Narrow, sans-serif;
+	font-size: 20px;
+	color: #666;
+}
+#event_detail #followusarrow {
+	width:10px;
+	height:9px;
+	background: url(../images/followusarrow.png) no-repeat;
+	position: absolute;
+	top: 7px;
+	right: 75px;
+}
+#event_detail .social_findus {
+	height:32px;
+	width:32px;
+	position: absolute;
+	top:-5px;
+}
+#event_detail a:hover {
+	border-bottom:2px transparent solid;
+}
+#event_detail .twitter_findus {
+	background: url(../images/twitter-findus.png) no-repeat;
+	right:0;
+}
+#event_detail .facebook_findus {
+	background: url(../images/facebook-findus.png) no-repeat;
+	right:34px;
+}
 #event_detail .w70p {	
 	border-right: 1px dashed #CCC;
 	padding-right: 26px;
@@ -2344,6 +2377,7 @@ p.callout { font-size:18px; line-height:24px; }
 	margin: 50px auto;	
 	font-family: 'BrandonG', Arial, sans-serif;
 	color: #666;
+	position: relative;
 }
 #event_detail strong {
 	display: block;
@@ -2351,32 +2385,46 @@ p.callout { font-size:18px; line-height:24px; }
 	margin: 20px 0 0;
 	padding: 0;
 }
+a#backtoall {
+	display: block;
+	position: absolute;
+	top: 57px;
+	right: 0;
+	font-size: 18px;
+	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
+	font-style: normal;
+}
+a#backtoall:hover {
+	color:#000;
+}
 
-#fancybox-overlay { position:fixed; }
-#fancybox-close { border:none; }
-#fixedbg {
-	position: fixed;
-	top:0;
-	left:0;
-	background:rgba(0,0,0,.5);
-	height:100%;
-	width:100%;
-	z-index: 1500;
+#fancybox-outer {
+	background: transparent;
+	margin-top:60px;
+}
+#fancybox-overlay { position:absolute; }
+#fancybox-close { 
+	border:none; 
+	position: absolute;
+	width: 48px;
+	height: 48px;
+	background: transparent url('../images/closebtn.png');
+	cursor: pointer;
+	z-index: 1506;
+	right: 2px;
+	top: -70px;
 }
 .lightbox-modal {
 	width: 560px;
-	padding: 57px 30px 40px;
-	position: fixed;
-	top: 20%;
-	left: 23%;
+	left: 25%;
 	z-index: 1501;
-	text-align: center;
-	background: #000;
+	background: url(../images/signin-formbg.png);
 	color: #fff;
 	font-family: 'BrandonG Light Italic', 'Arial Narrow', sans-serif;
 	font-style: normal;
 	overflow: hidden;
 }
+
 .lightbox-modal .bg-ribbon {
 	width:30px;
 	height:30px;
@@ -2412,10 +2460,28 @@ p.callout { font-size:18px; line-height:24px; }
 	margin-bottom:40px;
 }
 .lightbox-modal .modal-form {
+	height:290px;
+	position: relative;
+}
+.lightbox-modal #signin {
+	position: absolute;
+	left: 35px;
+	top: 38px;
+	font-size: 40px;
+	text-transform: uppercase;
+	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
+	font-style: normal;
+}
+.lightbox-modal #login-form {
+	width: 490px;
+	position: absolute;
+	top: 90px;
+	padding: 22px 35px;
+	background: #712516;
 }
 .lightbox-modal .modal-input {
-	width: 372px;
-	padding:11px;
+	width: 291px;
+	padding:4px 11px;
 	margin-bottom:10px;
 	background:#110e0e;
 	font-family: 'BrandonG Light Italic', 'Arial Narrow', sans-serif;
@@ -2426,15 +2492,13 @@ p.callout { font-size:18px; line-height:24px; }
 .lightbox-modal #modal-password, .lightbox-modal #signup-password, .lightbox-modal #signup-confirmation {
 	display:none;
 }
-.lightbox-modal #closebtn {
+#kapowlogo {
+	height: 42px;
+	width: 153px;
+	background: url(../images/kapow-modal-logo.png) no-repeat;
 	position: absolute;
-	width: 78px;
-	height: 78px;
-	background: transparent url('../images/closebtn.png');
-	cursor: pointer;
-	z-index: 1506;
-	right: 2px;
-	top: -90px;
+	right:40px;
+	top:25px;
 }
 #signin-button {
 	background: url(../images/signin_bg.png) no-repeat;
@@ -2443,13 +2507,16 @@ p.callout { font-size:18px; line-height:24px; }
 	margin-top:40px;
 }
 #signup-modal {
-	width: 492px;
+	width: 100%;
+	height:700px;
+	background:#000;
 	margin: 0 auto;
 	font-size: 21px;
 	line-height: 21px;
 	font-style: normal;
 	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
 	color:#ccc;
+	position: relative;
 }
 #signup-modal #signup-top {
 	margin-top: -20px;
@@ -2463,10 +2530,10 @@ p.callout { font-size:18px; line-height:24px; }
 	border-bottom: 1px #222 solid;
 }
 #signup-form {
-	width:398px;
-	margin: 0 auto;
-	border-bottom:1px #222 solid;
-	padding-bottom: 18px;
+	width: 419px;
+	position: absolute;
+	bottom: 0;
+	left: 65px;
 }
 #signup-modal #signup-phone {
 	float:left;
@@ -2475,20 +2542,23 @@ p.callout { font-size:18px; line-height:24px; }
 	margin-left:18px;
 }
 #signup-modal #signup-firstname, #signup-modal #signup-password, #signup-modal #signup-passwordText {
-	float:left;
-	width:177px;
+	float: left;
+	width: 188px;
 }
 #signup-modal #signup-lastname, #signup-modal #signup-confirmation, #signup-modal #signup-confirmationText {
     float:right;
     width:177px;
 }
-.lightbox-modal .modal-signin {
+.lightbox-modal .modal-signin-button {
 	background: url(../images/modal-signin.png) no-repeat;
-	width:151px;
+	width:168px;
 	height:41px;
 	border:none;
+	position: absolute;
+	right: 30px;
+	top: 42px;
 }
-.lightbox-modal .modal-signin span {
+.lightbox-modal .modal-signin-button span {
 	display: block;
 	color:#fff;
 	text-shadow:  1px 1px 2px #000;
@@ -2497,16 +2567,60 @@ p.callout { font-size:18px; line-height:24px; }
 }
 .lightbox-modal p  { margin-bottom:30px; font-size:17px; line-height:22px; }
 .lightbox-modal .modal-links {
-	width:325px;
-	margin: 28px auto;
+	width: 325px;
+	position: absolute;
+	bottom: 28px;
+	left: 45px;
+}
+.lightbox-modal .modal-links a {
+	color: white;
+	font-size: 16px;
+}
+.lightbox-modal .modal-links a span {
+	font-family: 'BrandonG Bold Italic', 'Arial Black', sans-serif;
+	border-bottom: 1px #fff solid;
 }
 #signuplinks {
 	width:200px;
 	margin: 20px auto -20px;
 	font-size: 16px;
-	font-family: 'BrandonG Light Italic', 'Arial Black', sans-serif;
+	font-family: 'BrandonG Light Italic', 'Arial Narrow', sans-serif;
 }
-
+#signupheader {
+	font-size:32px;
+	color:#ff5f3f;
+	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
+	text-transform: uppercase;
+	position: absolute;
+	top:40px;
+	left:35px;
+}
+#whoweare {
+	position: absolute;
+	top: 110px;
+	left:35px;
+	width:486px;
+}
+#whoweare p, #signupbelow p {
+	font-size:20px;
+}
+#signupbelow {
+	position: absolute;
+	top: 242px;
+	left: 35px;
+	padding-top: 30px;
+	height: 176px;
+	width: 486px;
+	border-top: 1px solid #333;
+	border-bottom: 1px solid #333;
+}
+.lightbox-modal .logintext {
+	margin:15px 0 10px -10px;	
+}
+.lightbox-modal #modal-button-contain {
+	margin: 0 auto;
+	width: 168px;
+}
 .lightbox-modal .modal-continue {
 	background: url(../images/modal_continue.png) no-repeat;
 	width:168px;
@@ -2533,10 +2647,6 @@ p.callout { font-size:18px; line-height:24px; }
 .lightbox-modal .modal-links .modal-signup_link {
 	color:#fff;
 }
-.lightbox-modal #signup-modal {
-	display:none;
-}
-
 #slidebox {
   position: absolute;
   width: 690px;

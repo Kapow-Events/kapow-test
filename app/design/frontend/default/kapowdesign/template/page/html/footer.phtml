@@ -122,65 +122,72 @@ $currentUrl = $this->helper('core/url')->getCurrentUrl();
     <?php endif ?>
 
     <div id="lightbox-signup-or-login" class="lightbox-modal">
+	    <div id="closebtn"></div>
       <?php $url = stristr($this->helper('core/url')->getCurrentUrl(), '?show_status_warning', true); ?> 
       <div class="modal-form">
       	<div id="login-modal">
-	      <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('lightbox-login-or-signup')->toHtml(); ?>
+	      <!-- <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('lightbox-login-or-signup')->toHtml(); ?> -->
+	      <div id="signin">Sign In</div>
           <form action="<?php echo $this->helper('customer')->getLoginPostUrl(); ?>" id="login-form" method="post">
-	      <input type="text" name="login[username]" id="modal-email" value="E-Mail Address" class="modal-input" maxlength="255" /><br/>
+	      <input type="text" name="login[username]" id="modal-email" value="Username or Email" class="modal-input" maxlength="255" /><br/>
 	      <input type="text" name="x" id="modal-passwordText" class="modal-input" value="Password" maxlength="255" />
 	      <input type="password" name="login[password]" id="modal-password" value="" class="modal-input" maxlength="255" />
-	      <div class="modal-button-contain" id="signin-button">
-		      <button class="modal-signin">
+		      <button class="modal-signin-button">
 		      	<span>Sign In &gt;</span>
 		      </button>
-	      </div>
           </form>
           <div class="modal-links">
-		      <div><a class="modal-reset" href="/customer/account/forgotpassword/">Reset Password</a></div>
-		      <div class="spacerdot"></div>
-		      <div><a class="modal-signup_link" id="newmember" href="#">Not a Member? Sign Up It's Free!</a></div>
+		      <div><a class="modal-reset" href="/customer/account/forgotpassword/">Forgot Your <span class="resetbold">Username?</span> or <span class="resetbold">Password?</span></a></div>
 	      </div>
       	</div>
-      	<div id="signup-modal">
+      	<div id="kapowlogo"></div>
+      </div>
+      <div id="signup-modal">
+      	<div id="signupheader">Not a member? Sign up now!</div>
+      	<div id="whoweare">
+	      <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('modal_who_we_are')->toHtml(); ?>
+      	</div>
+      	<div id="signupbelow">
+	      <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('modal_sign_up_below')->toHtml(); ?>
+      	</div>
 	      <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('lightbox-signup')->toHtml(); ?>
           <form action="<?php echo $this->helper('customer')->getRegisterPostUrl(); ?>" id="signup-form" method="post">
           <input type="text" name="firstname" id="signup-firstname" value="First Name" class="modal-input" maxlength="255" />
 	      <input type="text" name="lastname" id="signup-lastname" value="Last Name" class="modal-input" maxlength="255" />
           <input type="text" name="email" id="signup-email" value="E-Mail" class="modal-input" maxlength="255" />
+          <div class="logintext clearfix">
+          	Login Information
+          </div>
           <input type="text" id="signup-passwordText" value="Password" class="modal-input" maxlength="255" />
           <input type="password" name="password" id="signup-password" class="modal-input" maxlength="255" />
           <input type="text" id="signup-confirmationText" class="modal-input" value="Confirm Password" maxlength="255" />
           <input type="password" name="confirmation" id="signup-confirmation" class="modal-input" maxlength="255" />
 	      <div id="modal-button-contain">
 		      <button class="modal-continue">
-		      	<span>Continue</span>
+		      	<span>Continue &gt;</span>
 		      </button>
 	      </div>
           </form>
-          <div class="modal-links" id="signuplinks">
-		      <div><a class="" id="signin-link" href="#">Already a Member? Sign in here!</a></div>
-	      </div>
-      	</div>
+
 	      <div class="bg-ribbon" id="bgribbon_tl"></div>
 	      <div class="bg-ribbon" id="bgribbon_tr"></div>
 	      <div class="bg-ribbon" id="bgribbon_bl"></div>
 	      <div class="bg-ribbon" id="bgribbon_br"></div>
+      	</div>
       </div>
       
       <!-- <div><a class="button_ribbon floatright" href="/customer/account/create/">become a member</a><a class="button_ribbon_small" href="/customer/account/login/referer/<?php echo Mage::helper('core')->urlEncode($url); ?>/">sign in</a></div> -->
-	    <div id="closebtn"></div>
     </div>
     <script>
 	jQuery(document).ready(function() {
 		jQuery("#modal-email").focus(function() {
-			if (jQuery(this).val() == "E-Mail Address") {
+			if (jQuery(this).val() == "Username or Email") {
 				jQuery(this).val("");
 			}
 		});
 		jQuery("#modal-email").blur(function() {
 			if (jQuery(this).val() == "") {
-				jQuery(this).val("E-Mail Address");
+				jQuery(this).val("Username or Email");
 			}
 		});
 		jQuery("#signup-firstname").focus(function() {
@@ -264,13 +271,15 @@ $currentUrl = $this->helper('core/url')->getCurrentUrl();
         });
         jQuery('#closebtn').click(function() {
     		jQuery.fancybox.close();
-    	});
+    	});/*
+
     	jQuery('#newmember').click(function() {
 	    	cj.swapModal('new');
     	});
     	jQuery('#signin-link').click(function() {
 	    	cj.swapModal('signin');
     	});
+*/
 	});
     </script>
   </div>
