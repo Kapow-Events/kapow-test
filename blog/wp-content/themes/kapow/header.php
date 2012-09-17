@@ -102,7 +102,7 @@ _gaq.push(['_trackPageview']);
     		</ul>        
     		<ul id="primary_navigation_right">
 			    <li><a data-rel="#about_events_wired" href="http://ec2-23-20-73-152.compute-1.amazonaws.com/about-magento-demo-store/">about</a></li>
-			    <li><a data-rel="#recent_success" href="http://ec2-23-20-73-152.compute-1.amazonaws.com/#recent_success">success</a></li>
+			    <li><a data-rel="#recent_success" href="http://ec2-23-20-73-152.compute-1.amazonaws.com/#recent_success">news</a></li>
     		</ul>      
     	  </div><!-- primary_navigation -->
     	  <div id="secondary_navigation">
