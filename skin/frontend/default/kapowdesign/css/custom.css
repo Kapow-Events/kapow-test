@@ -2128,6 +2128,7 @@ p.callout { font-size:18px; line-height:24px; }
 	position: relative;
 }
 #event_callout .event_info_contain .event_info h1 {
+	width:925px;
 	color: white;
 	font-size: 38px;
 	line-height: 42px;
@@ -2744,10 +2745,10 @@ a:hover { color: #333; }
 #shopping-cart-table input.input-text:hover { border-color:#b8b0a9; }
 #shopping-cart-table .btn-remove2:hover { border:none; padding-bottom:0; }
 
-.checkout-cart-index, .checkout-onepage-index, .sales-order-history {
+.checkout-cart-index, .checkout-onepage-index, .sales-order-history, .customer-account-logoutsuccess {
 	background: black url(../images/recent_bg.png);
 }
-.checkout-onepage-index .main, .sales-order-history .main {
+.checkout-onepage-index .main, .sales-order-history .main, .customer-account-logoutsuccess .main {
 	margin-bottom:140px;
 	font-family: 'BrandonG', Arial, sans-serif;
 }
