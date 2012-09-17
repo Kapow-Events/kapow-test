@@ -42,7 +42,8 @@
 							$group_size_min = $_product->getResource()->getAttribute('event_group_size_min')->getFrontend()->getValue($_product);
 							$group_size_max = $_product->getResource()->getAttribute('event_group_size_max')->getFrontend()->getValue($_product);
 							$cost			= $_product->getAttributeText('event_cost_size');
-							
+                            $perPerson  = $_product->getResource()->getAttribute('per_person_cost');
+
 							if ($group_size_min == "") {
 								$group_size_string = $group_size_max;
 							}
