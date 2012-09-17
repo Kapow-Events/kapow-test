@@ -1,0 +1,332 @@
+<?php
+/**
+ * Advance Testimonial extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   FME
+ * @package    Advance Testimonial
+ * @author     Kamran Rafiq Malik <support@fmeextensions.com>
+ *
+ *             Asif Hussain <support@fmeextensions.com>
+ * 	       1 - Created - 23-03-2012
+ * 	       
+ * @copyright  Copyright 2012 © www.fmeextensions.com All right reserved
+ */
+?>
+
+<?php $all_detail = $this->getTestimonialDetail(); ?>
+
+<!--THEME1 STARTS-->
+<?php if(Mage::getStoreConfig('testimonial/themes/select_theme') == 'theme1'): ?>
+<div class="theme1">
+    <div class="testimonial" style="border-bottom:none;">
+	
+	
+	    <?php
+		if($all_detail["contact_photo"] != "") {
+			$filename = Mage::getBaseDir('media')."/testimonials/".$all_detail["testimonial_id"]."/".$all_detail["contact_photo"];
+			if (file_exists($filename)) {
+				$imgURL = Mage::getBaseUrl('media')."/testimonials/".$all_detail["testimonial_id"]."/".$all_detail["contact_photo"];
+			} else {
+				$imgURL = Mage::getBaseUrl('media')."testimonials/no_image.jpg";
+			}
+		} else {
+				$imgURL = Mage::getBaseUrl('media')."testimonials/no_image.jpg";
+		}
+		
+	    ?>
+			
+			<p><img src="<?php echo $this->getSkinUrl('')?>images/testimonial/quote1.png"  width="34" height="22" class="quote1" /></p>
+			<?php echo $all_detail['testimonial'] ?>
+				
+			
+			
+			<?php if(Mage::getStoreConfig('testimonial/list/show_contact_photo')): ?>
+			    <div class="testi-pic">
+			      
+				    <img src="<?php echo $imgURL; ?>"  alt=" " class="reflex iopacity75 itiltright" width="75" height="75" />
+			    
+			    </div>
+			<?php endif; ?>
+			
+			    <div class="testi-name">
+				<strong><?php echo $all_detail['contact_name']; ?></strong><br />
+				<?php echo $all_detail['company_name']; ?>
+			    
+			    </div>
+			    
+			<br class="clear"/><br />
+				<?php if($all_detail['email'] != ''): ?><span class="text_2"><b><?php echo $this->__('Email : '); ?></b> <?php echo $all_detail['email']; ?></span><br /><?php endif; ?>
+				<?php if($all_detail['website'] != ''): ?><span class="text_2"><b><?php echo $this->__('Website : '); ?></b> <?php echo $all_detail['website']; ?></span><br /> <?php endif; ?>
+				
+				<!--Custom Fileds Starts-->
+				<?php if(Mage::getStoreConfig('testimonial/form_custom_field/field1_status') == 1  && Mage::getStoreConfig('testimonial/form_custom_field/field1_label') != '' && $all_detail['custom_field1_value'] != ''): ?>
+				    <span class="text_2"><b><?php echo __(Mage::getStoreConfig('testimonial/form_custom_field/field1_label').' : '); ?></b> <?php echo $all_detail['custom_field1_value']; ?></span><br />
+				<?php endif; ?>	
+		
+				<?php if(Mage::getStoreConfig('testimonial/form_custom_field/field2_status')  && Mage::getStoreConfig('testimonial/form_custom_field/field2_label') != '' && $all_detail['custom_field2_value'] != ''): ?>
+				    <span class="text_2"><b><?php echo __(Mage::getStoreConfig('testimonial/form_custom_field/field2_label').' : '); ?></b> <?php echo $all_detail['custom_field2_value']; ?></span><br />
+				<?php endif; ?>	
+				
+				<?php if(Mage::getStoreConfig('testimonial/form_custom_field/field3_status')  && Mage::getStoreConfig('testimonial/form_custom_field/field3_label') != '' && $all_detail['custom_field3_value'] != ''): ?>
+				    <span class="text_2"><b><?php echo __(Mage::getStoreConfig('testimonial/form_custom_field/field3_label').' : '); ?></b> <?php echo $all_detail['custom_field3_value']; ?></span><br />
+				<?php endif; ?>
+				
+				<?php if(Mage::getStoreConfig('testimonial/form_custom_field/field4_status')  && Mage::getStoreConfig('testimonial/form_custom_field/field4_label') != '' && $all_detail['custom_field4_value'] != ''): ?>
+				    <span class="text_2"><b><?php echo __(Mage::getStoreConfig('testimonial/form_custom_field/field4_label').' : '); ?></b> <?php echo $all_detail['custom_field4_value']; ?></span><br />
+				<?php endif; ?>	
+				
+				
+			<img src="<?php echo $this->getSkinUrl('')?>images/testimonial/quote2.png"  width="34" height="22" class="quote2" />	
+				
+				
+			
+		
+		
+	   
+	
+    	
+    <div class="clear"></div>
+    </div>
+</div>
+<!--THEME1 ENDS-->
+
+<!--THEME2 STARTS-->
+<?php elseif(Mage::getStoreConfig('testimonial/themes/select_theme') == 'theme2'): ?>
+<div class="theme2">
+    <div class="testimonial2">
+	<div class="inner">
+	
+	    <?php
+		if($all_detail["contact_photo"] != "") {
+			$filename = Mage::getBaseDir('media')."/testimonials/".$all_detail["testimonial_id"]."/".$all_detail["contact_photo"];
+			if (file_exists($filename)) {
+				$imgURL = Mage::getBaseUrl('media')."/testimonials/".$all_detail["testimonial_id"]."/".$all_detail["contact_photo"];
+			} else {
+				$imgURL = Mage::getBaseUrl('media')."testimonials/no_image.jpg";
+			}
+		} else {
+				$imgURL = Mage::getBaseUrl('media')."testimonials/no_image.jpg";
+		}
+		
+	    ?>
+	
+	    <?php if(Mage::getStoreConfig('testimonial/list/show_contact_photo')): ?>
+		<div class="thumbnail">
+		  
+			<img src="<?php echo $imgURL; ?>"  alt=" " class="reflex iopacity75 itiltright" width="75" height="75" />
+		
+		</div>
+	    <?php endif; ?>
+        
+	    
+	    <div class="content" >
+	    	
+		
+		<div class="content_inner">
+		
+			<img src="<?php echo $this->getSkinUrl('')?>images/testimonial/left_coma.png"  width="34" height="22" class="left" />
+			<?php echo $all_detail['testimonial'] ?>
+				
+			
+			<br />
+				<?php if($all_detail['email'] != ''): ?><span class="text_2"><b><?php echo $this->__('Email : '); ?></b> <?php echo $all_detail['email']; ?></span><br /><?php endif; ?>
+				<?php if($all_detail['website'] != ''): ?><span class="text_2"><b><?php echo $this->__('Website : '); ?></b> <?php echo $all_detail['website']; ?></span><br /> <?php endif; ?>
+				
+				<!--Custom Fileds Starts-->
+				<?php if(Mage::getStoreConfig('testimonial/form_custom_field/field1_status') == 1  && Mage::getStoreConfig('testimonial/form_custom_field/field1_label') != '' && $all_detail['custom_field1_value'] != ''): ?>
+				    <span class="text_2"><b><?php echo __(Mage::getStoreConfig('testimonial/form_custom_field/field1_label').' : '); ?></b> <?php echo $all_detail['custom_field1_value']; ?></span><br />
+				<?php endif; ?>	
+		
+				<?php if(Mage::getStoreConfig('testimonial/form_custom_field/field2_status')  && Mage::getStoreConfig('testimonial/form_custom_field/field2_label') != '' && $all_detail['custom_field2_value'] != ''): ?>
+				    <span class="text_2"><b><?php echo __(Mage::getStoreConfig('testimonial/form_custom_field/field2_label').' : '); ?></b> <?php echo $all_detail['custom_field2_value']; ?></span><br />
+				<?php endif; ?>	
+				
+				<?php if(Mage::getStoreConfig('testimonial/form_custom_field/field3_status')  && Mage::getStoreConfig('testimonial/form_custom_field/field3_label') != '' && $all_detail['custom_field3_value'] != ''): ?>
+				    <span class="text_2"><b><?php echo __(Mage::getStoreConfig('testimonial/form_custom_field/field3_label').' : '); ?></b> <?php echo $all_detail['custom_field3_value']; ?></span><br />
+				<?php endif; ?>
+				
+				<?php if(Mage::getStoreConfig('testimonial/form_custom_field/field4_status')  && Mage::getStoreConfig('testimonial/form_custom_field/field4_label') != '' && $all_detail['custom_field4_value'] != ''): ?>
+				    <span class="text_2"><b><?php echo __(Mage::getStoreConfig('testimonial/form_custom_field/field4_label').' : '); ?></b> <?php echo $all_detail['custom_field4_value']; ?></span><br />
+				<?php endif; ?>	
+				
+				<h4 class="right"><b><?php echo $all_detail['contact_name']; ?></b>&#44; <?php echo $all_detail['company_name']; ?></h4>
+			<br />	<br /><br />
+			<img src="<?php echo $this->getSkinUrl('')?>images/testimonial/right_coma.png"  width="34" height="22" class="right_coma" />	
+				
+				
+			
+		</div>
+		
+	    </div>
+	
+    </div>	
+    <div class="clear"></div>
+    </div>
+</div>
+<!--THEME2 ENDS-->
+
+<!--THEME3 STARTS-->
+<?php elseif(Mage::getStoreConfig('testimonial/themes/select_theme') == 'theme3'): ?>
+<div class="theme3">
+    <div class="testimonial3" style="border-bottom:none;">
+	
+	
+	<?php
+		if($all_detail["contact_photo"] != "") {
+			$filename = Mage::getBaseDir('media')."/testimonials/".$all_detail["testimonial_id"]."/".$all_detail["contact_photo"];
+			if (file_exists($filename)) {
+				$imgURL = Mage::getBaseUrl('media')."/testimonials/".$all_detail["testimonial_id"]."/".$all_detail["contact_photo"];
+			} else {
+				$imgURL = Mage::getBaseUrl('media')."testimonials/no_image.jpg";
+			}
+		} else {
+				$imgURL = Mage::getBaseUrl('media')."testimonials/no_image.jpg";
+		}
+		
+	?>
+	
+			
+            <div class="client">
+		
+		<?php if(Mage::getStoreConfig('testimonial/list/show_contact_photo')): ?>
+		    <div class="thumb">
+			<img src="<?php echo $imgURL; ?>"  alt=" " class="reflex iopacity75 itiltright" width="75" height="75" />
+		    </div>
+		<?php endif; ?>
+		
+		<p><?php echo $all_detail['contact_name']; ?></p>
+		<?php echo $all_detail['company_name']; ?>
+		
+            </div>
+	    
+        
+	    
+	    <div class="detail" >
+	    	
+		
+		<div class="content_inner">
+		
+			<img src="<?php echo $this->getSkinUrl('')?>images/testimonial/left_coma.png"  width="34" height="22" class="left_coma" />
+			<?php echo $all_detail['testimonial'] ?>
+				
+			
+			<br />
+				<?php if($all_detail['email'] != ''): ?><span class="text_2"><b><?php echo $this->__('Email : '); ?></b> <?php echo $all_detail['email']; ?></span><br /><?php endif; ?>
+				<?php if($all_detail['website'] != ''): ?><span class="text_2"><b><?php echo $this->__('Website : '); ?></b> <?php echo $all_detail['website']; ?></span><br /> <?php endif; ?>
+				
+				<!--Custom Fileds Starts-->
+				<?php if(Mage::getStoreConfig('testimonial/form_custom_field/field1_status') == 1  && Mage::getStoreConfig('testimonial/form_custom_field/field1_label') != '' && $all_detail['custom_field1_value'] != ''): ?>
+				    <span class="text_2"><b><?php echo __(Mage::getStoreConfig('testimonial/form_custom_field/field1_label').' : '); ?></b> <?php echo $all_detail['custom_field1_value']; ?></span><br />
+				<?php endif; ?>	
+		
+				<?php if(Mage::getStoreConfig('testimonial/form_custom_field/field2_status')  && Mage::getStoreConfig('testimonial/form_custom_field/field2_label') != '' && $all_detail['custom_field2_value'] != ''): ?>
+				    <span class="text_2"><b><?php echo __(Mage::getStoreConfig('testimonial/form_custom_field/field2_label').' : '); ?></b> <?php echo $all_detail['custom_field2_value']; ?></span><br />
+				<?php endif; ?>	
+				
+				<?php if(Mage::getStoreConfig('testimonial/form_custom_field/field3_status')  && Mage::getStoreConfig('testimonial/form_custom_field/field3_label') != '' && $all_detail['custom_field3_value'] != ''): ?>
+				    <span class="text_2"><b><?php echo __(Mage::getStoreConfig('testimonial/form_custom_field/field3_label').' : '); ?></b> <?php echo $all_detail['custom_field3_value']; ?></span><br />
+				<?php endif; ?>
+				
+				<?php if(Mage::getStoreConfig('testimonial/form_custom_field/field4_status')  && Mage::getStoreConfig('testimonial/form_custom_field/field4_label') != '' && $all_detail['custom_field4_value'] != ''): ?>
+				    <span class="text_2"><b><?php echo __(Mage::getStoreConfig('testimonial/form_custom_field/field4_label').' : '); ?></b> <?php echo $all_detail['custom_field4_value']; ?></span><br />
+				<?php endif; ?>	
+		
+			<img src="<?php echo $this->getSkinUrl('')?>images/testimonial/right_coma.png"  width="34" height="22" class="right_coma" />	
+				
+				
+			
+		</div>
+		
+	    </div>
+	
+	
+    <div class="clear"></div>
+    </div>
+</div>
+<!--THEME3 ENDS-->
+
+
+
+<!--THEME4 STARTS-->
+<?php elseif(Mage::getStoreConfig('testimonial/themes/select_theme') == 'theme4'): ?>
+<div class="theme4">
+    <div class="testimonial4" style="border-bottom:none;">
+	
+	
+	<?php
+		if($all_detail["contact_photo"] != "") {
+			$filename = Mage::getBaseDir('media')."/testimonials/".$all_detail["testimonial_id"]."/".$all_detail["contact_photo"];
+			if (file_exists($filename)) {
+				$imgURL = Mage::getBaseUrl('media')."/testimonials/".$all_detail["testimonial_id"]."/".$all_detail["contact_photo"];
+			} else {
+				$imgURL = Mage::getBaseUrl('media')."testimonials/no_image.jpg";
+			}
+		} else {
+				$imgURL = Mage::getBaseUrl('media')."testimonials/no_image.jpg";
+		}
+		
+	?>
+	<?php if(Mage::getStoreConfig('testimonial/list/show_contact_photo')): ?>
+			
+            <div class="client">
+		<div class="thumb">
+		    <img src="<?php echo $imgURL; ?>"  alt=" " class="reflex iopacity75 itiltright" width="75" height="75" />
+		</div>
+            </div>
+	    
+        <?php endif; ?>
+	    
+	    <div class="detail" >
+	    	
+		<img class="arrow" alt="" src="<?php echo $this->getSkinUrl('images/testimonial/testi_arrow.png'); ?>">
+		<div class="content_inner">
+		
+			<?php echo $all_detail['testimonial'] ?>
+				
+			
+			<br />
+				<?php if($all_detail['email'] != ''): ?><span class="text_2"><b><?php echo $this->__('Email : '); ?></b> <?php echo $all_detail['email']; ?></span><br /><?php endif; ?>
+				<?php if($all_detail['website'] != ''): ?><span class="text_2"><b><?php echo $this->__('Website : '); ?></b> <?php echo $all_detail['website']; ?></span><br /> <?php endif; ?>
+				
+				<!--Custom Fileds Starts-->
+				<?php if(Mage::getStoreConfig('testimonial/form_custom_field/field1_status') == 1  && Mage::getStoreConfig('testimonial/form_custom_field/field1_label') != '' && $all_detail['custom_field1_value'] != ''): ?>
+				    <span class="text_2"><b><?php echo __(Mage::getStoreConfig('testimonial/form_custom_field/field1_label').' : '); ?></b> <?php echo $all_detail['custom_field1_value']; ?></span><br />
+				<?php endif; ?>	
+		
+				<?php if(Mage::getStoreConfig('testimonial/form_custom_field/field2_status')  && Mage::getStoreConfig('testimonial/form_custom_field/field2_label') != '' && $all_detail['custom_field2_value'] != ''): ?>
+				    <span class="text_2"><b><?php echo __(Mage::getStoreConfig('testimonial/form_custom_field/field2_label').' : '); ?></b> <?php echo $all_detail['custom_field2_value']; ?></span><br />
+				<?php endif; ?>	
+				
+				<?php if(Mage::getStoreConfig('testimonial/form_custom_field/field3_status')  && Mage::getStoreConfig('testimonial/form_custom_field/field3_label') != '' && $all_detail['custom_field3_value'] != ''): ?>
+				    <span class="text_2"><b><?php echo __(Mage::getStoreConfig('testimonial/form_custom_field/field3_label').' : '); ?></b> <?php echo $all_detail['custom_field3_value']; ?></span><br />
+				<?php endif; ?>
+				
+				<?php if(Mage::getStoreConfig('testimonial/form_custom_field/field4_status')  && Mage::getStoreConfig('testimonial/form_custom_field/field4_label') != '' && $all_detail['custom_field4_value'] != ''): ?>
+				    <span class="text_2"><b><?php echo __(Mage::getStoreConfig('testimonial/form_custom_field/field4_label').' : '); ?></b> <?php echo $all_detail['custom_field4_value']; ?></span><br />
+				<?php endif; ?>	
+		
+				
+			<div class="content_div">
+				<img src="<?php echo $this->getSkinUrl('')?>images/testimonial/image.jpg" class="image" alt=" " width="16" height="15" />
+				<span class="text_2">&nbsp;&nbsp;<?php echo $all_detail['contact_name']; ?></span><br />
+				<span class="text_3"><?php echo $all_detail['company_name']; ?></span><br />
+				
+			</div>
+		</div>
+		
+	    </div>
+	
+	
+    <div class="clear"></div>
+    </div>
+</div>
+<!--THEME4 ENDS-->
+
+<?php endif; ?>

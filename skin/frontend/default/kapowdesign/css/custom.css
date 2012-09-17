@@ -27,7 +27,7 @@ audio:not([controls]) { display: none; }
 	src: url("../fonts/Brandon_reg.otf") format("opentype")
 }
 @font-face {
-	font-family: "BrandonG IT";
+	font-family: "BrandonG Italic";
 	/* src: url("type/filename.eot"); */
 	src: url("../fonts/Brandon_reg_it.otf") format("opentype")
 }
@@ -699,21 +699,21 @@ body.homepage #homepage_header_wrapper { display:block; }
 #testimonial p {
 	margin:0;
 	padding:0;
-}
-#testimonial .quote {
-	margin-bottom: 15px;
-	margin-top: 2px;
+	color:#fff;
 }
 #testimonial .test_name {
 	font-family: 'BrandonG Bold', Arial, sans-serif;
 	font-size:16px;
 	margin-left: 1px;
+	color: #fff;
+	margin-top: 15px;
 }
 #testimonial .test_company {
 	font-family: 'BrandonG', Arial, sans-serif;
 	font-size:12px;
 	margin-left: 1px;
 	margin-top: -2px;
+	color: #fff;
 }
 #testimonial .quoteimage {
 	position:absolute;
@@ -1021,7 +1021,7 @@ ul#steps {
 	  right:54px;
   }
 
-.homepage #main_content, .catalog-category-view #main_content {
+.homepage #main_content, .catalog-category-view #main_content, .cms-about-us #main_content {
 	background: #000 url(../images/eventsbg.png) top center no-repeat;
   -webkit-background-size: 100% auto;
   -moz-background-size: 100% auto;
@@ -1142,14 +1142,14 @@ ul#steps {
 	position: relative;
 }
 .eventlist_products p.content {
-	height: 70px;
+	height: 64px;
 	overflow: hidden;
 	padding: 20px 20px 10px 20px;
 	color:#fff;
 	font-style: normal;
 	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
 	font-size:15px;
-	margin-bottom:15px;
+	margin-bottom:21px;
 }
 .eventlist_event_details {
 	border-top:1px #262525 solid;
@@ -1223,20 +1223,24 @@ ul#steps {
 }
 .minibubbles_row2 .bubble_icon {
 }
-.minibubbles .kapow {
-	background: url(../images/kapow_icon.png) no-repeat;
+.minibubbles .addon {
+	background: url(../images/addon.png) no-repeat;
 }
 .minibubbles .client_entertainment {
 	background: url(../images/client_entertain.png) no-repeat;
 }
 .minibubbles .company_outing {
 	background: url(../images/company_outing.png) no-repeat;
+	margin-top: 3px;
+	margin-bottom: 5px;
 }
 .minibubbles .holiday_party {
 	background: url(../images/holiday_party.png) no-repeat;
 }
 .minibubbles .team_activity {
 	background: url(../images/team_activity.png) no-repeat;
+	margin-bottom: 6px;
+	margin-top: 2px;
 }
 .minibubbles .summer_outing {
 	background: url(../images/summer_outing.png) no-repeat;
@@ -1571,6 +1575,321 @@ ul#steps {
 	border-bottom:2px solid transparent;
 }
 
+/* ======= ABOUT US PAGE ======== */
+
+.cms-about-us #main_content .inner_wrapper {
+	width:100%;
+}
+.cms-about-us #about-us-container {
+	margin-top:120px	;
+	font-style: normal;
+}
+.cms-about-us #our-mission {	
+	width: 1050px;
+	height:640px;
+	margin: 0 auto;
+	position: relative;
+	clear: both;
+}
+.cms-about-us #our-mission #followus {
+	position: absolute;
+	top:10px;
+	right:91px;	
+	font-family: "BrandonG Light Italic", Arial Narrow, sans-serif;
+	font-size: 20px;
+	color: #f63;
+}
+.cms-about-us #our-mission #followusarrow {
+	width:10px;
+	height:9px;
+	background: url(../images/followusarrow_red.png) no-repeat;
+	position: absolute;
+	top: 17px;
+	right: 75px;
+}
+.cms-about-us #our-mission .social_findus {
+	height:32px;
+	width:32px;
+	position: absolute;
+	top:5px;
+}
+.cms-about-us #our-mission a:hover {
+	border-bottom:2px transparent solid;
+}
+.cms-about-us #our-mission .twitter_findus {
+	background: url(../images/twitter-findus.png) no-repeat;
+	right:0;
+}
+.cms-about-us #our-mission .facebook_findus {
+	background: url(../images/facebook-findus.png) no-repeat;
+	right:34px;
+}
+.cms-about-us #our-mission .heading {	
+	padding: 0 0 50px;
+	color: white;
+	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
+	font-size: 40px;
+	text-transform: uppercase;
+	margin-bottom:45px;
+	border-bottom:1px solid #333;
+}
+.cms-about-us #our-mission #mission-block {
+	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
+	font-size:26px;
+	color:#fff;
+}
+.cms-about-us #our-mission #mission-block strong {
+	font-weight: normal;
+	font-family: 'BrandonG Bold', 'Arial Black', sans-serif;
+}
+.cms-about-us #our-mission #kapow-news {
+	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
+	font-size: 28px;
+	text-transform: uppercase;
+	color: #ca4327;
+	padding-top: 58px;
+}
+.cms-about-us #our-mission #mission-bottom-container {
+	width:345px;
+	position:absolute;
+	right: -24px;
+	bottom: 242px;
+	margin:0 auto;
+	height:125px;
+	font-family: 'BrandonG Bold', 'Arial Black', sans-serif;
+	font-size:24px;
+	text-transform: uppercase;
+	color:#fff;
+}
+.cms-about-us #our-mission .missionbottom {
+	width:290px;
+	height:125px;
+	float:left;
+}
+.cms-about-us #our-mission .missionbottom .linktext {
+	margin-top:40px;	
+	color:#fff;
+	display:block;
+}
+.cms-about-us #our-mission .missionbottom .linktext:hover {
+	color: #ca4327;
+}
+.cms-about-us #our-mission .missionbottom div {
+	font-family: 'BrandonG Light Italic', Arial, sans-serif;
+	font-size: 14px;
+	text-transform: none;
+}
+.cms-about-us #our-mission .missioniconlink {
+	height:116px;
+	width:116px;
+	margin-right:25px;
+	float:left;
+}
+.cms-about-us #our-mission .missioniconlink:hover {
+	border-bottom:2px solid transparent;
+}
+.cms-about-us #our-mission #watchour {
+	width:325px;
+	padding:0 0 30px;
+	border-bottom: 1px #333 solid;
+}
+.cms-about-us #our-mission #joinus {
+	padding:30px 0;
+}
+.cms-about-us #our-mission #watchourvideo {
+	background: url(../images/tastyvideo.png) no-repeat;
+}
+.cms-about-us #our-mission #joinuslink {
+	background: url(../images/joinuslink.png) no-repeat;
+	height:118px;
+}
+.cms-about-us #our-mission #newsblock-container {
+	margin-top:38px;
+}
+.cms-about-us #our-mission .newsbox {
+	width: 261px;
+	background: rgba(50,50,50,0.5);
+	padding: 20px 26px;
+	float:left;
+	margin-right: 47px;
+	position: relative;
+}
+.cms-about-us #our-mission .newsbox .newsheader {
+	padding-bottom: 18px;
+	color: white;
+	font-size: 26px;
+	font-family: 'BrandonG', Arial, sans-serif;
+	line-height: 26px;
+}
+.cms-about-us #our-mission .newsbox .newspostinfo {
+	padding: 3px 0;
+	margin-bottom:18px;
+	border-top: 1px solid #333;
+	border-bottom: 1px solid #333;
+	font-size: 12px;
+	color: #666;
+}
+.cms-about-us #our-mission .newsbox .newscontent {
+	font-family: 'BrandonG Light','Arial Narrow',sans-serif;
+	color: white;
+	line-height: 23px;
+}
+.cms-about-us #our-mission .newsbox p {
+	line-height: 24px;
+}
+.cms-about-us #our-mission .newsbox .news_readmore:link, .cms-about-us #our-mission .newsbox .news_readmore:visited  {
+	height:34px;
+	width:143px;
+	padding-top:8px;
+	position:absolute;
+	left: 27%;
+	bottom: -28px;
+	background: url(../images/news_readmore.png) no-repeat;
+	text-align: center;
+	color:#fff;
+	font-family: 'BrandonG Light Italic', 'Arial Narrow', sans-serif;
+	text-transform: uppercase;
+}
+.cms-about-us #our-mission .newsbox .news_readmore:hover {
+	color:#000;
+}
+.cms-about-us .about-container {
+	background: #FDF6EE url(../images/recent_bg.png);
+	margin-top: -10px;
+}
+.cms-about-us .about-container p {
+	margin:0;
+	line-height: 24px;
+}
+.cms-about-us #team, .cms-about-us #board, .cms-about-us #investors {
+	width:1050px;
+	height:310px;
+	margin: 0 auto;
+	padding: 50px 0 50px;
+	border-bottom:2px dashed #ccc;
+}
+.cms-about-us #board {
+	padding-bottom:90px;
+}
+.cms-about-us #investors {
+	border-bottom: none;
+}
+.cms-about-us #team .heading, .cms-about-us #board .heading, .cms-about-us #investors .heading {
+	padding:0;
+	margin:0;
+	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
+	font-size: 28px;
+	color:#663300;
+	text-transform: uppercase;
+}
+.cms-about-us #team #team-box {
+	width:360px;
+	margin-top:30px;
+	padding: 30px 0;
+	font-family: 'BrandonG', 'Arial', sans-serif;
+	line-height:16px;
+	border-top: 1px #CCC solid;
+	float:left;
+}
+.cms-about-us #team .faces {
+	position: absolute;
+	right: 115px;
+}
+.cms-about-us #board .faces, .cms-about-us #investors .faces {
+	width:880px;
+	margin:42px auto 0;
+}
+.cms-about-us #investors .faces {
+	width:920px;
+}
+.cms-about-us .facebox {
+	width: 200px;
+	float:left;
+	position: relative;
+	padding-top: 170px;
+	font-size: 37px;
+	font-family: 'BrandonG Bold', 'Arial Black', sans-serif;
+	text-transform: uppercase;
+	color: #4F1B10;
+	text-align: center;
+}
+.cms-about-us #investors .facebox, .cms-about-us #board .facebox {
+	padding: 170px 10px 0;
+}
+.cms-about-us .facebox div {
+	color:#b83e25;
+	font-size:30px;
+	margin-top:10px;
+}
+#about-us-container .clearfix {
+	background: #FDF6EE url(../images/recent_bg.png);
+}
+#about-us-container .aboutus-separator {
+	border-top:5px dotted #ccc;
+	height:5px;
+	width:139px;
+	margin:20px auto 10px;
+}
+#about-us-container .about_linked_in {
+	background: url(../images/about_linkedin.png) no-repeat;
+	height:29px;
+	width:29px;
+	display:block;	
+	position: absolute;
+	left: 80px;
+}
+#about-us-container .about_twitter {
+	background: url(../images/about_twitter.png) no-repeat;
+	height:29px;
+	width:29px;
+	display:block;	
+	position: absolute;
+	left: 114px;
+}
+.cms-about-us #team .about_linked_in {
+	left:71px;
+}
+.cms-about-us #team .about_twitter {
+	left:105px;
+}
+#investors_firestarter {
+	width:235px;
+}
+#investors_firestarter .about_linked_in {
+	left:100px;
+}
+#investors_firestarter .about_twitter {
+	left:133px;
+}
+#about-us-container .facebox a:hover {
+	border-bottom:2px solid transparent;
+}
+#about-us-container .faces #team_marchalpin {
+	background: url(../images/marc-haplin.png) no-repeat center top;
+}
+#about-us-container .faces #team_danielmccormick {
+	background: url(../images/daniel-mccormick.png) no-repeat center top;
+}
+#about-us-container .faces #team_michaeltimpone {
+	background: url(../images/michael-timpone.png) no-repeat center top;
+}
+#about-us-container .faces #board_patryanjr {
+	background: url(../images/pat-ryanjr.png) no-repeat center top;
+}
+#about-us-container .faces #board_stuartlarkins {
+	background: url(../images/stuart-larkins.png) no-repeat center top;
+}
+#about-us-container .faces #board_marchalpin {
+	background: url(../images/marc-haplin.png) no-repeat center top;
+}
+#about-us-container .faces #board_danielmccormick {
+	background: url(../images/daniel-mccormick.png) no-repeat center top;
+}
+#about-us-container #investors .facebox  {
+	padding-top:40px;
+}
+
+/* ======== FOOTER ======= */
 #footer {
   padding: 130px 0 30px 0;
   margin: 0;
@@ -1578,6 +1897,7 @@ ul#steps {
   -moz-box-shadow:    inset 0 5px 10px rgba(0,0,0,0.1);
   box-shadow:         inset 0 5px 10px rgba(0,0,0,0.1);
   position:relative;
+  background: #fff;
 }
 #footer p { font-family:'BrandonG Bold',Arial,sans-serif; font-style:normal; margin:10px 0; font-size:13px; }
 
@@ -1766,69 +2086,170 @@ p.callout { font-size:18px; line-height:24px; }
 	margin:0px -30px -25px;
 }
 
-#event_callout {
-  position: relative;
-  background: #555;
-  height: 450px;
-  width: 1060px;
-  overflow: hidden;
-  margin: 45px 0;
+.catalog-product-view #main_content {
+	margin-top: -49px;
+	background:url(../images/recent_bg.png);
+}
+.catalog-product-view #main_content .inner_wrapper {
+	width:100%;
+	margin-top: -1px;
 }
 
-#event_callout .left {
-  background: url(../images/css-sprites.png) -650px 0 repeat-y;
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 100;
-  padding: 20px;
-  height: 410px;
-  width: 309px;
-  color: #888;
+#event_callout {
+	position: relative;
+	background: #555;
+	height: 784px;
+	width: 100%;
+	overflow: hidden;
+	margin-top: -49px;
 }
-#event_callout .left h1 {
-  color: #fff;
-  font-size: 45px;
-  line-height: 42px;
-  margin: 10px 0 20px 0;
+#event_callout #carousel, #event_callout #carousel li {
+	height:372px;
 }
-#event_callout .left p {
+#event_callout #carousel {
+	width:100%;
+}
+#event_callout .event_info_contain {	
+	background:  black url(../images/eventsbg.png) bottom center no-repeat;
+	z-index: 100;
+	height: 410px;
+	width: 100%;
+	color: #888;
+	float:none;
+}
+#event_callout .event_info_contain .event_info {
+	z-index: 100;
+	padding: 20px 0 20px 20px;
+	height: 410px;
+	width: 1060px;
+	margin: 0 auto;
+	color: #888;
+	float:none;
+	position: relative;
+}
+#event_callout .event_info_contain .event_info h1 {
+	color: white;
+	font-size: 38px;
+	line-height: 42px;
+	font-family: 'BrandonG Light',Arial, sans-serif;
+	padding-bottom: 36px;
+	border-bottom: 1px solid #333;
+}
+#event_callout .event_info_contain .event_info p {
   font-size: 17px;
   line-height: 22px;
   margin: 0 0 15px 0;
   padding: 0;
   width: 230px;
 }
-#event_callout .left p.datetime { font-size:12px; margin:0; }
-#event_callout .left p.datetime em { color:#c54528; text-transform:uppercase; font-style:normal; font-family:Cabin,Arial,sans-serif; }
+#event_callout .event_info_contain .event_info p.datetime { font-size:12px; margin:0; }
+#event_callout .event_info_contain .event_info p.datetime em { color:#c54528; text-transform:uppercase; font-style:normal; font-family:Cabin,Arial,sans-serif; }
 
-#event_callout .left .price {
+#event_callout .event_info_contain .event_info .price {
   font-family: "Arial Narrow",Arial,sans-serif;
   font-style: normal;
   font-weight: bold;
   color: #c54528;
   margin: -5px 0 25px 0;
 }
-#event_callout .left .price .price_text sup { position:relative; top:-18px; font-size:42px; }
-#event_callout .left .price .price_text     { font-size:50px; line-height:45px; }
-#event_callout .left .price .price_subtext  { font-size:24px; margin:2px 0 0 27px; }
+#event_callout .event_info_contain .event_info .price .price_text sup { position:relative; top:-18px; font-size:42px; }
+#event_callout .event_info_contain .event_info .price .price_text     { font-size:50px; line-height:45px; }
+#event_callout .event_info_contain .event_info .price .price_subtext  { font-size:24px; margin:2px 0 0 27px; }
 
-#event_callout .left ul { padding-left:17px; }
-#event_callout .left ul li { margin:8px 0; }
+#event_callout .event_info_contain .event_info ul { padding-left:17px; }
+#event_callout .event_info_contain .event_info ul li { margin:8px 0; }
 
-#event_callout .left .ribbon_red   { position:absolute; bottom:160px; right:-5px; }
-#event_callout .left .ribbon_white { position:absolute; bottom:100px; right:-5px; }
-#event_callout .left #add_to_wish_list { bottom:39px; }
-#event_callout .left a { font-family:Cabin,Arial,sans-serif; font-size:14px; text-transform:uppercase; color:#fff; }
-#event_callout .left a:hover { color:#c54528; }
+#event_callout .event_info_contain .event_info .ribbon_red   { position:absolute; bottom:160px; right:-5px; }
+#event_callout .event_info_contain .event_info .ribbon_white { position:absolute; bottom:100px; right:-5px; }
+#event_callout .event_info_contain .event_info #add_to_wish_list { bottom:39px; }
+#event_callout .event_info_contain .event_info a:hover { color:#c54528; }
 
+#glancecontainer #glanceheader {
+	text-transform: uppercase;
+	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
+	color:#999;
+	font-size:28px;
+	font-style: normal;
+	padding-top:33px;
+}
+#glancecontainer .infograb {
+	height:70px;
+	width:126px;
+	float:left;
+	margin:28px 0 0 20px;
+	padding: 46px 20px 0 0;	
+	color: white;
+	font-family: 'BrandonG Bold', 'Arial Black', sans-serif;
+	font-style: normal;
+	font-size: 24px;
+	text-align: center;
+	border-right:1px #333 solid;
+}
+#glancecontainer #glance_perperson {
+	background: url(../images/event-detail-priceperperson.png) no-repeat;
+	margin-left:-3px;
+}
+#glancecontainer #glance_groupsize {
+	background: url(../images/event-detail-idealgroupsize.png) no-repeat;
+}
+#glancecontainer #glance_idealfor {
+	width:100px;
+	height: 116px;
+	padding-right: 26px;
+	float:left;
+	border-right: 1px #333 solid;
+	margin: 28px 0 0 40px;
+	position: relative;
+}
+#glancecontainer #glance_idealfor #glance_idealforimage {
+	height:26px;
+	width:127px;
+	background: url(../images/event-detail-idealfor.png) no-repeat;
+	position: absolute;
+	bottom: 6px;
+	left: -19px;
+}
+#glancecontainer #glance_description {
+	width: 293px;
+	height: 87px;
+	float: left;
+	overflow: hidden;
+	color: white;
+	font-style: normal;
+	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
+	line-height: 21px;
+	margin-top: 41px;
+	padding-left: 20px;
+}
+#glance_kapowon {
+	width: 271px;
+	height: 128px;
+	padding: 14px 0 0 25px;
+	display: block;
+	position: absolute;
+	right: -44px;
+	bottom: 91px;
+	color: white;
+	background: url(../images/booknow.png) no-repeat;
+	font-style: normal;
+	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
+	font-size: 27px;
+	line-height: 30px;
+	text-shadow: 1px 1px black;
+	text-transform: uppercase;
+}
+#glancecontainer #glance_kapowon:hover {
+	border-bottom:2px transparent solid;
+	color:#000;
+}
+#glance_kapowon div {
+	 font-family: 'BrandonG Bold', 'Arial Black', sans-serif;
+}
 
-
-#event_callout .right {
-  position: absolute;
-  width: 1060px;
-  left: 0;
-  top: 0;
+#event_callout .imageholder {
+	width: 100%;
+	float:none;
+	height: 372px;
 }
 
 #event_callout .corner_info {
@@ -1850,7 +2271,6 @@ p.callout { font-size:18px; line-height:24px; }
 }
 #event_callout .corner_info sub { position:relative; bottom:5px; font-size:24px; }
 #event_callout .corner_info strong { font-size:38px; line-height:30px; letter-spacing:-1px; }
-
 
 
 #carousel {
@@ -1891,34 +2311,123 @@ p.callout { font-size:18px; line-height:24px; }
   cursor: pointer;
 }
 #carousel input.disabled { opacity:0.3; }
-
-#event_detail .content { font-style:normal; }
-
-#fancybox-overlay { position:fixed; }
-#fancybox-close { border:none; }
-#fixedbg {
-	position: fixed;
+#event_detail {
+	background: url(../images/recent_bg.png);
+	position: relative;
+}
+#event_detail #cut_splitter {	
+	position: absolute;
+	z-index: 199;
+}
+#event_detail #followus {
+	position: absolute;
 	top:0;
-	left:0;
-	background:rgba(0,0,0,.5);
-	height:100%;
-	width:100%;
-	z-index: 1500;
+	right:91px;
+	font-family: "BrandonG Light Italic", Arial Narrow, sans-serif;
+	font-size: 20px;
+	color: #666;
+}
+#event_detail #followusarrow {
+	width:10px;
+	height:9px;
+	background: url(../images/followusarrow.png) no-repeat;
+	position: absolute;
+	top: 7px;
+	right: 75px;
+}
+#event_detail .social_findus {
+	height:32px;
+	width:32px;
+	position: absolute;
+	top:-5px;
+}
+#event_detail a:hover {
+	border-bottom:2px transparent solid;
+}
+#event_detail .twitter_findus {
+	background: url(../images/twitter-findus.png) no-repeat;
+	right:0;
+}
+#event_detail .facebook_findus {
+	background: url(../images/facebook-findus.png) no-repeat;
+	right:34px;
+}
+#event_detail .w70p {	
+	border-right: 1px dashed #CCC;
+	padding-right: 26px;
+}
+#event_detail h4 {
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 20px;
+	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
+	font-size: 28px;
+	color: #630;
+	text-transform: uppercase;
+}
+#event_detail .w30p h4 {	
+	font-family: 'BrandonG',Arial, sans-serif;
+	font-weight: bold;
+	font-size: 16px;
+	margin-top: 19px;
+	color: black;
+}
+#event_detail .content { 
+	font-style:normal; 	
+	width: 1060px;
+	margin: 50px auto;	
+	font-family: 'BrandonG', Arial, sans-serif;
+	color: #666;
+	position: relative;
+}
+#event_detail strong {
+	display: block;
+	color:#000;
+	margin: 20px 0 0;
+	padding: 0;
+}
+a#backtoall {
+	display: block;
+	position: absolute;
+	top: 57px;
+	right: 0;
+	font-size: 18px;
+	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
+	font-style: normal;
+}
+a#backtoall:hover {
+	color:#000;
+}
+
+#fancybox-outer {
+	background: transparent;
+	margin-top:60px;
+}
+#fancybox-overlay { position:absolute; }
+#fancybox-close { 
+	border:none; 
+	position: absolute;
+	width: 48px;
+	height: 48px;
+	background: transparent url('../images/closebtn.png');
+	cursor: pointer;
+	z-index: 1506;
+	right: 2px;
+	top: -70px;
 }
 .lightbox-modal {
 	width: 560px;
-	padding: 57px 30px 40px;
-	position: fixed;
-	top: 20%;
-	left: 23%;
+	left: 25%;
 	z-index: 1501;
-	text-align: center;
-	background: #000;
+	background: url(../images/signin-formbg.png);
 	color: #fff;
 	font-family: 'BrandonG Light Italic', 'Arial Narrow', sans-serif;
 	font-style: normal;
 	overflow: hidden;
 }
+.lightbox-modal ul {
+	margin:-20px;
+}
+
 .lightbox-modal .bg-ribbon {
 	width:30px;
 	height:30px;
@@ -1954,10 +2463,28 @@ p.callout { font-size:18px; line-height:24px; }
 	margin-bottom:40px;
 }
 .lightbox-modal .modal-form {
+	height:290px;
+	position: relative;
+}
+.lightbox-modal #signin {
+	position: absolute;
+	left: 35px;
+	top: 38px;
+	font-size: 40px;
+	text-transform: uppercase;
+	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
+	font-style: normal;
+}
+.lightbox-modal #login-form {
+	width: 490px;
+	position: absolute;
+	top: 90px;
+	padding: 22px 35px;
+	background: #712516;
 }
 .lightbox-modal .modal-input {
-	width: 372px;
-	padding:11px;
+	width: 291px;
+	padding:4px 11px;
 	margin-bottom:10px;
 	background:#110e0e;
 	font-family: 'BrandonG Light Italic', 'Arial Narrow', sans-serif;
@@ -1968,15 +2495,13 @@ p.callout { font-size:18px; line-height:24px; }
 .lightbox-modal #modal-password, .lightbox-modal #signup-password, .lightbox-modal #signup-confirmation {
 	display:none;
 }
-.lightbox-modal #closebtn {
+#kapowlogo {
+	height: 42px;
+	width: 153px;
+	background: url(../images/kapow-modal-logo.png) no-repeat;
 	position: absolute;
-	width: 78px;
-	height: 78px;
-	background: transparent url('../images/closebtn.png');
-	cursor: pointer;
-	z-index: 1506;
-	right: 2px;
-	top: -90px;
+	right:40px;
+	top:25px;
 }
 #signin-button {
 	background: url(../images/signin_bg.png) no-repeat;
@@ -1985,13 +2510,16 @@ p.callout { font-size:18px; line-height:24px; }
 	margin-top:40px;
 }
 #signup-modal {
-	width: 492px;
+	width: 100%;
+	height:700px;
+	background:#000;
 	margin: 0 auto;
 	font-size: 21px;
 	line-height: 21px;
 	font-style: normal;
 	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
 	color:#ccc;
+	position: relative;
 }
 #signup-modal #signup-top {
 	margin-top: -20px;
@@ -2005,10 +2533,10 @@ p.callout { font-size:18px; line-height:24px; }
 	border-bottom: 1px #222 solid;
 }
 #signup-form {
-	width:398px;
-	margin: 0 auto;
-	border-bottom:1px #222 solid;
-	padding-bottom: 18px;
+	width: 419px;
+	position: absolute;
+	bottom: 0;
+	left: 65px;
 }
 #signup-modal #signup-phone {
 	float:left;
@@ -2017,20 +2545,23 @@ p.callout { font-size:18px; line-height:24px; }
 	margin-left:18px;
 }
 #signup-modal #signup-firstname, #signup-modal #signup-password, #signup-modal #signup-passwordText {
-	float:left;
-	width:177px;
+	float: left;
+	width: 188px;
 }
 #signup-modal #signup-lastname, #signup-modal #signup-confirmation, #signup-modal #signup-confirmationText {
     float:right;
     width:177px;
 }
-.lightbox-modal .modal-signin {
+.lightbox-modal .modal-signin-button {
 	background: url(../images/modal-signin.png) no-repeat;
-	width:151px;
+	width:168px;
 	height:41px;
 	border:none;
+	position: absolute;
+	right: 30px;
+	top: 42px;
 }
-.lightbox-modal .modal-signin span {
+.lightbox-modal .modal-signin-button span {
 	display: block;
 	color:#fff;
 	text-shadow:  1px 1px 2px #000;
@@ -2039,16 +2570,60 @@ p.callout { font-size:18px; line-height:24px; }
 }
 .lightbox-modal p  { margin-bottom:30px; font-size:17px; line-height:22px; }
 .lightbox-modal .modal-links {
-	width:325px;
-	margin: 28px auto;
+	width: 325px;
+	position: absolute;
+	bottom: 28px;
+	left: 45px;
+}
+.lightbox-modal .modal-links a {
+	color: white;
+	font-size: 16px;
+}
+.lightbox-modal .modal-links a span {
+	font-family: 'BrandonG Bold Italic', 'Arial Black', sans-serif;
+	border-bottom: 1px #fff solid;
 }
 #signuplinks {
 	width:200px;
 	margin: 20px auto -20px;
 	font-size: 16px;
-	font-family: 'BrandonG Light Italic', 'Arial Black', sans-serif;
+	font-family: 'BrandonG Light Italic', 'Arial Narrow', sans-serif;
 }
-
+#signupheader {
+	font-size:32px;
+	color:#ff5f3f;
+	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
+	text-transform: uppercase;
+	position: absolute;
+	top:40px;
+	left:35px;
+}
+#whoweare {
+	position: absolute;
+	top: 110px;
+	left:35px;
+	width:486px;
+}
+#whoweare p, #signupbelow p {
+	font-size:20px;
+}
+#signupbelow {
+	position: absolute;
+	top: 242px;
+	left: 35px;
+	padding-top: 30px;
+	height: 176px;
+	width: 486px;
+	border-top: 1px solid #333;
+	border-bottom: 1px solid #333;
+}
+.lightbox-modal .logintext {
+	margin:15px 0 10px -10px;	
+}
+.lightbox-modal #modal-button-contain {
+	margin: 0 auto;
+	width: 168px;
+}
 .lightbox-modal .modal-continue {
 	background: url(../images/modal_continue.png) no-repeat;
 	width:168px;
@@ -2075,10 +2650,6 @@ p.callout { font-size:18px; line-height:24px; }
 .lightbox-modal .modal-links .modal-signup_link {
 	color:#fff;
 }
-.lightbox-modal #signup-modal {
-	display:none;
-}
-
 #slidebox {
   position: absolute;
   width: 690px;
