@@ -2104,7 +2104,7 @@ p.callout { font-size:18px; line-height:24px; }
 	margin-top: -49px;
 }
 #event_callout #carousel, #event_callout #carousel li {
-	height:327px;
+	height:372px;
 }
 #event_callout #carousel {
 	width:100%;
@@ -2423,6 +2423,9 @@ a#backtoall:hover {
 	font-family: 'BrandonG Light Italic', 'Arial Narrow', sans-serif;
 	font-style: normal;
 	overflow: hidden;
+}
+.lightbox-modal ul {
+	margin:-20px;
 }
 
 .lightbox-modal .bg-ribbon {

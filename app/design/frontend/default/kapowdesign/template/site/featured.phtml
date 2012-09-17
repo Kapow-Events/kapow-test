@@ -43,6 +43,27 @@
 							$group_size_max = $_product->getResource()->getAttribute('event_group_size_max')->getFrontend()->getValue($_product);
 							$cost			= $_product->getAttributeText('event_cost_size');
 							
+							if ($group_size_min == "") {
+								$group_size_string = $group_size_max;
+							}
+							elseif($group_size_max == "") {
+								$group_size_string == $group_size_min;
+							}
+							else {
+								$group_size_string = $group_size_min . " - " . $group_size_max;
+							}
+							if (!$perPerson) {
+                                    $cost = '';
+                            } else {
+                                if ($perPerson && $perPerson->getFrontend()->getValue($_product) == "") {
+                                    $cost 		= round($_product->getResource()->getAttribute('price')->getFrontend()->getValue($_product));
+                                }
+                                else {
+                                    $cost 		= round($perPerson->getFrontend()->getValue($_product));
+                                }
+                            }
+
+							
 							echo "<div class=\"product_header{$font_size}\">{$name}</div>";
 							/*?>
 							<p class="content">
@@ -54,7 +75,7 @@
 								Cost - <?php echo $cost; ?>
 							</div>
 							<div class="event_details_info" id="event_detail_group">
-								Group Size - <?php echo 	$group_size_min; ?>-<?php echo $group_size_max; ?>
+								Group Size - <?php echo $group_size_string ?>
 							</div>
 							<a class="event_details_link" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>">Buy Now &gt;</a>
 						</div>
@@ -71,7 +92,7 @@
 				<div id="statement">
 					<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header_sell_statement')->toHtml() ?> 
 				</div>
-				<a href="customer/account/login" id="get_started" class="get_started" title="Get Started">Get Started &gt;</a>
+				<a href="?show_status_warning" id="get_started" class="get_started" title="Get Started">Get Started &gt;</a>
 			</section>
 		</div>
 	</div>

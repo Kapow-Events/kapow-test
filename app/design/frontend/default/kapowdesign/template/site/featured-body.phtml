@@ -57,7 +57,18 @@ echo render_flat_nav($categories);
 								$font_size 		= strlen($name) > 50  ? ' three_plus_lines' : '';
 								$group_size_min = $_product->getResource()->getAttribute('event_group_size_min')->getFrontend()->getValue($_product);
 								$group_size_max = $_product->getResource()->getAttribute('event_group_size_max')->getFrontend()->getValue($_product);
-                                $perPerson  = $_product->getResource()->getAttribute('per_person_cost');
+                                $perPerson  = $_product->getResource()->getAttribute('per_person_cost');                                
+                                
+								if ($group_size_min == "") {
+									$group_size_string = $group_size_max;
+								}
+								elseif($group_size_max == "") {
+									$group_size_string == $group_size_min;
+								}
+								else {
+									$group_size_string = $group_size_min . "<div>to</div>" . $group_size_max;
+								}
+                                
                                 if (!$perPerson) {
                                     $cost = '';
                                 } else {
@@ -99,7 +110,7 @@ echo render_flat_nav($categories);
 									</div>
 									<div id="eventlist_group_size" class="eventlist_event_detail_bubble">
 										<div class="bubble_text">
-											<?php echo $group_size_min ?><div>to</div><?php echo $group_size_max ?>
+											<?php echo $group_size_string ?>
 										</div>
 										<div id="eventlist_group_size_tag" class="event_detail_tag">Group Size</div>
 									</div>
