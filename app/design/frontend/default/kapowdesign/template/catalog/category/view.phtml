@@ -45,10 +45,10 @@
         <a href="<?php echo $this->getRssLink() ?>" class="link-rss"><?php echo $this->__('Subscribe to RSS Feed') ?></a>
     <?php endif; ?>
     <div id="eventlist_events_header"><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></div>
-	<a href="events" class="eventlist_events_header_link<?php echo ($_category->getData('url_key') == "events" ? " header_active" : '') ?>">See All Events</a>
-	<a href="bar-events" class="eventlist_events_header_link<?php echo ($_category->getData('url_key') == "bar-events" ? " header_active" : '') ?>">Bar Events</a>
-	<a href="dining-events" class="eventlist_events_header_link<?php echo ($_category->getData('url_key') == "dining-events" ? " header_active" : '') ?>">Dining Events</a>
-	<a href="sporting-events" class="eventlist_events_header_link<?php echo ($_category->getData('url_key') == "sporting-events" ? " header_active" : '') ?>">Sporting Events</a>
+	<a href="<?php echo Mage::getBaseUrl('events') ?>" class="eventlist_events_header_link<?php echo ($_category->getData('url_key') == "events" ? " header_active" : '') ?>">See All Events</a>
+	<a href="<?php echo Mage::getBaseUrl('bar-events') ?>?" class="eventlist_events_header_link<?php echo ($_category->getData('url_key') == "bar-events" ? " header_active" : '') ?>">Bar Events</a>
+	<a href="<?php echo Mage::getBaseUrl('dining-events') ?>" class="eventlist_events_header_link<?php echo ($_category->getData('url_key') == "dining-events" ? " header_active" : '') ?>">Dining Events</a>
+	<a href="<?php echo Mage::getBaseUrl('sporting-events')?>" class="eventlist_events_header_link<?php echo ($_category->getData('url_key') == "sporting-events" ? " header_active" : '') ?>">Sporting Events</a>
 </div>
 
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
