@@ -59,11 +59,8 @@ echo render_flat_nav($categories);
 								$group_size_max = $_product->getResource()->getAttribute('event_group_size_max')->getFrontend()->getValue($_product);
                                 $perPerson  = $_product->getResource()->getAttribute('per_person_cost');                                
                                 
-								if ($group_size_min == "") {
-									$group_size_string = $group_size_max;
-								}
-								elseif($group_size_max == "") {
-									$group_size_string == $group_size_min;
+								if($group_size_max == NULL) {
+									$group_size_string = "<div class=\"single\">".$group_size_min."</div>";
 								}
 								else {
 									$group_size_string = $group_size_min . "<div>to</div>" . $group_size_max;
@@ -132,7 +129,7 @@ echo render_flat_nav($categories);
 								</div>
 								<div class="clearfix"></div>
 								<div class="event_detail_bottom"></div>		
-								<a class="event_details_link" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>">View Details <span>&amp; Book!</span></a>
+								<a class="event_details_link <?php echo $should_hijack ?>" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>">View Details <span>&amp; Book!</span></a>
 							</div>
 							<div class="event_flare"></div>
 						</li>

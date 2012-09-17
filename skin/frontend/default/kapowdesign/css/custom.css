@@ -1183,12 +1183,21 @@ ul#steps {
 #eventlist_per_person .bubble_text {
 	margin-top: 17px;
 }
+#eventlist_per_person .bubble_text div.single {
+	margin-top: 17px;
+	font-size: 22px;
+}
 .eventlist_event_detail_bubble .bubble_text div {
 	font-size: 12px;
 	margin-bottom: 3px;
 	margin-top: 2px;
 	display: block;
 	text-transform: uppercase;
+}
+.eventlist_event_detail_bubble .bubble_text div.single {
+	margin-top: 17px;
+	font-size: 22px;
+
 }
 .eventlist_event_detail_bubble .event_detail_tag {
 	position: absolute;
