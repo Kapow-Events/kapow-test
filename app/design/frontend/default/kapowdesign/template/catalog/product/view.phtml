@@ -36,18 +36,19 @@
 <?php
 	$group_size_min = $_product->getResource()->getAttribute('event_group_size_min')->getFrontend()->getValue($_product);
 	$group_size_max = $_product->getResource()->getAttribute('event_group_size_max')->getFrontend()->getValue($_product);
-
-	$perPerson  = $_product->getResource()->getAttribute('per_person_cost');
+	/*
+$perPerson  = $_product->getResource()->getAttribute('per_person_cost');
     if (!$perPerson) {
-        $cost = '';
+        $cost = '12';
     } else {
         if ($perPerson && $perPerson->getFrontend()->getValue($_product) == "") {
-            $cost 		= round($_product->getResource()->getAttribute('price')->getFrontend()->getValue($_product));
+            $cost 	= round($_product->getResource()->getAttribute('price')->getFrontend()->getValue($_product));
         }
         else {
-            $cost 		= round($perPerson->getFrontend()->getValue($_product));
+            $cost 	= round($_product->getResource()->getAttribute('price')->getFrontend()->getValue($_product));
         }
     }
+*/
     $categories		= $_product->getCategoryIds();
 	$event_icons	= array("","","","","","");
 	foreach ($categories as $cat) {
@@ -93,12 +94,12 @@
 	                <a id="backtoall" href="<?php echo Mage::getBaseUrl() ?>events">
 	                	&lt; back to all events
 	                </a>
-	                <?php if (!$_product->getCallToSchedule()): ?>
+	                <?php /*if (!$_product->getCallToSchedule()): ?>
 	                <div class="price">
 	                    <div class="price_text"><?php echo $this->getPriceHtml($_product, false, '_clone') ?></div>
 	                    <div class="price_subtext"><?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?><?php echo $_product->getPriceSubtext() ?><?php endif; ?></div>
 	                </div>
-	                <?php endif; ?>
+	                <?php endif;*/ ?>
 	
 					<div id="glancecontainer">
 						<div id="glanceheader">
@@ -106,7 +107,7 @@
 						</div>
 						
 						<div id="glance_perperson" class="infograb">
-							$<?php echo $perPerson ?>
+							$<?php echo number_format($_product->getFinalPrice(),0);?>
 						</div>
 						<div id="glance_groupsize" class="infograb">
 							<?php echo $group_size_min ?>-<?php echo $group_size_max ?>
