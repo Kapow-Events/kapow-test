@@ -97,7 +97,7 @@ _gaq.push(['_trackPageview']);
     
           <div id="primary_navigation">
             <ul id="primary_navigation_left">
-    			<li><a href="http://ec2-23-20-73-152.compute-1.amazonaws.com/all-events">all events</a></li>
+    			<li><a href="http://ec2-23-20-73-152.compute-1.amazonaws.com/events">events</a></li>
     			<li><a href="http://ec2-23-20-73-152.compute-1.amazonaws.com/">home</a></li>
     		</ul>        
     		<ul id="primary_navigation_right">
@@ -115,7 +115,7 @@ _gaq.push(['_trackPageview']);
     	          </ul>
     	          <ul id="secondary_navigation_right">
     	  			<li><a data-rel="#recent_success" href="http://ec2-23-20-73-152.compute-1.amazonaws.com/#contact">contact</a></li>
-                                <li><a data-rel="#recent_success" href="http://ec2-23-20-73-152.compute-1.amazonaws.com/#events">my events</a></li>
+                                <li><a data-rel="#recent_success" href="http://ec2-23-20-73-152.compute-1.amazonaws.com/checkout/cart/">my cart</a></li>
     	  			
     	  		  </ul>      
     	  		</div><!-- secondary_navigation -->
