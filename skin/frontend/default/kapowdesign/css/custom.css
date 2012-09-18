@@ -1721,6 +1721,9 @@ a.presskit_news:hover {
 	padding:30px 0;
 	border-bottom: 1px #333 solid;
 }
+.cms-about-us #our-mission #joinus a:link, .cms-about-us #our-mission #joinus a:visited, #watchourvideo a:link, #watchourvideo a:visited {
+	color:#fff;
+}
 .cms-about-us #our-mission #watchourvideo {
 	background: url(../images/tastyvideo.png) no-repeat;
 }
