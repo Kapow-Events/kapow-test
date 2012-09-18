@@ -123,12 +123,17 @@ $currentUrl = $this->helper('core/url')->getCurrentUrl();
 
     <div id="lightbox-signup-or-login" class="lightbox-modal">
 	    <div id="closebtn"></div>
-      <?php $url = stristr($this->helper('core/url')->getCurrentUrl(), '?show_status_warning', true); ?> 
+      <?php
+        $url = stristr($this->helper('core/url')->getCurrentUrl(), '?show_status_warning', true);
+        if (!$url) {
+            $url = $this->helper('core/url')->getCurrentUrl();
+        }
+      ?>
       <div class="modal-form">
       	<div id="login-modal">
 	      <!-- <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('lightbox-login-or-signup')->toHtml(); ?> -->
 	      <div id="signin">Sign In</div>
-          <form action="<?php echo $this->helper('customer')->getLoginPostUrl(); ?>" id="login-form" method="post">
+          <form action="<?php echo $this->helper('customer')->getLoginPostUrl() .'referer/'. Mage::helper('core')->urlEncode($url); ?>" id="login-form" method="post">
 	      <input type="text" name="login[username]" id="modal-email" value="Username or Email" class="modal-input" maxlength="255" /><br/>
 	      <input type="text" name="x" id="modal-passwordText" class="modal-input" value="Password" maxlength="255" />
 	      <input type="password" name="login[password]" id="modal-password" value="" class="modal-input" maxlength="255" />
