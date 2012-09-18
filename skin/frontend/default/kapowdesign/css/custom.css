@@ -2471,6 +2471,7 @@ a#backtoall:hover {
 	font-family: 'BrandonG Light Italic', 'Arial Narrow', sans-serif;
 	font-style: normal;
 	overflow: hidden;
+	text-align: left;
 }
 .lightbox-modal ul {
 	margin:-20px;
@@ -2527,6 +2528,7 @@ a#backtoall:hover {
 	width: 490px;
 	position: absolute;
 	top: 90px;
+	left:0;
 	padding: 22px 35px;
 	background: #712516;
 }
