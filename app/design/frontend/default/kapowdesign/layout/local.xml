@@ -110,8 +110,14 @@
         </reference>
         <reference name="content">
             <block type="sociable/services" name="sociable.product_page" template="sociable/sociable.phtml"  as="other" before="-" />
-            <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
-                <block type="page/html_pager" name="product_list_toolbar_pager"/>
+            <block type="catalog/product_list" name="product_list" template="catalog/product/list.phtml">
+                <action method="addAttribute"><name>event_group_size_min</name></action>
+                <action method="addAttribute"><name>event_group_size_max</name></action>
+
+                <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+                    <block type="page/html_pager" name="product_list_toolbar_pager"/>
+                </block>
+
             </block>
         </reference>
     </catalog_category_default>
