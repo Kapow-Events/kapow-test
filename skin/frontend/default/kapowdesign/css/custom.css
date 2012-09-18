@@ -2795,12 +2795,12 @@ a:hover { color: #333; }
 #shopping-cart-table .btn-remove2:hover { border:none; padding-bottom:0; }
 
 .checkout-cart-index, .checkout-onepage-index, .sales-order-history, 
-.customer-account-logoutsuccess, .customer-account-login, .customer-account-create {
+.customer-account-logoutsuccess, .customer-account-login, .customer-account-create, .cms-faqs {
 	background: black url(../images/recent_bg.png);
 }
 .checkout-onepage-index .main, .sales-order-history .main, 
 .customer-account-logoutsuccess .main, .customer-account-login .main,
-.customer-account-create .main {
+.customer-account-create .main, .cms-faqs .main {
 	margin-bottom:140px;
 	font-family: 'BrandonG', Arial, sans-serif;
 }
