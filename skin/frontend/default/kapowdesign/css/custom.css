@@ -1427,7 +1427,7 @@ a.event_details_link:hover {
 	background:#FDF6EE url(../images/recent_bg.png);
 	min-height:300px;
 	margin-top: -10px;
-	padding: 35px 0 270px;
+	padding: 35px 0 390px;
 	font-style: normal;
 	position: relative;
 }
@@ -1583,6 +1583,21 @@ a.event_details_link:hover {
 #success_bottom #viewallnews:hover {
 	border-bottom:2px solid transparent;
 }
+a.presskit_news {
+	position: absolute;
+	display: block;
+	background: rgba(0, 0, 0, 0.8) url(../images/presskit.png) center no-repeat;
+	width: 250px;
+	height: 116px;
+	bottom: 25px;
+	padding: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+a.presskit_news:hover {
+	border-bottom:2px transparent solid;
+}
 
 /* ======= ABOUT US PAGE ======== */
 
@@ -1590,12 +1605,12 @@ a.event_details_link:hover {
 	width:100%;
 }
 .cms-about-us #about-us-container {
-	margin-top:120px	;
+	margin-top:120px;
 	font-style: normal;
 }
 .cms-about-us #our-mission {	
 	width: 1050px;
-	height:640px;
+	height:750px;
 	margin: 0 auto;
 	position: relative;
 	clear: both;
@@ -1662,7 +1677,7 @@ a.event_details_link:hover {
 	width:345px;
 	position:absolute;
 	right: -24px;
-	bottom: 242px;
+	bottom: 433px;
 	margin:0 auto;
 	height:125px;
 	font-family: 'BrandonG Bold', 'Arial Black', sans-serif;
@@ -1704,6 +1719,7 @@ a.event_details_link:hover {
 }
 .cms-about-us #our-mission #joinus {
 	padding:30px 0;
+	border-bottom: 1px #333 solid;
 }
 .cms-about-us #our-mission #watchourvideo {
 	background: url(../images/tastyvideo.png) no-repeat;
@@ -1711,6 +1727,17 @@ a.event_details_link:hover {
 .cms-about-us #our-mission #joinuslink {
 	background: url(../images/joinuslink.png) no-repeat;
 	height:118px;
+}
+.cms-about-us #our-mission #presskit-container {
+	padding:30px 0;
+}
+.cms-about-us #our-mission #presskit_about {
+	display: block;
+	width: 250px;
+	height: 116px;
+	margin:0;
+	background: url(../images/presskit.png) no-repeat;
+	
 }
 .cms-about-us #our-mission #newsblock-container {
 	margin-top:38px;
@@ -1950,6 +1977,7 @@ a.event_details_link:hover {
 	width:130px;
 	float: left;
 	margin-left:272px;
+	position: relative;
 }
 #footer_sublinks a.last {
   border-right: none;
@@ -1960,6 +1988,18 @@ a.event_details_link:hover {
 #footer_sublinks_right a {
 	float:left;
 }
+#footer_sublinks_right a.presskit_footer {
+	display: block;
+	width: 162px;
+	height: 75px;
+	background: url(../images/press_kit_sm.png) no-repeat;
+	position: absolute;
+	left: 135px;
+	top: -34px;
+}
+#footer_sublinks_right a.presskit_footer:hover {
+	border-bottom: 2px transparent;
+}
 #footerlogo {
 	width:258px;
 	height:82px;
@@ -1967,7 +2007,6 @@ a.event_details_link:hover {
 	position: absolute;
 	left: 39%;
 	top: -18px;
-
 }
 
 #copy {
@@ -2286,12 +2325,12 @@ p.callout { font-size:18px; line-height:24px; }
 #carousel {
   position: absolute;
   height: 450px;
-  width: 1060px;
+  width: 1500px;
   left: 0;
   top: 0;
 }
 #carousel ul { list-style:none; padding:0; margin:0; }
-#carousel ul li { float:left; height:450px; width:1060px; position:relative; }
+#carousel ul li { float:left; height:450px; width:1500px; position:relative; }
 #carousel ul li img { position:absolute; top:0; left:0; }
 
 #carousel .carousel-previous {

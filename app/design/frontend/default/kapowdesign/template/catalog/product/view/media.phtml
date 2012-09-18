@@ -38,10 +38,10 @@
         <li>
           <img src="<?php echo $this->helper('catalog/image')
                                           ->init($this->getProduct(), 'large', $_image->getFile())
-                                          ->constrainOnly(false)
+                                          ->constrainOnly(true)
                                           ->keepAspectRatio(true)
                                           ->keepFrame(false)
-                                          ->resize(1211, null);
+                                          ->resize(1500, null);
                                           // 1211px is required to main aspect ratio and enough
                                           // height when smaller images are enlarged ?>"
                alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" />
