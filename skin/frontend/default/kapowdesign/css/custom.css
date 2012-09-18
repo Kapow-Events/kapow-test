@@ -1057,6 +1057,19 @@ ul#steps {
 	width:241px;
 	float:left;
 }
+#eventsmessage {
+	color: #999;
+	font-style: normal;
+	font-size: 18px;
+	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
+	width: 560px;
+	position: absolute;
+	left: 12px;
+	top: 25px;
+}
+.category-products {
+	margin-top:15px;
+}
 .eventlist_events_header_link {
 	font-style: normal;
 	font-family: 'BrandonG Light Italic', 'Arial Narrow', sans-serif;

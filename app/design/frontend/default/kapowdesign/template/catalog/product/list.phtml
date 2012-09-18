@@ -35,6 +35,10 @@
     $_productCollection=$this->getLoadedProductCollection();
     $_helper = $this->helper('catalog/output');
 ?>
+
+<div id="eventsmessage">
+	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('events_our_events')->toHtml(); ?>
+</div>
 <?php if(!$_productCollection->count()): ?>
 <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
 <?php else: ?>
