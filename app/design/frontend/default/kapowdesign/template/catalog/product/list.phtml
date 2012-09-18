@@ -108,17 +108,19 @@
 						$name      		= $_helper->productAttribute($_product, $_product->getName(), 'name');
 						$group_size_min = $_product->getResource()->getAttribute('event_group_size_min')->getFrontend()->getValue($_product);
 						$group_size_max = $_product->getResource()->getAttribute('event_group_size_max')->getFrontend()->getValue($_product);
-                        $perPerson  = $_product->getResource()->getAttribute('per_person_cost');
-                        if (!$perPerson) {
-                            $cost = '';
-                        } else {
-                            if ($perPerson && $perPerson->getFrontend()->getValue($_product) == "") {
-                                $cost = round($_product->getResource()->getAttribute('price')->getFrontend()->getValue($_product));
-                            }
-                            else {
-                                $cost = round($perPerson->getFrontend()->getValue($_product));
-                            }
-                        }
+                        $perPerson 		= $_product->getResource()->getAttribute('per_person_cost');
+						if (!$perPerson) {
+					        $cost = '';
+					    } else {
+					        if ($perPerson && $perPerson->getFrontend()->getValue($_product) != NULL) {
+					            $cost = round($perPerson->getFrontend()->getValue($_product));
+					        }
+					        else {
+					            $cost = number_format($_product->getFinalPrice(),0);
+					        }
+					    }
+
+
                         if($group_size_max == NULL) {
 							$group_size_string = "<div class=\"single\">".$group_size_min."</div>";
 						}
@@ -178,7 +180,7 @@
 						</div>
 						<div class="clearfix"></div>
 						<div class="event_detail_bottom"></div>		
-						<a class="event_details_link<?php echo $extra_class ?>" href="<?php echo $the_link ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>">View Details <span>&amp; Book!</span></a>
+						<a class="event_details_link" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>">View Details <span>&amp; Book!</span></a>
 					</div>
 					<div class="event_flare"></div>
 				</li>

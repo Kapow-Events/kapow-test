@@ -36,6 +36,17 @@
 <?php
 	$group_size_min = $_product->getResource()->getAttribute('event_group_size_min')->getFrontend()->getValue($_product);
 	$group_size_max = $_product->getResource()->getAttribute('event_group_size_max')->getFrontend()->getValue($_product);
+	$perPerson 		= $_product->getResource()->getAttribute('per_person_cost');
+	if (!$perPerson) {
+        $cost = '';
+    } else {
+        if ($perPerson && $perPerson->getFrontend()->getValue($_product) != NULL) {
+            $cost = round($perPerson->getFrontend()->getValue($_product));
+        }
+        else {
+            $cost = number_format($_product->getFinalPrice(),0);
+        }
+    }
 	if($group_size_max == NULL) {
 		$group_size_string = "<div class=\"single\">".$group_size_min."</div>";
 	}
@@ -100,7 +111,7 @@
 						</div>
 						
 						<div id="glance_perperson" class="infograb">
-							$<?php echo number_format($_product->getFinalPrice(),0);?>
+							$<?php echo $cost ?>
 						</div>
 						<div id="glance_groupsize" class="infograb">
 							<?php echo $group_size_string ?>
