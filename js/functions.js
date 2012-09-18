@@ -69,6 +69,12 @@ var cj =
       var $link = jQuery(this);
       if ($link.attr('rel') == 'showOnLoad') { $link.trigger('click'); }
     });
+    
+	jQuery('.event_details_link').click(function() {
+		var $loginurl = 'customer/account/loginPost/referer/'
+		$loginurl += jQuery(this).attr("rev");
+		jQuery('#login-form').attr('ACTION',$loginurl);
+	});
   },
 
   lightbox: function ()

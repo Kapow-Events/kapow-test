@@ -124,6 +124,11 @@
 					        }
 					    }
 
+					    
+					    $linkstatus = 'class="event_details_link';
+					    $linkstatus .= $extra_class . '" ';
+					    $linkstatus .= 'href="'.$the_link.'"';
+					    $linkstatus .= ($not_logged_in ? ' rev="'.Mage::helper('core')->urlEncode($_product->getProductUrl()).'"' : '');
 
                         if($group_size_max == NULL) {
 							$group_size_string = "<div class=\"single\">".$group_size_min."</div>";
@@ -186,7 +191,7 @@
 						</div>
 						<div class="clearfix"></div>
 						<div class="event_detail_bottom"></div>		
-						<a class="event_details_link" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>">View Details <span>&amp; Book!</span></a>
+						<a <?php echo $linkstatus ?> title="<?php echo $this->stripTags($_product->getName(), null, true) ?>">View Details <span>&amp; Book!</span></a>
 					</div>
 					<div class="event_flare"></div>
 				</li>
