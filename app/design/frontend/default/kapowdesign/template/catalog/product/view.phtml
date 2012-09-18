@@ -40,7 +40,7 @@
 		$group_size_string = "<div class=\"single\">".$group_size_min."</div>";
 	}
 	else {
-		$group_size_string = $group_size_min . "<div>to</div>" . $group_size_max;
+		$group_size_string = $group_size_min . "-" . $group_size_max;
 	}    
 	$categories		= $_product->getCategoryIds();
 	$event_icons	= array("","","","","","");
