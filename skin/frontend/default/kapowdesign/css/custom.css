@@ -817,7 +817,7 @@ ul#steps {
 }
 .featured_product_text .product_info {
 	height:100px;
-	max-width: 475px;
+	width: 320px;
 	margin-top:22px;
 	/* background: url(../images/event_name_box.png); */
 	background: rgba(0, 0, 0, .8);
