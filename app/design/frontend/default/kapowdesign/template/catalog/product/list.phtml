@@ -108,6 +108,10 @@
 						$name      		= $_helper->productAttribute($_product, $_product->getName(), 'name');
 						$group_size_min = $_product->getResource()->getAttribute('event_group_size_min')->getFrontend()->getValue($_product);
 						$group_size_max = $_product->getResource()->getAttribute('event_group_size_max')->getFrontend()->getValue($_product);
+						$event_cost 	= $_product->getResource()->getAttribute('event_cost_size')->getFrontend()->getValue($_product);
+
+						if ($event_cost == "No")
+							$event_cost = "?";
                         $perPerson 		= $_product->getResource()->getAttribute('per_person_cost');
 						if (!$perPerson) {
 					        $cost = '';
@@ -153,7 +157,9 @@
 						</p>
 						<div class="eventlist_event_details">
 							<div id="eventlist_per_person" class="eventlist_event_detail_bubble">
-								<div class="bubble_text">$<?php echo $cost ?></div>
+								<div class="bubble_text">
+									<?php echo (Mage::getSingleton('customer/session')->isLoggedIn() ? "$".$cost : $event_cost) ?>
+								</div>
 								<div id="eventlist_per_person_tag" class="event_detail_tag">Per Person</div>
 							</div>
 							<div id="eventlist_group_size" class="eventlist_event_detail_bubble">

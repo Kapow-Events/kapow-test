@@ -112,6 +112,7 @@
             <action method="addAttribute"><name>event_group_size_min</name></action>
             <action method="addAttribute"><name>event_group_size_max</name></action>
             <action method="addAttribute"><name>per_person_cost</name></action>
+            <action method="addAttribute"><name>event_cost_size</name></action>
 
             <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
                 <block type="page/html_pager" name="product_list_toolbar_pager"/>

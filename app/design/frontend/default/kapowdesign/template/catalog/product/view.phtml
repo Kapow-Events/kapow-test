@@ -37,6 +37,10 @@
 	$group_size_min = $_product->getResource()->getAttribute('event_group_size_min')->getFrontend()->getValue($_product);
 	$group_size_max = $_product->getResource()->getAttribute('event_group_size_max')->getFrontend()->getValue($_product);
 	$perPerson 		= $_product->getResource()->getAttribute('per_person_cost');
+	$event_cost 	= $_product->getResource()->getAttribute('event_cost_size')->getFrontend()->getValue($_product);
+
+	if ($event_cost == "No")
+		$event_cost = "?";
 	if (!$perPerson) {
         $cost = '';
     } else {
@@ -111,7 +115,7 @@
 						</div>
 						
 						<div id="glance_perperson" class="infograb">
-							$<?php echo $cost ?>
+							<?php echo (Mage::getSingleton('customer/session')->isLoggedIn() ? "$".$cost : $event_cost) ?>
 						</div>
 						<div id="glance_groupsize" class="infograb">
 							<?php echo $group_size_string ?>
