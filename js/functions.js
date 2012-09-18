@@ -369,7 +369,7 @@ var cj =
 	},
   
   fixLinks: function() {
-		jQuery('#secondary_navigation_left li a').each(function() {
+		jQuery('#secondary_navigation_left li.notloggedin a').each(function() {
 			jQuery(this).addClass('lightbox-modal-link');	  
 			jQuery(this).attr("href","#lightbox-signup-or-login");
 		});

@@ -46,6 +46,8 @@
     ){
       echo $this->getChildHtml('featured');
     }
+    
+    $not_logged_in = !$this->helper('customer')->isLoggedIn() ;
   ?>
 
 
@@ -61,7 +63,7 @@
       <div id="secondary_navigation">
       	<div id="leftarrow" class="arrow"></div>
       	<div id="rightarrow" class="arrow"></div>
-        <ul id="secondary_navigation_left">
+        <ul id="secondary_navigation_left"<?php echo ($not_logged_in ? " class=\"needlogin" : "") ?>>
           <?php echo $this->getChildHtml('topLinks') ?>
         </ul>
         <?php echo $this->getChildHtml('secondaryNavRight'); ?>
