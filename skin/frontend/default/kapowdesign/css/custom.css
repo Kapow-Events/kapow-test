@@ -1937,6 +1937,52 @@ a.presskit_news:hover {
 	padding-top:40px;
 }
 
+/* ======= BOOKING ======== */
+
+#booking-container {
+	position: relative;
+	font-family: 'BrandonG', Arial, sans-serif;
+}
+#booking_order {
+	position: absolute;
+	z-index: 1000;
+	background: url(../images/recent_bg.png);
+	margin:0;
+	height:318px;;
+	top: 236px;
+	left: -25px;
+}
+#booking_order h4 {	
+	font-size: 22px !important;
+	border: none !important;
+	padding-bottom: 0 !important;
+	margin: 10px;
+}
+#booking_order .yui-skin-sam .yui-calendar .calheader {
+	padding:0 !important;
+}
+#booking_order .yui-skin-sam .yui-calcontainer, #booking_order #cal1Container {
+	background: transparent;
+	border:none;
+}
+#booking_order .booking-order .booking-dates label {
+	float:none;
+}
+#booking_order #booking_to_contain, #booking_order #booking_from_contain {
+	float:Left;
+}
+#booking_order .booking-dates {
+	padding:0;
+}
+.add-to-cart {
+	padding-bottom:230px;
+}
+#product-options-wrapper .price-box {	
+	position: absolute;
+	top: 368px;
+	left: 367px;
+}
+
 /* ======== FOOTER ======= */
 #footer {
   padding: 130px 0 30px 0;
