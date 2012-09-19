@@ -30,21 +30,23 @@
 ?>
 <?php if($this->getProduct() && $this->getProduct()->isSalable()): ?>
 <?php $customOptions = $this->getCustomOptions();?>
-<h4><?php echo $this->__('Reserve date')?></h4>
-<div id="booking_order" class="yui-skin-sam booking-order" style="clear:both;">
-
-    <div id="cal1Container"><div class="yuical-busy"></div></div>
-    <div id="dates" class="booking-dates">
-            <?php if ($this->getProduct()->getAwBookingRangeType() == AW_Booking_Model_Entity_Attribute_Source_Rangetype::TIME):?>
-                <?php echo $this->getChildHtml('time')?>
-            <?php endif; ?>
-            <?php if ($this->getProduct()->getAwBookingRangeType() == AW_Booking_Model_Entity_Attribute_Source_Rangetype::DATE):?>
-                <?php echo $this->getChildHtml('date')?>
-            <?php endif; ?>
-            <?php if ($this->getProduct()->getAwBookingRangeType() == AW_Booking_Model_Entity_Attribute_Source_Rangetype::DATETIME):?>
-                <?php echo $this->getChildHtml('datetime')?>
-            <?php endif; ?>
-    </div>
+<div id="booking-container">
+	<div id="booking_order" class="yui-skin-sam booking-order">
+		
+		<h4><?php echo $this->__('Reserve date')?></h4>
+	    <div id="cal1Container"><div class="yuical-busy"></div></div>
+	    <div id="dates" class="booking-dates">
+	            <?php if ($this->getProduct()->getAwBookingRangeType() == AW_Booking_Model_Entity_Attribute_Source_Rangetype::TIME):?>
+	                <?php echo $this->getChildHtml('time')?>
+	            <?php endif; ?>
+	            <?php if ($this->getProduct()->getAwBookingRangeType() == AW_Booking_Model_Entity_Attribute_Source_Rangetype::DATE):?>
+	                <?php echo $this->getChildHtml('date')?>
+	            <?php endif; ?>
+	            <?php if ($this->getProduct()->getAwBookingRangeType() == AW_Booking_Model_Entity_Attribute_Source_Rangetype::DATETIME):?>
+	                <?php echo $this->getChildHtml('datetime')?>
+	            <?php endif; ?>
+	    </div>
+	</div>
 </div>
     <?php echo $this->getChild('yuical-init')->setProduct($this->getProduct())->toHtml() ?>
 

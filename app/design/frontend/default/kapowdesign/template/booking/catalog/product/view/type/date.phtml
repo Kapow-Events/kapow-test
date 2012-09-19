@@ -28,15 +28,17 @@
 ?>
 <?php
 ?>
+<div id="booking_from_contain">
 <label for="id_<?php echo $this->getDisplayFieldName(AW_Booking_Block_Catalog_Product_View::DATE_FROM_NAME)?>"><?php echo $this->__('From')?>:</label>
 
 <input type="text" id="id_<?php echo $this->getDisplayFieldName(AW_Booking_Block_Catalog_Product_View::DATE_FROM_NAME)?>" name="<?php echo $this->getDisplayFieldName(AW_Booking_Block_Catalog_Product_View::DATE_FROM_NAME)?>" size="8" readonly="readonly" value="<?php echo $this->formatDate($this->getFirstAvailableDay())?>"/>
 <input type="hidden" id="id_<?php echo AW_Booking_Block_Catalog_Product_View::DATE_FROM_NAME?>" name="<?php echo AW_Booking_Block_Catalog_Product_View::DATE_FROM_NAME?>"  readonly="readonly" value="<?php echo $this->formatDate($this->getFirstAvailableDay())?>"/>
-<br/>
+</div>
+<div id="booking_to_contain">
 <label for="id_<?php echo $this->getDisplayFieldName(AW_Booking_Block_Catalog_Product_View::DATE_TO_NAME)?>"><?php echo $this->__('To')?>:</label>
 <input type="text" id="id_<?php echo $this->getDisplayFieldName(AW_Booking_Block_Catalog_Product_View::DATE_TO_NAME)?>" name="<?php echo $this->getDisplayFieldName(AW_Booking_Block_Catalog_Product_View::DATE_TO_NAME)?>" size="8" value="<?php echo $this->formatDate($this->getFirstAvailableDay())?>"/>
 <input type="hidden" id="id_<?php echo AW_Booking_Block_Catalog_Product_View::DATE_TO_NAME?>" name="<?php echo AW_Booking_Block_Catalog_Product_View::DATE_TO_NAME?>"/>
-
+</div>
 <script type="text/javascript">
 
 
