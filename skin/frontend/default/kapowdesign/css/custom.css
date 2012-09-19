@@ -1070,6 +1070,12 @@ ul#steps {
 .category-products {
 	margin-top:15px;
 }
+.category-client-entertainment #eventlist_events_header {
+	line-height:26px
+}
+.category-client-entertainment #eventsmessage {
+	top:55px;
+}
 .eventlist_events_header_link {
 	font-style: normal;
 	font-family: 'BrandonG Light Italic', 'Arial Narrow', sans-serif;
