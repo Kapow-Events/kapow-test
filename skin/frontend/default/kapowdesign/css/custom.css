@@ -1440,7 +1440,7 @@ a.event_details_link:hover {
 	background:#FDF6EE url(../images/recent_bg.png);
 	min-height:300px;
 	margin-top: -10px;
-	padding: 35px 0 390px;
+	padding: 35px 0 270px;
 	font-style: normal;
 	position: relative;
 }
@@ -1851,7 +1851,7 @@ a.presskit_news:hover {
 	margin:42px auto 0;
 }
 .cms-about-us #investors .faces {
-	width:920px;
+	width:100%;
 }
 .cms-about-us .facebox {
 	width: 200px;
@@ -1864,8 +1864,11 @@ a.presskit_news:hover {
 	color: #4F1B10;
 	text-align: center;
 }
-.cms-about-us #investors .facebox, .cms-about-us #board .facebox {
+.cms-about-us #board .facebox {
 	padding: 170px 10px 0;
+}
+.cms-about-us #investors .facebox {
+	padding: 170px 0 0;
 }
 .cms-about-us .facebox div {
 	color:#b83e25;
