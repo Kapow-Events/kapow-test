@@ -1248,19 +1248,19 @@ ul#steps {
 .minibubbles .addon {
 	background: url(../images/addon.png) no-repeat;
 }
-.minibubbles .client_entertainment {
-	background: url(../images/client_entertain.png) no-repeat;
+.minibubbles .team_outing {
+	background: url(../images/team_outing.png) no-repeat;
 }
-.minibubbles .company_outing {
-	background: url(../images/company_outing.png) no-repeat;
+.minibubbles .sporting_event {
+	background: url(../images/sporting_event.png) no-repeat;
 	margin-top: 3px;
 	margin-bottom: 5px;
 }
 .minibubbles .holiday_party {
 	background: url(../images/holiday_party.png) no-repeat;
 }
-.minibubbles .team_activity {
-	background: url(../images/team_activity.png) no-repeat;
+.minibubbles .client_entertainment {
+	background: url(../images/client_entertainment.png) no-repeat;
 	margin-bottom: 6px;
 	margin-top: 2px;
 }
