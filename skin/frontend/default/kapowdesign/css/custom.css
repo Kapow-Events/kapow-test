@@ -1979,7 +1979,7 @@ a.presskit_news:hover {
 }
 #product-options-wrapper .price-box {	
 	position: absolute;
-	top: 368px;
+	bottom: 368px;
 	left: 367px;
 }
 
