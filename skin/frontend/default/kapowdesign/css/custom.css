@@ -1826,7 +1826,7 @@ a.presskit_news:hover {
 	border-bottom:2px dashed #ccc;
 }
 .cms-about-us #board {
-	padding-bottom:90px;
+	padding-bottom:0;
 }
 .cms-about-us #investors {
 	border-bottom: none;
@@ -1933,19 +1933,7 @@ a.presskit_news:hover {
 #about-us-container .faces #team_michaeltimpone {
 	background: url(../images/michael-timpone.png) no-repeat center top;
 }
-#about-us-container .faces #board_patryanjr {
-	background: url(../images/pat-ryanjr.png) no-repeat center top;
-}
-#about-us-container .faces #board_stuartlarkins {
-	background: url(../images/stuart-larkins.png) no-repeat center top;
-}
-#about-us-container .faces #board_marchalpin {
-	background: url(../images/marc-haplin.png) no-repeat center top;
-}
-#about-us-container .faces #board_danielmccormick {
-	background: url(../images/daniel-mccormick.png) no-repeat center top;
-}
-#about-us-container #investors .facebox  {
+#about-us-container #investors .facebox, #about-us-container #board .facebox  {
 	padding-top:40px;
 }
 
