@@ -1521,14 +1521,14 @@ a.event_details_link:hover {
 }
 #recent_success li {
 	width:236px;
-	height:248px;
+	height:265px;
 	list-style: none;
 	float:left;
 	border-right:1px #ccc solid;
 	padding:0 13px 25px;
 	overflow: hidden;
 }
-#recent_success li.endrow {
+#recent_success li.endrow, #recent_success li.last {
 	border-right: none;
 }
 #recent_success li.bottom_row {
@@ -1568,7 +1568,7 @@ a.event_details_link:hover {
 #recent_success .success_content {
 	font-family: 'BrandonG Light', Arial, sans-serif;
 	text-transform: uppercase;
-	height: 98px;
+	height: 115px;
 	overflow: hidden;
 	padding-top: 10px;
 }
