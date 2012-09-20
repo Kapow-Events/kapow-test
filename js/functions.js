@@ -56,7 +56,7 @@ var cj =
       'hideOnContentClick': false,
       'overlayShow': true,
       'overlayColor': '#000',
-      'overlayOpacity': 0.7,
+      'overlayOpacity': 0.8,
       'showCloseButton': true,
       'enableEscapeButton': false,
       'centerOnScroll': false,
@@ -381,8 +381,6 @@ var cj =
 		});
   }
 };
-
-
 
 jQuery.noConflict();
 
