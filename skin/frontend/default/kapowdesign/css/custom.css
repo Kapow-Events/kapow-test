@@ -2855,13 +2855,15 @@ a:hover { color: #333; }
 
 .checkout-cart-index, .checkout-onepage-index, .sales-order-history, 
 .customer-account-logoutsuccess, .customer-account-login, .customer-account-create, .cms-faqs
-.cms-privacy-statement, .cms-terms-of-use, .customer-account-edit, .customer-address-index {
+.cms-privacy-statement, .cms-terms-of-use, .customer-account-edit, .customer-address-index,
+.customer-account-forgotpassword {
 	background: black url(../images/recent_bg.png);
 }
 .checkout-onepage-index .main, .sales-order-history .main, 
 .customer-account-logoutsuccess .main, .customer-account-login .main,
 .customer-account-create .main, .cms-faqs .main, .cms-privacy-statement .main, 
-.cms-terms-of-use .main, .customer-account-edit .main, .customer-address-index .main {
+.cms-terms-of-use .main, .customer-account-edit .main, .customer-address-index .main,
+.customer-account-forgotpassword .main {
 	margin-bottom:140px;
 	font-family: 'BrandonG', Arial, sans-serif;
 }
