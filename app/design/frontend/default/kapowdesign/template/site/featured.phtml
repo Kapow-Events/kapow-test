@@ -43,7 +43,6 @@
 							$group_size_max = $_product->getResource()->getAttribute('event_group_size_max')->getFrontend()->getValue($_product);
 							$cost			= $_product->getAttributeText('event_cost_size');
                             $perPerson  = $_product->getResource()->getAttribute('per_person_cost');
-
 							if ($group_size_min == "") {
 								$group_size_string = $group_size_max;
 							}
@@ -53,14 +52,14 @@
 							else {
 								$group_size_string = $group_size_min . " - " . $group_size_max;
 							}
-							if (!$perPerson) {
-                                    $cost = '';
+							if ($not_logged_in) {
+                                    $cost = $cost;
                             } else {
                                 if ($perPerson && $perPerson->getFrontend()->getValue($_product) == "") {
-                                    $cost 		= round($_product->getResource()->getAttribute('price')->getFrontend()->getValue($_product));
+                                    $cost 		= "$".round($_product->getResource()->getAttribute('price')->getFrontend()->getValue($_product));
                                 }
                                 else {
-                                    $cost 		= round($perPerson->getFrontend()->getValue($_product));
+                                    $cost 		= "$".round($perPerson->getFrontend()->getValue($_product));
                                 }
                             }
 
