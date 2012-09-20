@@ -167,7 +167,7 @@
 						<div class="eventlist_event_details">
 							<div id="eventlist_per_person" class="eventlist_event_detail_bubble">
 								<div class="bubble_text">
-									<?php echo (Mage::getSingleton('customer/session')->isLoggedIn() ? "$".$cost : $event_cost) ?>
+									<?php echo (Mage::getSingleton('customer/session')->isLoggedIn() ? $cost : $event_cost) ?>
 								</div>
 								<div id="eventlist_per_person_tag" class="event_detail_tag">Per Person</div>
 							</div>
