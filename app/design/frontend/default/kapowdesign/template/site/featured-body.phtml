@@ -30,7 +30,7 @@ echo render_flat_nav($categories);
 		<div class="inner_wrapper clearfix">
 			<section id="eventlist_events">
 				<div id="eventlist_events_header">kapow events</div>
-				<a href="<?php echo Mage::getBaseUrl() ?>?" class="eventlist_events_header_link<?php echo (!isSet($_GET['cid']) ? ' header_active' : '') ?>">See All Events</a>
+				<a href="<?php echo Mage::getBaseUrl() ?>events" class="eventlist_events_header_link<?php echo (!isSet($_GET['cid']) ? ' header_active' : '') ?>">See All Events</a>
 				<a href="<?php echo Mage::getBaseUrl() ?>?cid=9" class="eventlist_events_header_link"<?php echo (isset($_GET['cid']) && $_GET['cid'] == 9) ? ' header_active' : '' ?>>Food &amp; Drink</a>
 				<a href="<?php echo Mage::getBaseUrl() ?>?cid=16" class="eventlist_events_header_link"<?php echo (isset($_GET['cid']) && $_GET['cid'] == 16) ? ' header_active' : '' ?>>Sporting Event</a>
 				<a href="<?php echo Mage::getBaseUrl() ?>?cid=3" class="eventlist_events_header_link"<?php echo (isset($_GET['cid']) && $_GET['cid'] == 3) ? ' header_active' : '' ?>>Client Entertainment</a>
