@@ -33,7 +33,7 @@
 
 <?php if (count($this->getGalleryImages()) > 0): ?>
 <div  id="carousel">
-    <ul>
+    <ul class="bannerimages">
     <?php foreach ($this->getGalleryImages() as $_image): ?>
         <li>
           <img src="<?php echo $this->helper('catalog/image')
@@ -49,4 +49,7 @@
     <?php endforeach; ?>
     </ul>
 </div>
+<script language="javascript">
+
+</script>
 <?php endif; ?>

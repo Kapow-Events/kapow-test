@@ -1058,14 +1058,17 @@ ul#steps {
 	float:left;
 }
 #eventsmessage {
-	color: #999;
+	color: #fff;
 	font-style: normal;
-	font-size: 18px;
+	font-size: 20px;
 	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
-	width: 560px;
+	width: 600px;
 	position: absolute;
-	left: 12px;
-	top: 25px;
+	left: 220px;
+	top: 35px;
+}
+#eventsmessage p {
+	line-height: 26px;
 }
 .category-products {
 	margin-top:15px;
@@ -1098,6 +1101,9 @@ ul#steps {
 	padding:0 13px 50px;
 	list-style: none;
 	margin-top:50px;
+}
+.catalog-category-view .category-products {
+	margin-top:38px;
 }
 .catalog-category-view .eventlist_products {
 	padding-bottom:0;
@@ -2209,11 +2215,13 @@ p.callout { font-size:18px; line-height:24px; }
 	overflow: hidden;
 	margin-top: -49px;
 }
+#event_callout #carousel .carousel-wrap {
+	width:1200px;
+	margin:0 auto;
+}
 #event_callout #carousel, #event_callout #carousel li {
 	height:372px;
-}
-#event_callout #carousel {
-	width:100%;
+	background: #000;
 }
 #event_callout .event_info_contain {	
 	background:  black url(../images/eventsbg.png) bottom center no-repeat;
@@ -2388,7 +2396,7 @@ p.callout { font-size:18px; line-height:24px; }
   top: 0;
 }
 #carousel ul { list-style:none; padding:0; margin:0; }
-#carousel ul li { float:left; height:450px; width:100%; position:relative; }
+#carousel ul li {  float:left; height:450px; width: 1200px; position:relative; }
 #carousel ul li img { position:absolute; top:0; left:0; width: 100%; }
 
 #carousel .carousel-previous {
