@@ -85,7 +85,7 @@ $currentUrl = $this->helper('core/url')->getCurrentUrl();
       <div id="footer_sublinks_right">
         <a href="/faqs">faq's</a>
         <a href="/blog" class="last">blog</a>
-        <a href="/media/presskit.zip" class="presskit_footer">&nbsp;</a>
+        <a href="/downloadable/Kapow%20Events%20Press%20Kit.pdf" class="presskit_footer">&nbsp;</a>
       </div>
   </div>
 	<div id="copy">
@@ -131,7 +131,7 @@ $currentUrl = $this->helper('core/url')->getCurrentUrl();
       ?>
       <div class="modal-form">
       	<div id="login-modal">
-	      <!-- <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('lightbox-login-or-signup')->toHtml(); ?> -->
+      		<div id="kapowlogo"></div>
 	      <div id="signin">Sign In</div>
           <form action="<?php echo $this->helper('customer')->getLoginPostUrl() .'referer/'. Mage::helper('core')->urlEncode($url); ?>" id="login-form" method="post">
 	      <input type="text" name="login[username]" id="modal-email" value="Username or Email" class="modal-input" maxlength="255" /><br/>
@@ -145,7 +145,6 @@ $currentUrl = $this->helper('core/url')->getCurrentUrl();
 		      <div><a class="modal-reset" href="/customer/account/forgotpassword/">Forgot Your <span class="resetbold">Username?</span> or <span class="resetbold">Password?</span></a></div>
 	      </div>
       	</div>
-      	<div id="kapowlogo"></div>
       </div>
       <div id="signup-modal">
       	<div id="signupheader">Why aren't you a member?!</div>
@@ -160,7 +159,9 @@ $currentUrl = $this->helper('core/url')->getCurrentUrl();
           <input type="text" name="firstname" id="signup-firstname" value="First Name" class="modal-input" maxlength="255" />
 	      <input type="text" name="lastname" id="signup-lastname" value="Last Name" class="modal-input" maxlength="255" />
           <input type="text" name="email" id="signup-email" value="E-Mail" class="modal-input" maxlength="255" />
-          <div class="logintext clearfix">
+          <input type="text" name="phone" id="signup-phone" value="Phone" class="modal-input" maxlength="255" />
+          <div class="clearfix"></div>
+          <div class="logintext">
           	Login Information
           </div>
           <input type="text" id="signup-passwordText" value="Password" class="modal-input" maxlength="255" />
