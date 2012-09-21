@@ -254,9 +254,9 @@ var cj =
       fp.$text.first().addClass('active');
 
       // Start the timer
-      self.timer_is_on = false;
+      self.timer_is_on = true;
 
-      var interval = 7000,
+      var interval = 10000,
           count    = 2;
 
       self.timer = setInterval(function(){
