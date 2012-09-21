@@ -1091,6 +1091,7 @@ ul#steps {
 .eventlist_events_header_link:hover {
 	border-bottom:2px transparent;
 	color:#fff;
+    opacity: 1;
 }
 .header_active {
 	border-bottom: 1px #333 solid;
