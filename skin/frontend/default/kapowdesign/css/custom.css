@@ -1352,7 +1352,7 @@ a.event_details_link:hover {
 #view_all_events {
 	position: absolute;
 	bottom:-32px;
-	left:38%;
+	left:348px;
 	padding-top:20px;
 	height:40px;
 	width:257px;
@@ -1591,7 +1591,7 @@ a.event_details_link:hover {
 #success_bottom #viewallnews {
 	position: absolute;
 	bottom:-32px;
-	left:38%;
+	left:411px;
 	padding-top:20px;
 	height:40px;
 	width:257px;
@@ -2017,8 +2017,8 @@ a.presskit_news:hover {
 	height:195px;
 	background: url(../images/contact_logo.png) no-repeat;
 	position: absolute;
-	top: -95px;
-	left: 42%;
+	top: -241px;
+	left: 433px;
 }
 
 #footer_sublinks {
@@ -2027,7 +2027,7 @@ a.presskit_news:hover {
 	width:100%;
 	position: relative;
 }
-#footer_sublinks a {
+#footer_sublinks a:link, #footer_sublinks a:visited{
   font-size: 12px;
   font-family:'BrandonG Light','Arial Narrow',sans-serif;
   line-height: 12px;
@@ -2037,14 +2037,17 @@ a.presskit_news:hover {
   margin-top: 28px;
   margin-right:30px;
 }
+#footer_sublinks a:hover {
+	border-bottom:2px solid transparent;
+	color:#000;
+}
 #footer_sublinks_left {
-	width:40%;
 	float: left;
 }
 #footer_sublinks_right {
 	width:130px;
 	float: left;
-	margin-left:272px;
+	margin-left: 284px;
 	position: relative;
 }
 #footer_sublinks a.last {
@@ -2056,25 +2059,30 @@ a.presskit_news:hover {
 #footer_sublinks_right a {
 	float:left;
 }
-#footer_sublinks_right a.presskit_footer {
+a.presskit_footer {
 	display: block;
 	width: 162px;
 	height: 75px;
 	background: url(../images/press_kit_sm.png) no-repeat;
 	position: absolute;
-	left: 135px;
+	right: -80px;
 	top: -34px;
 }
-#footer_sublinks_right a.presskit_footer:hover {
+a.presskit_footer:hover {
 	border-bottom: 2px transparent;
 }
-#footerlogo {
+a#footerlogo:link {
 	width:258px;
 	height:82px;
 	background:url(../images/footerlogo.png) no-repeat;
 	position: absolute;
-	left: 39%;
+	left: 269px;
 	top: -18px;
+	display:block;
+	margin:0;
+}
+a#footerlogo:hover {
+	border-bottom: 2px transparent solid;
 }
 
 #copy {
@@ -2089,7 +2097,11 @@ a.presskit_news:hover {
 	width:100%;
 	height:35px;
 }
-
+#footerlinks-container {
+	position: relative;
+	width: 800px;
+	margin: 0 auto;
+}
 
 /* =============================================================================
    CONTENT
