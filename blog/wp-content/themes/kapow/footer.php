@@ -73,7 +73,7 @@
         <a href="/terms-of-use">terms of use</a>
         <a href="/privacy-statement">privacy statement</a>
       </div>
-      <div id="footerlogo"></div>
+      <a href="/" id="footerlogo"></a>
       <div id="footer_sublinks_right">
         <a href="/faqs">faq's</a>
         <a href="/blog" class="last">blog</a>
