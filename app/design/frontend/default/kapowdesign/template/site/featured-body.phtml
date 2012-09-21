@@ -116,7 +116,7 @@ if (!$perPerson) {
 									if ($cat == 10)
 										$event_icons[5] = " active";
 								}
-			                                        echo "<a href='". $the_link ."' title='". $this->stripTags($_product->getName(), null, true) ."'>";					
+			                                        echo "<a class='$extra_class' href='". $the_link ."' title='". $this->stripTags($_product->getName(), null, true) ."'>";					
 								echo "<div class=\"product_header{$font_size}\">{$name}</div>";
 								?>
 								<div class="eventlist_event_image" style="background: url(<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->keepAspectRatio(true)->resize(330,null); ?>) no-repeat;"></div>
