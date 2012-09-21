@@ -3040,3 +3040,5 @@ body.cms-page-view {
 }
 
 #eventlist_events_container:focus {outline: none;}
+
+.featured_product_text .product_info a.event_details_link:hover { color: #000;}
