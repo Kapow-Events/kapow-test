@@ -76,6 +76,7 @@
       <div id="footer_sublinks_right">
         <a href="/faqs">faq's</a>
         <a href="/blog" class="last">blog</a>
+        <a href="/media/downloadable/Kapow%20Events%20Press%20Kit.pdf" class="presskit_footer">&nbsp;</a>
       </div>
   </div>
 	<div id="copy">
