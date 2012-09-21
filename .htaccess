@@ -120,7 +120,21 @@
 ## you can put here your magento root folder
 ## path relative to web root
 
-    #RewriteBase /magento/
+    #RewriteBase /
+
+    #RedirectPermanent http://www.kapowevents.com/?utm_source=EventsWired&utm_campaign=e651766f8c-Newsletter_4_194_19_2012&utm_medium=email http://www.kapowevents.com/
+
+    #RewriteCond %{QUERY_STRING} utm_source=EventsWired&utm_campaign=e651766f8c-Newsletter_4_194_19_2012&utm_medium=email
+	#RewriteRule ^utm_source=EventsWired&utm_campaign=e651766f8c-Newsletter_4_194_19_2012&utm_medium=email http://www.kapowevents.com/ [R]
+	
+	RewriteCond %{QUERY_STRING} utm_source=EventsWired
+	RewriteCond %{QUERY_STRING} utm_medium=email
+    RewriteRule (.*) http://www.kapowevents.com/? [R]
+
+
+    #RewriteCond %{QUERY_STRING} utm_source=EventsWired&utm_campaign=e651766f8c-Newsletter_4_194_19_2012&utm_medium=email
+    #RewriteRule ^index.php http://www.kapowevents.com/ [R=301]
+
 
 ############################################
 ## workaround for HTTP authorization

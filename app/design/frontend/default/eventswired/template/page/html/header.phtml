@@ -27,14 +27,6 @@
  * @var Mage_Page_Block_Html_Header $this
  */
 ?>
-  <?php if ( !$this->helper('customer')->isLoggedIn() ) : ?>
-    <div id="slidebox">
-      <div class="content">
-        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('slidebox-presidents-letter')->toHtml(); ?>
-      </div>
-      <div id="slidebox_close">close</div>
-    </div>
-  <?php endif; ?>
 
 
   <?php

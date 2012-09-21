@@ -42,6 +42,7 @@ try {
     Mage::getConfig()->init()->loadEventObservers('crontab');
     Mage::app()->addEventArea('crontab');
     Mage::dispatchEvent('default');
+    Mage::log("Cron run");
 } catch (Exception $e) {
     Mage::printException($e);
 }
