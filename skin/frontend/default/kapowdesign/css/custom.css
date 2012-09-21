@@ -1058,14 +1058,17 @@ ul#steps {
 	float:left;
 }
 #eventsmessage {
-	color: #999;
+	color: #fff;
 	font-style: normal;
-	font-size: 18px;
+	font-size: 20px;
 	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
-	width: 560px;
+	width: 600px;
 	position: absolute;
-	left: 12px;
-	top: 25px;
+	left: 220px;
+	top: 35px;
+}
+#eventsmessage p {
+	line-height: 26px;
 }
 .category-products {
 	margin-top:15px;
@@ -1086,7 +1089,8 @@ ul#steps {
 	margin-right:15px;
 }
 .eventlist_events_header_link:hover {
-	border:none;
+	border-bottom:2px transparent;
+	color:#fff;
 }
 .header_active {
 	border-bottom: 1px #333 solid;
@@ -1098,6 +1102,9 @@ ul#steps {
 	padding:0 13px 50px;
 	list-style: none;
 	margin-top:50px;
+}
+.catalog-category-view .category-products {
+	margin-top:38px;
 }
 .catalog-category-view .eventlist_products {
 	padding-bottom:0;
@@ -1152,7 +1159,7 @@ ul#steps {
 }
 .eventlist_event_image {
 	width:100%;
-	height:120px;
+	height:149px;
 	margin-top: -5px;
 }
 .eventlist_product_info {
@@ -1192,9 +1199,9 @@ ul#steps {
 	margin-right:20px;
 }
 .eventlist_event_detail_bubble .bubble_text {
-	width: 50px;
+	width: 78px;
 	position: absolute;
-	left: 13px;
+	left: 0px;
 	top: 15px;
 	text-align: center;
 	font-size: 22px;
@@ -1515,14 +1522,14 @@ a.event_details_link:hover {
 }
 #recent_success li {
 	width:236px;
-	height:248px;
+	height:265px;
 	list-style: none;
 	float:left;
 	border-right:1px #ccc solid;
 	padding:0 13px 25px;
 	overflow: hidden;
 }
-#recent_success li.endrow {
+#recent_success li.endrow, #recent_success li.last {
 	border-right: none;
 }
 #recent_success li.bottom_row {
@@ -1562,7 +1569,7 @@ a.event_details_link:hover {
 #recent_success .success_content {
 	font-family: 'BrandonG Light', Arial, sans-serif;
 	text-transform: uppercase;
-	height: 98px;
+	height: 115px;
 	overflow: hidden;
 	padding-top: 10px;
 }
@@ -1937,6 +1944,52 @@ a.presskit_news:hover {
 	padding-top:40px;
 }
 
+/* ======= BOOKING ======== */
+
+#booking-container {
+	position: relative;
+	font-family: 'BrandonG', Arial, sans-serif;
+}
+#booking_order {
+	position: absolute;
+	z-index: 1000;
+	background: url(../images/recent_bg.png);
+	margin:0;
+	height:318px;;
+	top: 236px;
+	left: -25px;
+}
+#booking_order h4 {	
+	font-size: 22px !important;
+	border: none !important;
+	padding-bottom: 0 !important;
+	margin: 10px;
+}
+#booking_order .yui-skin-sam .yui-calendar .calheader {
+	padding:0 !important;
+}
+#booking_order .yui-skin-sam .yui-calcontainer, #booking_order #cal1Container {
+	background: transparent;
+	border:none;
+}
+#booking_order .booking-order .booking-dates label {
+	float:none;
+}
+#booking_order #booking_to_contain, #booking_order #booking_from_contain {
+	float:Left;
+}
+#booking_order .booking-dates {
+	padding:0;
+}
+.add-to-cart {
+	padding-bottom:230px;
+}
+#product-options-wrapper .price-box {	
+	position: absolute;
+	bottom: 368px;
+	left: 367px;
+}
+
 /* ======== FOOTER ======= */
 #footer {
   padding: 130px 0 30px 0;
@@ -1945,7 +1998,7 @@ a.presskit_news:hover {
   -moz-box-shadow:    inset 0 5px 10px rgba(0,0,0,0.1);
   box-shadow:         inset 0 5px 10px rgba(0,0,0,0.1);
   position:relative;
-  background: #fff;
+  background: url(../images/recent_bg.png);
 }
 #footer p { font-family:'BrandonG Bold',Arial,sans-serif; font-style:normal; margin:10px 0; font-size:13px; }
 
@@ -2157,17 +2210,29 @@ p.callout { font-size:18px; line-height:24px; }
 
 #event_callout {
 	position: relative;
-	background: #555;
+	background: #000;
 	height: 784px;
 	width: 100%;
 	overflow: hidden;
 	margin-top: -49px;
 }
+#event_callout #carousel {
+	width:1200px;
+	margin:0 auto;
+}
+#event_callout #carousel:focus {
+	outline:none;
+}
+#event_callout #carousel .carousel-wrap {
+	width:1200px;
+	margin:0 auto;
+}
+#event_callout #carousel .carousel-wrap:focus {
+	outline:none;
+}
 #event_callout #carousel, #event_callout #carousel li {
 	height:372px;
-}
-#event_callout #carousel {
-	width:100%;
+	background: #000;
 }
 #event_callout .event_info_contain {	
 	background:  black url(../images/eventsbg.png) bottom center no-repeat;
@@ -2251,7 +2316,7 @@ p.callout { font-size:18px; line-height:24px; }
 	margin-left:-3px;
 }
 #glancecontainer #glance_groupsize {
-	background: url(../images/event-detail-idealgroupsize.png) no-repeat;
+	background: url(../images/event-detail-groupsize.png) no-repeat;
 }
 #glancecontainer #glance_idealfor {
 	width:100px;
@@ -2308,9 +2373,11 @@ p.callout { font-size:18px; line-height:24px; }
 }
 
 #event_callout .imageholder {
-	width: 100%;
+	width: 1200px;
 	float:none;
 	height: 372px;
+	margin: 0 auto;
+	position: relative;
 }
 
 #event_callout .corner_info {
@@ -2337,13 +2404,13 @@ p.callout { font-size:18px; line-height:24px; }
 #carousel {
   position: absolute;
   height: 450px;
-  width: 1500px;
+  width: 100%;
   left: 0;
   top: 0;
 }
 #carousel ul { list-style:none; padding:0; margin:0; }
-#carousel ul li { float:left; height:450px; width:1500px; position:relative; }
-#carousel ul li img { position:absolute; top:0; left:0; }
+#carousel ul li {  float:left; height:450px; width: 1200px; position:relative; }
+#carousel ul li img { position:absolute; top:0; left:0; width: 100%; }
 
 #carousel .carousel-previous {
   background: url(../images/css-sprites.png) -125px -329px no-repeat;
@@ -2461,7 +2528,7 @@ a#backtoall:hover {
 
 #fancybox-outer {
 	background: transparent;
-	margin-top:60px;
+	margin-top:40px;
 }
 #fancybox-overlay { position:absolute; }
 #fancybox-close { 
@@ -2476,10 +2543,9 @@ a#backtoall:hover {
 	top: -70px;
 }
 .lightbox-modal {
-	width: 560px;
-	left: 25%;
+	width: 980px;
+	left: 10%;
 	z-index: 1501;
-	background: url(../images/signin-formbg.png);
 	color: #fff;
 	font-family: 'BrandonG Light Italic', 'Arial Narrow', sans-serif;
 	font-style: normal;
@@ -2525,28 +2591,30 @@ a#backtoall:hover {
 	margin-bottom:40px;
 }
 .lightbox-modal .modal-form {
-	height:290px;
+	width: 300px;
+	height: 475px;
 	position: relative;
+	background: rgba(113, 37, 22, 0.6);
 }
 .lightbox-modal #signin {
 	position: absolute;
-	left: 35px;
-	top: 38px;
-	font-size: 40px;
+	left: 107px;
+	top: 102px;
+	font-size: 24px;
 	text-transform: uppercase;
 	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
 	font-style: normal;
 }
 .lightbox-modal #login-form {
-	width: 490px;
+	width: 255px;
 	position: absolute;
-	top: 90px;
-	left:0;
-	padding: 22px 35px;
+	top: 150px;
+	left: 0;
+	padding: 27px 23px;
 	background: #712516;
 }
 .lightbox-modal .modal-input {
-	width: 291px;
+	width: 236px;
 	padding:4px 11px;
 	margin-bottom:10px;
 	background:#110e0e;
@@ -2563,7 +2631,7 @@ a#backtoall:hover {
 	width: 153px;
 	background: url(../images/kapow-modal-logo.png) no-repeat;
 	position: absolute;
-	right:40px;
+	right:75px;
 	top:25px;
 }
 #signin-button {
@@ -2573,16 +2641,17 @@ a#backtoall:hover {
 	margin-top:40px;
 }
 #signup-modal {
-	width: 100%;
-	height:700px;
+	width: 660px;
+	height:475px;
 	background:#000;
-	margin: 0 auto;
 	font-size: 21px;
 	line-height: 21px;
 	font-style: normal;
 	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
 	color:#ccc;
-	position: relative;
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 #signup-modal #signup-top {
 	margin-top: -20px;
@@ -2596,24 +2665,22 @@ a#backtoall:hover {
 	border-bottom: 1px #222 solid;
 }
 #signup-form {
-	width: 419px;
+	width: 543px;
 	position: absolute;
 	bottom: 0;
 	left: 65px;
 }
-#signup-modal #signup-phone {
+#signup-modal .modal-input {
+	padding: 4px 11px;
+	margin-bottom: 10px;
+	background: #110E0E;
+	font-family: 'BrandonG Light Italic', 'Arial Narrow', sans-serif;
+	color: white;
+	border: none;
+	font-size: 18px;
+	width:234px;
+	margin-right:10px;
 	float:left;
-	width:145px;
-	margin-top:-21px;
-	margin-left:18px;
-}
-#signup-modal #signup-firstname, #signup-modal #signup-password, #signup-modal #signup-passwordText {
-	float: left;
-	width: 188px;
-}
-#signup-modal #signup-lastname, #signup-modal #signup-confirmation, #signup-modal #signup-confirmationText {
-    float:right;
-    width:177px;
 }
 .lightbox-modal .modal-signin-button {
 	background: url(../images/modal-signin.png) no-repeat;
@@ -2621,8 +2688,8 @@ a#backtoall:hover {
 	height:41px;
 	border:none;
 	position: absolute;
-	right: 30px;
-	top: 42px;
+	right: 67px;
+	bottom: -70px;
 }
 .lightbox-modal .modal-signin-button span {
 	display: block;
@@ -2636,7 +2703,7 @@ a#backtoall:hover {
 	width: 325px;
 	position: absolute;
 	bottom: 28px;
-	left: 45px;
+	left: 35px;
 }
 .lightbox-modal .modal-links a {
 	color: white;
@@ -2663,28 +2730,40 @@ a#backtoall:hover {
 }
 #whoweare {
 	position: absolute;
-	top: 110px;
-	left:35px;
-	width:486px;
+	top: 74px;
+	left:36px;
+	width:592px;
 }
 #whoweare p, #signupbelow p {
 	font-size:20px;
 }
 #signupbelow {
 	position: absolute;
-	top: 242px;
+	top: 110px;
 	left: 35px;
-	padding-top: 30px;
-	height: 176px;
-	width: 486px;
+	padding-top: 15px;
+	height: 137px;
+	width: 592px;
 	border-top: 1px solid #333;
-	border-bottom: 1px solid #333;
+}
+#signupbelow ul {
+	margin:0;
 }
 .lightbox-modal .logintext {
-	margin:15px 0 10px -10px;	
+	float: left;
+	margin-right: 10px;
+	margin-top: 7px;
+	font-size: 18px;
+	color: white;
+	font-family: 'BrandonG',Arial,sans-serif;
+}
+.lightbox-modal #signup-password, .lightbox-modal #signup-confirmation, 
+.lightbox-modal #signup-confirmationText, .lightbox-modal #signup-passwordText {
+	width:166px;
 }
 .lightbox-modal #modal-button-contain {
-	margin: 0 auto;
+	margin: 0 18px 18px;
+	float: right;
 	width: 168px;
 }
 .lightbox-modal .modal-continue {
@@ -2809,13 +2888,17 @@ a:hover { color: #333; }
 
 .checkout-cart-index, .checkout-onepage-index, .sales-order-history, 
 .customer-account-logoutsuccess, .customer-account-login, .customer-account-create, .cms-faqs
-.cms-privacy-statement, .cms-terms-of-use {
+.cms-privacy-statement, .cms-terms-of-use, .customer-account-edit, .customer-address-index,
+.customer-account-forgotpassword, .sales-order-view, .customer-address-form,
+body.cms-page-view {
 	background: black url(../images/recent_bg.png);
 }
 .checkout-onepage-index .main, .sales-order-history .main, 
 .customer-account-logoutsuccess .main, .customer-account-login .main,
 .customer-account-create .main, .cms-faqs .main, .cms-privacy-statement .main, 
-.cms-terms-of-use .main {
+.cms-terms-of-use .main, .customer-account-edit .main, .customer-address-index .main,
+.customer-account-forgotpassword .main, .sales-order-view .main, .customer-address-form .main,
+.cms-page-view .main {
 	margin-bottom:140px;
 	font-family: 'BrandonG', Arial, sans-serif;
 }

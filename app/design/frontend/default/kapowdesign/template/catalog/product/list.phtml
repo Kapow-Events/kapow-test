@@ -117,16 +117,16 @@
 						if ($event_cost == "No")
 							$event_cost = "?";
                         $perPerson 		= $_product->getResource()->getAttribute('per_person_cost');
-						if (!$perPerson) {
-					        $cost = '';
-					    } else {
-					        if ($perPerson && $perPerson->getFrontend()->getValue($_product) != NULL) {
-					            $cost = round($perPerson->getFrontend()->getValue($_product));
-					        }
-					        else {
-					            $cost = number_format($_product->getFinalPrice(),0);
-					        }
-					    }
+						if ($not_logged_in) {
+                                $cost = $cost;
+                        } else {
+                            if ($perPerson && $perPerson->getFrontend()->getValue($_product) == "") {
+                                $cost 		= "$".round($_product->getResource()->getAttribute('price')->getFrontend()->getValue($_product));
+                            }
+                            else {
+                                $cost 		= "$".round($perPerson->getFrontend()->getValue($_product));
+                            }
+                        }
 
 					    
 					    $linkstatus = 'class="event_details_link';
@@ -167,7 +167,7 @@
 						<div class="eventlist_event_details">
 							<div id="eventlist_per_person" class="eventlist_event_detail_bubble">
 								<div class="bubble_text">
-									<?php echo (Mage::getSingleton('customer/session')->isLoggedIn() ? "$".$cost : $event_cost) ?>
+									<?php echo (Mage::getSingleton('customer/session')->isLoggedIn() ? $cost : $event_cost) ?>
 								</div>
 								<div id="eventlist_per_person_tag" class="event_detail_tag">Per Person</div>
 							</div>

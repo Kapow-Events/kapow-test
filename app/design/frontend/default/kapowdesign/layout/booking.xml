@@ -120,7 +120,7 @@ Onepage Checkout Review Page
             <block type="core/template" name="booking_head" template="booking/catalog/product/view/head.phtml"/>
             <action method="addJs"><script>aw_booking/dateformat-prototype.js</script></action>
         </reference>
-        <reference name="product.info">
+        <reference name="product.info.options.wrapper">
             <block type="booking/catalog_product_view_type_simple" name="product.info.simple" as="product_type_data"/>
 
             <block type="booking/catalog_product_view" name="product.info.booking" as="other" template="booking/catalog/product/view.phtml">

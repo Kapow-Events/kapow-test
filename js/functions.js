@@ -56,7 +56,7 @@ var cj =
       'hideOnContentClick': false,
       'overlayShow': true,
       'overlayColor': '#000',
-      'overlayOpacity': 0.7,
+      'overlayOpacity': 0.8,
       'showCloseButton': true,
       'enableEscapeButton': false,
       'centerOnScroll': false,
@@ -254,9 +254,9 @@ var cj =
       fp.$text.first().addClass('active');
 
       // Start the timer
-      self.timer_is_on = false;
+      self.timer_is_on = true;
 
-      var interval = 7000,
+      var interval = 10000,
           count    = 2;
 
       self.timer = setInterval(function(){
@@ -381,8 +381,6 @@ var cj =
 		});
   }
 };
-
-
 
 jQuery.noConflict();
 

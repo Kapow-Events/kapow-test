@@ -37,12 +37,12 @@
 
 	?></title>
  <link href="http://fonts.googleapis.com/css?family=Quicksand:400,300,700%7CCabin:400,600,500%7CHomenaje" rel="stylesheet" type="text/css">
-<script src="http://ec2-23-20-73-152.compute-1.amazonaws.com/js/modernizr-2.0.6.min.js" type="text/javascript"></script>
-  <link rel="icon" href="http://ec2-23-20-73-152.compute-1.amazonaws.com/skin/frontend/default/kapowdesign/images/favicon.gif" type="image/x-icon">
-  <link rel="shortcut icon" href="http://ec2-23-20-73-152.compute-1.amazonaws.com/skin/frontend/default/kapowdesign/images/favicon.gif" type="image/x-icon">
+<script src="/js/modernizr-2.0.6.min.js" type="text/javascript"></script>
+  <link rel="icon" href="/skin/frontend/default/kapowdesign/images/favicon.gif" type="image/x-icon">
+  <link rel="shortcut icon" href="/skin/frontend/default/kapowdesign/images/favicon.gif" type="image/x-icon">
   
 <link rel="profile" href="http://gmpg.org/xfn/11" />
-<link rel="stylesheet" type="text/css" href="http://ec2-23-20-73-152.compute-1.amazonaws.com/skin/frontend/default/kapowdesign/css/custom.css" media="all">
+<link rel="stylesheet" type="text/css" href="/skin/frontend/default/kapowdesign/css/custom.css" media="all">
 <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <?php
@@ -97,25 +97,25 @@ _gaq.push(['_trackPageview']);
     
           <div id="primary_navigation">
             <ul id="primary_navigation_left">
-    			<li><a href="http://ec2-23-20-73-152.compute-1.amazonaws.com/events">events</a></li>
-    			<li><a href="http://ec2-23-20-73-152.compute-1.amazonaws.com/">home</a></li>
+    			<li><a href="/events">events</a></li>
+    			<li><a href="/">home</a></li>
     		</ul>        
     		<ul id="primary_navigation_right">
-			    <li><a data-rel="#about_events_wired" href="http://ec2-23-20-73-152.compute-1.amazonaws.com/about-magento-demo-store/">about</a></li>
-			    <li><a data-rel="#recent_success" href="http://ec2-23-20-73-152.compute-1.amazonaws.com/#recent_success">news</a></li>
+			    <li><a data-rel="#about_events_wired" href="/about-us">about</a></li>
+			    <li><a data-rel="#recent_success" href="/#recent_success">news</a></li>
     		</ul>      
     	  </div><!-- primary_navigation -->
     	  <div id="secondary_navigation">
     	  		<div id="leftarrow" class="arrow"></div>
     	        <div id="rightarrow" class="arrow"></div>
     	          <ul id="secondary_navigation_left">
-    	         	<li class=""><a href="http://ec2-23-20-73-152.compute-1.amazonaws.com/sales/order/history/" title="My Account">My Account</a></li>
+    	         	<li class=""><a href="/sales/order/history/" title="My Account">My Account</a></li>
     	  			<!--  <li class="spacer_dot"></li> -->
-    	            <li class=" "><a href="http://ec2-23-20-73-152.compute-1.amazonaws.com/customer/account/login/referer/aHR0cDovL2VjMi0yMy0yMC03My0xNTIuY29tcHV0ZS0xLmFtYXpvbmF3cy5jb20v/" title="Login">Login</a></li>          
+    	            <li class=" "><a href="/customer/account/login/" title="Login">Login</a></li>          
     	          </ul>
     	          <ul id="secondary_navigation_right">
-    	  			<li><a data-rel="#recent_success" href="http://ec2-23-20-73-152.compute-1.amazonaws.com/#contact">contact</a></li>
-                                <li><a data-rel="#recent_success" href="http://ec2-23-20-73-152.compute-1.amazonaws.com/checkout/cart/">my cart</a></li>
+    	  			<li><a data-rel="#recent_success" href="/#contact">contact</a></li>
+                                <li><a data-rel="#recent_success" href="/checkout/cart/">my cart</a></li>
     	  			
     	  		  </ul>      
     	  		</div><!-- secondary_navigation -->

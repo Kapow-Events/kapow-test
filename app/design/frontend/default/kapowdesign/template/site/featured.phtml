@@ -43,7 +43,6 @@
 							$group_size_max = $_product->getResource()->getAttribute('event_group_size_max')->getFrontend()->getValue($_product);
 							$cost			= $_product->getAttributeText('event_cost_size');
                             $perPerson  = $_product->getResource()->getAttribute('per_person_cost');
-
 							if ($group_size_min == "") {
 								$group_size_string = $group_size_max;
 							}
@@ -53,17 +52,27 @@
 							else {
 								$group_size_string = $group_size_min . " - " . $group_size_max;
 							}
-							if (!$perPerson) {
-                                    $cost = '';
+							if ($not_logged_in) {
+                                    $cost = $_product->getAttributeText('event_cost_size');;
                             } else {
                                 if ($perPerson && $perPerson->getFrontend()->getValue($_product) == "") {
-                                    $cost 		= round($_product->getResource()->getAttribute('price')->getFrontend()->getValue($_product));
+                                    $cost 		= "$".round($_product->getResource()->getAttribute('price')->getFrontend()->getValue($_product));
                                 }
                                 else {
-                                    $cost 		= round($perPerson->getFrontend()->getValue($_product));
+                                    $cost 		= "$".round($perPerson->getFrontend()->getValue($_product));
                                 }
                             }
+                            
+                            $linkstatus1 = 'class="get_started';
+						    $linkstatus1 .= $extra_class . '" ';
+						    $linkstatus1 .= 'href="'.$the_link.'"';
+						    $linkstatus1 .= ($not_logged_in ? ' rev="'.Mage::helper('core')->urlEncode($_product->getProductUrl()).'"' : '');
 
+						    $linkstatus2 = 'class="event_details_link';
+						    $linkstatus2 .= $extra_class . '" ';
+						    $linkstatus2 .= 'href="'.$the_link.'"';
+						    $linkstatus2 .= ($not_logged_in ? ' rev="'.Mage::helper('core')->urlEncode($_product->getProductUrl()).'"' : '');
+	
 							
 							echo "<div class=\"product_header{$font_size}\">{$name}</div>";
 							/*?>
@@ -78,7 +87,7 @@
 							<div class="event_details_info" id="event_detail_group">
 								Group Size - <?php echo $group_size_string ?>
 							</div>
-							<a class="event_details_link<?php echo $extra_class ?>" href="<?php echo $the_link ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>">Buy Now &gt;</a>
+							<a <?php echo $linkstatus2 ?> title="<?php echo $this->stripTags($_product->getName(), null, true) ?>">Buy Now &gt;</a>
 						</div>
 						<div class="event_flare"></div>
 					</div>
@@ -93,7 +102,7 @@
 				<div id="statement">
 					<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header_sell_statement')->toHtml() ?> 
 				</div>
-				<a href="#lightbox-signup-or-login" id="get_started" class="get_started<?php echo $extra_class ?>" title="Get Started">Get Started &gt;</a>
+				<a <?php echo $linkstatus1 ?> id="get_started" title="Get Started">Get Started &gt;</a>
 			</section>
 		</div>
 	</div>
