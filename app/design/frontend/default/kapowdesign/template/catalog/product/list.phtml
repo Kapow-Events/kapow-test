@@ -118,7 +118,7 @@
 							$event_cost = "?";
                         $perPerson 		= $_product->getResource()->getAttribute('per_person_cost');
 						if ($not_logged_in) {
-                                $cost = $cost;
+                                $cost = $event_cost;
                         } else {
                             if ($perPerson && $perPerson->getFrontend()->getValue($_product) == "") {
                                 $cost 		= "$".round($_product->getResource()->getAttribute('price')->getFrontend()->getValue($_product));
