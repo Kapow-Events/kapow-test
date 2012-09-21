@@ -1370,6 +1370,7 @@ a.event_details_link:hover {
 }
 #view_all_events:hover {
 	border-bottom: 2px solid transparent;
+        color: #C44427;
 }
 
 .catalog-category-view .pager {
@@ -1609,6 +1610,7 @@ a.event_details_link:hover {
 }
 #success_bottom #viewallnews:hover {
 	border-bottom:2px solid transparent;
+        color: #000;
 }
 a.presskit_news {
 	position: absolute;
