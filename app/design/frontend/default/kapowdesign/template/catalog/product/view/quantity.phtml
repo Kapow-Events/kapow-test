@@ -10,7 +10,7 @@ if (Mage::getSingleton('customer/session')->isLoggedIn() && $roleId != 4): ?>
 <?php if($_product->isSaleable()): ?>
     <div class="add-to-cart">
         <?php if(!$_product->isGrouped()): ?>
-            <h4>Build Your Event</h4>
+            <h4><a name="build-your-event"/>Build Your Event</h4>
             <table>
                 <col width="auto" />
                 <col width="auto" />
