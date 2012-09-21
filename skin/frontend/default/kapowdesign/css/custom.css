@@ -1582,7 +1582,7 @@ a.event_details_link:hover {
 	color:#000;
 }
 #recent_success #success_bottom {
-	width: 85%;
+	width: 1027px;
 	position: absolute;
 	bottom: 185px;
 	left: 7%;
@@ -1591,7 +1591,7 @@ a.event_details_link:hover {
 #success_bottom #viewallnews {
 	position: absolute;
 	bottom:-32px;
-	left:411px;
+	left:38%;
 	padding-top:20px;
 	height:40px;
 	width:257px;
