@@ -68,6 +68,7 @@
   </footer><!-- footer.outer_wrapper -->
   
   <div id="footer_sublinks">
+	<div id="footerlinks-container">
       <div id="footer_sublinks_left">
         <a href="/terms-of-use">terms of use</a>
         <a href="/privacy-statement">privacy statement</a>
@@ -78,6 +79,7 @@
         <a href="/blog" class="last">blog</a>
         <a href="/media/downloadable/Kapow%20Events%20Press%20Kit.pdf" class="presskit_footer">&nbsp;</a>
       </div>
+	</div>
   </div>
 	<div id="copy">
 		&copy; kapow events, llc,  All rights reserved.

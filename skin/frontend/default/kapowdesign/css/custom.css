@@ -1455,7 +1455,7 @@ a.event_details_link:hover {
 	background:#FDF6EE url(../images/recent_bg.png);
 	min-height:300px;
 	margin-top: -10px;
-	padding: 35px 0 270px;
+	padding: 35px 0 180px;
 	font-style: normal;
 	position: relative;
 }
@@ -1582,17 +1582,13 @@ a.event_details_link:hover {
 	color:#000;
 }
 #recent_success #success_bottom {
-	width: 85%;
-	position: absolute;
-	bottom: 185px;
-	left: 7%;
+	width: 1027px;
 	border-top: 1px solid #CCC;
+	margin:77px auto 0;
 }
 #success_bottom #viewallnews {
-	position: absolute;
-	bottom:-32px;
-	left:411px;
 	padding-top:20px;
+	margin: -31px auto 0;
 	height:40px;
 	width:257px;
 	display:block;
@@ -2016,9 +2012,7 @@ a.presskit_news:hover {
 	width:195px;
 	height:195px;
 	background: url(../images/contact_logo.png) no-repeat;
-	position: absolute;
-	top: -241px;
-	left: 433px;
+	margin: -233px auto 0;
 }
 
 #footer_sublinks {
@@ -2102,6 +2096,7 @@ a#footerlogo:hover {
 	width: 800px;
 	margin: 0 auto;
 }
+
 
 /* =============================================================================
    CONTENT
