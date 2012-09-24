@@ -32,7 +32,7 @@
 			
 			<!-- FOR POPUP-->
 			<action method="addCss"><stylesheet>css/testimonial/modalbox.css</stylesheet></action>			
-			<action method="addJs"><script>testimonial/Modalbox/scriptaculous.js?¬load=builder,effects</script></action>
+			<action method="addJs"><script>testimonial/Modalbox/scriptaculous.js?load=builder,effects</script></action>
 			<action method="addJs"><script>testimonial/Modalbox/modalbox.js</script></action>
 			
 		</reference>
