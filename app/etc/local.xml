@@ -41,9 +41,9 @@
             <default_setup>
                 <connection>
                     <host><![CDATA[localhost]]></host>
-                    <username><![CDATA[magentouser]]></username>
-                    <password><![CDATA[otnegam]]></password>
-                    <dbname><![CDATA[magento]]></dbname>
+                    <username><![CDATA[eventswi_magento]]></username>
+                    <password><![CDATA[@@_otnegam#]]></password>
+                    <dbname><![CDATA[eventswi_stage]]></dbname>
                     <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
                     <model><![CDATA[mysql4]]></model>
                     <type><![CDATA[pdo_mysql]]></type>
