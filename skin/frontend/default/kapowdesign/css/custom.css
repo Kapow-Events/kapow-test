@@ -354,18 +354,19 @@ button, input[type="button"], input[type="reset"], input[type="submit"] { cursor
 a.button_ribbon,
 input.button_ribbon {
   position: relative;
-  background: url(../images/css-sprites.png) 0 -162px no-repeat;
+/*   background: url(../images/css-sprites.png) 0 -162px no-repeat; */
+background: url(../images/ribbon_generic.png) no-repeat;
   color: #fff;
   text-transform: uppercase;
   text-align: center;
-  font-family: 'BrandonG Light',"Arial Narrow",Arial,sans-serif;
+  font-family: 'BrandonG Bold',"Arial Narrow",Arial,sans-serif;
   font-style: normal;
-  font-size: 12px;
+  font-size: 14px;
   padding: 0;
   border: none;
   display: block;
-  width: 142px;
-  height: 37px;
+  width: 168px;
+  height: 41px;
   line-height: 37px;
   z-index: 100;
   -webkit-transition: none;
@@ -2908,9 +2909,13 @@ body.cms-page-view, body.customer-account-index {
 .customer-account-create .main, .cms-faqs .main, .cms-privacy-statement .main, 
 .cms-terms-of-use .main, .customer-account-edit .main, .customer-address-index .main,
 .customer-account-forgotpassword .main, .sales-order-view .main, .customer-address-form .main,
-.cms-page-view .main, .customer-account-index .main {
+.cms-page-view .main, .customer-account-index .main, .main-container .main {
 	margin-bottom:140px;
 	font-family: 'BrandonG', Arial, sans-serif;
+}
+
+.customer-account-forgotpassword .col-main {
+	width:532px;
 }
 
 .product-options {
