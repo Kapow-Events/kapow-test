@@ -28,6 +28,10 @@
 
 <IfModule mod_php5.c>
 
+php_value error_log /home/eventswi/php_errors.log
+php_value error_reporting 30719 
+php_flag display_errors 1
+
 ############################################
 ## adjust memory limit
 
@@ -131,10 +135,11 @@
 	RewriteCond %{QUERY_STRING} utm_medium=email
     RewriteRule (.*) http://www.kapowevents.com/? [R]
 
+RewriteRule ^events\/evening\-on\-the\-potomac\.html$ "http\:\/\/www\.kapowevents\.com\/evening\-on\-the\-potomac\.html" [R=301,L]
+
 
     #RewriteCond %{QUERY_STRING} utm_source=EventsWired&utm_campaign=e651766f8c-Newsletter_4_194_19_2012&utm_medium=email
     #RewriteRule ^index.php http://www.kapowevents.com/ [R=301]
-
 
 ############################################
 ## workaround for HTTP authorization
@@ -160,7 +165,6 @@
     RewriteRule .* index.php [L]
 
 </IfModule>
-
 
 ############################################
 ## Prevent character encoding issues from server overrides
@@ -198,3 +202,6 @@
 ## http://developer.yahoo.com/performance/rules.html#etags
 
     #FileETag none
+RewriteCond %{HTTP_HOST} ^kapowevents\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.kapowevents\.com$
+
