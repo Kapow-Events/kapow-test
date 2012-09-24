@@ -53,11 +53,6 @@
   <!-- Mobile viewport optimized: h5bp.com/viewport -->
   <meta name="viewport" content="width=1150">
 
-  <?php if ( Mage::registry('current_product') && (Mage::app()->getFrontController()->getRequest()->getRouteName() != 'customer') && !$this->helper('customer')->isLoggedIn() && !isset($_GET['show_status_warning']) ) : ?>
-  <?php $operator = (strstr(Mage::helper('core/url')->getCurrentUrl(), '?')) ? '&' : '?'; ?>
-    <meta http-equiv="refresh" content="0;url=<?php echo Mage::helper('core/url')->getCurrentUrl() . $operator ?>show_status_warning" />
-  <?php endif ?>
-
   <? /** php $roleId = Mage::getSingleton('customer/session')->getCustomerGroupId(); ?>
   <?php if ( Mage::registry('current_product') && $this->helper('customer')->isLoggedIn() && $roleId == 4) : ?>
     <meta http-equiv="refresh" content="0;url=<?php echo Mage::helper('core/url')->getHomeUrl() ?>?show_purgatory_warning" />
