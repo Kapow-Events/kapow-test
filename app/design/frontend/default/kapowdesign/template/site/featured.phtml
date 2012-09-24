@@ -58,7 +58,7 @@
                                 if ($perPerson && $perPerson->getFrontend()->getValue($_product) == "") {
                                     $cost 		= "$".round($_product->getResource()->getAttribute('price')->getFrontend()->getValue($_product));
                                 }
-                                else {
+                                else if($perPerson) {
                                     $cost 		= "$".round($perPerson->getFrontend()->getValue($_product));
                                 }
                             }

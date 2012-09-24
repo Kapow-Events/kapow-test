@@ -2900,7 +2900,7 @@ a:hover { color: #333; }
 .customer-account-logoutsuccess, .customer-account-login, .customer-account-create, .cms-faqs
 .cms-privacy-statement, .cms-terms-of-use, .customer-account-edit, .customer-address-index,
 .customer-account-forgotpassword, .sales-order-view, .customer-address-form,
-body.cms-page-view {
+body.cms-page-view, body.customer-account-index {
 	background: black url(../images/recent_bg.png);
 }
 .checkout-onepage-index .main, .sales-order-history .main, 
@@ -2908,7 +2908,7 @@ body.cms-page-view {
 .customer-account-create .main, .cms-faqs .main, .cms-privacy-statement .main, 
 .cms-terms-of-use .main, .customer-account-edit .main, .customer-address-index .main,
 .customer-account-forgotpassword .main, .sales-order-view .main, .customer-address-form .main,
-.cms-page-view .main {
+.cms-page-view .main, .customer-account-index .main {
 	margin-bottom:140px;
 	font-family: 'BrandonG', Arial, sans-serif;
 }

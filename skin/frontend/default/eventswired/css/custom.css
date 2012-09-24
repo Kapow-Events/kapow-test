@@ -107,7 +107,8 @@ h1 {
 h2 {
   font-family: Quicksand,'Arial Narrow',Arial,sans-serif;
   font-size: 32px;
-  font-weight: 300;
+/*   font-weight: 300; */
+  font-weight: 400; /* added to fix Chrome on Windows */
   margin: 10px 0 50px 0;
   padding: 0;
   text-shadow: -3px 3px 0 #d4d2c6;
@@ -296,6 +297,7 @@ input.button_ribbon {
   text-transform: uppercase;
   text-align: center;
   font-family: Quicksand,"Arial Narrow",Arial,sans-serif;
+  font-weight: 400; /* added to fix chrome on windows */
   font-style: normal;
   font-size: 12px;
   padding: 0;
@@ -335,6 +337,7 @@ input.button_ribbon_small {
   text-transform: uppercase;
   text-align: center;
   font-family: Quicksand,"Arial Narrow",Arial,sans-serif;
+  font-weight: 400; /* added to fix Chrome on Windows */
   font-style: normal;
   font-size: 12px;
   padding: 0;
@@ -715,7 +718,8 @@ body.homepage #homepage_header_wrapper { display:block; }
   #primary_navigation a {
     display: block;
     font-family: Quicksand, "Arial Narrow", Arial, sans-serif;
-    font-weight: 300;
+   /*  font-weight: 300; */
+    font-weight: 400; /* added to fix Chrome on Windows */
     font-size: 16px;
     text-transform: uppercase;
     height: 38px;
@@ -859,6 +863,7 @@ p.callout { font-size:18px; line-height:24px; }
 
 .block-title {
   font-family: Quicksand,'Arial Narrow',Arial,sans-serif;
+  font-weight: 400; /* added to fix Chrome on Windows */
   font-style: normal;
   text-transform: uppercase;
   text-shadow: -1px 1px 0 white;
