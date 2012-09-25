@@ -1319,7 +1319,7 @@ a.event_details_link:link, a.event_details_link:visited {
 	bottom: -38px;
 	left:123px;
 	display:block;
-	width: 53px;
+	width: 54px;
 	height: 47px;
 	padding: 18px 14px;
 	background: url(../images/view_book.png) no-repeat;
@@ -2759,6 +2759,10 @@ a#backtoall:hover {
 }
 #signupbelow ul {
 	margin:0;
+}
+#signupbelow li em {
+	font-style: normal;
+	font-family: 'BrandonG Light Italic', 'Arial Narrow', sans-serif;
 }
 .lightbox-modal .logintext {
 	float: left;
