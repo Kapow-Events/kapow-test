@@ -24,62 +24,86 @@ audio:not([controls]) { display: none; }
 @font-face {
 	font-family: "BrandonG";
 	/* src: url("type/filename.eot"); */
-	src: url("../fonts/Brandon_reg.otf") format("opentype")
+	src: url("../fonts/Brandon_reg.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
 }
 @font-face {
 	font-family: "BrandonG Italic";
 	/* src: url("type/filename.eot"); */
-	src: url("../fonts/Brandon_reg_it.otf") format("opentype")
+	src: url("../fonts/Brandon_reg_it.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
 }
 @font-face {
-	font-family: "BrandonG Bold";
-	/* src: url("type/filename.eot"); */
-	src: url("../fonts/Brandon_bld.otf") format("opentype")
+    font-family: "BrandonG Bold";
+    src: url("../fonts/brandon_bld.eot");
+    src: url("../fonts/brandon_bld.eot?#iefix") format('embedded-opentype'),;
+	src: url("../fonts/Brandon_bld.otf") format("opentype");
+
 }
 @font-face {
-	font-family: "BrandonG Bold Italic";
-	/* src: url("type/filename.eot"); */
-	src: url("../fonts/Brandon_bld_it.otf") format("opentype")
+    font-family: "BrandonG Bold Italic";
+    src: url("../fonts/brandon_bld_it.eot");
+    src: url("../fonts/brandon_bld_it.eot?#iefix") format('embedded-opentype'),;
+	src: url("../fonts/Brandon_bld_it.otf") format("opentype");
+
 }
 @font-face {
 	font-family: "BrandonG Thin";
 	/* src: url("type/filename.eot"); */
-	src: url("../fonts/Brandon_thin.otf") format("opentype")
+	src: url("../fonts/Brandon_thin.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
 }
 @font-face {
 	font-family: "BrandonG Thin Italic";
 	/* src: url("type/filename.eot"); */
-	src: url("../fonts/Brandon_thin_it.otf") format("opentype")
+	src: url("../fonts/Brandon_thin_it.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
 }
 @font-face {
 	font-family: "BrandonG Medium";
 	/* src: url("type/filename.eot"); */
-	src: url("../fonts/Brandon_med.otf") format("opentype")
+	src: url("../fonts/Brandon_med.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
 }
 @font-face {
 	font-family: "BrandonG Medium Italic";
 	/* src: url("type/filename.eot"); */
-	src: url("../fonts/Brandon_med_it.otf") format("opentype")
+	src: url("../fonts/Brandon_med_it.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
 }
 @font-face {
 	font-family: "BrandonG Light";
 	/* src: url("type/filename.eot"); */
-	src: url("../fonts/Brandon_light.otf") format("opentype")
+	src: url("../fonts/Brandon_light.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
 }
 @font-face {
 	font-family: "BrandonG Light Italic";
 	/* src: url("type/filename.eot"); */
-	src: url("../fonts/Brandon_light_it.otf") format("opentype")
+	src: url("../fonts/Brandon_light_it.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
 }
 @font-face {
 	font-family: "BrandonG Black";
 	/* src: url("type/filename.eot"); */
-	src: url("../fonts/Brandon_blk.otf") format("opentype")
+	src: url("../fonts/Brandon_blk.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
 }
 @font-face {
 	font-family: "BrandonG Black Italic";
 	/* src: url("type/filename.eot"); */
-	src: url("../fonts/Brandon_blk_it.otf") format("opentype")
+	src: url("../fonts/Brandon_blk_it.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
 }
 
 
@@ -913,7 +937,7 @@ ul#steps {
 #primary_navigation { position:relative; z-index:1; padding:21px 0; height:40px; font-style:normal; }
   #primary_navigation a {
     display: block;
-    font-family: "BrandonG Bold", "Arial Narrow", Arial, sans-serif;
+    font-family: "BrandonG Bold", "Arial Black", Arial, sans-serif;
     font-weight: 300;
     font-size: 20px;
     text-transform: uppercase;
@@ -927,7 +951,7 @@ ul#steps {
     text-shadow:  1px 1px 2px black;
     filter: progid:DXImageTransform.Microsoft.Shadow(color=#000000,direction=135,offX=1px, offY=1px);
   }
-  .ie #primary_navigation a { font-family: "Arial Narrow",Arial,sans-serif; }
+  .ie #primary_navigation a { /* font-family: "Arial Narrow",Arial,sans-serif;  */}
   #primary_navigation a:hover { border:none; color:#c44427; }
 
   #primary_navigation_left { float:left; width:375px; }
