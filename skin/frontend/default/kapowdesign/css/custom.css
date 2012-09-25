@@ -925,6 +925,7 @@ ul#steps {
     margin: 0;
     text-decoration: none;
     text-shadow:  1px 1px 2px black;
+    filter: progid:DXImageTransform.Microsoft.Shadow(color=#000000,direction=135,offX=1px, offY=1px);
   }
   .ie #primary_navigation a { font-family: "Arial Narrow",Arial,sans-serif; }
   #primary_navigation a:hover { border:none; color:#c44427; }
