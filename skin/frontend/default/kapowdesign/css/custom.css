@@ -1206,8 +1206,8 @@ ul#steps {
 .eventlist_event_details {
 	border-top:1px #262525 solid;
 	border-bottom:1px #262525 solid;
-	width:286px;
-	margin:0 auto;
+	width: 100%;
+	margin-left: 25px;
 	height:112px;
 	padding-top:8px;
 	padding-bottom:10px;
