@@ -201,7 +201,7 @@ h2 {
   line-height: 40px;
 }
 .ie h2 {
-  font-family: "Arial Narrow",Arial,sans-serif;
+  /* font-family: "Arial Narrow",Arial,sans-serif; */
 }
 
 h2.fancy_phone_number {
