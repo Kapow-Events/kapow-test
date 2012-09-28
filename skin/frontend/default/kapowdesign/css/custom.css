@@ -24,86 +24,64 @@ audio:not([controls]) { display: none; }
 @font-face {
 	font-family: "BrandonG";
     src: url("brandon_reg.eot");
-    src: url("brandon_reg.eot?#iefix") format('embedded-opentype');
-	src: url("../fonts/Brandon_reg.otf") format("opentype");
+    src: url("brandon_reg.eot?") format('embedded-opentype'),
+    	url("../fonts/Brandon_reg.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
 	font-family: "BrandonG Italic";
     src: url("brandon_reg_it.eot");
-    src: url("brandon_reg_it.eot?#iefix") format('embedded-opentype');
-	src: url("../fonts/Brandon_reg_it.otf") format("opentype");
+    src: url("brandon_reg_it.eot?") format('embedded-opentype'),
+    	url("../fonts/Brandon_reg_it.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: "BrandonG Bold";
     src: url("brandon_bld.eot");
-    src: url("brandon_bld.eot?#iefix") format('embedded-opentype');
-	src: url("../fonts/Brandon_bld.otf") format("opentype");
-
+    src: url("brandon_bld.eot?") format('embedded-opentype'),
+    	url("../fonts/Brandon_bld.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
 }
 @font-face {
     font-family: "BrandonG Bold Italic";
     src: url("brandon_bld_it.eot");
-    src: url("brandon_bld_it.eot?#iefix") format('embedded-opentype');
-	src: url("../fonts/Brandon_bld_it.otf") format("opentype");
-
+    src: url("brandon_bld_it.eot?") format('embedded-opentype'),
+    	url("../fonts/Brandon_bld_it.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
 }
 @font-face {
 	font-family: "BrandonG Thin";
-    src: url("brandon_thin.eot.eot");
-    src: url("brandon_thin.eot?#iefix") format('embedded-opentype');
-	src: url("../fonts/Brandon_thin.otf") format("opentype");
+    src: url("brandon_thin.eot");
+    src: url("brandon_thin.eot?") format('embedded-opentype'),
+    	url("../fonts/Brandon_thin.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
 	font-family: "BrandonG Thin Italic";
-    src: url("brandon_thin_it.eot.eot");
-    src: url("brandon_thin_it.eot?#iefix") format('embedded-opentype');
-	src: url("../fonts/Brandon_thin_it.otf") format("opentype");
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-	font-family: "BrandonG Medium";
-	src: url("../fonts/Brandon_med.otf") format("opentype");
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-	font-family: "BrandonG Medium Italic";
-	src: url("../fonts/Brandon_med_it.otf") format("opentype");
+    src: url("brandon_thin_it.eot");
+    src: url("brandon_thin_it.eot?") format('embedded-opentype'),
+    	url("../fonts/Brandon_thin_it.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
 	font-family: "BrandonG Light";
-    src: url("brandon_light.eot.eot");
-    src: url("brandon_light.eot?#iefix") format('embedded-opentype');
-	src: url("../fonts/Brandon_light.otf") format("opentype");
+    src: url("brandon_light.eot");
+    src: url("brandon_light.eot?") format('embedded-opentype'),
+    	url("../fonts/Brandon_light.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
 	font-family: "BrandonG Light Italic";
-    src: url("brandon_light_it.eot.eot");
-    src: url("brandon_light_it.eot?#iefix") format('embedded-opentype');
-	src: url("../fonts/Brandon_light_it.otf") format("opentype");
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-	font-family: "BrandonG Black";
-	src: url("../fonts/Brandon_blk.otf") format("opentype");
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-	font-family: "BrandonG Black Italic";
-	src: url("../fonts/Brandon_blk_it.otf") format("opentype");
+    src: url("brandon_light_it.eot");
+    src: url("brandon_light_it.eot?") format('embedded-opentype'), 
+    	url("../fonts/Brandon_light_it.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
 }
@@ -401,7 +379,7 @@ background: url(../images/ribbon_generic.png) no-repeat;
 }
 .ie a.button_ribbon,
 .ie input.button_ribbon {
-  font-family: "Arial Narrow",Arial,sans-serif;
+  /* font-family: "Arial Narrow",Arial,sans-serif; */
 }
 
 
@@ -2175,7 +2153,7 @@ p.callout { font-size:18px; line-height:24px; }
   padding: 10px;
   color: #C44427;
 }
-.ie .block-title { font-family:'Arial Narrow',Arial,sans-serif; }
+.ie .block-title { /* font-family:'Arial Narrow',Arial,sans-serif; */ }
 
 
 
