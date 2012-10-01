@@ -693,7 +693,7 @@ body.homepage #homepage_header_wrapper { display:block; }
 	padding: 20px 40px 0 47px;
 	font-size:17px;
 	line-height: 20px;
-	font-family:'BrandonG Light';
+	font-family:'BrandonG Light', Arial, sans-serif;
 	font-style: normal;
 	color:#fff;
 	position: relative;
@@ -705,6 +705,8 @@ body.homepage #homepage_header_wrapper { display:block; }
 	margin:0;
 	padding:0;
 	color:#fff;
+	font-family:'BrandonG Light', Arial, sans-serif;
+	font-size:14px;
 }
 #testimonial .test_name {
 	font-family: 'BrandonG Bold', Arial, sans-serif;
