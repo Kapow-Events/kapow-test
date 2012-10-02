@@ -10,15 +10,15 @@ class EW_Site_Block_Featured extends Mage_Core_Block_Template
 	        $product = Mage::getModel('catalog/category')->load($cid)
 	            ->getProductCollection()
 	            ->addAttributeToSelect('*')
-	            ->addAttributeToFilter('status', 1);
-	            /* ->setPageSize(1); */
+	            ->addAttributeToFilter('status', 1)
+                ->addAttributeToSort('position', 'asc');
         }
         else {
 	        $product = Mage::getModel('catalog/product')
                         ->getCollection()
                         ->addAttributeToSelect('*')
-                        ->addAttributeToFilter('status', 1);
-
+                        ->addAttributeToFilter('status', 1)
+                        ->addAttributeToSort('position', 'asc');
         }
         return $product;
     }
