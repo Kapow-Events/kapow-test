@@ -5,7 +5,7 @@ class EW_Site_Block_Featured extends Mage_Core_Block_Template
 
     public function getInitiallyFeaturedProduct($cid)
     {
-        $product = Mage::getModel('catalog/category')->load(8)
+        $product = Mage::getModel('catalog/category')->load(24)
                     ->getProductCollection()
                     ->addAttributeToSelect('*')
                     ->addAttributeToFilter('status', 1)
