@@ -5,21 +5,12 @@ class EW_Site_Block_Featured extends Mage_Core_Block_Template
 
     public function getInitiallyFeaturedProduct($cid)
     {
-    	if ($cid != 0) {
-       /*  $category_id = 8; */
-	        $product = Mage::getModel('catalog/category')->load($cid)
-	            ->getProductCollection()
-	            ->addAttributeToSelect('*')
-	            ->addAttributeToFilter('status', 1)
-                ->addAttributeToSort('position', 'asc');
-        }
-        else {
-	        $product = Mage::getModel('catalog/product')
-                        ->getCollection()
-                        ->addAttributeToSelect('*')
-                        ->addAttributeToFilter('status', 1)
-                        ->addAttributeToSort('position', 'asc');
-        }
+        $product = Mage::getModel('catalog/category')->load(8)
+                    ->getProductCollection()
+                    ->addAttributeToSelect('*')
+                    ->addAttributeToFilter('status', 1)
+                    ->addAttributeToSort('position', 'asc');
+
         return $product;
     }
 
@@ -37,7 +28,7 @@ class EW_Site_Block_Featured extends Mage_Core_Block_Template
                 0 => array('date' => true, 'from' => $todayDate),
                 1 => array('is' => new Zend_Db_Expr('null')))
             ), 'left')
-            ->addAttributeToSort('news_from_date', 'desc')
+            ->addAttributeToSort('position', 'asc')
             ->setPageSize(3);
 
         return $products;
