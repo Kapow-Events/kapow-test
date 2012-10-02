@@ -46,12 +46,12 @@
     <?php endif; ?>
     <div id="eventlist_events_header"><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></div>
 	<a href="<?php echo Mage::getBaseUrl() ?>events" class="eventlist_events_header_link<?php echo ($_category->getData('url_key') == "events" ? " header_active" : '') ?>">See All Events</a>
-	<a href="<?php echo Mage::getBaseUrl() ?>food-drink" class="eventlist_events_header_link"<?php echo ($_category->getData('url_key') == "food-drink") ? ' header_active' : '' ?>>Food &amp; Drink</a>
-	<a href="<?php echo Mage::getBaseUrl() ?>sporting-event" class="eventlist_events_header_link"<?php echo ($_category->getData('url_key') == "sporting-event") ? ' header_active' : '' ?>>Sporting Event</a>
-	<a href="<?php echo Mage::getBaseUrl() ?>client-entertainment" class="eventlist_events_header_link"<?php echo ($_category->getData('url_key') == "client-entertainment") ? ' header_active' : '' ?>>Client Entertainment</a>
-	<a href="<?php echo Mage::getBaseUrl() ?>holiday" class="eventlist_events_header_link"<?php echo ($_category->getData('url_key') == "holiday") ? ' header_active' : '' ?>>Holiday</a>
-	<a href="<?php echo Mage::getBaseUrl() ?>team-outing" class="eventlist_events_header_link"<?php echo ($_category->getData('url_key') == "team-outing") ? ' header_active' : '' ?>>Team Outing</a>
-	<a href="<?php echo Mage::getBaseUrl() ?>add-ons" class="eventlist_events_header_link"<?php echo ($_category->getData('url_key') == "add-ons") ? ' header_active' : '' ?>>Add-Ons</a>
+	<a href="<?php echo Mage::getBaseUrl() ?>food-drink" class="eventlist_events_header_link<?php echo ($_category->getData('url_key') == "food-drink") ? ' header_active' : '' ?>">Food &amp; Drink</a>
+	<a href="<?php echo Mage::getBaseUrl() ?>sporting-event" class="eventlist_events_header_link<?php echo ($_category->getData('url_key') == "sporting-event") ? ' header_active' : '' ?>">Sporting Event</a>
+	<a href="<?php echo Mage::getBaseUrl() ?>client-entertainment" class="eventlist_events_header_link<?php echo ($_category->getData('url_key') == "client-entertainment") ? ' header_active' : '' ?>">Client Entertainment</a>
+	<a href="<?php echo Mage::getBaseUrl() ?>holiday" class="eventlist_events_header_link<?php echo ($_category->getData('url_key') == "holiday") ? ' header_active' : '' ?>">Holiday</a>
+	<a href="<?php echo Mage::getBaseUrl() ?>team-outing" class="eventlist_events_header_link<?php echo ($_category->getData('url_key') == "team-outing") ? ' header_active' : '' ?>">Team Outing</a>
+	<a href="<?php echo Mage::getBaseUrl() ?>add-ons" class="eventlist_events_header_link<?php echo ($_category->getData('url_key') == "add-ons") ? ' header_active' : '' ?>">Add-Ons</a>
 </div>
 
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>

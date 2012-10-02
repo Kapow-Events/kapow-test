@@ -23,63 +23,67 @@ audio:not([controls]) { display: none; }
 /* FONTS */
 @font-face {
 	font-family: "BrandonG";
-	/* src: url("type/filename.eot"); */
-	src: url("../fonts/Brandon_reg.otf") format("opentype")
+    src: url("brandon_reg.eot");
+    src: url("brandon_reg.eot?") format('embedded-opentype'),
+    	url("../fonts/Brandon_reg.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
 }
 @font-face {
 	font-family: "BrandonG Italic";
-	/* src: url("type/filename.eot"); */
-	src: url("../fonts/Brandon_reg_it.otf") format("opentype")
+    src: url("brandon_reg_it.eot");
+    src: url("brandon_reg_it.eot?") format('embedded-opentype'),
+    	url("../fonts/Brandon_reg_it.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
 }
 @font-face {
-	font-family: "BrandonG Bold";
-	/* src: url("type/filename.eot"); */
-	src: url("../fonts/Brandon_bld.otf") format("opentype")
+    font-family: "BrandonG Bold";
+    src: url("brandon_bld.eot");
+    src: url("brandon_bld.eot?") format('embedded-opentype'),
+    	url("../fonts/Brandon_bld.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
 }
 @font-face {
-	font-family: "BrandonG Bold Italic";
-	/* src: url("type/filename.eot"); */
-	src: url("../fonts/Brandon_bld_it.otf") format("opentype")
+    font-family: "BrandonG Bold Italic";
+    src: url("brandon_bld_it.eot");
+    src: url("brandon_bld_it.eot?") format('embedded-opentype'),
+    	url("../fonts/Brandon_bld_it.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
 }
 @font-face {
 	font-family: "BrandonG Thin";
-	/* src: url("type/filename.eot"); */
-	src: url("../fonts/Brandon_thin.otf") format("opentype")
+    src: url("brandon_thin.eot");
+    src: url("brandon_thin.eot?") format('embedded-opentype'),
+    	url("../fonts/Brandon_thin.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
 }
 @font-face {
 	font-family: "BrandonG Thin Italic";
-	/* src: url("type/filename.eot"); */
-	src: url("../fonts/Brandon_thin_it.otf") format("opentype")
-}
-@font-face {
-	font-family: "BrandonG Medium";
-	/* src: url("type/filename.eot"); */
-	src: url("../fonts/Brandon_med.otf") format("opentype")
-}
-@font-face {
-	font-family: "BrandonG Medium Italic";
-	/* src: url("type/filename.eot"); */
-	src: url("../fonts/Brandon_med_it.otf") format("opentype")
+    src: url("brandon_thin_it.eot");
+    src: url("brandon_thin_it.eot?") format('embedded-opentype'),
+    	url("../fonts/Brandon_thin_it.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
 }
 @font-face {
 	font-family: "BrandonG Light";
-	/* src: url("type/filename.eot"); */
-	src: url("../fonts/Brandon_light.otf") format("opentype")
+    src: url("brandon_light.eot");
+    src: url("brandon_light.eot?") format('embedded-opentype'),
+    	url("../fonts/Brandon_light.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
 }
 @font-face {
 	font-family: "BrandonG Light Italic";
-	/* src: url("type/filename.eot"); */
-	src: url("../fonts/Brandon_light_it.otf") format("opentype")
-}
-@font-face {
-	font-family: "BrandonG Black";
-	/* src: url("type/filename.eot"); */
-	src: url("../fonts/Brandon_blk.otf") format("opentype")
-}
-@font-face {
-	font-family: "BrandonG Black Italic";
-	/* src: url("type/filename.eot"); */
-	src: url("../fonts/Brandon_blk_it.otf") format("opentype")
+    src: url("brandon_light_it.eot");
+    src: url("brandon_light_it.eot?") format('embedded-opentype'), 
+    	url("../fonts/Brandon_light_it.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
 }
 
 
@@ -177,7 +181,7 @@ h2 {
   line-height: 40px;
 }
 .ie h2 {
-  font-family: "Arial Narrow",Arial,sans-serif;
+  /* font-family: "Arial Narrow",Arial,sans-serif; */
 }
 
 h2.fancy_phone_number {
@@ -354,18 +358,19 @@ button, input[type="button"], input[type="reset"], input[type="submit"] { cursor
 a.button_ribbon,
 input.button_ribbon {
   position: relative;
-  background: url(../images/css-sprites.png) 0 -162px no-repeat;
+/*   background: url(../images/css-sprites.png) 0 -162px no-repeat; */
+background: url(../images/ribbon_generic.png) no-repeat;
   color: #fff;
   text-transform: uppercase;
   text-align: center;
-  font-family: 'BrandonG Light',"Arial Narrow",Arial,sans-serif;
+  font-family: 'BrandonG Bold',"Arial Narrow",Arial,sans-serif;
   font-style: normal;
-  font-size: 12px;
+  font-size: 14px;
   padding: 0;
   border: none;
   display: block;
-  width: 142px;
-  height: 37px;
+  width: 168px;
+  height: 41px;
   line-height: 37px;
   z-index: 100;
   -webkit-transition: none;
@@ -374,7 +379,7 @@ input.button_ribbon {
 }
 .ie a.button_ribbon,
 .ie input.button_ribbon {
-  font-family: "Arial Narrow",Arial,sans-serif;
+  /* font-family: "Arial Narrow",Arial,sans-serif; */
 }
 
 
@@ -382,9 +387,7 @@ a.button_ribbon:hover,
 a.button_ribbon:active,
 input.button_ribbon:hover,
 input.button_ribbon:active {
-  background-position: 0 -202px;
-  color: #c74428;
-  font-weight: bold;
+  color: #000;
   padding: 0;
   border: none;
 }
@@ -690,16 +693,20 @@ body.homepage #homepage_header_wrapper { display:block; }
 	padding: 20px 40px 0 47px;
 	font-size:17px;
 	line-height: 20px;
-	font-family:'BrandonG Light';
+	font-family:'BrandonG Light', Arial, sans-serif;
 	font-style: normal;
 	color:#fff;
 	position: relative;
+	background: transparent;
 	background:rgba(0,0,0,.8);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC000000, endColorstr=#CC000000)";
 }
 #testimonial p {
 	margin:0;
 	padding:0;
 	color:#fff;
+	font-family:'BrandonG Light', Arial, sans-serif;
+	font-size:14px;
 }
 #testimonial .test_name {
 	font-family: 'BrandonG Bold', Arial, sans-serif;
@@ -742,7 +749,6 @@ body.homepage #homepage_header_wrapper { display:block; }
 	background-image: -o-linear-gradient(bottom, rgba(0,0,0,.8) 10%, rgba(17,17,17,.8) 40%);
 	background-image: -moz-linear-gradient(bottom, rgba(0,0,0,.8) 10%, rgba(17,17,17,.8) 40%);
 	background-image: -webkit-linear-gradient(bottom, rgba(0,0,0,.8) 10%, rgba(17,17,17,.8) 40%);
-	background-image: -ms-linear-gradient(bottom, rgba(0,0,0,.8) 10%, rgba(17,17,17,.8) 40%);
 	background-image: -webkit-gradient(
 		linear,
 		left bottom,
@@ -750,6 +756,8 @@ body.homepage #homepage_header_wrapper { display:block; }
 		color-stop(0.1, rgba(0,0,0,.8)),
 		color-stop(0.4, rgba(17,17,17,.8))
 	);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#000000', endColorstr='#111111'); /* IE6 & IE7 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#000000', endColorstr='#111111')"; /* IE8 */  
 }
 #statementhead {
 	font-size: 35px;
@@ -820,7 +828,9 @@ ul#steps {
 	width: 320px;
 	margin-top:22px;
 	/* background: url(../images/event_name_box.png); */
-	background: rgba(0, 0, 0, .8);
+	background: transparent;
+	background:rgba(0,0,0,.8);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC000000, endColorstr=#CC000000)";
 	overflow: visible;
 	position: relative;
 	float:left;
@@ -913,7 +923,7 @@ ul#steps {
 #primary_navigation { position:relative; z-index:1; padding:21px 0; height:40px; font-style:normal; }
   #primary_navigation a {
     display: block;
-    font-family: "BrandonG Bold", "Arial Narrow", Arial, sans-serif;
+    font-family: "BrandonG Bold", "Arial Black", Arial, sans-serif;
     font-weight: 300;
     font-size: 20px;
     text-transform: uppercase;
@@ -925,8 +935,9 @@ ul#steps {
     margin: 0;
     text-decoration: none;
     text-shadow:  1px 1px 2px black;
+    filter: progid:DXImageTransform.Microsoft.Shadow(color=#000000,direction=135,offX=1px, offY=1px);
   }
-  .ie #primary_navigation a { font-family: "Arial Narrow",Arial,sans-serif; }
+  .ie #primary_navigation a { /* font-family: "Arial Narrow",Arial,sans-serif;  */}
   #primary_navigation a:hover { border:none; color:#c44427; }
 
   #primary_navigation_left { float:left; width:375px; }
@@ -1164,8 +1175,10 @@ ul#steps {
 	margin-top: -5px;
 }
 .eventlist_product_info {
+	background: transparent;
 	background:rgba(28,27,27,.7);
-	height: 500px;
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC1C1B1B, endColorstr=#CC1C1B1B)";
+	height: 525px;
 	position: relative;
 }
 .eventlist_products p.content {
@@ -1181,8 +1194,8 @@ ul#steps {
 .eventlist_event_details {
 	border-top:1px #262525 solid;
 	border-bottom:1px #262525 solid;
-	width:286px;
-	margin:0 auto;
+	width: 100%;
+	margin-left: 25px;
 	height:112px;
 	padding-top:8px;
 	padding-bottom:10px;
@@ -1318,7 +1331,7 @@ a.event_details_link:link, a.event_details_link:visited {
 	bottom: -38px;
 	left:123px;
 	display:block;
-	width: 53px;
+	width: 54px;
 	height: 47px;
 	padding: 18px 14px;
 	background: url(../images/view_book.png) no-repeat;
@@ -1611,7 +1624,9 @@ a.event_details_link:hover {
 a.presskit_news {
 	position: absolute;
 	display: block;
+	background: transparent;
 	background: rgba(0, 0, 0, 0.8) url(../images/presskit.png) center no-repeat;
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC000000, endColorstr=#CC000000)";
 	width: 250px;
 	height: 116px;
 	bottom: 25px;
@@ -1682,10 +1697,11 @@ a.presskit_news:hover {
 	margin-bottom:45px;
 	border-bottom:1px solid #333;
 }
-.cms-about-us #our-mission #mission-block {
+.cms-about-us #our-mission #mission-block p {
 	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
 	font-size:26px;
 	color:#fff;
+	line-height: 24px;
 }
 .cms-about-us #our-mission #mission-block strong {
 	font-weight: normal;
@@ -1771,7 +1787,9 @@ a.presskit_news:hover {
 }
 .cms-about-us #our-mission .newsbox {
 	width: 261px;
+	background: transparent;
 	background: rgba(50,50,50,0.5);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC323232, endColorstr=#CC323232)";
 	padding: 20px 26px;
 	float:left;
 	margin-right: 47px;
@@ -1871,10 +1889,11 @@ a.presskit_news:hover {
 	position: relative;
 	padding-top: 170px;
 	font-size: 37px;
-	font-family: 'BrandonG Bold', 'Arial Black', sans-serif;
+	font-family: 'BrandonG Bold', 'Arial', sans-serif;
 	text-transform: uppercase;
 	color: #4F1B10;
 	text-align: center;
+	line-height: 18px;
 }
 .cms-about-us #board .facebox {
 	padding: 170px 10px 0;
@@ -2136,7 +2155,7 @@ p.callout { font-size:18px; line-height:24px; }
   padding: 10px;
   color: #C44427;
 }
-.ie .block-title { font-family:'Arial Narrow',Arial,sans-serif; }
+.ie .block-title { /* font-family:'Arial Narrow',Arial,sans-serif; */ }
 
 
 
@@ -2190,16 +2209,17 @@ p.callout { font-size:18px; line-height:24px; }
 }
 
 .aw-sociable_services {
-  background: none;
+  background: transparent !important;
   border: none;
   padding: 0;
   text-align: right;
   margin: 0;
 }
 .catalog-category-view .aw-sociable_services {
-  position: relative;
-  top: 20px;
-  margin-bottom: -20px;
+	position: absolute;
+	top: 20px;
+	margin-bottom: -20px;
+	right: 0;
 }
 .catalog-category-view .aw-sociable_services ul {
   padding: 0;
@@ -2561,11 +2581,20 @@ a#backtoall:hover {
 	font-style: normal;
 	overflow: hidden;
 	text-align: left;
+	background: transparent !important;
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00000000, endColorstr=#00000000)";
 }
 .lightbox-modal ul {
 	margin:-20px;
 }
 
+#login-modal {
+	width: 300px;
+	height: 100%;
+	position: absolute;
+	left:0;
+	top:0;
+}
 .lightbox-modal .bg-ribbon {
 	width:30px;
 	height:30px;
@@ -2604,6 +2633,7 @@ a#backtoall:hover {
 	width: 300px;
 	height: 475px;
 	position: relative;
+	background-color: #712516;
 	background: rgba(113, 37, 22, 0.6);
 }
 .lightbox-modal #signin {
@@ -2616,7 +2646,7 @@ a#backtoall:hover {
 	font-style: normal;
 }
 .lightbox-modal #login-form {
-	width: 255px;
+	width: 254px;
 	position: absolute;
 	top: 150px;
 	left: 0;
@@ -2758,6 +2788,10 @@ a#backtoall:hover {
 }
 #signupbelow ul {
 	margin:0;
+}
+#signupbelow li em {
+	font-style: normal;
+	font-family: 'BrandonG Light Italic', 'Arial Narrow', sans-serif;
 }
 .lightbox-modal .logintext {
 	float: left;
@@ -2908,9 +2942,13 @@ body.cms-page-view, body.customer-account-index {
 .customer-account-create .main, .cms-faqs .main, .cms-privacy-statement .main, 
 .cms-terms-of-use .main, .customer-account-edit .main, .customer-address-index .main,
 .customer-account-forgotpassword .main, .sales-order-view .main, .customer-address-form .main,
-.cms-page-view .main, .customer-account-index .main {
+.cms-page-view .main, .customer-account-index .main, .main-container .main {
 	margin-bottom:140px;
 	font-family: 'BrandonG', Arial, sans-serif;
+}
+
+.customer-account-forgotpassword .col-main {
+	width:532px;
 }
 
 .product-options {
@@ -3034,7 +3072,7 @@ body.cms-page-view, body.customer-account-index {
    ========================================================================== */
 
 @media print {
-  * { background: transparent !important; color: black !important; box-shadow:none !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
+  * { background: transparent !important; color: black !important; box-shadow:none !important; text-shadow: none !important; /* filter:none !important; -ms-filter: none !important; */ } /* Black prints faster: h5bp.com/s */
   a, a:visited { text-decoration: underline; }
   a[href]:after { content: " (" attr(href) ")"; }
   abbr[title]:after { content: " (" attr(title) ")"; }
