@@ -73,7 +73,7 @@ var cj =
 	jQuery('.event_details_link').click(function() {
 		var $loginurl = 'customer/account/loginPost/referer/'
 		$loginurl += jQuery(this).attr("rev");
-		jQuery('#login-form').attr('ACTION',$loginurl);
+		jQuery('#login-form').attr('action',$loginurl);
 	});
   },
 
