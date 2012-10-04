@@ -1109,7 +1109,7 @@ ul#steps {
 }
 .eventlist_products {
 	width:327px;
-	height:550px;
+	height:580px;
 	float:left;
 	padding:0 13px 50px;
 	list-style: none;
@@ -1123,6 +1123,7 @@ ul#steps {
 }
 #eventlist_events_container .carousel-wrap {
 	overflow: visible;
+	height:630px;
 }
 #eventlist_events .last {
 	padding-right:0;
@@ -1194,7 +1195,7 @@ ul#steps {
 .eventlist_event_details {
 	border-top:1px #262525 solid;
 	border-bottom:1px #262525 solid;
-	width: 100%;
+	width: 287px;
 	margin-left: 25px;
 	height:112px;
 	padding-top:8px;
@@ -2244,7 +2245,6 @@ p.callout { font-size:18px; line-height:24px; }
 	height: 784px;
 	width: 100%;
 	overflow: hidden;
-	margin-top: -49px;
 }
 #event_callout #carousel {
 	width:1200px;
@@ -2472,6 +2472,15 @@ p.callout { font-size:18px; line-height:24px; }
 #event_detail {
 	background: url(../images/recent_bg.png);
 	position: relative;
+}
+#event_detail .aw-sociable_services {
+	display:none
+}
+#event_detail .content .aw-sociable_services {
+	display:block;
+	position: absolute;
+	right: 215px;
+	top: -18px;
 }
 #event_detail #cut_splitter {	
 	position: absolute;
@@ -3085,7 +3094,9 @@ body.cms-page-view, body.customer-account-index {
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3 { page-break-after: avoid; }
 }
-
+#eventlist_events_container {
+	height:630px;
+}
 #eventlist_events_container:focus {outline: none;}
 
 .featured_product_text .product_info a.event_details_link:hover { color: #000;}

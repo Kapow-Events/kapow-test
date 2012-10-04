@@ -6,9 +6,9 @@
         </reference>
     </default>
     <catalog_product_view>
-     <reference name="product.info">
-         <block type="sociable/services" name="sociable.product_page" template="sociable/sociable.phtml"  as="other"/>
-    </reference>
+	    <reference name="product.info">
+	         <block type="sociable/services" name="sociable.product_page" template="sociable/sociable.phtml"  as="other"/>
+	    </reference>
     </catalog_product_view>
     <default>
         <reference name="content">
