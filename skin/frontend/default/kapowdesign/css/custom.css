@@ -706,7 +706,7 @@ body.homepage #homepage_header_wrapper { display:block; }
 	padding:0;
 	color:#fff;
 	font-family:'BrandonG Light', Arial, sans-serif;
-	font-size:14px;
+	font-size:16px;
 }
 #testimonial .test_name {
 	font-family: 'BrandonG Bold', Arial, sans-serif;
@@ -717,7 +717,7 @@ body.homepage #homepage_header_wrapper { display:block; }
 }
 #testimonial .test_company {
 	font-family: 'BrandonG', Arial, sans-serif;
-	font-size:12px;
+	font-size:14px;
 	margin-left: 1px;
 	margin-top: -2px;
 	color: #fff;
