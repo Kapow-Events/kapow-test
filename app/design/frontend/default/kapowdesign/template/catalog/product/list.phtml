@@ -156,49 +156,51 @@
 							if ($cat == 10)
 								$event_icons[5] = " active";
 						}
-						echo "<a class='$extra_class' href='". $the_link ."' title='". $this->stripTags($_product->getName(), null, true) ."'>";
-						echo "<div class=\"product_header\">{$name}</div>";
+						
+						$trackClick = ($not_logged_in ? " onclick=\"_gaq.push(['_trackEvent', 'Event Click', 'Modal PopUp', '".addslashes($name)."']);\"" : "");
 						?>
-						<div class="eventlist_event_image" style="background: url(<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->keepAspectRatio(true)->resize(330,null); ?>) no-repeat;" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"></div>
-
-						<p class="content">
-							<?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
-						</p>
-						<div class="eventlist_event_details">
-							<div id="eventlist_per_person" class="eventlist_event_detail_bubble">
-								<div class="bubble_text">
-									<?php echo (Mage::getSingleton('customer/session')->isLoggedIn() ? $cost : $event_cost) ?>
-								</div>
-								<div id="eventlist_per_person_tag" class="event_detail_tag">Per Person</div>
-							</div>
-							<div id="eventlist_group_size" class="eventlist_event_detail_bubble">
-								<div class="bubble_text">
-									<?php echo $group_size_string ?>
-								</div>
-								<div id="eventlist_group_size_tag" class="event_detail_tag">Group Size</div>
-							</div>
-							<div id="eventlist_ideal_for" class="eventlist_event_detail_bubble">
-								<div class="minibubbles">
-									<div class="minibubbles_row1">
-										<div class="bubble_icon summer_outing<?php echo $event_icons[0] ?>" title="Food & Drink"></div>
-										<div class="bubble_icon sporting_event<?php echo $event_icons[1] ?>" title="Sporting Event"></div>
-										<div class="bubble_icon client_entertainment<?php echo $event_icons[2] ?>" title="Client Entertainment"></div>
+						<a class="<?php echo $extra_class; ?>" href="<?php echo $the_link ?>" title="<?php echo $this->stripTags($_product->getName(), null, true); ?>"<?php echo $trackClick ?>>					
+							<div class="product_header<?php echo $font_size ?>"><?php echo $name ?></div>
+							<div class="eventlist_event_image" style="background: url(<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->keepFrame(false)->keepAspectRatio(true)->resize(330,null); ?>) no-repeat;" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"></div>
+	
+							<p class="content">
+								<?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
+							</p>
+							<div class="eventlist_event_details">
+								<div id="eventlist_per_person" class="eventlist_event_detail_bubble">
+									<div class="bubble_text">
+										<?php echo (Mage::getSingleton('customer/session')->isLoggedIn() ? $cost : $event_cost) ?>
 									</div>
-									<div class="minibubbles_row2">
-										<div class="bubble_icon holiday_party<?php echo $event_icons[3] ?>" title="Holiday"></div>
-										<div class="bubble_icon team_outing<?php echo $event_icons[4] ?>" title="Team Outing"></div>
-										<div class="bubble_icon addon<?php echo $event_icons[5] ?>" title="Add-Ons"></div>
-									</div>
+									<div id="eventlist_per_person_tag" class="event_detail_tag">Per Person</div>
 								</div>
-								<div id="eventlist_ideal_for_tag" class="event_detail_tag">Ideal For</div>
+								<div id="eventlist_group_size" class="eventlist_event_detail_bubble">
+									<div class="bubble_text">
+										<?php echo $group_size_string ?>
+									</div>
+									<div id="eventlist_group_size_tag" class="event_detail_tag">Group Size</div>
+								</div>
+								<div id="eventlist_ideal_for" class="eventlist_event_detail_bubble">
+									<div class="minibubbles">
+										<div class="minibubbles_row1">
+											<div class="bubble_icon summer_outing<?php echo $event_icons[0] ?>" title="Food & Drink"></div>
+											<div class="bubble_icon sporting_event<?php echo $event_icons[1] ?>" title="Sporting Event"></div>
+											<div class="bubble_icon client_entertainment<?php echo $event_icons[2] ?>" title="Client Entertainment"></div>
+										</div>
+										<div class="minibubbles_row2">
+											<div class="bubble_icon holiday_party<?php echo $event_icons[3] ?>" title="Holiday"></div>
+											<div class="bubble_icon team_outing<?php echo $event_icons[4] ?>" title="Team Outing"></div>
+											<div class="bubble_icon addon<?php echo $event_icons[5] ?>" title="Add-Ons"></div>
+										</div>
+									</div>
+									<div id="eventlist_ideal_for_tag" class="event_detail_tag">Ideal For</div>
+								</div>
 							</div>
+							<div class="clearfix"></div>
+							<div class="event_detail_bottom"></div>		
+							<a <?php echo $linkstatus ?> title="<?php echo $this->stripTags($_product->getName(), null, true) ?>">View Details <span>&amp; Book!</span></a>
 						</div>
-						<div class="clearfix"></div>
-						<div class="event_detail_bottom"></div>		
-						<a <?php echo $linkstatus ?> title="<?php echo $this->stripTags($_product->getName(), null, true) ?>">View Details <span>&amp; Book!</span></a>
-					</div>
-					<div class="event_flare"></div>
-                                    </a>
+						<div class="event_flare"></div>
+					</a>
 				</li>
 		        <?php if ($i%$_columnCount==0 || $i==$_collectionSize): ?>
 		        </ul>

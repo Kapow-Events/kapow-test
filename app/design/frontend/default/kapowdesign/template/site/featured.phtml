@@ -72,7 +72,8 @@
 						    $linkstatus2 .= $extra_class . '" ';
 						    $linkstatus2 .= 'href="'.$the_link.'"';
 						    $linkstatus2 .= ($not_logged_in ? ' rev="'.Mage::helper('core')->urlEncode($_product->getProductUrl()).'"' : '');
-	
+						    
+						     $trackClick = ($not_logged_in ? "onclick=\"_gaq.push(['_trackEvent', 'Event Click', 'Modal PopUp - Buy Now Link', '$name']);\"" : "");
 							
 							echo "<div class=\"product_header{$font_size}\">{$name}</div>";
 							/*?>
@@ -87,7 +88,7 @@
 							<div class="event_details_info" id="event_detail_group">
 								Group Size - <?php echo $group_size_string ?>
 							</div>
-							<a <?php echo $linkstatus2 ?> title="<?php echo $this->stripTags($_product->getName(), null, true) ?>">Buy Now &gt;</a>
+							<a <?php echo $linkstatus2 ?> title="<?php echo $this->stripTags($_product->getName(), null, true) ?>" <?php echo $trackClick ?>>Buy Now &gt;</a>
 						</div>
 						<div class="event_flare"></div>
 					</div>
@@ -102,7 +103,7 @@
 				<div id="statement">
 					<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header_sell_statement')->toHtml() ?> 
 				</div>
-				<a <?php echo $linkstatus1 ?> id="get_started" title="Get Started">Get Started &gt;</a>
+				<a <?php echo $linkstatus1 ?> id="get_started" title="Get Started" onclick="_gaq.push(['_trackEvent', 'Get Started Click', 'Modal PopUp - Get Started', 'Get Started']);">Get Started &gt;</a>
 			</section>
 		</div>
 	</div>
