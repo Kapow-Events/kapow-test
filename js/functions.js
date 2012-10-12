@@ -23,6 +23,7 @@ var cj =
     this.addPlaceholderSupport();
     this.startCarousel();
     this.homeEvents();
+    this.fixDisplayIE();
   },
 
   performAutoScroll: function ()
@@ -71,9 +72,13 @@ var cj =
     });
     
 	jQuery('.event_details_link').click(function() {
-		var $loginurl = 'customer/account/loginPost/referer/'
+		var $loginurl = 'customer/account/loginPost/referer/';
+		var $action = 'action';
+		if ( jQuery.browser.msie && jQuery.browser.version == 7.0 ) {
+			$action = "ACTION"
+		}
 		$loginurl += jQuery(this).attr("rev");
-		jQuery('#login-form').attr('action',$loginurl);
+		jQuery('#login-form').attr($action,$loginurl);
 	});
   },
 
@@ -379,6 +384,14 @@ var cj =
 			jQuery(this).addClass('lightbox-modal-link');	  
 			jQuery(this).attr("href","#lightbox-signup-or-login");
 		});
+  },
+  
+  fixDisplayIE: function() {
+		if ( jQuery.browser.msie && jQuery.browser.version == 7.0 ) {
+			jQuery('.eventlist_products .eventlist_product_info').each(function() {
+				jQuery(this).addClass('ie-eventlist_product_info');	 
+			});
+		}
   }
 };
 

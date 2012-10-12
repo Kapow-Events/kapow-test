@@ -173,12 +173,13 @@ h1 {
 h2 {
   font-family: 'BrandonG Light','Arial Narrow',Arial,sans-serif;
   font-size: 32px;
+  line-height: 40px;
   font-weight: 300;
-  margin: 10px 0 50px 0;
+  margin: 40px 0 40px;
   padding: 0;
   text-transform: uppercase;
   color: #333;
-  line-height: 40px;
+  z-index:1;
 }
 .ie h2 {
   /* font-family: "Arial Narrow",Arial,sans-serif; */
@@ -699,6 +700,7 @@ body.homepage #homepage_header_wrapper { display:block; }
 	position: relative;
 	background: transparent;
 	background:rgba(0,0,0,.8);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC000000, endColorstr=#CC000000);
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC000000, endColorstr=#CC000000)";
 }
 #testimonial p {
@@ -830,9 +832,11 @@ ul#steps {
 	/* background: url(../images/event_name_box.png); */
 	background: transparent;
 	background:rgba(0,0,0,.8);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC000000, endColorstr=#CC000000);
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC000000, endColorstr=#CC000000)";
 	overflow: visible;
 	position: relative;
+	z-index: 1;
 	float:left;
 	font-family: 'BrandonG','Arial Narrow', sans-serif;
 	text-transform: uppercase;
@@ -860,10 +864,10 @@ ul#steps {
 	padding-left: 5px;
 	border-left:1px solid #c44427;
 }
-.featured_product_text .product_info a.event_details_link:link, .featured_product_text .product_info a.event_details_link:visited {
+.featured_product_text a.event_details_link:link, .featured_product_text a.event_details_link:visited {
 	position: absolute;
-	left:-27px;
-	bottom:-25px;
+	left:0px;
+	top:101px;
 	height:32px;
 	width: 120px;
 	padding: 12px 37px 0 8px;
@@ -871,6 +875,7 @@ ul#steps {
     color:#fff;
 	font-family: 'BrandonG Bold','Arial', sans-serif;
 	font-size:20px;
+	line-height: 20px;
     text-shadow:  1px 1px 2px black;
     -webkit-transition: none;
     -moz-transition: none;
@@ -1109,7 +1114,7 @@ ul#steps {
 }
 .eventlist_products {
 	width:327px;
-	height:580px;
+	height:600px;
 	float:left;
 	padding:0 13px 50px;
 	list-style: none;
@@ -1178,9 +1183,17 @@ ul#steps {
 .eventlist_product_info {
 	background: transparent;
 	background:rgba(28,27,27,.7);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC1C1B1B, endColorstr=#CC1C1B1B);
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC1C1B1B, endColorstr=#CC1C1B1B)";
 	height: 525px;
 	position: relative;
+	overflow-y: visible;
+}
+.eventlist_products .ie-eventlist_product_info {
+	z-index:-1;
+	background: #111;
+	filter:none;
+	-ms-filter: none;
 }
 .eventlist_products p.content {
 	height: 64px;
@@ -1217,9 +1230,10 @@ ul#steps {
 	width: 78px;
 	position: absolute;
 	left: 0px;
-	top: 15px;
+	top: 12px;
 	text-align: center;
 	font-size: 22px;
+	line-height: 19px;
 }
 #eventlist_per_person .bubble_text {
 	margin-top: 17px;
@@ -1230,6 +1244,7 @@ ul#steps {
 }
 .eventlist_event_detail_bubble .bubble_text div {
 	font-size: 12px;
+	line-height: 12px;
 	margin-bottom: 3px;
 	margin-top: 2px;
 	display: block;
@@ -1627,6 +1642,7 @@ a.presskit_news {
 	display: block;
 	background: transparent;
 	background: rgba(0, 0, 0, 0.8) url(../images/presskit.png) center no-repeat;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC000000, endColorstr=#CC000000);
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC000000, endColorstr=#CC000000)";
 	width: 250px;
 	height: 116px;
@@ -1790,6 +1806,7 @@ a.presskit_news:hover {
 	width: 261px;
 	background: transparent;
 	background: rgba(50,50,50,0.5);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC323232, endColorstr=#CC323232);
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC323232, endColorstr=#CC323232)";
 	padding: 20px 26px;
 	float:left;
@@ -2057,6 +2074,7 @@ a.presskit_news:hover {
 }
 #footer_sublinks_left {
 	float: left;
+	width:265px;
 }
 #footer_sublinks_right {
 	width:130px;
@@ -2073,7 +2091,7 @@ a.presskit_news:hover {
 #footer_sublinks_right a {
 	float:left;
 }
-a.presskit_footer {
+#footer_sublinks a.presskit_footer {
 	display: block;
 	width: 162px;
 	height: 75px;
@@ -2082,21 +2100,18 @@ a.presskit_footer {
 	right: -80px;
 	top: -34px;
 }
-a.presskit_footer:hover {
+#footer_sublinks a.presskit_footer:hover {
 	border-bottom: 2px transparent;
 }
-a#footerlogo:link {
+#footer_sublinks #footerlogo {
 	width:258px;
 	height:82px;
 	background:url(../images/footerlogo.png) no-repeat;
 	position: absolute;
 	left: 269px;
 	top: -18px;
-	display:block;
 	margin:0;
-}
-a#footerlogo:hover {
-	border-bottom: 2px transparent solid;
+	display:block;
 }
 
 #copy {
@@ -2113,7 +2128,8 @@ a#footerlogo:hover {
 }
 #footerlinks-container {
 	position: relative;
-	width: 800px;
+	width: 800px;]
+	height:65px;
 	margin: 0 auto;
 }
 
@@ -2591,6 +2607,7 @@ a#backtoall:hover {
 	overflow: hidden;
 	text-align: left;
 	background: transparent !important;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00000000, endColorstr=#00000000);
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00000000, endColorstr=#00000000)";
 }
 .lightbox-modal ul {
@@ -2774,8 +2791,9 @@ a#backtoall:hover {
 	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
 	text-transform: uppercase;
 	position: absolute;
-	top:40px;
-	left:35px;
+	top: 29px;
+	left: 35px;
+	line-height: 36px;
 }
 #whoweare {
 	position: absolute;
