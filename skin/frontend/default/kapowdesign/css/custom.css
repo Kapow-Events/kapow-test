@@ -883,7 +883,7 @@ ul#steps {
     text-transform: none;
 	border:none;
 }
-.featured_product_text .product_info .event_details_link:hover {
+.featured_product_text .event_details_link:hover {
 	border-bottom:2px transparent solid;
 	color:#000;
 }
