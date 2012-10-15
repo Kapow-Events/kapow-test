@@ -2038,6 +2038,9 @@ a.presskit_news:hover {
 }
 #footer p { font-family:'BrandonG Bold',Arial,sans-serif; font-style:normal; margin:10px 0; font-size:13px; }
 
+#footer #email_us_button { 
+	margin-left: -50px;
+}
 #footer #email_us_button .button_ribbon_small { margin:-20px 0 0 7px; }
 
 #footer #contact_information { text-align:center; clear:both; padding-top:30px; }
