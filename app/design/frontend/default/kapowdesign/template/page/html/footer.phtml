@@ -139,7 +139,7 @@ $currentUrl = $this->helper('core/url')->getCurrentUrl();
 	      <input type="text" name="login[username]" id="modal-email" value="Username or Email" class="modal-input" maxlength="255" /><br/>
 	      <input type="text" name="x" id="modal-passwordText" class="modal-input" value="Password" maxlength="255" />
 	      <input type="password" name="login[password]" id="modal-password" value="" class="modal-input" maxlength="255" />
-		      <button class="modal-signin-button">
+		      <button class="modal-signin-button" type="submit">
 		      	<span>Sign In &gt;</span>
 		      </button>
           </form>
@@ -171,7 +171,7 @@ $currentUrl = $this->helper('core/url')->getCurrentUrl();
           <input type="text" id="signup-confirmationText" class="modal-input" value="Confirm Password" maxlength="255" />
           <input type="password" name="confirmation" id="signup-confirmation" class="modal-input" maxlength="255" />
 	      <div id="modal-button-contain">
-		      <button class="modal-continue">
+		      <button class="modal-continue" type="submit">
 		      	<span>Continue &gt;</span>
 		      </button>
 	      </div>
