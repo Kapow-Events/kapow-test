@@ -110,6 +110,8 @@
 						
 						// Try to account for a 3 line name by adjusting the font size
 						$name      		= $_helper->productAttribute($_product, $_product->getName(), 'name');
+                        $font_size 		= strlen($name) >= 50 ? ' three_line' : '';
+                        $font_size 		= strlen($name) > 50  ? ' three_plus_lines' : '';
 						$group_size_min = $_product->getResource()->getAttribute('event_group_size_min')->getFrontend()->getValue($_product);
 						$group_size_max = $_product->getResource()->getAttribute('event_group_size_max')->getFrontend()->getValue($_product);
 						$event_cost 	= $_product->getResource()->getAttribute('event_cost_size')->getFrontend()->getValue($_product);
