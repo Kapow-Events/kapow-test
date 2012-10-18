@@ -136,6 +136,7 @@ php_flag display_errors 1
     RewriteRule (.*) http://www.kapowevents.com/? [R]
 
 RewriteRule ^events\/evening\-on\-the\-potomac\.html$ "http\:\/\/www\.kapowevents\.com\/evening\-on\-the\-potomac\.html" [R=301,L]
+RewriteRule ^events\/bulls\-vs\-magic\-united\-center\.html$ "http\:\/\/www\.kapowevents\.com\/bulls\-vs\-magic\-united\-center\.html" [R=301,L]
 
 
     #RewriteCond %{QUERY_STRING} utm_source=EventsWired&utm_campaign=e651766f8c-Newsletter_4_194_19_2012&utm_medium=email
