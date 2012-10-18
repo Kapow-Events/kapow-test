@@ -16,7 +16,7 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'eventswi_kapow');
+define('DB_NAME', 'eventswi_stage');
 
 /** MySQL database username */
 define('DB_USER', 'eventswi_magento');
