@@ -98,6 +98,10 @@ audio:not([controls]) { display: none; }
  */
 
 html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+html.ie7{
+	overflow-x: hidden;
+	width: 100%;
+}
 
 body {
   line-height: 18px;
@@ -2284,6 +2288,8 @@ p.callout { font-size:18px; line-height:24px; }
 }
 #event_callout #carousel, #event_callout #carousel li {
 	height:372px;
+}
+#event_callout #carousel li {
 	text-align: center;
 }
 #event_callout .event_info_contain {	
@@ -2506,15 +2512,16 @@ p.callout { font-size:18px; line-height:24px; }
 	display:block;
 	position: absolute;
 	right: 215px;
-	top: -18px;
+	top: 32px;
 }
 #event_detail #cut_splitter {	
 	position: absolute;
 	z-index: 199;
+	left: 0;
 }
 #event_detail #followus {
 	position: absolute;
-	top:0;
+	top:50px;
 	right:91px;
 	font-family: "BrandonG Light Italic", Arial Narrow, sans-serif;
 	font-size: 20px;
@@ -2525,14 +2532,14 @@ p.callout { font-size:18px; line-height:24px; }
 	height:9px;
 	background: url(../images/followusarrow.png) no-repeat;
 	position: absolute;
-	top: 7px;
+	top: 57px;
 	right: 75px;
 }
 #event_detail .social_findus {
 	height:32px;
 	width:32px;
 	position: absolute;
-	top:-5px;
+	top:42px;
 }
 #event_detail a:hover {
 	border-bottom:2px transparent solid;
@@ -2567,7 +2574,8 @@ p.callout { font-size:18px; line-height:24px; }
 #event_detail .content { 
 	font-style:normal; 	
 	width: 1060px;
-	margin: 50px auto;	
+	margin: 0px auto;
+	padding: 50px 0;	
 	font-family: 'BrandonG', Arial, sans-serif;
 	color: #666;
 	position: relative;
