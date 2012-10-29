@@ -835,9 +835,10 @@ ul#steps {
 	margin-top:22px;
 	/* background: url(../images/event_name_box.png); */
 	background: transparent;
-	background:rgba(0,0,0,.8);
+	/*background:rgba(0,0,0,.8);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC000000, endColorstr=#CC000000);
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC000000, endColorstr=#CC000000)";
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC000000, endColorstr=#CC000000)";*/
+	background-image: url("../images/event_name_pre.png");
 	overflow: visible;
 	position: relative;
 	z-index: 1;
@@ -863,6 +864,7 @@ ul#steps {
 	font-style: normal;
 	font-size:12px;
 	line-height: 12px;
+	position: relative;
 }
 .featured_product_text .product_info #event_detail_group {
 	padding-left: 5px;
@@ -871,7 +873,7 @@ ul#steps {
 .featured_product_text a.event_details_link:link, .featured_product_text a.event_details_link:visited {
 	position: absolute;
 	left:0px;
-	top:101px;
+	top:17px;
 	height:32px;
 	width: 120px;
 	padding: 12px 37px 0 8px;
