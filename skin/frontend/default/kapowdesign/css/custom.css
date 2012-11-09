@@ -443,7 +443,10 @@ input.button_ribbon_small:active {
  * Consistent box sizing and appearance
  */
 
-input[type="checkbox"], input[type="radio"] { box-sizing: border-box; padding: 0; }
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; padding: 0; 
+	float: left;
+	margin-right: 10px;
+}
 input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
 input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
 
@@ -2028,7 +2031,7 @@ a.presskit_news:hover {
 	padding:0;
 }
 .add-to-cart {
-	padding-bottom:230px;
+	padding-bottom:30px;
 }
 #product-options-wrapper .price-box {	
 	position: absolute;
