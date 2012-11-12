@@ -179,10 +179,13 @@ code {
 	margin-right: 0;
 }
 #footer_sublinks_right{
-	width:150px;
+	width:180px;
+}
+#footer_sublinks a.presskit_footer{
+	right: -180px;
 }
 #site-info {
-	float: left;
+	float: left; 
 	font-size: 14px;
 	font-weight: bold;
 	width: 700px;

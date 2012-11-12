@@ -2093,7 +2093,7 @@ a.presskit_news:hover {
 	width:265px;
 }
 #footer_sublinks_right {
-	width:130px;
+	width:180px;
 	float: left;
 	margin-left: 284px;
 	position: relative;
@@ -2113,7 +2113,7 @@ a.presskit_news:hover {
 	height: 75px;
 	background: url(../images/press_kit_sm.png) no-repeat;
 	position: absolute;
-	right: -80px;
+	right: -120px;
 	top: -34px;
 }
 #footer_sublinks a.presskit_footer:hover {
