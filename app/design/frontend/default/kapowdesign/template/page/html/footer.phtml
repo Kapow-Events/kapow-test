@@ -189,6 +189,12 @@ $currentUrl = $this->helper('core/url')->getCurrentUrl();
     </div>
     <script>
 	jQuery(document).ready(function() {
+        jQuery("#requestDateFormWrapper").hide();
+        jQuery("#requestDate").click( function() {
+            jQuery('#requestDateFormWrapper').show();
+            jQuery("#requestDate").hide();
+            return true;
+        });
 		jQuery("#modal-email").focus(function() {
 			if (jQuery(this).val() == "Username or Email") {
 				jQuery(this).val("");

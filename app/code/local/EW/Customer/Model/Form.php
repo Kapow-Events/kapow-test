@@ -62,7 +62,8 @@ class EW_Customer_Model_Form extends Mage_Eav_Model_Form
                 $data[$attribute->getAttributeCode()] = null;
             }
 
-            if (Mage::helper('core/url')->getCurrentUrl() == Mage::getBaseUrl() .'customer/account/createpost/') {
+            if (Mage::helper('core/url')->getCurrentUrl() == Mage::getBaseUrl() .'customer/account/createpost/'
+                || Mage::helper('core/url')->getCurrentUrl() == Mage::getBaseUrl() .'customer/account/editPost/') {
                 $code = $attribute->getAttributeCode();
                 $notRequired = array('street', 'postcode', 'city', 'telephone');
                 if (!in_array($code, $notRequired)) {
