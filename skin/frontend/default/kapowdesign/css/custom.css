@@ -2402,7 +2402,7 @@ p.callout { font-size:18px; line-height:24px; }
 }
 #glancecontainer #glance_description {
 	width: 293px;
-	height: 87px;
+	min-height: 87px;
 	float: left;
 	overflow: hidden;
 	color: white;
