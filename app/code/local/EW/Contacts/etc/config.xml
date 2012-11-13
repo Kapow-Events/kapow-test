@@ -16,5 +16,16 @@
             </contacts>
         </routers>
     </frontend>
+    <global>
+        <template>
+            <email>
+                <request_date_email_template module="EW_Contacts">
+                    <label>Request Date Email Form</label>
+                    <file>request_date_form.html</file>
+                    <type>html</type>
+                </request_date_email_template>
+            </email>
+        </template>
+    </global>
 </config>
 

@@ -395,6 +395,7 @@ input.button_ribbon:active {
   color: #000;
   padding: 0;
   border: none;
+  cursor: pointer;
 }
 
 
