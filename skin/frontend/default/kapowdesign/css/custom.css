@@ -98,6 +98,10 @@ audio:not([controls]) { display: none; }
  */
 
 html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+html.ie7{
+	overflow-x: hidden;
+	width: 100%;
+}
 
 body {
   line-height: 18px;
@@ -391,6 +395,7 @@ input.button_ribbon:active {
   color: #000;
   padding: 0;
   border: none;
+  cursor: pointer;
 }
 
 
@@ -439,7 +444,10 @@ input.button_ribbon_small:active {
  * Consistent box sizing and appearance
  */
 
-input[type="checkbox"], input[type="radio"] { box-sizing: border-box; padding: 0; }
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; padding: 0; 
+	float: left;
+	margin-right: 10px;
+}
 input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
 input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
 
@@ -831,9 +839,10 @@ ul#steps {
 	margin-top:22px;
 	/* background: url(../images/event_name_box.png); */
 	background: transparent;
-	background:rgba(0,0,0,.8);
+	/*background:rgba(0,0,0,.8);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC000000, endColorstr=#CC000000);
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC000000, endColorstr=#CC000000)";
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#CC000000, endColorstr=#CC000000)";*/
+	background-image: url("../images/event_name_pre.png");
 	overflow: visible;
 	position: relative;
 	z-index: 1;
@@ -845,11 +854,12 @@ ul#steps {
 .featured_product_text .product_info div.product_header {
 	margin-top:20px;
 	padding: 0;
-	font-size: 24px;
+	font-size: 20px;
 	color: white;
 	font-weight: normal;
 	font-family: 'BrandonG Light','Arial Narrow', sans-serif;
 	line-height: 20px;
+	min-height: 40px;
 }
 .featured_product_text .product_info .event_details_info {
 	margin-right: 5px;
@@ -859,6 +869,7 @@ ul#steps {
 	font-style: normal;
 	font-size:12px;
 	line-height: 12px;
+	position: relative;
 }
 .featured_product_text .product_info #event_detail_group {
 	padding-left: 5px;
@@ -867,7 +878,7 @@ ul#steps {
 .featured_product_text a.event_details_link:link, .featured_product_text a.event_details_link:visited {
 	position: absolute;
 	left:0px;
-	top:101px;
+	top:17px;
 	height:32px;
 	width: 120px;
 	padding: 12px 37px 0 8px;
@@ -1078,10 +1089,10 @@ ul#steps {
 	font-style: normal;
 	font-size: 20px;
 	font-family: 'BrandonG Light', 'Arial Narrow', sans-serif;
-	width: 600px;
+	width: 980px;
 	position: absolute;
-	left: 220px;
-	top: 35px;
+	left: 60px;
+	top: 40px;
 }
 #eventsmessage p {
 	line-height: 26px;
@@ -1179,6 +1190,9 @@ ul#steps {
 	width:100%;
 	height:149px;
 	margin-top: -5px;
+	background-position: center center !important;
+	background-size: cover !important;
+	background-color: #2b1d1a !important;
 }
 .eventlist_product_info {
 	background: transparent;
@@ -2018,7 +2032,7 @@ a.presskit_news:hover {
 	padding:0;
 }
 .add-to-cart {
-	padding-bottom:230px;
+	padding-bottom:30px;
 }
 #product-options-wrapper .price-box {	
 	position: absolute;
@@ -2080,7 +2094,7 @@ a.presskit_news:hover {
 	width:265px;
 }
 #footer_sublinks_right {
-	width:130px;
+	width:180px;
 	float: left;
 	margin-left: 284px;
 	position: relative;
@@ -2100,7 +2114,7 @@ a.presskit_news:hover {
 	height: 75px;
 	background: url(../images/press_kit_sm.png) no-repeat;
 	position: absolute;
-	right: -80px;
+	right: -120px;
 	top: -34px;
 }
 #footer_sublinks a.presskit_footer:hover {
@@ -2260,7 +2274,7 @@ p.callout { font-size:18px; line-height:24px; }
 
 #event_callout {
 	position: relative;
-	background: #000;
+	background: url("../images/eventsbg.png") no-repeat scroll center bottom black;
 	height: 784px;
 	width: 100%;
 	overflow: hidden;
@@ -2281,7 +2295,9 @@ p.callout { font-size:18px; line-height:24px; }
 }
 #event_callout #carousel, #event_callout #carousel li {
 	height:372px;
-	background: #000;
+}
+#event_callout #carousel li {
+	text-align: center;
 }
 #event_callout .event_info_contain {	
 	background:  black url(../images/eventsbg.png) bottom center no-repeat;
@@ -2386,7 +2402,7 @@ p.callout { font-size:18px; line-height:24px; }
 }
 #glancecontainer #glance_description {
 	width: 293px;
-	height: 87px;
+	min-height: 87px;
 	float: left;
 	overflow: hidden;
 	color: white;
@@ -2459,7 +2475,11 @@ p.callout { font-size:18px; line-height:24px; }
 }
 #carousel ul { list-style:none; padding:0; margin:0; }
 #carousel ul li {  float:left; height:450px; width: 1200px; position:relative; }
-#carousel ul li img { position:absolute; top:0; left:0; width: 100%; }
+/*#carousel ul li img { position:absolute; top:0; left:0; width: 100%; }*/
+#carousel ul li img {
+	max-height: 110%;
+	max-width: 100%;
+}
 
 #carousel .carousel-previous {
   background: url(../images/css-sprites.png) -125px -329px no-repeat;
@@ -2499,15 +2519,16 @@ p.callout { font-size:18px; line-height:24px; }
 	display:block;
 	position: absolute;
 	right: 215px;
-	top: -18px;
+	top: 32px;
 }
 #event_detail #cut_splitter {	
 	position: absolute;
 	z-index: 199;
+	left: 0;
 }
 #event_detail #followus {
 	position: absolute;
-	top:0;
+	top:50px;
 	right:91px;
 	font-family: "BrandonG Light Italic", Arial Narrow, sans-serif;
 	font-size: 20px;
@@ -2518,14 +2539,14 @@ p.callout { font-size:18px; line-height:24px; }
 	height:9px;
 	background: url(../images/followusarrow.png) no-repeat;
 	position: absolute;
-	top: 7px;
+	top: 57px;
 	right: 75px;
 }
 #event_detail .social_findus {
 	height:32px;
 	width:32px;
 	position: absolute;
-	top:-5px;
+	top:42px;
 }
 #event_detail a:hover {
 	border-bottom:2px transparent solid;
@@ -2560,7 +2581,8 @@ p.callout { font-size:18px; line-height:24px; }
 #event_detail .content { 
 	font-style:normal; 	
 	width: 1060px;
-	margin: 50px auto;	
+	margin: 0px auto;
+	padding: 50px 0;	
 	font-family: 'BrandonG', Arial, sans-serif;
 	color: #666;
 	position: relative;
@@ -3116,7 +3138,7 @@ body.cms-page-view, body.customer-account-index {
   h2, h3 { page-break-after: avoid; }
 }
 #eventlist_events_container {
-	height:630px;
+	min-height:630px;
 }
 #eventlist_events_container:focus {outline: none;}
 

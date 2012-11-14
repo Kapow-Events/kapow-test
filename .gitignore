@@ -4,3 +4,4 @@ downloader/
 .DS_Store
 var/
 media/
+*.esproj

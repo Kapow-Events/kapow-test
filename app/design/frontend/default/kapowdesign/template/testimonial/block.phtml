@@ -169,16 +169,15 @@ endif;
 	
 	new Carousel($$('#carousel-wrapper').first(), $$('#carousel-content .slide'), $$('.carousel-control a'), {auto: true, effect: "<?= $slide_effect; ?>", duration:<?= $slide_effect_duration; ?>,  frequency: 6} );
 	
-	
+<?php if($allow_pagination): ?>
 	//For Block pagination
 	
 	Event.observe(window, 'load', function() {
-                
-		var total_pages = <?= $total_pages; ?>;
+
+		var total_pages = <?php echo $total_pages; ?>;
 		var total_width = total_pages * 36;
-		
+
 		$('page_scroll').setStyle({width : total_width+'px' });
-		
         });
 	
 	Event.observe($('next_page'), 'click', function() {
@@ -211,7 +210,7 @@ endif;
 		
 		
         });
-	
+<?php endif; ?>
 	
                                 
 </script>

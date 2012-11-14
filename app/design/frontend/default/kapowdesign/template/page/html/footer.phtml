@@ -85,7 +85,8 @@ $currentUrl = $this->helper('core/url')->getCurrentUrl();
 		<a href="<?php echo Mage::getBaseUrl() ?>" id="footerlogolink"><div id="footerlogo"></div></a>
 		<div id="footer_sublinks_right">
 			<a href="<?php echo Mage::getBaseUrl() ?>faqs">faq's</a>
-			<a href="<?php echo Mage::getBaseUrl() ?>blog" class="last">blog</a>
+			<a href="<?php echo Mage::getBaseUrl() ?>blog">blog</a>
+			<a href="<?php echo Mage::getBaseUrl() ?>blog/feed" class="last">rss</a>
 		</div>
 		<a href="/media/downloadable/Kapow%20Events%20Press%20Kit.pdf" class="presskit_footer">&nbsp;</a>
   	</div>
@@ -188,6 +189,12 @@ $currentUrl = $this->helper('core/url')->getCurrentUrl();
     </div>
     <script>
 	jQuery(document).ready(function() {
+        jQuery("#requestDateFormWrapper").hide();
+        jQuery("#requestDate").click( function() {
+            jQuery('#requestDateFormWrapper').show();
+            jQuery("#requestDate").hide();
+            return true;
+        });
 		jQuery("#modal-email").focus(function() {
 			if (jQuery(this).val() == "Username or Email") {
 				jQuery(this).val("");
@@ -319,16 +326,7 @@ $currentUrl = $this->helper('core/url')->getCurrentUrl();
     </div>
   </div>
 
-  <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID. mathiasbynens.be/notes/async-analytics-snippet -->
-  <?php $google_analytics_site_id = Mage::getModel('core/variable')->loadByCode('google_analytics_site_id')->getValue('plain'); ?>
-  <?php if ($google_analytics_site_id != 'UA-XXXXX-X') : ?>
-    <script>
-      var _gaq=[['_setAccount','<?php echo $google_analytics_site_id ?>'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script>
-  <?php endif ?>
+  
 
   <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
        chromium.org/developers/how-tos/chrome-frame-getting-started -->
