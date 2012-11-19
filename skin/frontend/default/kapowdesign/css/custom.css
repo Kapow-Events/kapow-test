@@ -1081,8 +1081,9 @@ ul#steps {
 	color:#fff;
 	text-transform: uppercase;
 	margin-left:11px;
-	width:241px;
+	width:271px;
 	float:left;
+	line-height: 27px;
 }
 #eventsmessage {
 	color: #fff;
@@ -3139,6 +3140,7 @@ body.cms-page-view, body.customer-account-index {
 }
 #eventlist_events_container {
 	min-height:630px;
+	clear: both;
 }
 #eventlist_events_container:focus {outline: none;}
 
