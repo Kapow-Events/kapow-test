@@ -471,7 +471,15 @@ textarea {
   height: 80px;
 }
 
-form input.input-text { width:89%; }
+form#requestDateForm input.input-text { width:89%; 
+}
+form#requestDateForm input[type="checkbox"].input-text {
+	width: auto;
+	float: none;
+}
+form#requestDateForm label{
+	margin-top: 10px;
+}
 
 textarea,
 input.input-text {
