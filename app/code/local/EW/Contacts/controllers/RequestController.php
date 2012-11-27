@@ -34,8 +34,8 @@
 class EW_Contacts_RequestController extends Mage_Core_Controller_Front_Action
 {
 
-    const XML_PATH_EMAIL_RECIPIENT  = 'trans_email/ident_custom2/email';
-    const XML_PATH_EMAIL_SENDER     = 'trans_email/ident_custom2/name';
+    const XML_PATH_EMAIL_ADDR   = 'trans_email/ident_custom2/email';
+    const XML_PATH_EMAIL_NAME   = 'trans_email/ident_custom2/name';
     const XML_PATH_EMAIL_TEMPLATE   = 'contacts/email/email_template';
 
     public function indexAction()
@@ -95,15 +95,14 @@ class EW_Contacts_RequestController extends Mage_Core_Controller_Front_Action
                 }
 
                 $mailTemplate = Mage::getModel('core/email_template');
-                $email = Mage::getStoreConfig(self::XML_PATH_EMAIL_SENDER);
                 /* @var $mailTemplate Mage_Core_Model_Email_Template */
                 $mailTemplate->setDesignConfig(array('area' => 'frontend'))
                     ->setReplyTo($post['email'])
                     ->sendTransactional(
                         'request_date_email_template',
-                        Mage::getStoreConfig(self::XML_PATH_EMAIL_SENDER),
-                        Mage::getStoreConfig(self::XML_PATH_EMAIL_RECIPIENT),
-                        null,
+                        'custom2',
+                        Mage::getStoreConfig(self::XML_PATH_EMAIL_ADDR),
+                        Mage::getStoreConfig(self::XML_PATH_EMAIL_NAME),
                         array('data' => $postObject)
                     );
 
@@ -119,7 +118,7 @@ class EW_Contacts_RequestController extends Mage_Core_Controller_Front_Action
                 return;
             } catch (Exception $e) {
                 $translate->setTranslateInline(true);
-
+var_dump($e->getMessage()); die();
                 Mage::getSingleton('core/session')->addError(Mage::helper('contacts')->__('Unable to submit your request. Please, try again later'));
                 $this->_redirectUrl($url);
                 return;
