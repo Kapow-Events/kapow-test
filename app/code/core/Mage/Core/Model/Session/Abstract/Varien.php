@@ -79,14 +79,14 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
         }
 
         // session cookie params
-        $cookieParams = array(
+         $cookieParams = array(
             'lifetime' => $cookie->getLifetime(),
             'path'     => $cookie->getPath(),
-            'domain'   => $cookie->getConfigDomain(),
-            'secure'   => $cookie->isSecure(),
-            'httponly' => $cookie->getHttponly()
+    //        'domain'   => $cookie->getConfigDomain(),
+    //        'secure'   => $cookie->isSecure(),
+    //        'httponly' => $cookie->getHttponly()
         );
-
+/*
         if (!$cookieParams['httponly']) {
             unset($cookieParams['httponly']);
             if (!$cookieParams['secure']) {
@@ -100,7 +100,7 @@ class Mage_Core_Model_Session_Abstract_Varien extends Varien_Object
         if (isset($cookieParams['domain'])) {
             $cookieParams['domain'] = $cookie->getDomain();
         }
-
+*/
         call_user_func_array('session_set_cookie_params', $cookieParams);
 
         if (!empty($sessionName)) {
