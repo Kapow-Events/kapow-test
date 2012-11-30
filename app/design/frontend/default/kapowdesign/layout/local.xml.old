@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+ 
+    <default>
+        <reference name="root">
+                <remove name="breadcrumbs" />
+        </reference>
+
+        <reference name="head">
+                <action method="addJs"><script>modernizr-2.0.6.min.js</script></action>
+                <action method="addCss"><stylesheet>js/fancybox/jquery.fancybox-1.3.4.css</stylesheet></action>
+<!--               <block type="page/html" name="cssqstring" output="toHtml" template="page/html/css.phtml" /> -->
+        </reference>
+
+                 <block type="page/html" name="cssqstring" output="toHtml" template="page/html/css.phtml" /> 
+
+        <reference name="header">
+                <block type="site/featured" name="featured" as="featured" template="site/featured.phtml" />
+                <!-- This adds a CMS block that can be called from the template file
+                associated with the header block. -->
+                <block type="cms/block" name="primaryNavLeft">
+                        <action method="setBlockId"><block_id>header_primary_navigation_left</block_id></action>
+                </block>
+
+                <block type="cms/block" name="primaryNavRight">
+                        <action method="setBlockId"><block_id>header_primary_navigation_right</block_id></action>
+                </block>
+
+                <block type="cms/block" name="secondaryNavRight">
+                        <action method="setBlockId"><block_id>header_secondary_navigation_right</block_id></action>
+                </block>
+
+                <!-- The remove tag removes the blocks with the specified name from the layout -->
+                <remove name="top.menu"/>
+                <remove name="store_language"/>
+                <remove name="top.search" />
+        </reference>
+         
+        <reference name="top.nav">
+                <remove name="catalog.topnav"/>
+        </reference>
+
+        <reference name="left">
+                <remove name="left.newsletter"/>
+                <remove name="left.permanent.callout"/>
+                <remove name="catalogsearch.leftnav"/>
+
+                <!-- When you use the remove tag, it removes any blocks with the specified name from
+                        the entire layout, regardless of the context. So, if I remove right.newsletter in
+                        the <default> context and that name is used in say the <catalog_product_view> context,
+                        then both blocks will be removed.  Because remove operates on the global context,
+                        you can only remove an element once.  Since <remove name="right.newsletter" /> is
+                        being called in catalogsearch.xml, we have to unset it, or else we'll get an error.
+
+                        The line below only unsets the block from the parent's context, not the global
+                        layout context -->
+                <action method="unsetChild"><name>right.newsletter</name></action>
+        </reference>
+
+        <reference name="right">
+                <!-- Some blocks have to be removed using remove, others via unsetChild.
+                        I've not spent the time digging into the code to figure out why -->
+                <remove name="right.permanent.callout"/>type
+                <remove name="catalog.compare.sidebar"/>
+                <remove name="left.reports.product.viewed"/>
+                <action method="unsetChild"><name>sale.reorder.sidebar</name></action>
+                <action method="unsetChild"><name>wishlist_sidebar</name></action>
+                <action method="unsetChild"><name>right.reports.product.viewed</name></action>
+                <action method="unsetChild"><name>right.reports.product.compared</name></action>
+                <remove name="cart_sidebar"/>
+        </reference>
+
+        <reference name="footer">
+                <block type="cms/block" name="footerConnectWithUs">
+                        <action method="setBlockId"><block_id>footer_connect_with_us</block_id></action>
+                </block>
+
+                <block type="cms/block" name="footerAddress">
+                        <action method="setBlockId"><block_id>footer_address</block_id></action>
+                </block>
+        </reference>
+    </default>
+
+    <cms_index_index>
+        <reference name="root"> 
+            <action method="addBodyClass"><className>homepage</className></action> 
+        </reference>
+        <reference name="head">
+                <action method="removeItem"><type>skin_css</type><name>css/styles.css</name></action> 
+                <action method="removeItem"><type>skin_css</type><name>css/styles-ie.css</name></action> 
+        </reference>
+        <reference name="content">
+            <block type="site/featured" name="featured_home" as="featured_home" template="site/featured-body.phtml" />
+            <block type="site/featured" name="recent_success" as="recent_success" template="site/success.phtml">
+                <block type="wordpress/sidebar_widget_posts" name="wordpress.widget.recent_posts" as="recent_posts" template="site/success/posts.phtml">
+                    <action method="setTitle"><title>Latest Posts</title></action>
+                    <action method="setPostCount"><post_count>8</post_count></action>
+                     <action method="setCategoryId"><id>6</id></action>
+                </block>
+            </block>
+        </reference>
+    </cms_index_index>
+    <!--CATALOG PAGES -->
+
+     <catalog_category_default>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column-html5.phtml</template></action>
+        </reference>
+        <reference name="head">
+                <action method="removeItem"><type>skin_css</type><name>css/styles.css</name></action>
+                <action method="removeItem"><type>skin_css</type><name>css/styles-ie.css</name></action>
+        </reference>
+        <block type="catalog/product_list" name="product_list" template="catalog/product/list.phtml">
+            <action method="addAttribute"><name>event_group_size_min</name></action>
+            <action method="addAttribute"><name>event_group_size_max</name></action>
+            <action method="addAttribute"><name>per_person_cost</name></action>
+            <action method="addAttribute"><name>event_cost_size</name></action>
+
+            <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+                <block type="page/html_pager" name="product_list_toolbar_pager"/>
+            </block>
+
+        </block>
+        <reference name="content">
+            <block type="sociable/services" name="sociable.product_page" template="sociable/sociable.phtml"  as="other" before="-" />
+        </reference>
+    </catalog_category_default>
+
+    <catalog_category_layered translate="label">
+        <label>Catalog Category (Anchor)</label>
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+        </reference>
+    </catalog_category_layered>
+
+    <catalog_product_view>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column-html5.phtml</template></action>
+        </reference>
+        <reference name="head">
+                <action method="removeItem"><type>skin_css</type><name>css/styles.css</name></action> 
+                <action method="removeItem"><type>skin_css</type><name>css/styles-ie.css</name></action> 
+        </reference>
+        <reference name="content">
+            <reference name="product.info">
+                <block type="catalog/product_view" name="product.info.quantity" as="quantity" template="catalog/product/view/quantity.phtml" />
+                <block type="catalog/product_view" name="product.info.options.wrapper.bottom" as="product_options_wrapper_bottom" template="catalog/product/view/options/wrapper/bottom.phtml" translate="label">
+                    <action method="unsetChild"><name>tierprices</name></action>
+                    <action method="unsetChild"><name>addto</name></action>
+                </block>
+            </reference>
+        </reference>
+
+        <!-- reference name="content">
+                <reference name="product.info">
+                        <block type="cms/block" name="cms_product_info_tabs">
+                                <action method="setBlockId"><block_id>product_info_tabs</block_id></action>
+                        </block>
+                        <block type="catalog/product_view" name="product.clone_prices" as="prices" template="catalog/product/view/price_clone.phtml"/>
+                        <action method="unsetChild"><name>tierprices</name></action>
+                        <action method="unsetChild"><name>addto</name></action>
+                        <remove name="addto"/>
+                        <reference name="product.info.options.wrapper.bottom">
+                                <action method="unsetChild"><name>product.tierprices</name></action>
+                        </reference>
+                </reference>
+        </reference -->
+    </catalog_product_view>
+
+    <customer_account>
+        <action method="unsetChild"><name>customer_account_navigation</name></action>
+        <block type="customer/account_navigation" name="customer_account_navigation" before="-" template="customer/account/navigation.phtml">
+            <action method="addLink" translate="label" module="sales"><name>orders</name><path>sales/order/history/</path><label>My Orders</label></action>
+            <action method="addLink" translate="label" module="customer"><name>account_edit</name><path>customer/account/edit/</path><label>Account Information</label></action>
+            <action method="addLink" translate="label" module="customer"><name>address_book</name><path>customer/address/</path><label>Address Book</label></action>
+        </block>
+    </customer_account>
+
+    <customer_logged_out>
+        <reference name="top.links">
+              <remove name="checkout_cart_link"/>
+              <action method="addLink" translate="label title" module="customer"><label>My Account</label><url helper="customer/getAccountUrl"/><title>My Account</title><prepare/><urlParams/><position>10</position></action>
+        </reference>
+    </customer_logged_out>
+
+    <customer_logged_in>
+        <reference name="right">
+          <remove name="sale.reorder.sidebar" />
+        </reference>
+        <reference name="top.links">
+              <remove name="checkout_cart_link"/>
+              <block type="checkout/links" name="checkout_cart_link_custom">
+                  <!-- <action method="addCartLink"></action> -->
+              </block>
+        </reference>
+    </customer_logged_in>
+
+    <checkout_cart_index>
+        <remove name="checkout.cart.coupon" />
+    </checkout_cart_index>
+
+    <contacts_customevents_index translate="label">
+        <label>Contact Us Form</label>
+        <reference name="head">
+            <action method="setTitle" translate="title" module="contacts"><title>Custom Events</title></action>
+            <action method="removeItem"><type>skin_css</type><name>css/styles.css</name></action>
+            <action method="removeItem"><type>skin_css</type><name>css/styles-ie.css</name></action>
+        </reference>
+
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column-html5.phtml</template></action>
+            <action method="setHeaderTitle" translate="title" module="contacts"><title>Custom Events</title></action>
+        </reference>
+
+        <reference name="content">
+            <block type="core/template" name="customeventsForm" template="contacts/customevents.phtml"/>
+        </reference>
+    </contacts_customevents_index>
+
+
+    <customer_account_login>
+        <reference name="customer_form_login">
+            <action method="setTemplate"><template>persistent/customer/form/login.phtml</template></action>
+            <block type="persistent/form_remember" name="persistent.remember.me" template="persistent/remember_me.phtml" />
+            <block type="core/template" name="persistent.remember.me.tooltip" template="persistent/remember_me_tooltip.phtml" />
+
+            <block type="cms/block" name="login-welcome">
+                <action method="setBlockId"><block_id>login-welcome</block_id></action>
+            </block>
+        </reference>
+    </customer_account_login>
+</layout>
