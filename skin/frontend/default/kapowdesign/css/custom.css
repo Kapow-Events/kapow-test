@@ -281,7 +281,7 @@ sup { top: -0.5em; }
 sub { bottom: -0.25em; }
 
 iframe { border:10px solid #D7D1CA; margin:5px 0 20px 0; }
-
+.zopim iframe{border:none;}
 
 /* =============================================================================
    Lists

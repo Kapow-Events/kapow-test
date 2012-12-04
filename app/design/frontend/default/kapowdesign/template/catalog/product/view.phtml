@@ -173,16 +173,26 @@
             <div class="left w70p">
 <?php /*
        * TODO: May need to put this back in the future
-       *
+       * 
                 <?php foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html):?>
                 <div class="box-collateral <?php echo "box-{$alias}"?>">
                     <?php echo $html; ?>
                 </div>
                 <?php endforeach;?>
-*/ ?>
+*/?>
 
-                <?php echo $_helper->productAttribute($_product, $_product->getDescription(), 'description') ?>
-
+                <?php /*This has been commented out to use new code below for easy tabs */ 
+                     //echo $_helper->productAttribute($_product, $_product->getDescription(), 'description') ?>
+				
+    <div class="product-collateral">
+        <?php if (!Mage::getStoreConfig('easy_tabs/general/descriptiontabbed')):?>
+	        <?php echo $this->getChildHtml('description') ?>
+        <?php endif;?>
+        <?php echo $this->getChildHtml('additional') ?>
+        <?php echo $this->getChildHtml('upsell_products') ?>
+        <?php echo $this->getChildHtml('product_additional_data') ?>
+    </div>				
+				
 
                 <?php if (Mage::getSingleton('customer/session')->isLoggedIn() && $_product->isSaleable()) : ?>
 
@@ -317,3 +327,5 @@
     </script>
 <?php endif; ?>
 </section>
+
+</div>

@@ -40,10 +40,10 @@
             </db>
             <default_setup>
                 <connection>
-                    <host><![CDATA[localhost]]></host>
-                    <username><![CDATA[eventswi_magento]]></username>
-                    <password><![CDATA[@@_otnegam#]]></password>
-                    <dbname><![CDATA[eventswi_stage]]></dbname>
+                    <host><![CDATA[64.207.186.49]]></host>
+                    <username><![CDATA[dev_kapowevents]]></username>
+                    <password><![CDATA[4tpO6yoM]]></password>
+                    <dbname><![CDATA[dev_kapowevents]]></dbname>
                     <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
                     <model><![CDATA[mysql4]]></model>
                     <type><![CDATA[pdo_mysql]]></type>
