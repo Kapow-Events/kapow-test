@@ -140,7 +140,7 @@ php_flag display_errors 1
 
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.+)\.(\d+)\.(js|css|png|jpg|gif)$ $1.$3 [L]
+    RewriteRule ^(.+)\.(\d+)\.(js|css)$ $1.$3 [L]
 
 
     #RewriteCond %{QUERY_STRING} utm_source=EventsWired&utm_campaign=e651766f8c-Newsletter_4_194_19_2012&utm_medium=email
