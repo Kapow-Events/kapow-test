@@ -9,9 +9,7 @@
         <reference name="head">
                 <action method="addJs"><script>modernizr-2.0.6.min.js</script></action>
                 <action method="addCss"><stylesheet>js/fancybox/jquery.fancybox-1.3.4.css</stylesheet></action>
-           <!--     Remove custom.css form here and use it in head.phtml to use query string  -->
-           <!--    <action method="addCss"><stylesheet>css/custom.css</stylesheet></action> -->
-           <!--    <block type="page/html_css" name="css" as="css" template="page/html/css.phtml" /> -->
+                <action method="addCss"><stylesheet>css/custom.css</stylesheet></action>
         </reference>
 
         <reference name="header">
@@ -95,7 +93,7 @@
                 <block type="wordpress/sidebar_widget_posts" name="wordpress.widget.recent_posts" as="recent_posts" template="site/success/posts.phtml">
                     <action method="setTitle"><title>Latest Posts</title></action>
                     <action method="setPostCount"><post_count>8</post_count></action>
-                     <action method="setCategoryId"><id>6</id></action>
+                    <action method="setCategoryId"><id>6</id></action>
                 </block>
             </block>
         </reference>
