@@ -65,20 +65,22 @@
         </div><!-- footer.content.right -->
       </div><!-- footer.content -->
     </div><!-- footer.inner_wrapper -->
-  </footer>
-<div id="footer_sublinks">
-  	<div id="footerlinks-container">
-		<div id="footer_sublinks_left">
-			<a href="http://www.kapowevents.com/terms-of-use">terms of use</a>
-			<a href="http://www.kapowevents.com/privacy-statement">privacy statement</a>
-		</div>
-		<a id="footerlogolink" href="http://www.kapowevents.com/"><div id="footerlogo"></div></a>
-		<div id="footer_sublinks_right">
-			<a href="http://www.kapowevents.com/faqs">faq's</a>
-			<a class="last" href="http://www.kapowevents.com/blog">blog</a>
-		</div>
-		<a class="presskit_footer" href="/media/downloadable/Kapow%20Events%20Press%20Kit.pdf">&nbsp;</a>
-  	</div>
+  </footer><!-- footer.outer_wrapper -->
+  
+  <div id="footer_sublinks">
+	<div id="footerlinks-container">
+      <div id="footer_sublinks_left">
+        <a href="/terms-of-use">terms of use</a>
+        <a href="/privacy-statement">privacy statement</a>
+      </div>
+      <a href="/" id="footerlogo"></a>
+      <div id="footer_sublinks_right">
+        <a href="/faqs">faq's</a>
+        <a href="/blog">blog</a>
+        <a href="/blog/feed" class="last">rss</a>
+        <a href="/media/downloadable/Kapow%20Events%20Press%20Kit.pdf" class="presskit_footer">&nbsp;</a>
+      </div>
+	</div>
   </div>
 <div id="copy"> &copy; kapow events, inc,  All rights reserved.</div>
 <?php

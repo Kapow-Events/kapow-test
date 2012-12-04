@@ -34,6 +34,8 @@
 <?php $_helper = $this->helper('catalog/output'); ?>
 <?php $_product = $this->getProduct(); ?>
 <?php
+    $customer       = Mage::getSingleton('customer/session')->getCustomer();
+    $phone          = Mage::getModel('customer/address')->load($customer->getDefaultBilling())->getTelephone();
 	$group_size_min = $_product->getResource()->getAttribute('event_group_size_min')->getFrontend()->getValue($_product);
 	$group_size_max = $_product->getResource()->getAttribute('event_group_size_max')->getFrontend()->getValue($_product);
 	$perPerson 		= $_product->getResource()->getAttribute('per_person_cost');
@@ -81,11 +83,13 @@
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
 
 <section id="event_detail" class="section">
+<?php if (!$_product->getCallToSchedule()): ?>
     <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
         <div class="no-display">
             <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
             <input type="hidden" name="related_product" id="related-products-field" value="" />
         </div>
+<?php endif; ?>
 
         <?php echo $this->getChildHtml('other');?>
         
@@ -169,15 +173,25 @@
             <div class="left w70p">
 <?php /*
        * TODO: May need to put this back in the future
-       *
+       * 
                 <?php foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html):?>
                 <div class="box-collateral <?php echo "box-{$alias}"?>">
                     <?php echo $html; ?>
                 </div>
                 <?php endforeach;?>
-*/ ?>
+*/?>
 
-                <?php echo $_helper->productAttribute($_product, $_product->getDescription(), 'description') ?>
+                <?php /*This has been commented out to use new code below for easy tabs */ 
+                     //echo $_helper->productAttribute($_product, $_product->getDescription(), 'description') ?>
+
+                <div class="product-collateral">
+                    <?php if (!Mage::getStoreConfig('easy_tabs/general/descriptiontabbed')):?>
+                        <?php echo $this->getChildHtml('description') ?>
+                    <?php endif;?>
+                    <?php echo $this->getChildHtml('additional') ?>
+                    <?php echo $this->getChildHtml('upsell_products') ?>
+                    <?php echo $this->getChildHtml('product_additional_data') ?>
+                </div>
 
 
                 <?php if (Mage::getSingleton('customer/session')->isLoggedIn() && $_product->isSaleable()) : ?>
@@ -193,8 +207,65 @@
                     <hr style="margin:50px 0 15px 0;" />
                     <span style="float:left; margin-top:10px;">Need an invoice? Got a question? Call us! <?php echo Mage::getStoreConfig('general/store_information/phone'); ?></span>
                     <a href="#" onclick="productAddToCartForm.submit(this); return false;" title="Add to Cart" class="button_ribbon floatright" id="add_to_cart_large">add to cart</a>
+                    <?php else: ?>
+                    <hr style="margin:50px 0 15px 0;" />
+                    <a id="requestDate" class="button_ribbon floatright">Request a Date</a>
+                    <div id="requestDateFormWrapper">
+                        <form id="requestDateForm" action="<?php echo Mage::getUrl('contacts/request/post') ?>" method="post">
+                            <div class="no-display">
+                                <input type="hidden" name="return_url" value="<?php echo Mage::getBaseUrl() . $_product->getUrlPath() ?>" />
+                                <input type="hidden" name="product_id" value="<?php echo $_product->getId() ?>" />
+                            </div>
+                            <div>
+                                <label for="name"><?php echo $this->__('Name') ?></label>
+                                <input type="text" name="name" class="input-text required-entry" value="<?php echo $customer->getName() ?>" />
+                            </div>
+                            <div>
+                                <label for="email"><?php echo $this->__('Email') ?></label>
+                                <input type="text" name="email" class="input-text required-entry" value="<?php echo $customer->getEmail() ?>" />
+                            </div>
+                            <div>
+                                <label for="phone"><?php echo $this->__('Phone Number') ?></label>
+                                <input type="text" name="telephone" class="input-text required-entry" value="<?php echo $phone ?>" />
+                            </div>
+                            <div>
+                                <label for="group_size"><?php echo $this->__('Group Size') ?></label>
+                                <input type="text" name="group_size" class="input-text required-entry" />
+                            </div>
+                            <div>
+                                <label for="date"><?php echo $this->__('Date') ?></label>
+                                <input type="text" name="date" class="input-text required-entry" />
+                            </div>
+                            <div>
+                                <label for="start_time"><?php echo $this->__('Start Time') ?></label>
+                                <input type="text" name="start_time" class="input-text" />
+                            </div>
+                            <div>
+                                <label for="end_time"><?php echo $this->__('End Time') ?></label>
+                                <input type="text" name="end_time" class="input-text" />
+                            </div>
+                            <div>
+                                <label for="flexible"><?php echo $this->__('Flexible Date & Time') ?></label>
+                                <input type="checkbox" name="flexible" value="Yes" class="input-text" />
+                            </div>
+                            <div>
+                                <label for="additional_needs"><?php echo $this->__('Additional Needs') ?></label>
+                                <textarea name="additional_needs"></textarea>
+                            </div>
+                            <div>
+                                <hr style="margin:50px 0 15px 0;" />
+                                <input type="submit" class="button_ribbon floatright" value="<?php echo $this->__('Request a date') ?>" />
+                            </div>
+                        </form>
+                    </div>
                     <?php endif; ?>
                 <?php endif; ?>
+                <script type="text/javascript">
+                    //<![CDATA[
+                    var requestDateForm = new VarienForm('requestDateForm', false);
+                    //]]>
+                </script>
+
             </div>
             <div class="right w30p">
                 <h4>about this host</h4>
@@ -208,6 +279,7 @@
                 <?php echo $_product->getAboutHost() ?>
             </div>
         </div>
+<?php if (!$_product->getCallToSchedule()): ?>
     </form>
     <script type="text/javascript">
     //<![CDATA[
@@ -253,4 +325,7 @@
         }.bind(productAddToCartForm);
     //]]>
     </script>
+<?php endif; ?>
 </section>
+
+</div>

@@ -30,6 +30,44 @@
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 <h2 class="sub-title"><?php echo $this->__('Thank you for your purchase!') ?></h2>
 
+
+<!-- Google Code for Sale Conversion Page -->
+
+<script type="text/javascript">
+
+/* <![CDATA[ */
+
+var google_conversion_id = 1003217271;
+
+var google_conversion_language = "en";
+
+var google_conversion_format = "3";
+
+var google_conversion_color = "ffffff";
+
+var google_conversion_label = "WgryCIGV3wUQ98Kv3gM";
+
+var google_conversion_value = 0;
+
+/* ]]> */
+
+</script>
+
+<script type="text/javascript" src="https://www.googleadservices.com/pagead/conversion.js">
+
+</script>
+
+<noscript>
+
+<div style="display:inline;">
+
+<img height="1" width="1" style="border-style:none;" alt="" src="https://www.googleadservices.com/pagead/conversion/1003217271/?value=0&amp;label=WgryCIGV3wUQ98Kv3gM&amp;guid=ON&amp;script=0"/>
+
+</div>
+
+</noscript>
+
+
 <?php if ($this->getOrderId()):?>
 <?php if ($this->getCanViewOrder()) :?>
     <p><?php echo $this->__('Your order # is: %s.', sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getViewOrderUrl()), $this->escapeHtml($this->getOrderId()))) ?></p>

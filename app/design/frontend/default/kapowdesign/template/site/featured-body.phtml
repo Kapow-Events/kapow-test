@@ -1,4 +1,4 @@
-  <?php
+<?php
     $_helper                    = $this->helper('catalog/output');
     $catid						= (isSet($_GET['cid']) ? $_GET['cid'] : 0);
     $featured_products          = $this->getInitiallyFeaturedProduct($catid);
@@ -29,7 +29,7 @@ echo render_flat_nav($categories);
 	<div id="homepage_body">
 		<div class="inner_wrapper clearfix">
 			<section id="eventlist_events">
-				<div id="eventlist_events_header">kapow events</div>
+				<div id="eventlist_events_header">Tell us what you are looking for</div>
 <?php /*
 				<a href="<?php echo Mage::getBaseUrl() ?>events" class="eventlist_events_header_link<?php echo (!isSet($_GET['cid']) ? ' header_active' : '') ?>">See All Events</a>
 				<a href="<?php echo Mage::getBaseUrl() ?>?cid=9" class="eventlist_events_header_link"<?php echo (isset($_GET['cid']) && $_GET['cid'] == 9) ? ' header_active' : '' ?>>Food &amp; Drink</a>

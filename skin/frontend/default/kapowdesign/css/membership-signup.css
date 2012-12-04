@@ -1,0 +1,332 @@
+
+
+/* ---------------------banner------------------------------------*/
+#banner {
+	clear: both;
+	background: #232323;
+	background: url(/landing-images/bannerbg.gif) no-repeat center top #232323;
+	min-height: 781px;
+	width: 100%;
+	overflow: hidden;
+	position: absolute;
+    top: 107px;
+    left: 0;
+}
+#banner .container {
+	margin: 0 auto;
+    padding: 101px 0 0;
+    width: 1045px;
+}
+#banner_leftcontent {
+	float: left;
+	padding: 0 36px 0 0;
+	width: 526px;
+	margin-left: -2px;
+}
+#banner h1 {
+	font-size: 32px;
+	color: #fff;
+	line-height: normal;
+	font-family: BrandonG,Arial,sans-serif;
+	font-weight: bold;
+	text-transform: none;
+
+}
+body #banner{
+	font-style: normal;
+	font-family: "BrandonG Light";
+}
+#banner_leftcontent p {
+	clear: both;
+	overflow: hidden;
+	padding: 10px 0 0 0;
+	width: 524px;
+
+	line-height: 24px;
+	color: #cbcbcb;
+	font-size: 18px;
+}
+.divider {
+	float: left;
+	padding: 0 0 0 0;
+	margin: 26px 0 0 0;
+	height: 1px;
+	width: 519px;
+	background: url(/landing-images/divider.png) repeat-x left top;
+}
+.company_events {
+	float: left;
+	padding: 23px 0;
+	width: 517px;
+	margin-bottom: -2px;
+	border-top: 1px dashed #fff;
+	border-bottom: 1px dashed #fff;
+}
+.company_events li {
+	float: none;
+	font-size: 24px;
+	line-height: 33px;
+}
+.company_events li a {
+	color: #fff;
+}
+.company_events li a:hover{
+	color: #C84729;
+}
+#banner_leftcontent h2 {
+	font-size: 35px;
+	color: #fff;
+	line-height: normal;
+	float: left;
+	padding: 0px 0 0 0;
+	margin-bottom: 0px;
+}
+.banner_rightcontent {
+	float: left;
+	padding: 3px 0 0 0;
+	width: 491px;
+	margin: 0 -10px 0 0;
+}
+.form_block {
+	float: left;
+	width: 491px;
+	padding: 9px 0 0 0;
+}
+.form_blockwrap {
+	float: left;
+	padding: 25px 0 0 28px;
+	width: 463px;
+	background: url(/landing-images/form_blogwrap.png) repeat-y left top;
+	min-height: 531px;
+}
+.form_blockbottom {
+	float: left;
+	background: url(/landing-images/form_blogbottom.png) no-repeat left top;
+	height: 8px;
+	width: 491px;
+}
+.selection {
+	float: left;
+	padding: 5px 0 0 8px;
+	width: 418px;
+}
+.selection label {
+	float: left;
+	padding: 4px 0 5px 0;
+}
+.selection label input{
+	vertical-align: top;
+}
+.selection span {
+	width: 367px;
+	font-size: 23px;
+	padding-left: 10px;
+	color: #c2c2c2;
+}
+.formelements {
+	float: left;
+	padding: 11px 0 0 0;
+	width: 433px;
+}
+.formelements1 {
+	padding-top: 37px;
+}
+.formelements .text_tab1 {
+	float: left;
+	float: left;
+	padding: 0 7px 0 13px;
+	width: 191px;
+	height: 36px;
+	background: url(/landing-images/text_tabbg.png) repeat-x left top;
+}
+.formelements .text_tab1 input {
+	float: left;
+	background: none;
+	outline: none;
+	border: 0;
+	width: 191px;
+	line-height: 30px;
+	color: #fff;
+	font-size: 20px;
+	padding: 0 3px;
+	height: 36px;
+	font-style: italic;
+	font-family: BrandonG Light;
+}
+.formelements .text_tab2 {
+	float: right;
+}
+.formelements .text_tab3 {
+	width: 413px;
+}
+.formelements .text_tab3 input {
+	width: 413px;
+}
+/* ------------------------ MIAN CONTENT HERE --------------*/
+.landing-content{
+	margin-top: 750px;
+	font-style: normal;
+}
+.main_content {
+	float: left;
+	width: 1044px;
+	padding: 34px 0 0 0;
+}
+.leftcontent {
+	float: left;
+	padding: 0 0 0 0;
+	width: 403px;
+}
+.leftcontent h1 {
+	background: url(/landing-images/titlebg.png) no-repeat left top;
+	width: 381px;
+	height: 69px;
+	float: left;
+	margin: 0 0 0 -80px;
+	padding: 0 0 0 78px;
+	font-size: 35px;
+	line-height: 62px;
+	color: #fff;
+	text-shadow: 0 1px 1px #000;
+}
+.howit_works {
+	float: left;
+	padding: 18px 0 0 0;
+	width: 403px;
+}
+.howit_works h2 {
+	font-size: 22px;
+	color: #000;
+	margin-top: 30px;
+	margin-bottom: 0;
+	float: left;
+	border-top: 1px dashed #B0B0B0;
+	padding-top: 30px;
+}
+.howit_works h2:first-child{
+	padding-top: 0;
+	border-top: none;
+}
+.howit_works h2 .number {
+	float: left;
+	margin: 0 0 0 0;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	text-shadow: 0 1px 1px #000;
+	background: url(/landing-images/numberbg.png) no-repeat left top;
+	font-size: 35px;
+	color: #fff;
+	text-align: center;
+}
+.howit_works h2 span {
+	float: left;
+	padding: 0 0 0 16px;
+	width: 325px;
+	line-height: 47px;
+	vertical-align: middle;
+	text-transform: none;
+	font-family: BrandonG;
+}
+.howit_works h2 span.number-2-line{
+	line-height: 27px;
+}
+.howit_works h2 span strong {
+	line-height: 50px;
+}
+.howit_works p {
+	clear: both;
+	overflow: hidden;
+	padding: 27px 0 0 0;
+	margin-bottom: 0;
+	width: 358px;
+	font-size: 16px;
+	color: #000;
+}
+.separator {
+	float: left;
+	margin: 27px 0 0 0;
+	height: 1px;
+	background: url(/landing-images/saperator.png) repeat-x left top;
+	width: 366px;
+}
+.rightcontent {
+	float: left;
+	padding: 80px 0 80px 26px;
+	width: 614px;
+	background: url(/landing-images/pagedivider.png) no-repeat left center;
+}
+.event_panel {
+	float: left;
+	padding: 30px 0 0 0;
+	width: 297px;
+	margin: 0 0 0 9px;
+}
+.event_panel_box {
+	float: left;
+	padding: 20px 0 0 0;
+	width: 297px;
+	min-height: 405px;
+	background: url(/landing-images/box_bg.png);
+}
+.event_panel_box h3 {
+	font-size: 15px;
+	color: #90311e;
+	text-transform: uppercase;
+	padding: 0 0 0 22px;
+	font-family: "BrandonG";
+}
+.event_panel_box h3 strong {
+	display: block;
+	font-family: "BrandonG Bold"; 
+	font-size: 20px;
+}
+.event_img {
+	float: left;
+	padding: 16px 0 0 0;
+	width: 297px;
+	min-height: 123px;
+}
+.event_panel_box ul {
+	float: left;
+	padding: 7px 0 0 25px;
+}
+.event_panel_box ul li { 
+	float: none;
+	padding: 13px 0 0 0;
+	font-size: 16px;
+}
+.view_button {
+	float: left;
+	background: url(/landing-images/view_button.png) no-repeat left top;
+	width: 80px;
+	height: 64px;
+	padding: 18px 108px 0 109px;
+	margin: -29px 0 0 0;
+}
+.view_button a {
+	color: #ffff99;
+	font-style: italic;
+	text-align: center;
+	text-shadow: 0 1px 1px #000;
+	font-size: 14px;
+	display: block;
+	line-height: 14px;
+	text-transform: uppercase;
+}
+.view_button a strong {
+	display: block;
+	color: #fff;
+}
+.pass-label{
+	color: #FFFFFF;
+    float: left;
+    font-size: 12px;
+    margin-left: 15px;
+}
+.pass-label2{
+	color: #FFFFFF;
+    float: right;
+    font-size: 12px;
+    margin-right: 15px;
+}
