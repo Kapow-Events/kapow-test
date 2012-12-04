@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Aitoc_Aitsys>
-            <active>false</active>
+            <active>true</active>
             <codePool>local</codePool>
         </Aitoc_Aitsys>
     </modules>
