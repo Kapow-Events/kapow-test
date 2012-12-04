@@ -16,47 +16,47 @@
 	</div><!-- #main -->
 	</div><!-- #page -->
 </div><!-- #wrapper -->
-<footer id="footer" class="outer_wrapper">
+<footer class="outer_wrapper" id="footer">
+    <div class="inner_wrapper" id="contact">
   	<div id="contact_logo"></div>
-    <div id="contact" class="inner_wrapper">
       <h2>contact us today </h2>
       <div class="content clearfix">
         <div class="left">
-          <div id="email_us_button" class="floatleft">
+          <div class="floatleft" id="email_us_button">
             <div class="list_item_round_beige_large">
-              <a class="icon_email" href="mailto:info@kapowevents.com">info@kapowevents.com</a>
+              <a href="mailto:info@kapowevents.com" target="_blank" class="icon_email">info@kapowevents.com</a>
             </div>
-            <a class="button_ribbon_small" href="mailto:info@kapowevents.com">email us</a>
+            <a href="mailto:info@kapowevents.com" target="_blank" class="button_ribbon_small">email us</a>
           </div>
 
           <div class="floatright clearfix">
-            <h2 class="fancy_phone_number">312.283.8610</h2>
+            <h2 class="fancy_phone_number">1.855.KAPOWUS</h2>
             <hr>
-            <p>OR CONNECT WITH US --- <a class="icon_linked_in" href="http://www.linkedin.com/company/2425635" target="_blank"></a> - <a class="icon_twitter" href="http://twitter.com/kapowchicago" target="_blank"></a> - <a class="icon_facebook" href="http://www.facebook.com/KapowChicago" target="_blank"></a> ---</p>          </div>
+            <p>OR CONNECT WITH US --- <a target="_blank" href="http://www.linkedin.com/company/2425635" class="icon_linked_in"></a> - <a target="_blank" href="http://twitter.com/kapowchicago" class="icon_twitter"></a> - <a target="_blank" href="http://www.facebook.com/KapowChicago" class="icon_facebook"></a> ---</p>          </div>
 
           <div id="contact_information">
-            <p><strong>WILLIS TOWER </strong>- <em>233 S Wacker, 84th Floor - Chicago, IL 60606</em></p>
-<p><em>phone</em> <strong>312 283.8610</strong> - <em>fax</em> <strong>312 283.8611</strong></p>
-<p><em>email</em> <strong><a href="mailto:info@kapowevents.com">info@kapowevents.com</a></strong></p>          </div>
+            <p><strong>211 W. Wacker, 2nd Floor - Chicago, IL 60606</strong><em></em></p>
+<p><em>phone</em> <strong><span>1.855.KAPOWUS&nbsp;<span>or 1.855.527.6987&nbsp;</span></span></strong><!-- - <em>fax</em> <strong><span>312.300.7957</span>--></p>
+<p><em>email </em> <strong><a href="mailto:info@kapowevents.com" target="_blank">info@kapowevents.com</a></strong></p>          </div>
         </div><!-- footer.content.left -->
 
         <div class="right">
-          <form action="http://ec2-23-20-73-152.compute-1.amazonaws.com/contacts/index/post/" id="contactForm" method="post">
-            <input name="return_url" value="http:/ec2-23-20-73-152.compute-1.amazonaws.com/?message_sent#contact" type="hidden">
+          <form method="post" id="contactForm" action="http://www.kapowevents.com/contacts/index/post/">
+            <input type="hidden" value="/?message_sent#contact" name="return_url">
             <fieldset>
               <legend>got a question? let us know.</legend>
               <table>
                 <tbody><tr>
-                  <td style="padding-right:10px;"><label for="name" class="required">Name:</label><input id="name" name="name" value="" class="input-text required-entry" type="text"></td>
-                  <td style="padding-left:10px;"><label for="email" class="required">Email:</label><input id="email" name="email" value="" class="input-text required-entry" type="text"></td>
+                  <td style="padding-right:10px;"><label class="required" for="name">Name:</label><input type="text" class="input-text required-entry" value="" name="name" id="name"></td>
+                  <td style="padding-left:10px;"><label class="required" for="email">Email:</label><input type="text" class="input-text required-entry" value="" name="email" id="email"></td>
                 </tr>
                 <tr>
-                  <td colspan="2"><label for="message" class="required">Message:</label><textarea id="comment" class="required-entry" name="comment"></textarea></td>
+                  <td colspan="2"><label class="required" for="message">Message:</label><textarea name="comment" class="required-entry" id="comment"></textarea></td>
                 </tr>
                 <tr>
                   <td colspan="2">
-                      <input name="hideit" id="hideit" value="" style="display:none !important;" type="text">
-                      <input value="send message" class="button_ribbon floatright" type="submit">
+                      <input type="text" style="display:none !important;" value="" id="hideit" name="hideit">
+                      <input type="submit" class="button_ribbon floatright" value="send message">
                   </td>
                 </tr>
               </tbody></table>
@@ -65,26 +65,22 @@
         </div><!-- footer.content.right -->
       </div><!-- footer.content -->
     </div><!-- footer.inner_wrapper -->
-  </footer><!-- footer.outer_wrapper -->
-  
-  <div id="footer_sublinks">
-	<div id="footerlinks-container">
-      <div id="footer_sublinks_left">
-        <a href="/terms-of-use">terms of use</a>
-        <a href="/privacy-statement">privacy statement</a>
-      </div>
-      <a href="/" id="footerlogo"></a>
-      <div id="footer_sublinks_right">
-        <a href="/faqs">faq's</a>
-        <a href="/blog" class="last">blog</a>
-        <a href="/media/downloadable/Kapow%20Events%20Press%20Kit.pdf" class="presskit_footer">&nbsp;</a>
-      </div>
-	</div>
+  </footer>
+<div id="footer_sublinks">
+  	<div id="footerlinks-container">
+		<div id="footer_sublinks_left">
+			<a href="http://www.kapowevents.com/terms-of-use">terms of use</a>
+			<a href="http://www.kapowevents.com/privacy-statement">privacy statement</a>
+		</div>
+		<a id="footerlogolink" href="http://www.kapowevents.com/"><div id="footerlogo"></div></a>
+		<div id="footer_sublinks_right">
+			<a href="http://www.kapowevents.com/faqs">faq's</a>
+			<a class="last" href="http://www.kapowevents.com/blog">blog</a>
+		</div>
+		<a class="presskit_footer" href="/media/downloadable/Kapow%20Events%20Press%20Kit.pdf">&nbsp;</a>
+  	</div>
   </div>
-	<div id="copy">
-		&copy; kapow events, llc,  All rights reserved.
-	</div>
-
+<div id="copy"> &copy; kapow events, inc,  All rights reserved.</div>
 <?php
 	/* Always have wp_footer() just before the closing </body>
 	 * tag of your theme, or you will break many plugins, which
